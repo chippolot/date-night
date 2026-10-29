@@ -28,7 +28,8 @@ const CATEGORY_PATTERNS: [RegExp, Category][] = [
 	[/\bopen mic\b/i, "open-mic"],
 	[/\b(jazz|trio|quartet|quintet)\b/i, "jazz"],
 	[/\b(dance|dancing|salsa|swing|tango|two-step|square)\b/i, "dance"],
-	[/\b(market|fair|bazaar)\b/i, "market"],
+	[/\b(market|fair|bazaar|bookfest)\b/i, "market"],
+	[/\b(tasting|beer taste|happy hour)\b/i, "food-drink-special"],
 	[/\b(art walk|artwalk|gallery|exhibit)\b/i, "art"],
 ];
 

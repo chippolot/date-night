@@ -42,15 +42,18 @@ for (const [i, r] of results.entries()) {
 	console.log(`✓ ${source.id}: ${events.length} events`);
 }
 
+// Neighborhood calendars repeat some venues' events; the source listed first in `sources` wins.
 const seen = new Set<string>();
-const events = [...bySource.values()]
-	.flat()
+const events = sources
+	.flatMap((s) => bySource.get(s.id) ?? [])
 	.filter((e) => {
 		const t = Date.parse(e.startsAt);
 		if (Number.isNaN(t) || t < now - 12 * 60 * 60 * 1000 || t > horizon)
 			return false;
-		if (seen.has(e.id)) return false;
+		const slot = e.venueId ? `${e.venueId}@${t}` : undefined;
+		if (seen.has(e.id) || (slot && seen.has(slot))) return false;
 		seen.add(e.id);
+		if (slot) seen.add(slot);
 		return true;
 	})
 	.sort((a, b) => a.startsAt.localeCompare(b.startsAt));
