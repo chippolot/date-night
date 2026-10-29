@@ -50,7 +50,7 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 			title: `Coming up · ${SITE.title}`,
 			heading: "Coming up",
 			intro:
-				"Seven nights at a time, recurring and one-off. Pick a start date to look further ahead.",
+				"See what's happening over the next week, or choose a date to plan something further out.",
 			body: `${filterBar(EMPTY_FILTERS, today)}<div data-view>${weekView(data, today, EMPTY_FILTERS)}</div>${footer}`,
 			scripts: ["/app.js"],
 		}),
@@ -62,7 +62,8 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 			page: "map",
 			title: `Map · ${SITE.title}`,
 			heading: "Map",
-			intro: "Everything we track, pinned. Tap a dot for what's on.",
+			intro:
+				"All the bars, venues and spots we follow around north Seattle, with what's coming up at each one.",
 			body: `${filterBar(EMPTY_FILTERS, today, { date: false })}<div id="map" class="map" role="region" aria-label="Map of venues"></div>${footer}`,
 			scripts: ["/map.js"],
 			styles: ["/leaflet.css"],
@@ -75,7 +76,8 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 			page: "venues",
 			title: `Venues · ${SITE.title}`,
 			heading: "Venues",
-			intro: "Every spot we track, by neighborhood.",
+			intro:
+				"Every bar, music venue and gathering spot we follow, grouped by neighborhood.",
 			body: `${venuesIndexView(data)}${footer}`,
 		}),
 	);

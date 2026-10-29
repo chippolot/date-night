@@ -624,7 +624,7 @@ export const venues: Venue[] = [
 	},
 	{
 		id: "chapel-performance-space",
-		name: "Chapel Performance Space (Wayward Music)",
+		name: "Chapel Performance Space",
 		neighborhood: "wallingford",
 		address: "4649 Sunnyside Ave N, 4th floor, Seattle, WA 98103",
 		lat: 47.6642,

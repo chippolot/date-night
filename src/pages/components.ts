@@ -181,6 +181,8 @@ function checkboxGroup(
 	return `<fieldset><legend>${label}</legend><div class="${className}">${boxes}</div></fieldset>`;
 }
 
+const CALENDAR_ICON = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.75" y="3" width="12.5" height="11.25" rx="1"/><path d="M1.75 6.5h12.5M5 1.5v3M11 1.5v3"/></svg>`;
+
 const DAY_PILLS: [Weekday, string][] = [
 	["MO", "Mon"],
 	["TU", "Tue"],
@@ -222,7 +224,7 @@ export function filterBar(
 		(f.price ? 1 : 0);
 	return `<form class="filters" method="get" data-filters>
   <div class="when">
-    ${date ? `<fieldset class="date-pick"><legend>${days ? "Starting" : "Date"}</legend><input type="date" name="date" value="${f.date ?? ""}" min="${today}" max="${addDays(today, MAX_DAYS_AHEAD)}" aria-label="${days ? "Show the week starting on" : "Show events on"}"></fieldset>` : ""}
+    ${date ? `<fieldset class="date-pick"><legend>${days ? "Starting" : "Date"}</legend><label class="date-field">${CALENDAR_ICON}<input type="date" name="date" value="${f.date ?? ""}" min="${today}" max="${addDays(today, MAX_DAYS_AHEAD)}" aria-label="${days ? "Show the week starting on" : "Show events on"}"></label></fieldset>` : ""}
     ${days ? checkboxGroup("day", "Day", DAY_PILLS, f.day) : ""}
     ${checkboxGroup(
 			"time",

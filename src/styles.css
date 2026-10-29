@@ -306,11 +306,16 @@ nav a[aria-current="page"] {
 }
 
 /* ---------- Hero ---------- */
-/* Each page gets its own print block; the shapes are decoration only. */
+/* Each page gets its own print block; the shapes are decoration only.
+   Every hero shares one height (content sits at the bottom) so pages don't jump when switching tabs. */
 .hero {
 	--block: var(--fjord);
 	--shape: var(--lingon);
 	--on-block: var(--paper);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	min-height: 14.5rem; /* fits a two-line venue name */
 	position: relative;
 	overflow: hidden;
 	isolation: isolate;
@@ -374,9 +379,12 @@ body[data-page="venue"] .hero {
 	justify-content: space-between;
 }
 
+/* One heading size for every page's hero (Tonight's) */
 .hero h1 {
 	color: inherit;
 	padding-right: 3.75rem;
+	font-size: clamp(2.5rem, 11.5vw, 5rem);
+	line-height: 1;
 }
 
 /* Tonight's banner has its button top-right, so the shapes move out of that corner */
@@ -395,9 +403,7 @@ body[data-page="tonight"] .hero h1 {
 }
 
 body[data-page="tonight"] .hero h1 {
-	font-size: clamp(2.5rem, 11.5vw, 5rem);
 	font-style: italic;
-	line-height: 1;
 }
 
 .hero .intro {
@@ -518,8 +524,26 @@ button:active {
 	margin: 0;
 }
 
+/* Mobile browsers render an empty date input as a blank box, so draw our own calendar glyph. */
+.date-field {
+	position: relative;
+	display: inline-block;
+}
+
+.date-field svg {
+	position: absolute;
+	top: 50%;
+	left: 0.55rem;
+	width: 1rem;
+	height: 1rem;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
 .date-pick input {
-	padding: 0.32rem 0.5rem;
+	min-width: 10rem;
+	min-height: 2.1rem;
+	padding: 0.32rem 0.5rem 0.32rem 2rem;
 	border: 1.5px solid var(--border);
 	border-radius: 2px;
 	background: var(--bg);
@@ -527,6 +551,16 @@ button:active {
 	font: inherit;
 	font-size: 0.85rem;
 	color-scheme: light dark;
+}
+
+/* Chrome's own picker icon: invisible but covering the field, so a click anywhere opens the calendar. */
+.date-pick input::-webkit-calendar-picker-indicator {
+	position: absolute;
+	inset: 0;
+	width: auto;
+	height: auto;
+	opacity: 0;
+	cursor: pointer;
 }
 
 .date-pick input:focus-visible {
@@ -1106,8 +1140,18 @@ legend {
 	text-align: right;
 }
 
-body[data-page="venues"] .hero h1 {
-	font-size: clamp(2.25rem, 8vw, 3rem);
+/* Smallest phones: keep Tonight's button beside the heading and long titles within the shared height */
+@media (max-width: 359.98px) {
+	.hero .intro {
+		font-size: 0.95rem;
+	}
+	.hero .surprise {
+		padding: 0.4rem 0.7rem;
+		font-size: 0.85rem;
+	}
+	.hero h1 {
+		font-size: 2.1rem;
+	}
 }
 
 .venue-meta {
@@ -1159,6 +1203,7 @@ body[data-page="venues"] .hero h1 {
 		padding: 1.15rem 0 0.95rem;
 	}
 	.hero {
+		min-height: 14.75rem;
 		margin-top: 1.5rem;
 		padding: 2.5rem 2.25rem 2.25rem;
 	}
@@ -1210,9 +1255,6 @@ body[data-page="venues"] .hero h1 {
 	.pill span {
 		padding-inline: 0.8rem;
 		font-size: 0.9rem;
-	}
-	body[data-page="venues"] .hero {
-		padding-block: 1.75rem;
 	}
 	.map {
 		height: 70vh;
