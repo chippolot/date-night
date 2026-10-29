@@ -1,6 +1,17 @@
 {
-	"generatedAt": "2026-10-29T17:10:48.112Z",
+	"generatedAt": "2026-10-29T17:41:36.842Z",
 	"events": [
+		{
+			"id": "nordic-museum-2026-10-29-culture-class-hans-christian-andersen-s-gothic-tales",
+			"title": "Culture Class: Hans Christian Andersen's Gothic Tales",
+			"startsAt": "2026-10-29T18:30:00-07:00",
+			"endsAt": "2026-10-29T20:00:00-07:00",
+			"url": "https://nordicmuseum.org/events/culture-class-hans-christian-andersens-gothic-tales",
+			"price": "$40",
+			"category": "class",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
+		},
 		{
 			"id": "egans-2026-10-29-1900-d-aaron-trio",
 			"title": "D.Aaron Trio",
@@ -20,17 +31,6 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
-		},
-		{
-			"id": "visitballard-44788-2026-10-30",
-			"venueId": "nordic-museum",
-			"title": "Film Screening: The Lighthouse (2019)",
-			"startsAt": "2026-10-30T01:00:00Z",
-			"endsAt": "2026-10-30T03:00:00Z",
-			"url": "https://www.visitballard.com/event/film-screening-the-lighthouse-2019/",
-			"price": "$13",
-			"category": "theater",
-			"source": "visitballard"
 		},
 		{
 			"id": "hidden-hall-2026-10-30-frankie-j-with-viktoria-silk",
@@ -64,16 +64,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "egans-2026-10-30-1900-nancy-byers-quintet",
-			"title": "Nancy Byers Quintet",
-			"startsAt": "2026-10-30T19:00:00-07:00",
-			"url": "https://www.ballardjamhouse.com/schedule.html",
-			"price": "$20 cover",
-			"category": "jazz",
-			"source": "egans",
-			"venueId": "egans-ballard-jam-house"
-		},
-		{
 			"id": "conor-byrne-173642",
 			"title": "Cumbia De Muertos V",
 			"startsAt": "2026-10-30T19:00:00-07:00",
@@ -82,6 +72,16 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "egans-2026-10-30-1900-nancy-byers-quintet",
+			"title": "Nancy Byers Quintet",
+			"startsAt": "2026-10-30T19:00:00-07:00",
+			"url": "https://www.ballardjamhouse.com/schedule.html",
+			"price": "$20 cover",
+			"category": "jazz",
+			"source": "egans",
+			"venueId": "egans-ballard-jam-house"
 		},
 		{
 			"id": "abbey-arts-2026-10-31T02:00-samuel-j-sarah-conner-immersive-concert-and-dance-experience",
@@ -125,6 +125,27 @@
 			"category": "live-music"
 		},
 		{
+			"id": "nordic-museum-2026-10-31-culture-class-nordic-metal-and-musical-cultures",
+			"title": "Culture Class: Nordic Metal and Musical Cultures",
+			"startsAt": "2026-10-31T11:00:00-07:00",
+			"endsAt": "2026-10-31T12:30:00-07:00",
+			"url": "https://nordicmuseum.org/events/culture-class-nordic-metal-and-musical-cultures",
+			"price": "$40",
+			"category": "class",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
+		},
+		{
+			"id": "nordic-museum-2026-10-31-trick-or-treat-with-frankie-feetsplinters",
+			"title": "Trick-Or-Treat with Frankie Feetsplinters",
+			"startsAt": "2026-10-31T16:00:00-07:00",
+			"endsAt": "2026-10-31T18:00:00-07:00",
+			"url": "https://nordicmuseum.org/events/trick-or-treat-with-frankie-feetsplinters-",
+			"category": "art",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
+		},
+		{
 			"id": "conor-byrne-188698",
 			"title": "Bark at the Byrne Halloween Edition with Carl Christensen + Sara Camille",
 			"startsAt": "2026-10-31T16:30:00-07:00",
@@ -155,6 +176,27 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "myballard-360217-2026-10-31",
+			"venueId": "obec-brewing",
+			"title": "Spooktacular Pup Party",
+			"startsAt": "2026-10-31T21:00:00Z",
+			"endsAt": "2026-11-01T01:00:00Z",
+			"url": "https://www.myballard.com/event/spooktacular-pup-party/",
+			"price": "Free",
+			"source": "myballard"
+		},
+		{
+			"id": "myballard-354048-2026-10-31",
+			"venueId": "old-stove-gardens",
+			"title": "The Funny Bone Kids Halloween Comedy Show & Costume Contest",
+			"startsAt": "2026-10-31T23:00:00Z",
+			"endsAt": "2026-11-01T00:30:00Z",
+			"url": "https://www.myballard.com/event/the-funny-bone-kids-halloween-comedy-show-costume-contest/",
+			"price": "$15",
+			"category": "comedy",
+			"source": "myballard"
+		},
+		{
 			"id": "hidden-hall-2026-11-01-halloween-2026-the-lost-boys-vampire-ball-featuring-prom-dat",
 			"title": "HALLOWEEN 2026 - The Lost Boys \"Vampire Ball\" featuring PROM DATE MIXTAPE",
 			"startsAt": "2026-11-01T03:00:00+00:00",
@@ -166,11 +208,43 @@
 			"category": "live-music"
 		},
 		{
+			"id": "myballard-354071-2026-11-01",
+			"venueId": "old-stove-gardens",
+			"title": "The Ha Ha Halloween Comedy Show & Costume Contest",
+			"startsAt": "2026-11-01T03:00:00Z",
+			"endsAt": "2026-11-01T04:30:00Z",
+			"url": "https://www.myballard.com/event/the-ha-ha-halloween-comedy-show-costume-contest/",
+			"price": "$15",
+			"category": "comedy",
+			"source": "myballard"
+		},
+		{
+			"id": "nordic-museum-2026-11-01-31st-annual-wallenberg-lecture-with-marko-liias",
+			"title": "31st Annual Wallenberg Lecture with Marko Liias",
+			"startsAt": "2026-11-01T11:00:00-08:00",
+			"endsAt": "2026-11-01T12:00:00-08:00",
+			"url": "https://nordicmuseum.org/events/2026-wallenberg-lecture",
+			"price": "$5",
+			"category": "art",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
+		},
+		{
 			"id": "conor-byrne-185018",
 			"title": "Freakout Presents: SOLD OUT Laborotorios Moreno + Buddy Wynkoop + Gadfly + Weep Wave - Matinee",
 			"startsAt": "2026-11-01T13:20:00-08:00",
 			"endsAt": "2026-11-02T01:00:00-08:00",
 			"url": "https://tickets.venuepilot.com/e/freakout-presents-laborotorios-moreno-buddy-wynkoop-gadfly-weep-wave-matinee-2026-11-01-conor-byrne-c-fdca0e",
+			"category": "live-music",
+			"source": "conor-byrne",
+			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "conor-byrne-201817",
+			"title": "Sunday Song Share",
+			"startsAt": "2026-11-01T18:00:00-08:00",
+			"endsAt": "2026-11-02T01:00:00-08:00",
+			"url": "https://www.conorbyrnepub.com/calendar",
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
@@ -213,17 +287,6 @@
 			"startsAt": "2026-11-02T02:00:00Z",
 			"endsAt": "2026-11-02T04:00:00Z",
 			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-7/2026-11-01/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10009110-2026-11-02",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2026-11-02T02:00:00Z",
-			"endsAt": "2026-11-02T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2026-11-01/",
 			"price": "Free",
 			"category": "comedy",
 			"source": "visitballard"
@@ -303,16 +366,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10002339-2026-11-03",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2026-11-03T02:30:00Z",
-			"endsAt": "2026-11-03T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2026-11-02/",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
 			"id": "conor-byrne-194636",
 			"title": "Country Dance Night with Fricken Chickasee",
 			"startsAt": "2026-11-03T20:00:00-08:00",
@@ -386,6 +439,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "myballard-361505-2026-11-05",
+			"venueId": "channel-marker-cider",
+			"title": "FREE- TRIVIA!",
+			"startsAt": "2026-11-05T03:00:00Z",
+			"endsAt": "2026-11-05T05:00:00Z",
+			"url": "https://www.myballard.com/event/free-trivia/",
+			"price": "Free",
+			"category": "trivia",
+			"source": "myballard"
+		},
+		{
 			"id": "visitballard-10007937-2026-11-05",
 			"venueId": "the-ink-drinker",
 			"title": "Book Trivia at The Ink Drinker! Free!",
@@ -397,15 +461,37 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10008851-2026-11-05",
-			"venueId": "the-ink-drinker",
-			"title": "Book Trivia at The Ink Drinker!",
-			"startsAt": "2026-11-05T04:00:00Z",
-			"endsAt": "2026-11-05T05:30:00Z",
-			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-14/2026-11-04/",
+			"id": "nordic-museum-2026-11-05-free-first-thursday",
+			"title": "Free First Thursday",
+			"startsAt": "2026-11-05T10:00:00-08:00",
+			"endsAt": "2026-11-05T20:00:00-08:00",
+			"url": "https://nordicmuseum.org/events/free-first-thursday",
 			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
+			"category": "art",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
+		},
+		{
+			"id": "nordic-museum-2026-11-05-nordic-stories-old-wooden-boat",
+			"title": "Nordic Stories: Old Wooden Boat",
+			"startsAt": "2026-11-05T10:15:00-08:00",
+			"endsAt": "2026-11-05T11:00:00-08:00",
+			"url": "https://nordicmuseum.org/events/nordic-stories-old-wooden-boat",
+			"price": "Free",
+			"category": "art",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
+		},
+		{
+			"id": "nordic-museum-2026-11-05-loki-pete-film-screening-and-discussion",
+			"title": "Loki Pete Film Screening and Discussion",
+			"startsAt": "2026-11-05T18:00:00-08:00",
+			"endsAt": "2026-11-05T19:30:00-08:00",
+			"url": "https://nordicmuseum.org/events/loki-pete-film-screening-and-discussion",
+			"price": "$10",
+			"category": "theater",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
 		},
 		{
 			"id": "egans-2026-11-05-1900-brazilian-global-jam-session",
@@ -436,17 +522,6 @@
 			"url": "https://www.visitballard.com/event/polymer-clay-class-charcuterie-board/",
 			"price": "$55",
 			"category": "class",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-45211-2026-11-06",
-			"venueId": "nordic-museum",
-			"title": "Loki Pete Film Screening and Discussion",
-			"startsAt": "2026-11-06T02:00:00Z",
-			"endsAt": "2026-11-06T03:30:00Z",
-			"url": "https://www.visitballard.com/event/loki-pete-film-screening-and-discussion/",
-			"price": "$10",
-			"category": "theater",
 			"source": "visitballard"
 		},
 		{
@@ -532,6 +607,17 @@
 			"category": "live-music"
 		},
 		{
+			"id": "nordic-museum-2026-11-07-forest-bathing-at-discovery-park",
+			"title": "Forest Bathing at Discovery Park",
+			"startsAt": "2026-11-07T10:00:00-08:00",
+			"endsAt": "2026-11-07T12:00:00-08:00",
+			"url": "https://nordicmuseum.org/events/forest-bathing-at-discovery-park",
+			"price": "$30",
+			"category": "art",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
+		},
+		{
 			"id": "aslan-199400",
 			"title": "Seattle Anniversary Party",
 			"startsAt": "2026-11-07T12:00:00-08:00",
@@ -551,16 +637,6 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
-			"id": "egans-2026-11-07-2100-greta-matassa-quintet",
-			"title": "Greta Matassa Quintet",
-			"startsAt": "2026-11-07T21:00:00-08:00",
-			"url": "https://www.ballardjamhouse.com/schedule.html",
-			"price": "$20 cover",
-			"category": "jazz",
-			"source": "egans",
-			"venueId": "egans-ballard-jam-house"
-		},
-		{
 			"id": "conor-byrne-179348",
 			"title": "The Sweet Lillies with Serafima & The Shakedowns",
 			"startsAt": "2026-11-07T21:00:00-08:00",
@@ -569,6 +645,16 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "egans-2026-11-07-2100-greta-matassa-quintet",
+			"title": "Greta Matassa Quintet",
+			"startsAt": "2026-11-07T21:00:00-08:00",
+			"url": "https://www.ballardjamhouse.com/schedule.html",
+			"price": "$20 cover",
+			"category": "jazz",
+			"source": "egans",
+			"venueId": "egans-ballard-jam-house"
 		},
 		{
 			"id": "halfseas-2026-11-07T23:00-international-merlot-day",
@@ -653,17 +739,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10009111-2026-11-09",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2026-11-09T02:00:00Z",
-			"endsAt": "2026-11-09T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2026-11-08/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
 			"id": "conor-byrne-196410",
 			"title": "Rent Party Ensemble - Swing Dance and Live Jazz Band!",
 			"startsAt": "2026-11-09T20:00:00-08:00",
@@ -703,16 +778,6 @@
 			"endsAt": "2026-11-10T04:00:00Z",
 			"url": "https://www.visitballard.com/event/join-us-for-bingo-games-prize-party-monday/2026-11-09/",
 			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10002340-2026-11-10",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2026-11-10T02:30:00Z",
-			"endsAt": "2026-11-10T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2026-11-09/",
 			"category": "trivia",
 			"source": "visitballard"
 		},
@@ -757,6 +822,16 @@
 			"source": "abbey-arts"
 		},
 		{
+			"id": "myballard-360124-2026-11-11",
+			"venueId": "swoon-city",
+			"title": "Painting Party: Make a Bookish Display",
+			"startsAt": "2026-11-11T02:30:00Z",
+			"endsAt": "2026-11-11T04:00:00Z",
+			"url": "https://www.myballard.com/event/painting-party-make-a-bookish-display/",
+			"category": "class",
+			"source": "myballard"
+		},
+		{
 			"id": "hidden-hall-2026-11-11-reflect-deep-house-melodic-techno",
 			"title": "REFLECT - Deep House & Melodic Techno",
 			"startsAt": "2026-11-11T03:00:00+00:00",
@@ -766,6 +841,16 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "nordic-museum-2026-11-11-julefest-community-decoration-craft-day",
+			"title": "Julefest Community Decoration Craft Day",
+			"startsAt": "2026-11-11T10:00:00-08:00",
+			"endsAt": "2026-11-11T17:00:00-08:00",
+			"url": "https://nordicmuseum.org/events/julefest-community-decoration-craft-day",
+			"category": "class",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
 		},
 		{
 			"id": "conor-byrne-194449",
@@ -821,15 +906,14 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10008852-2026-11-12",
-			"venueId": "the-ink-drinker",
-			"title": "Book Trivia at The Ink Drinker!",
-			"startsAt": "2026-11-12T04:00:00Z",
-			"endsAt": "2026-11-12T05:30:00Z",
-			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-14/2026-11-11/",
-			"price": "Free",
+			"id": "aslan-201703",
+			"title": "Drag Bingo",
+			"startsAt": "2026-11-12T19:00:00-08:00",
+			"endsAt": "2026-11-12T21:00:00-08:00",
+			"url": "https://www.aslanbrewing.com/seattle-events",
 			"category": "trivia",
-			"source": "visitballard"
+			"source": "aslan-fremont",
+			"venueId": "aslan-fremont"
 		},
 		{
 			"id": "egans-2026-11-12-1900-cabaret-chanteuse-hosted-by-gretchen-rumbaugh-details-to-fol",
@@ -839,16 +923,6 @@
 			"category": "theater",
 			"source": "egans",
 			"venueId": "egans-ballard-jam-house"
-		},
-		{
-			"id": "aslan-201703",
-			"title": "Drag Bingo",
-			"startsAt": "2026-11-12T19:00:00-08:00",
-			"endsAt": "2026-11-12T21:00:00-08:00",
-			"url": "https://www.aslanbrewing.com/seattle-events",
-			"category": "trivia",
-			"source": "aslan-fremont",
-			"venueId": "aslan-fremont"
 		},
 		{
 			"id": "conor-byrne-193754",
@@ -942,16 +1016,6 @@
 			"source": "abbey-arts"
 		},
 		{
-			"id": "abbey-arts-2026-11-14T03:00-luke-rain-living-roots-or-sound-bath-w-suntaya-song",
-			"venueId": "fremont-abbey",
-			"title": "Luke Rain, Living Roots (OR) + Sound Bath w/ Suntaya Song",
-			"startsAt": "2026-11-14T03:00:00.000Z",
-			"endsAt": "2026-11-14T07:00:00.000Z",
-			"url": "https://events.humanitix.com/26-11-13-dance",
-			"category": "live-music",
-			"source": "abbey-arts"
-		},
-		{
 			"id": "hidden-hall-2026-11-14-goodnight-texas-with-stephanie-anne-johnson-forest-stoke",
 			"title": "GOODNIGHT, TEXAS with Stephanie Anne Johnson, Forest Stoke",
 			"startsAt": "2026-11-14T04:00:00+00:00",
@@ -961,6 +1025,17 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "nordic-museum-2026-11-14-culture-class-viking-myths-misconceptions",
+			"title": "Culture Class: Viking Myths & Misconceptions",
+			"startsAt": "2026-11-14T11:00:00-08:00",
+			"endsAt": "2026-11-14T12:30:00-08:00",
+			"url": "https://nordicmuseum.org/events/culture-class-viking-myths-and-misconceptions",
+			"price": "$40",
+			"category": "class",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
 		},
 		{
 			"id": "visitballard-44642-2026-11-14",
@@ -1015,6 +1090,17 @@
 			"category": "live-music"
 		},
 		{
+			"id": "myballard-358381-2026-11-15",
+			"venueId": "phinney-center",
+			"title": "Brewerama: PNA’s Annual Winter Beer Taste",
+			"startsAt": "2026-11-15T03:00:00Z",
+			"endsAt": "2026-11-15T06:00:00Z",
+			"url": "https://www.myballard.com/event/brewerama-pnas-annual-winter-beer-taste/",
+			"price": "$65 – $85",
+			"category": "food-drink-special",
+			"source": "myballard"
+		},
+		{
 			"id": "abbey-arts-2026-11-15T03:30-where-s-beth-sarah-brunner-karen-laura-peters",
 			"venueId": "ballard-homestead",
 			"title": "Where's Beth, Sarah Brunner, Karen Laura Peters",
@@ -1062,17 +1148,6 @@
 			"startsAt": "2026-11-16T02:00:00Z",
 			"endsAt": "2026-11-16T04:00:00Z",
 			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-7/2026-11-15/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10009112-2026-11-16",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2026-11-16T02:00:00Z",
-			"endsAt": "2026-11-16T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2026-11-15/",
 			"price": "Free",
 			"category": "comedy",
 			"source": "visitballard"
@@ -1142,16 +1217,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10002341-2026-11-17",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2026-11-17T02:30:00Z",
-			"endsAt": "2026-11-17T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2026-11-16/",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
 			"id": "visitballard-45390-2026-11-17",
 			"venueId": "swoon-city",
 			"title": "Book Club – Emotional Damage",
@@ -1212,6 +1277,17 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "myballard-360069-2026-11-18",
+			"venueId": "swoon-city",
+			"title": "Book Club – Historical Hellions",
+			"startsAt": "2026-11-18T03:00:00Z",
+			"endsAt": "2026-11-18T04:30:00Z",
+			"url": "https://www.myballard.com/event/book-club-historical-hellions/",
+			"price": "Free",
+			"category": "comedy",
+			"source": "myballard"
 		},
 		{
 			"id": "aslan-199399",
@@ -1299,17 +1375,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10008853-2026-11-19",
-			"venueId": "the-ink-drinker",
-			"title": "Book Trivia at The Ink Drinker!",
-			"startsAt": "2026-11-19T04:00:00Z",
-			"endsAt": "2026-11-19T05:30:00Z",
-			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-14/2026-11-18/",
-			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
 			"id": "egans-2026-11-19-1900-jo-s-jazz-vocal-jam-hosted-by-joanne-klein",
 			"title": "Jo's Jazz Vocal Jam hosted by Joanne Klein",
 			"startsAt": "2026-11-19T19:00:00-08:00",
@@ -1380,15 +1445,14 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
-			"id": "visitballard-44459-2026-11-21",
-			"venueId": "nordic-museum",
-			"title": "Julefest: A Nordic Holiday Celebration",
-			"startsAt": "2026-11-21T01:00:00Z",
-			"endsAt": "2026-11-23T01:00:00Z",
-			"url": "https://www.visitballard.com/event/julefest-a-nordic-holiday-celebration-2/",
-			"price": "$20",
-			"category": "art",
-			"source": "visitballard"
+			"id": "myballard-363116-2026-11-21",
+			"venueId": "olympic-rooftop-pavilion",
+			"title": "Up on the Roof: ABBA",
+			"startsAt": "2026-11-21T02:00:00Z",
+			"endsAt": "2026-12-19T06:00:00Z",
+			"url": "https://www.myballard.com/event/up-on-the-roof-abba/",
+			"price": "$40",
+			"source": "myballard"
 		},
 		{
 			"id": "hidden-hall-2026-11-21-bombargo-with-dylan-chambers",
@@ -1400,6 +1464,17 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "myballard-361231-2026-11-21",
+			"venueId": "arc-dance",
+			"title": "Nutcracker Misfits at ARC Dance",
+			"startsAt": "2026-11-21T03:00:00Z",
+			"endsAt": "2026-11-23T02:00:00Z",
+			"url": "https://www.myballard.com/event/nutcracker-misfits-at-arc-dance/",
+			"price": "$20 – $32",
+			"category": "dance",
+			"source": "myballard"
 		},
 		{
 			"id": "spt-2026-11-21T03:30-the-flight-before-xmas",
@@ -1433,6 +1508,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "conor-byrne-184857",
+			"title": "Orchard Ladder (Album Release) + Wiseacre + Bellflower",
+			"startsAt": "2026-11-21T21:00:00-08:00",
+			"endsAt": "2026-11-22T01:00:00-08:00",
+			"url": "https://tickets.venuepilot.com/e/orchard-ladder-album-release-wiseacre-guests-2026-11-21-conor-byrne-cooperative-seattle-0b49ac",
+			"category": "live-music",
+			"source": "conor-byrne",
+			"venueId": "conor-byrne-pub"
+		},
+		{
 			"id": "egans-2026-11-21-2100-john-pinetree-and-the-yellin-degenerates",
 			"title": "John Pinetree and the Yellin' Degenerates",
 			"startsAt": "2026-11-21T21:00:00-08:00",
@@ -1443,14 +1528,15 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
-			"id": "conor-byrne-184857",
-			"title": "Orchard Ladder (Album Release) + Wiseacre + Bellflower",
-			"startsAt": "2026-11-21T21:00:00-08:00",
-			"endsAt": "2026-11-22T01:00:00-08:00",
-			"url": "https://tickets.venuepilot.com/e/orchard-ladder-album-release-wiseacre-guests-2026-11-21-conor-byrne-cooperative-seattle-0b49ac",
-			"category": "live-music",
-			"source": "conor-byrne",
-			"venueId": "conor-byrne-pub"
+			"id": "myballard-356649-2026-11-21",
+			"venueId": "phinney-center",
+			"title": "Holiday Bookfest",
+			"startsAt": "2026-11-21T22:00:00Z",
+			"endsAt": "2026-11-22T00:00:00Z",
+			"url": "https://www.myballard.com/event/holiday-bookfest/",
+			"price": "Free",
+			"category": "market",
+			"source": "myballard"
 		},
 		{
 			"id": "visitballard-45919-2026-11-21",
@@ -1483,6 +1569,16 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "myballard-360289-2026-11-22",
+			"venueId": "phinney-center",
+			"title": "Hildaland at Phnney center",
+			"startsAt": "2026-11-22T03:30:00Z",
+			"endsAt": "2026-11-22T06:00:00Z",
+			"url": "https://www.myballard.com/event/hildaland-at-phnney-center/",
+			"price": "$10 – $26",
+			"source": "myballard"
 		},
 		{
 			"id": "conor-byrne-200614",
@@ -1532,17 +1628,6 @@
 			"startsAt": "2026-11-23T02:00:00Z",
 			"endsAt": "2026-11-23T04:00:00Z",
 			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-7/2026-11-22/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10009113-2026-11-23",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2026-11-23T02:00:00Z",
-			"endsAt": "2026-11-23T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2026-11-22/",
 			"price": "Free",
 			"category": "comedy",
 			"source": "visitballard"
@@ -1598,16 +1683,6 @@
 			"endsAt": "2026-11-24T04:00:00Z",
 			"url": "https://www.visitballard.com/event/join-us-for-bingo-games-prize-party-monday/2026-11-23/",
 			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10002342-2026-11-24",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2026-11-24T02:30:00Z",
-			"endsAt": "2026-11-24T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2026-11-23/",
 			"category": "trivia",
 			"source": "visitballard"
 		},
@@ -1680,17 +1755,6 @@
 			"startsAt": "2026-11-26T04:00:00Z",
 			"endsAt": "2026-11-26T05:30:00Z",
 			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-free/2026-11-25/",
-			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10008854-2026-11-26",
-			"venueId": "the-ink-drinker",
-			"title": "Book Trivia at The Ink Drinker!",
-			"startsAt": "2026-11-26T04:00:00Z",
-			"endsAt": "2026-11-26T05:30:00Z",
-			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-14/2026-11-25/",
 			"price": "Free",
 			"category": "trivia",
 			"source": "visitballard"
@@ -1787,6 +1851,17 @@
 			"category": "live-music"
 		},
 		{
+			"id": "nordic-museum-2026-11-29-intermediate-na-lebinding-with-christin-curran",
+			"title": "Intermediate Nålebinding with Christin Curran",
+			"startsAt": "2026-11-29T10:00:00-08:00",
+			"endsAt": "2026-11-29T12:00:00-08:00",
+			"url": "https://nordicmuseum.org/events/intermediate-nalebinding-with-christin-curran",
+			"price": "$90",
+			"category": "art",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
+		},
+		{
 			"id": "conor-byrne-198781",
 			"title": "Brass Cheeks - Holiday Matinee",
 			"startsAt": "2026-11-29T16:00:00-08:00",
@@ -1823,17 +1898,6 @@
 			"startsAt": "2026-11-30T02:00:00Z",
 			"endsAt": "2026-11-30T04:00:00Z",
 			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-7/2026-11-29/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10009114-2026-11-30",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2026-11-30T02:00:00Z",
-			"endsAt": "2026-11-30T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2026-11-29/",
 			"price": "Free",
 			"category": "comedy",
 			"source": "visitballard"
@@ -1882,14 +1946,14 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10002343-2026-12-01",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2026-12-01T02:30:00Z",
-			"endsAt": "2026-12-01T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2026-11-30/",
-			"category": "trivia",
-			"source": "visitballard"
+			"id": "myballard-360112-2026-12-01",
+			"venueId": "swoon-city",
+			"title": "Book Club – Wrecked Romantasy",
+			"startsAt": "2026-12-01T03:00:00Z",
+			"endsAt": "2026-12-01T04:30:00Z",
+			"url": "https://www.myballard.com/event/book-club-wrecked-romantasy-3/",
+			"category": "comedy",
+			"source": "myballard"
 		},
 		{
 			"id": "conor-byrne-194620",
@@ -1998,15 +2062,15 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10008855-2026-12-03",
-			"venueId": "the-ink-drinker",
-			"title": "Book Trivia at The Ink Drinker!",
-			"startsAt": "2026-12-03T04:00:00Z",
-			"endsAt": "2026-12-03T05:30:00Z",
-			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-14/2026-12-02/",
-			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
+			"id": "nordic-museum-2026-12-03-introduction-to-needle-felting-nordic-tomte",
+			"title": "Introduction to Needle Felting: Nordic Tomte",
+			"startsAt": "2026-12-03T17:00:00-08:00",
+			"endsAt": "2026-12-03T19:00:00-08:00",
+			"url": "https://nordicmuseum.org/events/introduction-to-needle-felting-nordic-tomte",
+			"price": "$87",
+			"category": "art",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
 		},
 		{
 			"id": "egans-2026-12-03-1900-brazilian-global-jam-session",
@@ -2047,6 +2111,7 @@
 			"endsAt": "2026-12-04T05:00:00Z",
 			"url": "https://www.visitballard.com/event/books-bottles-holiday-wine-tasting-for-book-lovers/",
 			"price": "$25",
+			"category": "food-drink-special",
 			"source": "visitballard"
 		},
 		{
@@ -2069,6 +2134,17 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "myballard-361962-2026-12-05",
+			"venueId": "arc-dance",
+			"title": "Nutcracker Sweets at ARC Dance",
+			"startsAt": "2026-12-05T03:00:00Z",
+			"endsAt": "2026-12-07T03:00:00Z",
+			"url": "https://www.myballard.com/event/nutcracker-sweets-at-arc-dance/",
+			"price": "$22 – $35",
+			"category": "dance",
+			"source": "myballard"
+		},
+		{
 			"id": "spt-2026-12-05T03:30-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-05T03:30:00.765Z",
@@ -2088,6 +2164,17 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "nordic-museum-2026-12-05-culture-class-nordic-nation-branding",
+			"title": "Culture Class: Nordic Nation Branding",
+			"startsAt": "2026-12-05T11:00:00-08:00",
+			"endsAt": "2026-12-05T12:30:00-08:00",
+			"url": "https://nordicmuseum.org/events/culture-class-nordic-nation-branding",
+			"price": "$40",
+			"category": "class",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
 		},
 		{
 			"id": "conor-byrne-194603",
@@ -2213,17 +2300,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10009115-2026-12-07",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2026-12-07T02:00:00Z",
-			"endsAt": "2026-12-07T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2026-12-06/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
 			"id": "hidden-hall-2026-12-07-lau-noah-adam-neely",
 			"title": "LAU NOAH & ADAM NEELY",
 			"startsAt": "2026-12-07T03:00:00+00:00",
@@ -2284,16 +2360,6 @@
 			"endsAt": "2026-12-08T04:00:00Z",
 			"url": "https://www.visitballard.com/event/join-us-for-bingo-games-prize-party-monday/2026-12-07/",
 			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10002344-2026-12-08",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2026-12-08T02:30:00Z",
-			"endsAt": "2026-12-08T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2026-12-07/",
 			"category": "trivia",
 			"source": "visitballard"
 		},
@@ -2387,17 +2453,6 @@
 			"startsAt": "2026-12-10T04:00:00Z",
 			"endsAt": "2026-12-10T05:30:00Z",
 			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-free/2026-12-09/",
-			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10008856-2026-12-10",
-			"venueId": "the-ink-drinker",
-			"title": "Book Trivia at The Ink Drinker!",
-			"startsAt": "2026-12-10T04:00:00Z",
-			"endsAt": "2026-12-10T05:30:00Z",
-			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-14/2026-12-09/",
 			"price": "Free",
 			"category": "trivia",
 			"source": "visitballard"
@@ -2541,17 +2596,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-44652-2026-12-12",
-			"venueId": "swoon-city",
-			"title": "Stained Glass Class: Ice Berg",
-			"startsAt": "2026-12-12T21:00:00Z",
-			"endsAt": "2026-12-13T02:00:00Z",
-			"url": "https://www.visitballard.com/event/stained-glass-class-ice-berg-2/",
-			"price": "$150",
-			"category": "class",
-			"source": "visitballard"
-		},
-		{
 			"id": "egans-2026-12-12-2130-vocalist-axel-rosencrantz-with-brian-monroney-guitar",
 			"title": "Vocalist Axel Rosencrantz, with Brian Monroney (guitar)",
 			"startsAt": "2026-12-12T21:30:00-08:00",
@@ -2645,17 +2689,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10009116-2026-12-14",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2026-12-14T02:00:00Z",
-			"endsAt": "2026-12-14T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2026-12-13/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
 			"id": "conor-byrne-196411",
 			"title": "Rent Party Ensemble - Swing Dance and Live Jazz Band!",
 			"startsAt": "2026-12-14T20:00:00-08:00",
@@ -2705,16 +2738,6 @@
 			"endsAt": "2026-12-15T04:00:00Z",
 			"url": "https://www.visitballard.com/event/join-us-for-bingo-games-prize-party-monday/2026-12-14/",
 			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10002345-2026-12-15",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2026-12-15T02:30:00Z",
-			"endsAt": "2026-12-15T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2026-12-14/",
 			"category": "trivia",
 			"source": "visitballard"
 		},
@@ -2803,17 +2826,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10008857-2026-12-17",
-			"venueId": "the-ink-drinker",
-			"title": "Book Trivia at The Ink Drinker!",
-			"startsAt": "2026-12-17T04:00:00Z",
-			"endsAt": "2026-12-17T05:30:00Z",
-			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-14/2026-12-16/",
-			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
 			"id": "egans-2026-12-17-1900-jo-s-jazz-vocal-jam-hosted-by-joanne-klein",
 			"title": "Jo's Jazz Vocal Jam hosted by Joanne Klein",
 			"startsAt": "2026-12-17T19:00:00-08:00",
@@ -2886,19 +2898,20 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "nordic-museum-2026-12-18-jul-stories-rose-ever-blooming-with-choral-arts-northwest",
+			"title": "Jul Stories: Rose Ever Blooming with Choral Arts Northwest",
+			"startsAt": "2026-12-18T19:00:00-08:00",
+			"endsAt": "2026-12-18T21:00:00-08:00",
+			"url": "https://nordicmuseum.org/events/jul-stories-rose-ever-blooming-with-choral-arts-northwest",
+			"price": "$42",
+			"category": "art",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
+		},
+		{
 			"id": "egans-2026-12-18-1900-steve-messick-holiday-jazz-showcase-website",
 			"title": "Steve Messick Holiday Jazz Showcase [ Website ]",
 			"startsAt": "2026-12-18T19:00:00-08:00",
-			"url": "https://www.ballardjamhouse.com/schedule.html",
-			"price": "$20 cover",
-			"category": "jazz",
-			"source": "egans",
-			"venueId": "egans-ballard-jam-house"
-		},
-		{
-			"id": "egans-2026-12-18-2100-steve-messick-holiday-jazz-showcase-second-show",
-			"title": "Steve Messick Holiday Jazz Showcase (Second Show)",
-			"startsAt": "2026-12-18T21:00:00-08:00",
 			"url": "https://www.ballardjamhouse.com/schedule.html",
 			"price": "$20 cover",
 			"category": "jazz",
@@ -2914,6 +2927,16 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "egans-2026-12-18-2100-steve-messick-holiday-jazz-showcase-second-show",
+			"title": "Steve Messick Holiday Jazz Showcase (Second Show)",
+			"startsAt": "2026-12-18T21:00:00-08:00",
+			"url": "https://www.ballardjamhouse.com/schedule.html",
+			"price": "$20 cover",
+			"category": "jazz",
+			"source": "egans",
+			"venueId": "egans-ballard-jam-house"
 		},
 		{
 			"id": "spt-2026-12-19T01:00-a-very-die-hard-christmas",
@@ -3039,17 +3062,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10009117-2026-12-21",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2026-12-21T02:00:00Z",
-			"endsAt": "2026-12-21T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2026-12-20/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
 			"id": "hidden-hall-2026-12-21-swiftmas-w-13-til-midnight-taylor-swift-tribute",
 			"title": "SWIFTMAS w/ 13 'Til Midnight (Taylor Swift Tribute)",
 			"startsAt": "2026-12-21T02:30:00+00:00",
@@ -3114,16 +3126,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10002346-2026-12-22",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2026-12-22T02:30:00Z",
-			"endsAt": "2026-12-22T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2026-12-21/",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
 			"id": "conor-byrne-194646",
 			"title": "Country Dance Night with Dave Harmonson",
 			"startsAt": "2026-12-22T20:00:00-08:00",
@@ -3172,17 +3174,6 @@
 			"startsAt": "2026-12-24T04:00:00Z",
 			"endsAt": "2026-12-24T05:30:00Z",
 			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-free/2026-12-23/",
-			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10008858-2026-12-24",
-			"venueId": "the-ink-drinker",
-			"title": "Book Trivia at The Ink Drinker!",
-			"startsAt": "2026-12-24T04:00:00Z",
-			"endsAt": "2026-12-24T05:30:00Z",
-			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-14/2026-12-23/",
 			"price": "Free",
 			"category": "trivia",
 			"source": "visitballard"
@@ -3259,17 +3250,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10009118-2026-12-28",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2026-12-28T02:00:00Z",
-			"endsAt": "2026-12-28T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2026-12-27/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
 			"id": "visitballard-10005457-2026-12-29",
 			"venueId": "reubens-brews",
 			"title": "Magic Monday Casual Commander Night | Reuben’s Brews Ballard Taproom",
@@ -3299,16 +3279,6 @@
 			"endsAt": "2026-12-29T04:00:00Z",
 			"url": "https://www.visitballard.com/event/join-us-for-bingo-games-prize-party-monday/2026-12-28/",
 			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10002347-2026-12-29",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2026-12-29T02:30:00Z",
-			"endsAt": "2026-12-29T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2026-12-28/",
 			"category": "trivia",
 			"source": "visitballard"
 		},
@@ -3346,17 +3316,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10008859-2026-12-31",
-			"venueId": "the-ink-drinker",
-			"title": "Book Trivia at The Ink Drinker!",
-			"startsAt": "2026-12-31T04:00:00Z",
-			"endsAt": "2026-12-31T05:30:00Z",
-			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-14/2026-12-30/",
-			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
 			"id": "visitballard-10006312-2027-01-01",
 			"venueId": "hatties-hat",
 			"title": "Karaoke at Hattie’s Hat",
@@ -3367,23 +3326,21 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "nordic-museum-2027-01-02-seattle-kraken-nordic-night",
+			"title": "Seattle Kraken Nordic Night",
+			"startsAt": "2027-01-02T19:00:00-08:00",
+			"url": "https://nordicmuseum.org/events/seattle-kraken-nordic-night",
+			"category": "art",
+			"source": "nordic-museum",
+			"venueId": "nordic-museum"
+		},
+		{
 			"id": "visitballard-10008591-2027-01-04",
 			"venueId": "the-ink-drinker",
 			"title": "Silent Reading at The Ink Drinker",
 			"startsAt": "2027-01-04T02:00:00Z",
 			"endsAt": "2027-01-04T04:00:00Z",
 			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-7/2027-01-03/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10009119-2027-01-04",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2027-01-04T02:00:00Z",
-			"endsAt": "2027-01-04T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2027-01-03/",
 			"price": "Free",
 			"category": "comedy",
 			"source": "visitballard"
@@ -3422,16 +3379,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10002348-2027-01-05",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2027-01-05T02:30:00Z",
-			"endsAt": "2027-01-05T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2027-01-04/",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
 			"id": "visitballard-10005198-2027-01-07",
 			"venueId": "reubens-brews",
 			"title": "Trivia with Head in the Clouds",
@@ -3460,17 +3407,6 @@
 			"startsAt": "2027-01-07T04:00:00Z",
 			"endsAt": "2027-01-07T05:30:00Z",
 			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-free/2027-01-06/",
-			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10008860-2027-01-07",
-			"venueId": "the-ink-drinker",
-			"title": "Book Trivia at The Ink Drinker!",
-			"startsAt": "2027-01-07T04:00:00Z",
-			"endsAt": "2027-01-07T05:30:00Z",
-			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-14/2027-01-06/",
 			"price": "Free",
 			"category": "trivia",
 			"source": "visitballard"
@@ -3518,17 +3454,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10009120-2027-01-11",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2027-01-11T02:00:00Z",
-			"endsAt": "2027-01-11T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2027-01-10/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
 			"id": "visitballard-10005459-2027-01-12",
 			"venueId": "reubens-brews",
 			"title": "Magic Monday Casual Commander Night | Reuben’s Brews Ballard Taproom",
@@ -3558,16 +3483,6 @@
 			"endsAt": "2027-01-12T04:00:00Z",
 			"url": "https://www.visitballard.com/event/join-us-for-bingo-games-prize-party-monday/2027-01-11/",
 			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10002349-2027-01-12",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2027-01-12T02:30:00Z",
-			"endsAt": "2027-01-12T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2027-01-11/",
 			"category": "trivia",
 			"source": "visitballard"
 		},
@@ -3605,17 +3520,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10008861-2027-01-14",
-			"venueId": "the-ink-drinker",
-			"title": "Book Trivia at The Ink Drinker!",
-			"startsAt": "2027-01-14T04:00:00Z",
-			"endsAt": "2027-01-14T05:30:00Z",
-			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-14/2027-01-13/",
-			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
 			"id": "visitballard-10006314-2027-01-15",
 			"venueId": "hatties-hat",
 			"title": "Karaoke at Hattie’s Hat",
@@ -3643,17 +3547,6 @@
 			"startsAt": "2027-01-18T02:00:00Z",
 			"endsAt": "2027-01-18T04:00:00Z",
 			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-7/2027-01-17/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10009121-2027-01-18",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2027-01-18T02:00:00Z",
-			"endsAt": "2027-01-18T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2027-01-17/",
 			"price": "Free",
 			"category": "comedy",
 			"source": "visitballard"
@@ -3692,16 +3585,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10002350-2027-01-19",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2027-01-19T02:30:00Z",
-			"endsAt": "2027-01-19T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2027-01-18/",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
 			"id": "visitballard-10005200-2027-01-21",
 			"venueId": "reubens-brews",
 			"title": "Trivia with Head in the Clouds",
@@ -3730,17 +3613,6 @@
 			"startsAt": "2027-01-21T04:00:00Z",
 			"endsAt": "2027-01-21T05:30:00Z",
 			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-free/2027-01-20/",
-			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10008862-2027-01-21",
-			"venueId": "the-ink-drinker",
-			"title": "Book Trivia at The Ink Drinker!",
-			"startsAt": "2027-01-21T04:00:00Z",
-			"endsAt": "2027-01-21T05:30:00Z",
-			"url": "https://www.visitballard.com/event/book-trivia-at-the-ink-drinker-14/2027-01-20/",
 			"price": "Free",
 			"category": "trivia",
 			"source": "visitballard"
@@ -3790,17 +3662,6 @@
 			"source": "visitballard"
 		},
 		{
-			"id": "visitballard-10009122-2027-01-25",
-			"venueId": "the-ink-drinker",
-			"title": "Silent Reading at The Ink Drinker",
-			"startsAt": "2027-01-25T02:00:00Z",
-			"endsAt": "2027-01-25T04:00:00Z",
-			"url": "https://www.visitballard.com/event/silent-reading-at-the-ink-drinker-8/2027-01-24/",
-			"price": "Free",
-			"category": "comedy",
-			"source": "visitballard"
-		},
-		{
 			"id": "conor-byrne-203567",
 			"title": "Irish Music Monday - Crabs in the Skillet",
 			"startsAt": "2027-01-25T19:00:00-08:00",
@@ -3840,16 +3701,6 @@
 			"endsAt": "2027-01-26T04:00:00Z",
 			"url": "https://www.visitballard.com/event/join-us-for-bingo-games-prize-party-monday/2027-01-25/",
 			"price": "Free",
-			"category": "trivia",
-			"source": "visitballard"
-		},
-		{
-			"id": "visitballard-10002351-2027-01-26",
-			"venueId": "ballard-beer-box",
-			"title": "Bingo Monday",
-			"startsAt": "2027-01-26T02:30:00Z",
-			"endsAt": "2027-01-26T04:00:00Z",
-			"url": "https://www.visitballard.com/event/bingo-monday/2027-01-25/",
 			"category": "trivia",
 			"source": "visitballard"
 		}

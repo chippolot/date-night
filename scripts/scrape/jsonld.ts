@@ -24,6 +24,7 @@ export function decodeEntities(s: string): string {
 		.replace(/&#39;|&apos;/g, "'")
 		.replace(/&lt;/g, "<")
 		.replace(/&gt;/g, ">")
+		.replace(/&nbsp;/g, " ")
 		.replace(/&amp;/g, "&");
 }
 
