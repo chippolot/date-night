@@ -50,6 +50,19 @@ describe("occursOn", () => {
 		expect(occursOn(rec, "2026-10-28")).toBe(false);
 	});
 
+	test("weekly within a run (e.g. a theater show)", () => {
+		const rec: Recurrence = {
+			kind: "weekly",
+			days: ["WE", "TH", "FR", "SA"],
+			from: "2026-11-18",
+			until: "2026-12-26",
+		};
+		expect(occursOn(rec, "2026-11-14")).toBe(false); // Sat before opening
+		expect(occursOn(rec, "2026-11-18")).toBe(true);
+		expect(occursOn(rec, "2026-12-26")).toBe(true);
+		expect(occursOn(rec, "2027-01-02")).toBe(false);
+	});
+
 	test("2nd and 4th Monday", () => {
 		const rec: Recurrence = { kind: "monthly-nth", nth: [2, 4], day: "MO" };
 		expect(occursOn(rec, "2026-11-02")).toBe(false); // 1st

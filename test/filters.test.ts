@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import {
+	applyFilters,
 	EMPTY_FILTERS,
 	type Filters,
 	matchesTime,
@@ -7,6 +8,7 @@ import {
 	type TimeSlot,
 	toQuery,
 } from "../src/lib/filters";
+import type { Occurrence } from "../src/lib/types";
 
 const slots = (...time: TimeSlot[]): Filters => ({ ...EMPTY_FILTERS, time });
 
@@ -55,5 +57,31 @@ describe("matchesTime", () => {
 		const f = slots("evening", "night"); // 5–11pm
 		expect(matchesTime("21:30", undefined, f)).toBe(true);
 		expect(matchesTime("13:00", undefined, f)).toBe(false);
+	});
+});
+
+describe("hide", () => {
+	test("round-trips through the query string and drops hidden categories", () => {
+		const f = parseFilters(
+			new URLSearchParams("hide=food-drink-special&hide=bogus"),
+		);
+		expect(f.hide).toEqual(["food-drink-special"]);
+		expect(toQuery(f)).toBe("?hide=food-drink-special");
+		const occ = (category: Occurrence["category"]): Occurrence => ({
+			key: category,
+			kind: "night",
+			refId: category,
+			date: "2026-10-29",
+			start: "19:00",
+			title: category,
+			category,
+			vibe: [],
+			url: "https://example.com",
+			confidence: "confirmed",
+		});
+		const list = [occ("food-drink-special"), occ("trivia")];
+		expect(applyFilters(list, new Map(), f).map((o) => o.category)).toEqual([
+			"trivia",
+		]);
 	});
 });

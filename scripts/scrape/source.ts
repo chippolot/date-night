@@ -10,6 +10,8 @@ export type Source = {
 	/** Default venue/category for events that don't set their own */
 	venueId?: string;
 	category?: Category;
+	/** Zero events is normal (e.g. a page of occasional specials), not a sign the scraper broke */
+	mayBeEmpty?: boolean;
 	fetchEvents: () => Promise<ScrapedEvent[]>;
 };
 
@@ -44,16 +46,35 @@ export function guessCategory(
 const UA =
 	"Mozilla/5.0 (compatible; date-night-north-seattle/1.0; personal event aggregator)";
 
-export async function get(url: string): Promise<string> {
-	const res = await fetch(url, {
-		headers: {
-			"user-agent": UA,
-			accept: "text/html,text/calendar,application/json,*/*",
-		},
-		signal: AbortSignal.timeout(20_000),
-	});
-	if (!res.ok) throw new Error(`${url} → HTTP ${res.status}`);
-	return res.text();
+/** Fetch a page as text, retrying once after a timeout, network error or 5xx. */
+export async function get(url: string, retries = 1): Promise<string> {
+	try {
+		const res = await fetch(url, {
+			headers: {
+				"user-agent": UA,
+				accept: "text/html,text/calendar,application/json,*/*",
+			},
+			signal: AbortSignal.timeout(20_000),
+		});
+		if (res.status >= 500 && retries > 0) throw new Error(`HTTP ${res.status}`);
+		if (!res.ok) throw new HttpError(`${url} → HTTP ${res.status}`);
+		return await res.text();
+	} catch (err) {
+		if (err instanceof HttpError || retries <= 0) {
+			throw err instanceof HttpError
+				? err
+				: new Error(`${url} → ${errorMessage(err)}`);
+		}
+		await Bun.sleep(5_000);
+		return get(url, retries - 1);
+	}
+}
+
+/** A 4xx response: retrying won't help. */
+class HttpError extends Error {}
+
+export function errorMessage(err: unknown): string {
+	return (err instanceof Error ? err.message : String(err)).replace(/\.$/, "");
 }
 
 export function slug(s: string): string {

@@ -61,6 +61,8 @@ function nthInMonth(date: string): { nth: number; isLast: boolean } {
 }
 
 export function occursOn(rec: Recurrence, date: string): boolean {
+	if ((rec.from && date < rec.from) || (rec.until && date > rec.until))
+		return false;
 	const month = parse(date).getUTCMonth() + 1;
 	if (rec.months && !rec.months.includes(month)) return false;
 	const wd = weekdayOf(date);

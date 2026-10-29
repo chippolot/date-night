@@ -94,9 +94,17 @@ export type Venue = {
 /** -1 means the last occurrence in the month. */
 export type Nth = 1 | 2 | 3 | 4 | 5 | -1;
 
+/** Optional YYYY-MM-DD bounds (inclusive), e.g. a theater run. */
+type Run = { from?: string; until?: string };
+
 export type Recurrence =
-	| { kind: "weekly"; days: Weekday[]; months?: number[] }
-	| { kind: "monthly-nth"; nth: Nth[]; day: Weekday; months?: number[] };
+	| ({ kind: "weekly"; days: Weekday[]; months?: number[] } & Run)
+	| ({
+			kind: "monthly-nth";
+			nth: Nth[];
+			day: Weekday;
+			months?: number[];
+	  } & Run);
 
 export type Confidence = "confirmed" | "likely" | "stale";
 

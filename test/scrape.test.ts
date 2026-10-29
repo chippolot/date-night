@@ -6,6 +6,11 @@ import {
 	cleanAbbeyTitle,
 	parseEgans,
 	parseNordic,
+	parseOctopus,
+	parseTaprootShow,
+	parseWayward,
+	parseWestOfLenin,
+	withYear,
 } from "../scripts/scrape/sources";
 
 describe("jsonld", () => {
@@ -187,6 +192,137 @@ describe("nordic museum", () => {
 				undefined,
 				undefined,
 				"art",
+			],
+		]);
+	});
+});
+
+describe("withYear", () => {
+	test("rolls early months into next year late in the year", () => {
+		expect(withYear(11, 5, "2026-10-29")).toBe("2026-11-05");
+		expect(withYear(1, 2, "2026-11-20")).toBe("2027-01-02");
+		expect(withYear(9, 30, "2026-10-29")).toBe("2026-09-30");
+	});
+});
+
+describe("wayward", () => {
+	test("pairs each meta line with the post that follows it", () => {
+		const html = `
+<div class="entry-meta">
+	<span class="arrow">
+		October 29, 2026
+	</span>
+	<span>|</span>
+	<span>8:00 PM</span>
+</div><!-- .entry-meta -->
+<div id="post-9448" class="post hentry category-event">
+	<p class="ticket--link"><a href="https://www.eventbrite.com/e/1">$5 - $20 suggested donation</a></p>
+	<h2 class="entry-title"><a href="https://www.waywardmusic.org/event/nonseq/" title="x" rel="bookmark">NonSeq: Breakfast Calculus &#8211; Live</a></h2>
+</div>`;
+		expect(parseWayward(html)).toEqual([
+			{
+				id: "wayward-2026-10-29-nonseq-breakfast-calculus-live",
+				title: "NonSeq: Breakfast Calculus – Live",
+				startsAt: "2026-10-29T20:00:00-07:00",
+				url: "https://www.waywardmusic.org/event/nonseq/",
+				price: "$5 - $20 suggested donation",
+			},
+		]);
+	});
+});
+
+describe("west of lenin", () => {
+	test("reads JEvents day/month/time/title and skips past dates", () => {
+		const item = (day: number, mon: string, time: string, title: string) => `
+<div class="eventsdiv">
+	<ul>
+		<li><a class="jevdateicon jevdateiconmod" href="index.php"><span class="jevdateicon1">${day}&nbsp;</span><span class="jevdateicon2">${mon}</span> </a>
+			<div class="jeviconnotdate"><span class="mod_events_latest_content">&nbsp;<strong>${time}</strong><br /><br /><a href="https://tix.example/${day}?a=1&amp;b=2" target="_blank"><strong>${title}</strong></a><br /></span>
+			</div>
+		</li>
+	</ul>
+</div>`;
+		const html = [
+			item(28, "Oct", "7:30 PM", "Yesterday"),
+			item(31, "Oct", "9:00 PM", "Slasher"),
+			item(2, "Jan", "3:00 PM", "New Year Show"),
+		].join("");
+		expect(
+			parseWestOfLenin(html, "2026-10-29").map((e) => [
+				e.title,
+				e.startsAt,
+				e.url,
+			]),
+		).toEqual([
+			[
+				"Slasher",
+				"2026-10-31T21:00:00-07:00",
+				"https://tix.example/31?a=1&b=2",
+			],
+			[
+				"New Year Show",
+				"2027-01-02T15:00:00-08:00",
+				"https://tix.example/2?a=1&b=2",
+			],
+		]);
+	});
+});
+
+describe("octopus", () => {
+	test("reads special-event cards and drops the date prefix from the title", () => {
+		const html = `
+<div class="card-special-event h-100 ">
+	<h3 class="card-special-event__title mb-0">
+		<a href="https://theoctopusbar.com/events/pretty-ugly" aria-label="More Info">
+			October 30 + 31 · Pretty Ugly Vol. 13
+		</a>
+	</h3>
+	<li class="my-auto no-bottom">
+		<h4>Date</h4>
+		<p>Fri, Oct 30</p>
+	</li>
+	<li class="my-auto no-bottom">
+		<h4>Time</h4>
+		<p>8:00PM</p>
+	</li>
+</div>`;
+		expect(parseOctopus(html, "2026-10-29")).toEqual([
+			expect.objectContaining({
+				title: "Pretty Ugly Vol. 13",
+				startsAt: "2026-10-30T20:00:00-07:00",
+				url: "https://theoctopusbar.com/events/pretty-ugly",
+			}),
+		]);
+	});
+});
+
+describe("taproot", () => {
+	test("picks up named performances from a show page", () => {
+		const html = `
+<meta property="og:title" content="A Charlie Brown Christmas - Taproot Theatre" />
+<p><strong>Pay What You Can</strong>: Thursday, December 3 at 7:00 PM</p>
+<p><strong>CC:</strong> Friday, December 18 at 4:00 PM</p>
+<p><strong>Closed Captioned</strong>: December 16 at 7:30 PM.<br />
+<p><strong>Pay What You Can</strong>: Wednesday, October 14 at 7:00 PM</p>
+<p><strong>Tickets</strong></p>`;
+		const url = "https://taproottheatre.org/2026/charlie-brown-christmas/";
+		expect(
+			parseTaprootShow(html, url, "2026-10-29").map((e) => [
+				e.title,
+				e.startsAt,
+			]),
+		).toEqual([
+			[
+				"A Charlie Brown Christmas (Pay What You Can)",
+				"2026-12-03T19:00:00-08:00",
+			],
+			[
+				"A Charlie Brown Christmas (Closed Captioned)",
+				"2026-12-18T16:00:00-08:00",
+			],
+			[
+				"A Charlie Brown Christmas (Closed Captioned)",
+				"2026-12-16T19:30:00-08:00",
 			],
 		]);
 	});

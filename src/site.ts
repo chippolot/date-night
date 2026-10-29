@@ -92,14 +92,18 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 		);
 	}
 
-	const nightEvents = data.nights.map((n) =>
+	// Runs that have ended (e.g. a closed show) have no next occurrence to export.
+	const activeNights = data.nights.filter(
+		(n) => !n.recurrence.until || n.recurrence.until >= today,
+	);
+	const nightEvents = activeNights.map((n) =>
 		nightVevent(n, venueById.get(n.venueId), today),
 	);
 	out.set("/calendar.ics", {
 		body: calendar(nightEvents, `${SITE.title} — recurring nights`),
 		type: ICS,
 	});
-	for (const n of data.nights) {
+	for (const n of activeNights) {
 		out.set(`/ics/night/${n.id}.ics`, {
 			body: calendar(
 				[nightVevent(n, venueById.get(n.venueId), today)],

@@ -55,11 +55,15 @@ export function fold(line: string): string {
 
 export function rrule(rec: Recurrence): string {
 	const byMonth = rec.months ? `;BYMONTH=${rec.months.join(",")}` : "";
+	// UNTIL must be UTC when DTSTART has a TZID; 07:59Z the next day is the end of `until` in Seattle.
+	const until = rec.until
+		? `;UNTIL=${addDays(rec.until, 1).replaceAll("-", "")}T075959Z`
+		: "";
 	if (rec.kind === "weekly") {
-		return `RRULE:FREQ=WEEKLY;BYDAY=${rec.days.join(",")}${byMonth}`;
+		return `RRULE:FREQ=WEEKLY;BYDAY=${rec.days.join(",")}${byMonth}${until}`;
 	}
 	const byDay = rec.nth.map((n) => `${n}${rec.day}`).join(",");
-	return `RRULE:FREQ=MONTHLY;BYDAY=${byDay}${byMonth}`;
+	return `RRULE:FREQ=MONTHLY;BYDAY=${byDay}${byMonth}${until}`;
 }
 
 function local(date: string, time: string): string {
@@ -72,8 +76,9 @@ function utcStamp(d: Date): string {
 
 /** First date on or after `from` that matches the recurrence (searches ~13 months). */
 export function firstOccurrence(rec: Recurrence, from: string): string {
+	const start = rec.from && rec.from > from ? rec.from : from;
 	for (let i = 0; i < 400; i++) {
-		const date = addDays(from, i);
+		const date = addDays(start, i);
 		if (occursOn(rec, date)) return date;
 	}
 	throw new Error("Recurrence never occurs");

@@ -167,6 +167,7 @@ function checkboxGroup(
 	label: string,
 	options: [string, string][],
 	selected: string[],
+	className = "pills",
 ): string {
 	const boxes = options
 		.map(
@@ -176,7 +177,7 @@ function checkboxGroup(
 				}><span>${esc(text)}</span></label>`,
 		)
 		.join("");
-	return `<fieldset><legend>${label}</legend><div class="pills">${boxes}</div></fieldset>`;
+	return `<fieldset><legend>${label}</legend><div class="${className}">${boxes}</div></fieldset>`;
 }
 
 const DAY_PILLS: [Weekday, string][] = [
@@ -208,7 +209,11 @@ export function filterBar(f: Filters, { days = true } = {}): string {
 		)
 		.join("");
 	const active =
-		f.hood.length + f.cat.length + f.vibe.length + (f.price ? 1 : 0);
+		f.hood.length +
+		f.cat.length +
+		f.hide.length +
+		f.vibe.length +
+		(f.price ? 1 : 0);
 	return `<form class="filters" method="get" data-filters>
   <div class="when">
     ${days ? checkboxGroup("day", "Day", DAY_PILLS, f.day) : ""}
@@ -224,6 +229,13 @@ export function filterBar(f: Filters, { days = true } = {}): string {
     <summary><span>Filter by neighborhood, vibe &amp; more</span>${active ? ` <span class="count">${active}</span>` : ""}</summary>
     ${checkboxGroup("hood", "Neighborhood", Object.entries(NEIGHBORHOODS), f.hood)}
     ${checkboxGroup("cat", "What", Object.entries(CATEGORIES), f.cat)}
+    ${checkboxGroup(
+			"hide",
+			"Hide",
+			Object.entries(CATEGORIES),
+			f.hide,
+			"pills pills-hide",
+		)}
     ${checkboxGroup(
 			"vibe",
 			"Vibe",

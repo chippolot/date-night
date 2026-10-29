@@ -621,6 +621,15 @@ legend {
 	color: var(--bg);
 }
 
+/* "Hide" pills read as struck out when on. */
+.pills-hide .pill input:checked + span {
+	background: transparent;
+	border-color: var(--border);
+	color: var(--muted);
+	text-decoration: line-through;
+	opacity: 0.7;
+}
+
 .pill input:focus-visible + span {
 	outline: 2px solid var(--lingon);
 	outline-offset: 2px;

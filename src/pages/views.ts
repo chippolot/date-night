@@ -194,6 +194,7 @@ type Kind = {
 /** Whether a recurring night or dated event passes the map's category, vibe, day and time filters. */
 export function matchesKind(k: Kind, f: Filters): boolean {
 	if (f.cat.length && !f.cat.includes(k.category)) return false;
+	if (f.hide.includes(k.category)) return false;
 	if (f.vibe.length && !k.vibe.some((x) => f.vibe.includes(x))) return false;
 	if (f.day.length && !k.days.some((d) => matchesDay(d, f))) return false;
 	return matchesTime(k.start, k.end, f);
@@ -231,7 +232,11 @@ export function mapVenues(data: SiteData, f: Filters): Venue[] {
 	for (const n of data.nights) add(n.venueId, nightKind(n));
 	for (const e of data.events) add(e.venueId, eventKind(e));
 	const whenOrWhat =
-		f.cat.length || f.vibe.length || f.day.length || f.time.length;
+		f.cat.length ||
+		f.hide.length ||
+		f.vibe.length ||
+		f.day.length ||
+		f.time.length;
 	return data.venues.filter((v) => {
 		if (!matchesVenue(v, f)) return false;
 		if (!whenOrWhat) return true;

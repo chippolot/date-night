@@ -7,15 +7,40 @@ export async function loadSiteData(): Promise<SiteData> {
 	return res.json();
 }
 
+// Hidden event types (e.g. happy hours) carry over between visits and pages in this browser.
+const HIDE_KEY = "date-night:hide";
+
+function storedHide(): string[] {
+	try {
+		return JSON.parse(localStorage.getItem(HIDE_KEY) ?? "[]");
+	} catch {
+		return [];
+	}
+}
+
+function storeHide(hide: string[]) {
+	try {
+		localStorage.setItem(HIDE_KEY, JSON.stringify(hide));
+	} catch {
+		// Storage unavailable (private mode); hiding still works via the URL.
+	}
+}
+
 /** Upgrade the GET filter form to update the URL and re-render on every change. */
 export function wireFilters(onChange: (f: Filters) => void): Filters {
 	const form = document.querySelector<HTMLFormElement>("[data-filters]");
-	const initial = parseFilters(new URLSearchParams(location.search));
+	const params = new URLSearchParams(location.search);
+	if (!params.has("hide")) {
+		for (const c of storedHide()) params.append("hide", c);
+	}
+	const initial = parseFilters(params);
 	if (!form) return initial;
 	form.classList.add("js");
+	if (initial.hide.length) {
+		history.replaceState(null, "", `${location.pathname}${toQuery(initial)}`);
+	}
 
 	// The pre-rendered form has no selections; reflect the URL's filters.
-	const params = new URLSearchParams(location.search);
 	for (const input of form.querySelectorAll<HTMLInputElement>("input")) {
 		const values = params.getAll(input.name);
 		input.checked =
@@ -27,6 +52,7 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 	if (
 		initial.hood.length ||
 		initial.cat.length ||
+		initial.hide.length ||
 		initial.vibe.length ||
 		initial.price
 	)
@@ -36,6 +62,7 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 		parseFilters(new URLSearchParams(new FormData(form) as never));
 	form.addEventListener("change", () => {
 		const f = read();
+		storeHide(f.hide);
 		history.replaceState(null, "", `${location.pathname}${toQuery(f)}`);
 		onChange(f);
 	});

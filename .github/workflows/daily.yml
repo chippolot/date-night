@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
   pages: write
   id-token: write
 
@@ -27,9 +28,39 @@ jobs:
       - run: bun test
 
       - name: Scrape venue calendars
-        # A broken scraper keeps that source's previous events rather than failing the deploy.
+        # A broken scraper keeps that source's previous events rather than failing the deploy;
+        # the next step reports it in a GitHub issue instead.
+        id: scrape
         run: bun run scrape
         continue-on-error: true
+        env:
+          SCRAPE_REPORT: ${{ runner.temp }}/scrape-report.md
+
+      - name: Report scraper failures
+        # One open "Scraper failures" issue: opened or commented on when sources fail,
+        # closed when every source succeeds again.
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT: ${{ runner.temp }}/scrape-report.md
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="Scraper failures"
+          issue=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number // empty')
+          if [ "${{ steps.scrape.outcome }}" = "failure" ]; then
+            if [ -s "$REPORT" ]; then
+              body="$(cat "$REPORT")"
+            else
+              body="The scrape step crashed before reporting per-source results."
+            fi
+            body="$body"$'\n\n'"Run: $RUN_URL"
+            if [ -n "$issue" ]; then
+              gh issue comment "$issue" --body "$body"
+            else
+              gh issue create --title "$title" --body "$body"
+            fi
+          elif [ -n "$issue" ]; then
+            gh issue close "$issue" --comment "All scrapers succeeded in $RUN_URL"
+          fi
 
       - name: Commit refreshed events
         run: |

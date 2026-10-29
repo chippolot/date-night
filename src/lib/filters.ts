@@ -13,6 +13,8 @@ import { CATEGORIES, NEIGHBORHOODS, VIBES, WEEKDAYS } from "./types";
 export type Filters = {
 	hood: Neighborhood[];
 	cat: Category[];
+	/** Categories to leave out, e.g. happy hours (remembered per browser by the client) */
+	hide: Category[];
 	vibe: Vibe[];
 	/** Max venue price level; undefined means any */
 	price?: PriceLevel;
@@ -33,6 +35,7 @@ export type TimeSlot = keyof typeof TIME_SLOTS;
 export const EMPTY_FILTERS: Filters = {
 	hood: [],
 	cat: [],
+	hide: [],
 	vibe: [],
 	day: [],
 	time: [],
@@ -52,6 +55,7 @@ export function parseFilters(params: URLSearchParams): Filters {
 			Object.keys(NEIGHBORHOODS) as Neighborhood[],
 		),
 		cat: pick(params.getAll("cat"), Object.keys(CATEGORIES) as Category[]),
+		hide: pick(params.getAll("hide"), Object.keys(CATEGORIES) as Category[]),
 		vibe: pick(params.getAll("vibe"), VIBES),
 		price: price === 1 || price === 2 || price === 3 ? price : undefined,
 		day: pick(params.getAll("day"), WEEKDAYS),
@@ -63,6 +67,7 @@ export function toQuery(f: Filters): string {
 	const params = new URLSearchParams();
 	for (const h of f.hood) params.append("hood", h);
 	for (const c of f.cat) params.append("cat", c);
+	for (const c of f.hide) params.append("hide", c);
 	for (const v of f.vibe) params.append("vibe", v);
 	if (f.price) params.set("price", String(f.price));
 	for (const d of f.day) params.append("day", d);
@@ -75,6 +80,7 @@ export function isEmpty(f: Filters): boolean {
 	return (
 		!f.hood.length &&
 		!f.cat.length &&
+		!f.hide.length &&
 		!f.vibe.length &&
 		!f.price &&
 		!f.day.length &&
@@ -142,6 +148,7 @@ export function applyFilters(
 		const venue = o.venueId ? venueById.get(o.venueId) : undefined;
 		if (!matchesVenue(venue, f)) return false;
 		if (f.cat.length && !f.cat.includes(o.category)) return false;
+		if (f.hide.includes(o.category)) return false;
 		if (f.vibe.length && !o.vibe.some((v) => f.vibe.includes(v))) return false;
 		if (!matchesDay(weekdayOf(o.date), f)) return false;
 		if (!matchesTime(o.start, o.end, f)) return false;

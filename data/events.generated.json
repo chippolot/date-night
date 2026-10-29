@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-29T18:07:33.764Z",
+	"generatedAt": "2026-10-29T18:12:56.638Z",
 	"events": [
 		{
 			"id": "nordic-museum-2026-10-29-culture-class-hans-christian-andersen-s-gothic-tales",
@@ -23,6 +23,15 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "west-of-lenin-2026-10-29-1930-slasher",
+			"title": "Slasher",
+			"startsAt": "2026-10-29T19:30:00-07:00",
+			"url": "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/events/a0OVW000005rQaz2AE/2026-10-01T19:30:00-07:00",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
+		},
+		{
 			"id": "conor-byrne-183732",
 			"title": "The Rolling Thunder + Bigfoot Curious + Velvet Armada",
 			"startsAt": "2026-10-29T20:00:00-07:00",
@@ -33,6 +42,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "wayward-2026-10-29-nonseq-breakfast-calculus-james-falzone",
+			"title": "NonSeq: Breakfast Calculus + James Falzone",
+			"startsAt": "2026-10-29T20:00:00-07:00",
+			"url": "https://www.waywardmusic.org/event/nonseq-breakfast-calculus/",
+			"price": "$5 - $20 suggested donation in advance or at the door (NOTAFLOF)",
+			"source": "wayward",
+			"venueId": "chapel-performance-space",
+			"category": "live-music"
+		},
+		{
 			"id": "hidden-hall-2026-10-30-frankie-j-with-viktoria-silk",
 			"title": "FRANKIE J with Viktoria Silk",
 			"startsAt": "2026-10-30T02:00:00+00:00",
@@ -41,6 +60,17 @@
 			"price": "$40",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-10-30-son-rompe-pera-with-lobo-lara",
+			"title": "SON ROMPE PERA with Lobo Lara",
+			"startsAt": "2026-10-30T02:00:00+00:00",
+			"endsAt": "2026-10-30T09:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/son-rompe-pera-with-lobo-lara-198349",
+			"price": "$25",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -84,6 +114,34 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "west-of-lenin-2026-10-30-1930-slasher",
+			"title": "Slasher",
+			"startsAt": "2026-10-30T19:30:00-07:00",
+			"url": "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/events/a0OVW000005rQaz2AE/2026-10-01T19:30:00-07:00",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
+		},
+		{
+			"id": "octopus-2026-10-30-pretty-ugly-vol-13",
+			"title": "Pretty Ugly Vol. 13",
+			"startsAt": "2026-10-30T20:00:00-07:00",
+			"url": "https://theoctopusbar.com/events/pretty-ugly-vol-13-halloween-weekend",
+			"source": "octopus",
+			"venueId": "octopus-bar"
+		},
+		{
+			"id": "nectar-2026-10-31-lindstrom-the-limit-with-waltzerr-early-show",
+			"title": "LINDSTROM & THE LIMIT with Waltzerr (EARLY SHOW)",
+			"startsAt": "2026-10-31T00:30:00+00:00",
+			"endsAt": "2026-10-31T04:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/lindstrom-the-limit-with-waltzerr-early-show--204803",
+			"price": "$15",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "abbey-arts-2026-10-31T02:00-samuel-j-sarah-conner-immersive-concert-and-dance-experience",
 			"venueId": "fremont-abbey",
 			"title": "Samuel J, Sarah Conner immersive concert and dance experience",
@@ -122,6 +180,17 @@
 			"price": "$20",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-10-31-i-m-not-okay-an-emo-pop-punk-halloween-party-w-dj-baby-van-b",
+			"title": "I'M NOT OKAY!! An Emo & Pop Punk Halloween Party!! w/ DJ BABY VAN BEEZLY",
+			"startsAt": "2026-10-31T04:30:00+00:00",
+			"endsAt": "2026-10-31T08:45:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/i-m-not-okay-an-emo-pop-punk-halloween-party-w-dj-baby-van-beezly-200656",
+			"price": "$12",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -166,6 +235,15 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "west-of-lenin-2026-10-31-1900-last-call",
+			"title": "Last Call",
+			"startsAt": "2026-10-31T19:00:00-07:00",
+			"url": "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/events/a0OVW0000047nuY2AQ/2026-10-03T19:00:00-07:00",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
+		},
+		{
 			"id": "conor-byrne-188345",
 			"title": "Tim Lizzy + THE RAMONES + Ben Verellen",
 			"startsAt": "2026-10-31T21:00:00-07:00",
@@ -174,6 +252,15 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "west-of-lenin-2026-10-31-2100-slasher",
+			"title": "Slasher",
+			"startsAt": "2026-10-31T21:00:00-07:00",
+			"url": "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/events/a0OVW000005rQaz2AE/2026-10-01T19:30:00-07:00",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
 		},
 		{
 			"id": "myballard-360217-2026-10-31",
@@ -208,6 +295,17 @@
 			"category": "live-music"
 		},
 		{
+			"id": "nectar-2026-11-01-steely-dead-halloween-3-sets",
+			"title": "STEELY DEAD HALLOWEEN (3 sets!!)",
+			"startsAt": "2026-11-01T03:00:00+00:00",
+			"endsAt": "2026-11-01T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/steely-dead-halloween-3-sets--197606",
+			"price": "$20",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "myballard-354071-2026-11-01",
 			"venueId": "old-stove-gardens",
 			"title": "The Ha Ha Halloween Comedy Show & Costume Contest",
@@ -238,6 +336,15 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "west-of-lenin-2026-11-01-1630-women",
+			"title": "Women+",
+			"startsAt": "2026-11-01T16:30:00-08:00",
+			"url": "https://www.eventbrite.com/e/2003359164189?aff=oddtdtcreator",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
 		},
 		{
 			"id": "conor-byrne-201817",
@@ -281,6 +388,26 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "sunset-hill-hall-2189-2026-11-01",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Intermediate Nightclub Two-Step – Workshop",
+			"startsAt": "2026-11-01T23:00:00Z",
+			"endsAt": "2026-11-02T00:30:00Z",
+			"url": "https://sunsethillcommunity.org/event/intermediate-nightclub-two-step-workshop/",
+			"category": "class",
+			"source": "sunset-hill-hall"
+		},
+		{
+			"id": "sunset-hill-hall-2191-2026-11-02",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Intermediate Salsa – Workshop",
+			"startsAt": "2026-11-02T00:30:00Z",
+			"endsAt": "2026-11-02T02:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/intermediate-salsa-workshop/",
+			"category": "class",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "visitballard-10008582-2026-11-02",
 			"venueId": "the-ink-drinker",
 			"title": "Silent Reading at The Ink Drinker",
@@ -310,6 +437,17 @@
 			"price": "$25",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-11-02-daley-with-aryana-leo-n",
+			"title": "DALEY with Aryana León",
+			"startsAt": "2026-11-02T03:30:00+00:00",
+			"endsAt": "2026-11-02T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/daley-with-aryana-le-n-187401",
+			"price": "$29.5",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -366,6 +504,15 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "sunset-hill-hall-10006351-2026-11-03",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Waltz Etc.",
+			"startsAt": "2026-11-03T03:00:00Z",
+			"endsAt": "2026-11-03T06:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/waltz-etc/2026-11-02/",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "conor-byrne-194636",
 			"title": "Country Dance Night with Fricken Chickasee",
 			"startsAt": "2026-11-03T20:00:00-08:00",
@@ -374,6 +521,16 @@
 			"category": "dance",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "wayward-2026-11-03-stepping-off-simone-baron-james-falzone",
+			"title": "Stepping Off (simone baron/James Falzone)",
+			"startsAt": "2026-11-03T20:00:00-08:00",
+			"url": "https://www.waywardmusic.org/event/stepping-off-simone-barone-james-falzone/",
+			"price": "$10 - $20 sliding scale at the door",
+			"source": "wayward",
+			"venueId": "chapel-performance-space",
+			"category": "live-music"
 		},
 		{
 			"id": "visitballard-10003700-2026-11-04",
@@ -504,6 +661,15 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "west-of-lenin-2026-11-05-1900-can-t-forget",
+			"title": "Can’t Forget",
+			"startsAt": "2026-11-05T19:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-things-you-cant-forget-tickets-1997501366358?aff=ebdsoporgprofile",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
+		},
+		{
 			"id": "conor-byrne-190062",
 			"title": "Bete Grise + 222 + M.A. Sampson",
 			"startsAt": "2026-11-05T20:00:00-08:00",
@@ -512,6 +678,16 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "wayward-2026-11-05-evan-smith",
+			"title": "Evan Smith",
+			"startsAt": "2026-11-05T20:00:00-08:00",
+			"url": "https://www.waywardmusic.org/event/evan-smith-2/",
+			"price": "$5 - $20 suggested donation at the door",
+			"source": "wayward",
+			"venueId": "chapel-performance-space",
+			"category": "live-music"
 		},
 		{
 			"id": "visitballard-44638-2026-11-06",
@@ -546,6 +722,17 @@
 			"category": "theater"
 		},
 		{
+			"id": "nectar-2026-11-06-skeleton-crewe-2-sets",
+			"title": "SKELETON CREWE (2 sets!)",
+			"startsAt": "2026-11-06T04:00:00+00:00",
+			"endsAt": "2026-11-06T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/skeleton-crewe-2-sets--191365",
+			"price": "$25",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "abbey-arts-2026-11-06T04:00-the-moth-storyslam",
 			"venueId": "fremont-abbey",
 			"title": "The Moth StorySLAM",
@@ -574,6 +761,25 @@
 			"category": "jazz",
 			"source": "egans",
 			"venueId": "egans-ballard-jam-house"
+		},
+		{
+			"id": "west-of-lenin-2026-11-06-1900-can-t-forget",
+			"title": "Can’t Forget",
+			"startsAt": "2026-11-06T19:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-things-you-cant-forget-tickets-1997501366358?aff=ebdsoporgprofile",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
+		},
+		{
+			"id": "wayward-2026-11-06-paurl-walsh-pearl-trio",
+			"title": "Paurl Walsh + Pearl Trio",
+			"startsAt": "2026-11-06T19:30:00-08:00",
+			"url": "https://www.waywardmusic.org/event/paurl-walsh-pearl-trio/",
+			"price": "$5 - $20 suggested donation at the door (NOTAFLOF)",
+			"source": "wayward",
+			"venueId": "chapel-performance-space",
+			"category": "live-music"
 		},
 		{
 			"id": "conor-byrne-182667",
@@ -607,6 +813,17 @@
 			"category": "live-music"
 		},
 		{
+			"id": "nectar-2026-11-07-marlo-plus-johnny-monsoon-b2b-oxymoron-madlon-b2b-bella-rose",
+			"title": "MaRLo plus Johnny Monsoon b2b Oxymoron, Madlon b2b Bella Rose, Just J b2b Dr Casa  Cancel the Couch b2b J-Note",
+			"startsAt": "2026-11-07T03:30:00+00:00",
+			"endsAt": "2026-11-07T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/marlo-plus-johnny-monsoon-b2b-oxymoron-madlon-b2b-bella-rose-just-j-b2b-dr-casa-cancel-the-couch-b2b-j-note-201955",
+			"price": "$40",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "nordic-museum-2026-11-07-forest-bathing-at-discovery-park",
 			"title": "Forest Bathing at Discovery Park",
 			"startsAt": "2026-11-07T10:00:00-08:00",
@@ -637,6 +854,25 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "west-of-lenin-2026-11-07-1900-can-t-forget",
+			"title": "Can’t Forget",
+			"startsAt": "2026-11-07T19:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-things-you-cant-forget-tickets-1997501366358?aff=ebdsoporgprofile",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
+		},
+		{
+			"id": "wayward-2026-11-07-morgan-o-asa-nakagawa-precious-bane",
+			"title": "Morgan O. + Asa Nakagawa + Precious Bane",
+			"startsAt": "2026-11-07T20:00:00-08:00",
+			"url": "https://www.waywardmusic.org/event/morgan-o-asa-nakagawa-precious-bane/",
+			"price": "$5 - $20 sliding scale at the door",
+			"source": "wayward",
+			"venueId": "chapel-performance-space",
+			"category": "live-music"
+		},
+		{
 			"id": "conor-byrne-179348",
 			"title": "The Sweet Lillies with Serafima & The Shakedowns",
 			"startsAt": "2026-11-07T21:00:00-08:00",
@@ -655,6 +891,15 @@
 			"category": "jazz",
 			"source": "egans",
 			"venueId": "egans-ballard-jam-house"
+		},
+		{
+			"id": "phinneywood-19788-2026-11-07",
+			"venueId": "phinney-center",
+			"title": "Dia De Los Muertos",
+			"startsAt": "2026-11-07T22:00:00Z",
+			"endsAt": "2026-11-08T01:00:00Z",
+			"url": "https://phinneywood.com/event/dia-de-los-muertos/",
+			"source": "phinneywood"
 		},
 		{
 			"id": "halfseas-2026-11-07T23:00-international-merlot-day",
@@ -687,6 +932,17 @@
 			"category": "theater"
 		},
 		{
+			"id": "nectar-2026-11-08-queen-mother-and-coool-babies",
+			"title": "QUEEN MOTHER and Coool Babies",
+			"startsAt": "2026-11-08T03:30:00+00:00",
+			"endsAt": "2026-11-08T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/queen-mother-and-coool-babies-204170",
+			"price": "$25",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "hidden-hall-2026-11-08-the-last-revel-plus-nathaniel-riley-and-matthew-rev-rieger",
 			"title": "THE LAST REVEL plus Nathaniel Riley and Matthew \"Rev\" Rieger",
 			"startsAt": "2026-11-08T04:00:00+00:00",
@@ -708,6 +964,15 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "west-of-lenin-2026-11-08-1800-can-t-forget",
+			"title": "Can’t Forget",
+			"startsAt": "2026-11-08T18:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-things-you-cant-forget-tickets-1997501366358?aff=ebdsoporgprofile",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
+		},
+		{
 			"id": "conor-byrne-193021",
 			"title": "Conor Byrne Open Mic! Sign Ups @7:30",
 			"startsAt": "2026-11-08T20:00:00-08:00",
@@ -726,6 +991,37 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "sunset-hill-hall-2193-2026-11-08",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Beginning Country Two-Step – Workshop",
+			"startsAt": "2026-11-08T23:00:00Z",
+			"endsAt": "2026-11-09T00:30:00Z",
+			"url": "https://sunsethillcommunity.org/event/beginning-country-two-step-workshop/",
+			"category": "class",
+			"source": "sunset-hill-hall"
+		},
+		{
+			"id": "sunset-hill-hall-2195-2026-11-09",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Intermediate Country Two-Step – East Coast Swing Fusion – Workshop",
+			"startsAt": "2026-11-09T00:30:00Z",
+			"endsAt": "2026-11-09T02:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/intermediate-country-two-step-east-coast-swing-fusion-workshop/",
+			"category": "class",
+			"source": "sunset-hill-hall"
+		},
+		{
+			"id": "nectar-2026-11-09-crab-with-sydney-graves-villians-inside",
+			"title": "CRAB with Sydney Graves, Villians Inside",
+			"startsAt": "2026-11-09T02:00:00+00:00",
+			"endsAt": "2026-11-09T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/crab-with-sydney-graves-villians-inside-206336",
+			"price": "$12",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
 		},
 		{
 			"id": "visitballard-10008583-2026-11-09",
@@ -782,6 +1078,15 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "sunset-hill-hall-10006352-2026-11-10",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Waltz Etc.",
+			"startsAt": "2026-11-10T03:00:00Z",
+			"endsAt": "2026-11-10T06:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/waltz-etc/2026-11-09/",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "abbey-arts-2026-11-10T04:00-lila-forde-zan-fiskum",
 			"venueId": "fremont-abbey",
 			"title": "Lila Forde, Zan Fiskum",
@@ -832,6 +1137,16 @@
 			"source": "myballard"
 		},
 		{
+			"id": "sunset-hill-hall-10009927-2026-11-11",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Beginning East Coast Swing – Class Series",
+			"startsAt": "2026-11-11T02:45:00Z",
+			"endsAt": "2026-11-11T03:45:00Z",
+			"url": "https://sunsethillcommunity.org/event/beginning-east-coast-swing-class-series/2026-11-10/",
+			"category": "class",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "hidden-hall-2026-11-11-reflect-deep-house-melodic-techno",
 			"title": "REFLECT - Deep House & Melodic Techno",
 			"startsAt": "2026-11-11T03:00:00+00:00",
@@ -841,6 +1156,16 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "sunset-hill-hall-10009984-2026-11-11",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Beginning Foxtrot – Class Series",
+			"startsAt": "2026-11-11T04:00:00Z",
+			"endsAt": "2026-11-11T05:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/beginning-foxtrot-class-series/2026-11-10/",
+			"category": "class",
+			"source": "sunset-hill-hall"
 		},
 		{
 			"id": "nordic-museum-2026-11-11-julefest-community-decoration-craft-day",
@@ -935,6 +1260,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "wayward-2026-11-12-nat-evans-what-are-days-for",
+			"title": "Nat Evans: What Are Days For",
+			"startsAt": "2026-11-12T20:00:00-08:00",
+			"url": "https://www.waywardmusic.org/event/nat-evans-what-are-days-for/",
+			"price": "$5 - $20 suggested donation at the door (NOTAFLOF)",
+			"source": "wayward",
+			"venueId": "chapel-performance-space",
+			"category": "live-music"
+		},
+		{
 			"id": "halfseas-2026-11-12T23:00-international-temporanillo-day",
 			"title": "International Temporanillo Day!",
 			"startsAt": "2026-11-12T23:00:00.833Z",
@@ -953,6 +1288,17 @@
 			"url": "https://www.visitballard.com/event/book-gold-foiling-workshop/",
 			"category": "class",
 			"source": "visitballard"
+		},
+		{
+			"id": "nectar-2026-11-13-the-breaks-eddie-roberts-robert-walter-stanton-moore-plus-gu",
+			"title": "THE BREAKS (Eddie Roberts, Robert Walter, Stanton Moore) plus guests Doria Klomp Heyer",
+			"startsAt": "2026-11-13T03:00:00+00:00",
+			"endsAt": "2026-11-13T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/the-breaks-eddie-roberts-robert-walter-stanton-moore-plus-guests-doria-klomp-heyer-199404",
+			"price": "$35",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
 		},
 		{
 			"id": "hidden-hall-2026-11-13-geordie-kieffer-with-special-guests",
@@ -1024,6 +1370,17 @@
 			"price": "$20",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-11-14-the-polish-ambassador-dead-polish-phish",
+			"title": "THE POLISH AMBASSADOR - DEAD POLISH PHISH",
+			"startsAt": "2026-11-14T04:00:00+00:00",
+			"endsAt": "2026-11-15T07:55:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/the-polish-ambassador-dead-polish-phish-187160",
+			"price": "$35",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -1111,6 +1468,17 @@
 			"source": "abbey-arts"
 		},
 		{
+			"id": "nectar-2026-11-15-the-polish-ambassador-dead-polish-phish",
+			"title": "THE POLISH AMBASSADOR - DEAD POLISH PHISH",
+			"startsAt": "2026-11-15T04:00:00+00:00",
+			"endsAt": "2026-11-15T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/the-polish-ambassador-dead-polish-phish-187378",
+			"price": "$40",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "hidden-hall-2026-11-15-i-want-it-that-way-90s-2000s-dance-party-feat-all4doras-and-",
 			"title": "I WANT IT THAT WAY: 90s/2000s Dance Party feat #ALL4DORAS and DJ Dance Dance",
 			"startsAt": "2026-11-15T05:00:00+00:00",
@@ -1161,6 +1529,17 @@
 			"price": "$30",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-11-16-cem-adrian",
+			"title": "CEM ADRIAN",
+			"startsAt": "2026-11-16T03:00:00+00:00",
+			"endsAt": "2026-11-16T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/cem-adrian-197129",
+			"price": "$90",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -1217,6 +1596,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "nectar-2026-11-17-damag3-with-the-neighborhood-kids-connor-cristi",
+			"title": "DAMAG3 with The Neighborhood Kids, Connor Cristi",
+			"startsAt": "2026-11-17T03:00:00+00:00",
+			"endsAt": "2026-11-17T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/damag3-with-the-neighborhood-kids-connor-cristi-201624",
+			"price": "$18",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "visitballard-45390-2026-11-17",
 			"venueId": "swoon-city",
 			"title": "Book Club – Emotional Damage",
@@ -1226,6 +1616,15 @@
 			"price": "Free",
 			"category": "comedy",
 			"source": "visitballard"
+		},
+		{
+			"id": "sunset-hill-hall-10006353-2026-11-17",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Waltz Etc.",
+			"startsAt": "2026-11-17T03:00:00Z",
+			"endsAt": "2026-11-17T06:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/waltz-etc/2026-11-16/",
+			"source": "sunset-hill-hall"
 		},
 		{
 			"id": "conor-byrne-194642",
@@ -1268,6 +1667,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "sunset-hill-hall-10009928-2026-11-18",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Beginning East Coast Swing – Class Series",
+			"startsAt": "2026-11-18T02:45:00Z",
+			"endsAt": "2026-11-18T03:45:00Z",
+			"url": "https://sunsethillcommunity.org/event/beginning-east-coast-swing-class-series/2026-11-17/",
+			"category": "class",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "hidden-hall-2026-11-18-francisca-valenzuela-maldita-tour",
 			"title": "FRANCISCA VALENZUELA - \"Maldita\" Tour",
 			"startsAt": "2026-11-18T03:00:00+00:00",
@@ -1276,6 +1685,17 @@
 			"price": "$27.5",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-11-18-dev-lemons",
+			"title": "DEV LEMONS",
+			"startsAt": "2026-11-18T03:00:00+00:00",
+			"endsAt": "2026-11-18T09:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/dev-lemons-198650",
+			"price": "$25",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -1290,6 +1710,16 @@
 			"source": "myballard"
 		},
 		{
+			"id": "sunset-hill-hall-10009985-2026-11-18",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Beginning Foxtrot – Class Series",
+			"startsAt": "2026-11-18T04:00:00Z",
+			"endsAt": "2026-11-18T05:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/beginning-foxtrot-class-series/2026-11-17/",
+			"category": "class",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "aslan-199399",
 			"title": "Twilight Trivia",
 			"startsAt": "2026-11-18T19:00:00-08:00",
@@ -1298,6 +1728,25 @@
 			"category": "trivia",
 			"source": "aslan-fremont",
 			"venueId": "aslan-fremont"
+		},
+		{
+			"id": "wayward-2026-11-18-kamran-shafii-caen-blsphm",
+			"title": "Kamran Shafii + CAEN + BLSPHM",
+			"startsAt": "2026-11-18T19:00:00-08:00",
+			"url": "https://www.waywardmusic.org/event/kamran-shafii-caen-blsphm/",
+			"price": "$15 - $20 donation at the door",
+			"source": "wayward",
+			"venueId": "chapel-performance-space",
+			"category": "live-music"
+		},
+		{
+			"id": "west-of-lenin-2026-11-18-1930-good-people",
+			"title": "Good People",
+			"startsAt": "2026-11-18T19:30:00-08:00",
+			"url": "https://click4tix.net/patrons/ticketDetails.html?_id=202",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
 		},
 		{
 			"id": "conor-byrne-194067",
@@ -1318,6 +1767,17 @@
 			"price": "$12.5",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-11-19-louie-thesinger-with-special-guests",
+			"title": "LOUIE THESINGER with Special Guests",
+			"startsAt": "2026-11-19T03:00:00+00:00",
+			"endsAt": "2026-11-19T09:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/louie-thesinger-with-special-guests-209101",
+			"price": "$25",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -1385,6 +1845,24 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "west-of-lenin-2026-11-19-1930-good-people",
+			"title": "Good People",
+			"startsAt": "2026-11-19T19:30:00-08:00",
+			"url": "https://click4tix.net/patrons/ticketDetails.html?_id=202",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
+		},
+		{
+			"id": "taproot-2026-11-19-1930-louisa-may-alcott-s-little-women",
+			"title": "Louisa May Alcott’s Little Women (Pay What You Can)",
+			"startsAt": "2026-11-19T19:30:00-08:00",
+			"url": "https://taproottheatre.org/2026/little-women/",
+			"source": "taproot",
+			"venueId": "taproot-theatre",
+			"category": "theater"
+		},
+		{
 			"id": "conor-byrne-191263",
 			"title": "Moving in Slow + Good Grief + Raegan Leilani",
 			"startsAt": "2026-11-19T20:00:00-08:00",
@@ -1393,6 +1871,16 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "wayward-2026-11-19-what-s-going-on-festival-wayne-horvitz",
+			"title": "What’s Going On Festival: Wayne Horvitz",
+			"startsAt": "2026-11-19T20:00:00-08:00",
+			"url": "https://www.waywardmusic.org/event/whats-going-on-festival-wayne-horvitz/",
+			"price": "$10 - $25 donation at the door",
+			"source": "wayward",
+			"venueId": "chapel-performance-space",
+			"category": "live-music"
 		},
 		{
 			"id": "hidden-hall-2026-11-20-mister-blank-album-release-show-with-the-fabulous-downey-bro",
@@ -1416,6 +1904,17 @@
 			"category": "theater"
 		},
 		{
+			"id": "nectar-2026-11-20-hard-maybe-with-bad-peanut-sugar-bones",
+			"title": "HARD MAYBE with Bad Peanut, Sugar Bones",
+			"startsAt": "2026-11-20T03:30:00+00:00",
+			"endsAt": "2026-11-20T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/hard-maybe-with-bad-peanut-sugar-bones-208901",
+			"price": "$12",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "visitballard-10006306-2026-11-20",
 			"venueId": "hatties-hat",
 			"title": "Karaoke at Hattie’s Hat",
@@ -1433,6 +1932,25 @@
 			"category": "jazz",
 			"source": "egans",
 			"venueId": "egans-ballard-jam-house"
+		},
+		{
+			"id": "west-of-lenin-2026-11-20-1930-good-people",
+			"title": "Good People",
+			"startsAt": "2026-11-20T19:30:00-08:00",
+			"url": "https://click4tix.net/patrons/ticketDetails.html?_id=202",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
+		},
+		{
+			"id": "wayward-2026-11-20-butler-shannon-stanford-john-teske",
+			"title": "Butler/Shannon/Stanford + John Teske",
+			"startsAt": "2026-11-20T20:00:00-08:00",
+			"url": "https://www.waywardmusic.org/event/aaron-michael-butler-john-teske/",
+			"price": "$15 - $30 suggested donation at the door (NOTAFLOF)",
+			"source": "wayward",
+			"venueId": "chapel-performance-space",
+			"category": "live-music"
 		},
 		{
 			"id": "conor-byrne-192093",
@@ -1453,6 +1971,16 @@
 			"url": "https://www.myballard.com/event/up-on-the-roof-abba/",
 			"price": "$40",
 			"source": "myballard"
+		},
+		{
+			"id": "sunset-hill-hall-10009064-2026-11-21",
+			"venueId": "sunset-hill-community-hall",
+			"title": "SHCH Open Mic",
+			"startsAt": "2026-11-21T02:15:00Z",
+			"endsAt": "2026-11-21T05:30:00Z",
+			"url": "https://sunsethillcommunity.org/event/shch-open-mic-12/2026-11-20/",
+			"category": "open-mic",
+			"source": "sunset-hill-hall"
 		},
 		{
 			"id": "hidden-hall-2026-11-21-bombargo-with-dylan-chambers",
@@ -1487,6 +2015,17 @@
 			"category": "theater"
 		},
 		{
+			"id": "nectar-2026-11-21-garaj-mahal-feat-andy-coe-with-suffering-yuckheads",
+			"title": "GARAJ MAHAL feat ANDY COE with Suffering Yuckheads",
+			"startsAt": "2026-11-21T04:00:00+00:00",
+			"endsAt": "2026-11-21T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/garaj-mahal-feat-andy-coe-with-suffering-yuckheads-204167",
+			"price": "$25",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "egans-2026-11-21-1900-lady-a",
 			"title": "Lady 'A'",
 			"startsAt": "2026-11-21T19:00:00-08:00",
@@ -1506,6 +2045,15 @@
 			"price": "$130",
 			"category": "class",
 			"source": "visitballard"
+		},
+		{
+			"id": "west-of-lenin-2026-11-21-1930-good-people",
+			"title": "Good People",
+			"startsAt": "2026-11-21T19:30:00-08:00",
+			"url": "https://click4tix.net/patrons/ticketDetails.html?_id=202",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
 		},
 		{
 			"id": "conor-byrne-184857",
@@ -1581,6 +2129,26 @@
 			"source": "myballard"
 		},
 		{
+			"id": "nectar-2026-11-22-polyrhythmics-2-sets",
+			"title": "POLYRHYTHMICS (2 sets)",
+			"startsAt": "2026-11-22T04:00:00+00:00",
+			"endsAt": "2026-11-22T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/polyrhythmics-2-sets--197884",
+			"price": "$25",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
+			"id": "west-of-lenin-2026-11-22-1500-good-people",
+			"title": "Good People",
+			"startsAt": "2026-11-22T15:00:00-08:00",
+			"url": "https://click4tix.net/patrons/ticketDetails.html?_id=202",
+			"source": "west-of-lenin",
+			"venueId": "west-of-lenin",
+			"category": "theater"
+		},
+		{
 			"id": "conor-byrne-200614",
 			"title": "Lushy - Matinee",
 			"startsAt": "2026-11-22T16:00:00-08:00",
@@ -1644,6 +2212,17 @@
 			"category": "live-music"
 		},
 		{
+			"id": "nectar-2026-11-23-persephone-darke-with-rainbow-jackson-no-monaco-athena",
+			"title": "PERSEPHONE DARKE with Rainbow Jackson, No Monaco, Athena",
+			"startsAt": "2026-11-23T03:00:00+00:00",
+			"endsAt": "2026-11-23T09:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/persephone-darke-with-rainbow-jackson-no-monaco-athena-208315",
+			"price": "$12",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "conor-byrne-200723",
 			"title": "Irish Music Monday with Castlerock",
 			"startsAt": "2026-11-23T19:00:00-08:00",
@@ -1687,6 +2266,15 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "sunset-hill-hall-10006354-2026-11-24",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Waltz Etc.",
+			"startsAt": "2026-11-24T03:00:00Z",
+			"endsAt": "2026-11-24T06:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/waltz-etc/2026-11-23/",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "conor-byrne-194645",
 			"title": "Country Dance Night with Dave Harmonson",
 			"startsAt": "2026-11-24T20:00:00-08:00",
@@ -1705,6 +2293,26 @@
 			"url": "https://www.visitballard.com/event/trivia-night/2026-11-24/",
 			"category": "trivia",
 			"source": "visitballard"
+		},
+		{
+			"id": "sunset-hill-hall-10009929-2026-11-25",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Beginning East Coast Swing – Class Series",
+			"startsAt": "2026-11-25T02:45:00Z",
+			"endsAt": "2026-11-25T03:45:00Z",
+			"url": "https://sunsethillcommunity.org/event/beginning-east-coast-swing-class-series/2026-11-24/",
+			"category": "class",
+			"source": "sunset-hill-hall"
+		},
+		{
+			"id": "sunset-hill-hall-10009986-2026-11-25",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Beginning Foxtrot – Class Series",
+			"startsAt": "2026-11-25T04:00:00Z",
+			"endsAt": "2026-11-25T05:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/beginning-foxtrot-class-series/2026-11-24/",
+			"category": "class",
+			"source": "sunset-hill-hall"
 		},
 		{
 			"id": "conor-byrne-195378",
@@ -1747,6 +2355,17 @@
 			"price": "$5",
 			"category": "trivia",
 			"source": "visitballard"
+		},
+		{
+			"id": "nectar-2026-11-26-10th-annual-thankful-dead-3-special-nights-featuring-andy-co",
+			"title": "10th Annual THANKFUL DEAD 3 special nights! featuring ANDY COE BAND",
+			"startsAt": "2026-11-26T04:00:00+00:00",
+			"endsAt": "2026-11-29T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/10th-annual-thankful-dead-3-special-nights-featuring-andy-coe-band-201950",
+			"price": "$20",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
 		},
 		{
 			"id": "visitballard-10007940-2026-11-26",
@@ -1800,6 +2419,16 @@
 			"category": "live-music"
 		},
 		{
+			"id": "nectar-2026-11-28-10th-annual-thankful-dead-3-special-nights-featuring-andy-co",
+			"title": "10th Annual THANKFUL DEAD 3 special nights! featuring ANDY COE BAND",
+			"startsAt": "2026-11-28T04:00:00+00:00",
+			"endsAt": "2026-11-28T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/10th-annual-thankful-dead-3-special-nights-featuring-andy-coe-band-206025",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "egans-2026-11-28-1900-bluesy-tunes-from-the-20th-century",
 			"title": "Bluesy Tunes From The 20th Century",
 			"startsAt": "2026-11-28T19:00:00-08:00",
@@ -1848,6 +2477,16 @@
 			"price": "$20",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-11-29-10th-annual-thankful-dead-3-special-nights-featuring-andy-co",
+			"title": "10th Annual THANKFUL DEAD 3 special nights! featuring ANDY COE BAND",
+			"startsAt": "2026-11-29T04:00:00+00:00",
+			"endsAt": "2026-11-29T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/10th-annual-thankful-dead-3-special-nights-featuring-andy-coe-band-206026",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -1903,6 +2542,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "nectar-2026-11-30-head-hurt-with-red-reaction-side-hustle",
+			"title": "Head Hurt with Red Reaction, Side Hustle",
+			"startsAt": "2026-11-30T03:00:00+00:00",
+			"endsAt": "2026-11-30T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/head-hurt-with-red-reaction-side-hustle-210210",
+			"price": "$10",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "conor-byrne-197022",
 			"title": "The Welldiggers 5th Mondays - Bluegrass + Pro Jam",
 			"startsAt": "2026-11-30T19:00:00-08:00",
@@ -1956,6 +2606,15 @@
 			"source": "myballard"
 		},
 		{
+			"id": "sunset-hill-hall-10006355-2026-12-01",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Waltz Etc.",
+			"startsAt": "2026-12-01T03:00:00Z",
+			"endsAt": "2026-12-01T06:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/waltz-etc/2026-11-30/",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "conor-byrne-194620",
 			"title": "Country Dance Night with The Strix",
 			"startsAt": "2026-12-01T20:00:00-08:00",
@@ -1986,6 +2645,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "sunset-hill-hall-10009930-2026-12-02",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Beginning East Coast Swing – Class Series",
+			"startsAt": "2026-12-02T02:45:00Z",
+			"endsAt": "2026-12-02T03:45:00Z",
+			"url": "https://sunsethillcommunity.org/event/beginning-east-coast-swing-class-series/2026-12-01/",
+			"category": "class",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "hidden-hall-2026-12-02-isaiah-sharkey-with-midpak",
 			"title": "ISAIAH SHARKEY with Midpak",
 			"startsAt": "2026-12-02T03:30:00+00:00",
@@ -1995,6 +2664,16 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "sunset-hill-hall-10009987-2026-12-02",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Beginning Foxtrot – Class Series",
+			"startsAt": "2026-12-02T04:00:00Z",
+			"endsAt": "2026-12-02T05:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/beginning-foxtrot-class-series/2026-12-01/",
+			"category": "class",
+			"source": "sunset-hill-hall"
 		},
 		{
 			"id": "conor-byrne-154016",
@@ -2018,6 +2697,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "phinneywood-27332-2026-12-03",
+			"venueId": "phinney-center",
+			"title": "Wreath Making Workshop",
+			"startsAt": "2026-12-03T02:30:00Z",
+			"endsAt": "2026-12-03T04:00:00Z",
+			"url": "https://phinneywood.com/event/wreath-making-workshop-3/",
+			"category": "class",
+			"source": "phinneywood"
+		},
+		{
 			"id": "hidden-hall-2026-12-03-western-wednesdays-country-dance-night",
 			"title": "WESTERN WEDNESDAYS: Country Dance Night",
 			"startsAt": "2026-12-03T03:00:00+00:00",
@@ -2026,6 +2715,17 @@
 			"price": "$10",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-12-03-mor-ve-o-tesi",
+			"title": "MOR VE ÖTESI",
+			"startsAt": "2026-12-03T03:00:00+00:00",
+			"endsAt": "2026-12-03T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/mor-ve-tesi-197132",
+			"price": "$90",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -2083,6 +2783,15 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "taproot-2026-12-03-1900-a-charlie-brown-christmas",
+			"title": "A Charlie Brown Christmas (Pay What You Can)",
+			"startsAt": "2026-12-03T19:00:00-08:00",
+			"url": "https://taproottheatre.org/2026/charlie-brown-christmas/",
+			"source": "taproot",
+			"venueId": "taproot-theatre",
+			"category": "theater"
+		},
+		{
 			"id": "hidden-hall-2026-12-04-hi-crime-with-sister-swimmer-clam-owie",
 			"title": "HI CRIME with Sister Swimmer, Clam & Owie",
 			"startsAt": "2026-12-04T03:00:00+00:00",
@@ -2091,6 +2800,17 @@
 			"price": "$12",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-12-04-drop-the-star-album-release-show-with-novachrome-the-vases-h",
+			"title": "DROP the STAR *Album Release Show* with NOVACHROME, The Vases, Hellbot",
+			"startsAt": "2026-12-04T03:00:00+00:00",
+			"endsAt": "2026-12-04T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/drop-the-star-album-release-show-with-novachrome-the-vases-hellbot-210265",
+			"price": "$20",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -2153,6 +2873,17 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "nectar-2026-12-05-acapulco-lips-with-tiny-monsters-linda-from-work-zailee-haze",
+			"title": "Acapulco Lips with Tiny Monsters, Linda From Work, Zailee Haze",
+			"startsAt": "2026-12-05T03:30:00+00:00",
+			"endsAt": "2026-12-05T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/acapulco-lips-with-tiny-monsters-linda-from-work-zailee-haze-210916",
+			"price": "$15",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
 		},
 		{
 			"id": "hidden-hall-2026-12-05-ribbon-in-the-sky-with-sounds-by-mills-matondo-marcel-tichi",
@@ -2227,6 +2958,17 @@
 			"category": "theater"
 		},
 		{
+			"id": "nectar-2026-12-06-grapevine-groove-an-early-evening-motown-inspired-party",
+			"title": "GRAPEVINE GROOVE: AN EARLY EVENING MOTOWN-INSPIRED PARTY",
+			"startsAt": "2026-12-06T01:00:00+00:00",
+			"endsAt": "2026-12-06T04:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/grapevine-groove-an-early-evening-motown-inspired-party-210921",
+			"price": "$20",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "hidden-hall-2026-12-06-the-jaws-of-brooklyn-with-heavy-bloom-mckenna-esteb",
 			"title": "THE JAWS OF BROOKLYN with Heavy Bloom, McKenna Esteb",
 			"startsAt": "2026-12-06T03:00:00+00:00",
@@ -2246,6 +2988,17 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "nectar-2026-12-06-dr-gabba-with-wev-jason-code",
+			"title": "DR. GABBA with wev & Jason Code",
+			"startsAt": "2026-12-06T05:00:00+00:00",
+			"endsAt": "2026-12-06T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/dr-gabba-with-wev-jason-code-205215",
+			"price": "$22",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
 		},
 		{
 			"id": "conor-byrne-193025",
@@ -2311,6 +3064,17 @@
 			"category": "live-music"
 		},
 		{
+			"id": "nectar-2026-12-07-i-90-fiasco-with-denny-way-cupcake",
+			"title": "I-90 Fiasco with Denny Way, Cupcake",
+			"startsAt": "2026-12-07T03:00:00+00:00",
+			"endsAt": "2026-12-07T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/i-90-fiasco-with-denny-way-cupcake-209418",
+			"price": "$12",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "conor-byrne-201013",
 			"title": "Bal-Swing Dance Lessons",
 			"startsAt": "2026-12-07T19:00:00-08:00",
@@ -2364,6 +3128,15 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "sunset-hill-hall-10006356-2026-12-08",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Waltz Etc.",
+			"startsAt": "2026-12-08T03:00:00Z",
+			"endsAt": "2026-12-08T06:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/waltz-etc/2026-12-07/",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "spt-2026-12-08T03:30-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-08T03:30:00.765Z",
@@ -2404,6 +3177,26 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "phinneywood-27337-2026-12-09",
+			"venueId": "phinney-center",
+			"title": "Wreath Making Workshop",
+			"startsAt": "2026-12-09T02:30:00Z",
+			"endsAt": "2026-12-09T04:00:00Z",
+			"url": "https://phinneywood.com/event/wreath-making-workshop-2/",
+			"category": "class",
+			"source": "phinneywood"
+		},
+		{
+			"id": "sunset-hill-hall-10009931-2026-12-09",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Beginning East Coast Swing – Class Series",
+			"startsAt": "2026-12-09T02:45:00Z",
+			"endsAt": "2026-12-09T03:45:00Z",
+			"url": "https://sunsethillcommunity.org/event/beginning-east-coast-swing-class-series/2026-12-08/",
+			"category": "class",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "hidden-hall-2026-12-09-reflect-deep-house-melodic-techno",
 			"title": "REFLECT - Deep House & Melodic Techno",
 			"startsAt": "2026-12-09T03:00:00+00:00",
@@ -2413,6 +3206,16 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "sunset-hill-hall-10009988-2026-12-09",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Beginning Foxtrot – Class Series",
+			"startsAt": "2026-12-09T04:00:00Z",
+			"endsAt": "2026-12-09T05:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/beginning-foxtrot-class-series/2026-12-08/",
+			"category": "class",
+			"source": "sunset-hill-hall"
 		},
 		{
 			"id": "conor-byrne-199712",
@@ -2507,6 +3310,17 @@
 			"category": "live-music"
 		},
 		{
+			"id": "nectar-2026-12-11-while-we-re-young-a-one-direction-dance-night",
+			"title": "WHILE WE'RE YOUNG: A ONE DIRECTION DANCE NIGHT",
+			"startsAt": "2026-12-11T04:30:00+00:00",
+			"endsAt": "2026-12-11T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/while-we-re-young-a-one-direction-dance-night-206306",
+			"price": "$15",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "visitballard-10006309-2026-12-11",
 			"venueId": "hatties-hat",
 			"title": "Karaoke at Hattie’s Hat",
@@ -2524,6 +3338,15 @@
 			"category": "jazz",
 			"source": "egans",
 			"venueId": "egans-ballard-jam-house"
+		},
+		{
+			"id": "taproot-2026-12-11-1900-a-charlie-brown-christmas",
+			"title": "A Charlie Brown Christmas (Sensory Friendly)",
+			"startsAt": "2026-12-11T19:00:00-08:00",
+			"url": "https://taproottheatre.org/2026/charlie-brown-christmas/",
+			"source": "taproot",
+			"venueId": "taproot-theatre",
+			"category": "theater"
 		},
 		{
 			"id": "egans-2026-12-11-2100-guitarist-danny-godinez-website-details-to-follow",
@@ -2545,6 +3368,27 @@
 			"category": "theater"
 		},
 		{
+			"id": "nectar-2026-12-12-that-1-guy",
+			"title": "THAT 1 GUY",
+			"startsAt": "2026-12-12T01:30:00+00:00",
+			"endsAt": "2026-12-12T08:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/that-1-guy-209171",
+			"price": "$18",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
+			"id": "phinneywood-27342-2026-12-12",
+			"venueId": "phinney-center",
+			"title": "Wreath Making Workshop",
+			"startsAt": "2026-12-12T02:30:00Z",
+			"endsAt": "2026-12-12T04:00:00Z",
+			"url": "https://phinneywood.com/event/wreath-making-workshop/",
+			"category": "class",
+			"source": "phinneywood"
+		},
+		{
 			"id": "spt-2026-12-12T03:30-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-12T03:30:00.765Z",
@@ -2563,6 +3407,17 @@
 			"price": "$13",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-12-12-a-night-at-the-roxbury-90s-club-party-feat-dj-dance-dance",
+			"title": "A NIGHT AT THE ROXBURY: 90s Club Party! feat DJ Dance Dance",
+			"startsAt": "2026-12-12T05:00:00+00:00",
+			"endsAt": "2026-12-12T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/a-night-at-the-roxbury-90s-club-party-feat-dj-dance-dance-208635",
+			"price": "$10",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -2637,6 +3492,17 @@
 			"category": "live-music"
 		},
 		{
+			"id": "nectar-2026-12-13-save-ferris-with-georgetown-orbits-simple-minded-symphony",
+			"title": "SAVE FERRIS with Georgetown Orbits, Simple Minded Symphony",
+			"startsAt": "2026-12-13T04:00:00+00:00",
+			"endsAt": "2026-12-13T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/save-ferris-with-georgetown-orbits-simple-minded-symphony-205068",
+			"price": "$25",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "conor-byrne-193026",
 			"title": "Conor Byrne Open Mic! Sign Ups @7:30",
 			"startsAt": "2026-12-13T20:00:00-08:00",
@@ -2645,6 +3511,17 @@
 			"category": "open-mic",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "nectar-2026-12-13-goss-productions-music-school-showcase",
+			"title": "Goss Productions Music School Showcase",
+			"startsAt": "2026-12-13T21:00:00+00:00",
+			"endsAt": "2026-12-14T00:30:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/goss-productions-music-school-showcase-205382",
+			"price": "$18",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
 		},
 		{
 			"id": "visitballard-44647-2026-12-13",
@@ -2742,6 +3619,15 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "sunset-hill-hall-10006357-2026-12-15",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Waltz Etc.",
+			"startsAt": "2026-12-15T03:00:00Z",
+			"endsAt": "2026-12-15T06:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/waltz-etc/2026-12-14/",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "spt-2026-12-15T03:30-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-15T03:30:00.765Z",
@@ -2762,6 +3648,26 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "nectar-2026-12-16-robert-glasper-two-shows",
+			"title": "ROBERT GLASPER (two shows!)",
+			"startsAt": "2026-12-16T01:00:00+00:00",
+			"endsAt": "2026-12-16T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/robert-glasper-two-shows--186366",
+			"price": "$50",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
+			"id": "taproot-2026-12-16-1930-louisa-may-alcott-s-little-women",
+			"title": "Louisa May Alcott’s Little Women (Closed Captioned)",
+			"startsAt": "2026-12-16T19:30:00-08:00",
+			"url": "https://taproottheatre.org/2026/little-women/",
+			"source": "taproot",
+			"venueId": "taproot-theatre",
+			"category": "theater"
+		},
+		{
 			"id": "conor-byrne-198592",
 			"title": "Loose Wing + Pilot Seat + The Hugs + David Coppin Lanegan",
 			"startsAt": "2026-12-16T20:00:00-08:00",
@@ -2780,6 +3686,17 @@
 			"price": "$10",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-12-17-westside-boogie-plus-4ust-collective-dj-indica-jones",
+			"title": "WESTSIDE BOOGIE plus 4ust Collective, DJ Indica Jones",
+			"startsAt": "2026-12-17T03:00:00+00:00",
+			"endsAt": "2026-12-17T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/westside-boogie-plus-4ust-collective-dj-indica-jones-208949",
+			"price": "$25",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -2857,6 +3774,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "nectar-2026-12-18-cascadia-winter-solstice-weekend-ft-beats-antique-with-david",
+			"title": "CASCADIA WINTER SOLSTICE WEEKEND Ft. BEATS ANTIQUE with David Starfire",
+			"startsAt": "2026-12-18T03:00:00+00:00",
+			"endsAt": "2026-12-18T09:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/cascadia-winter-solstice-weekend-ft-beats-antique-with-david-starfire-200645",
+			"price": "$40",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "spt-2026-12-18T03:30-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-18T03:30:00.765Z",
@@ -2886,6 +3814,15 @@
 			"url": "https://www.visitballard.com/event/karaoke-at-hatties-hat/2026-12-17/",
 			"category": "karaoke",
 			"source": "visitballard"
+		},
+		{
+			"id": "taproot-2026-12-18-1600-a-charlie-brown-christmas",
+			"title": "A Charlie Brown Christmas (Closed Captioned)",
+			"startsAt": "2026-12-18T16:00:00-08:00",
+			"url": "https://taproottheatre.org/2026/charlie-brown-christmas/",
+			"source": "taproot",
+			"venueId": "taproot-theatre",
+			"category": "theater"
 		},
 		{
 			"id": "conor-byrne-200607",
@@ -2949,6 +3886,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "sunset-hill-hall-10009065-2026-12-19",
+			"venueId": "sunset-hill-community-hall",
+			"title": "SHCH Open Mic",
+			"startsAt": "2026-12-19T02:15:00Z",
+			"endsAt": "2026-12-19T05:30:00Z",
+			"url": "https://sunsethillcommunity.org/event/shch-open-mic-12/2026-12-18/",
+			"category": "open-mic",
+			"source": "sunset-hill-hall"
+		},
+		{
 			"id": "spt-2026-12-19T03:30-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-19T03:30:00.765Z",
@@ -2967,6 +3914,17 @@
 			"price": "$32",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-12-19-cascadia-winter-solstice-weekend-ft-beats-antique-with-bluet",
+			"title": "CASCADIA WINTER SOLSTICE WEEKEND Ft. BEATS ANTIQUE with Bluetech, Frequenzie",
+			"startsAt": "2026-12-19T04:00:00+00:00",
+			"endsAt": "2026-12-19T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/cascadia-winter-solstice-weekend-ft-beats-antique-with-bluetech-frequenzie-200646",
+			"price": "$40",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -3008,6 +3966,17 @@
 			"price": "$25",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2026-12-20-cascadia-winter-solstice-weekend-ft-atyya-chmura-duffrey-rob",
+			"title": "CASCADIA WINTER SOLSTICE WEEKEND Ft. Atyya, Chmura, Duffrey, Rob Noble",
+			"startsAt": "2026-12-20T03:00:00+00:00",
+			"endsAt": "2026-12-20T07:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/cascadia-winter-solstice-weekend-ft-atyya-chmura-duffrey-rob-noble-202998",
+			"price": "$25",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{
@@ -3073,6 +4042,17 @@
 			"category": "live-music"
 		},
 		{
+			"id": "nectar-2026-12-21-making-movies-album-release-rizo",
+			"title": "MAKING MOVIES (Album Release) + Rizo",
+			"startsAt": "2026-12-21T03:00:00+00:00",
+			"endsAt": "2026-12-21T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/making-movies-album-release-rizo-208905",
+			"price": "$25",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "conor-byrne-201014",
 			"title": "Bal-Swing Dance Lessons",
 			"startsAt": "2026-12-21T19:00:00-08:00",
@@ -3124,6 +4104,24 @@
 			"price": "Free",
 			"category": "trivia",
 			"source": "visitballard"
+		},
+		{
+			"id": "sunset-hill-hall-10006358-2026-12-22",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Waltz Etc.",
+			"startsAt": "2026-12-22T03:00:00Z",
+			"endsAt": "2026-12-22T06:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/waltz-etc/2026-12-21/",
+			"source": "sunset-hill-hall"
+		},
+		{
+			"id": "taproot-2026-12-22-1600-a-charlie-brown-christmas",
+			"title": "A Charlie Brown Christmas (and)",
+			"startsAt": "2026-12-22T16:00:00-08:00",
+			"url": "https://taproottheatre.org/2026/charlie-brown-christmas/",
+			"source": "taproot",
+			"venueId": "taproot-theatre",
+			"category": "theater"
 		},
 		{
 			"id": "conor-byrne-194646",
@@ -3229,6 +4227,17 @@
 			"category": "theater"
 		},
 		{
+			"id": "nectar-2026-12-27-true-loves-with-guests-mega-cat",
+			"title": "TRUE LOVES with guests mega cat",
+			"startsAt": "2026-12-27T04:00:00+00:00",
+			"endsAt": "2026-12-27T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/true-loves-with-guests-mega-cat-205620",
+			"price": "$35",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "conor-byrne-193028",
 			"title": "Conor Byrne Open Mic! Sign Ups @7:30",
 			"startsAt": "2026-12-27T20:00:00-08:00",
@@ -3283,6 +4292,26 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "sunset-hill-hall-10006359-2026-12-29",
+			"venueId": "sunset-hill-community-hall",
+			"title": "Waltz Etc.",
+			"startsAt": "2026-12-29T03:00:00Z",
+			"endsAt": "2026-12-29T06:00:00Z",
+			"url": "https://sunsethillcommunity.org/event/waltz-etc/2026-12-28/",
+			"source": "sunset-hill-hall"
+		},
+		{
+			"id": "nectar-2026-12-30-miller-time-a-tribute-to-the-steve-miller-band-with-canadian",
+			"title": "MILLER TIME (A Tribute to the Steve Miller Band) with Canadian Bakin' (Hits from the Great White North)",
+			"startsAt": "2026-12-30T03:00:00+00:00",
+			"endsAt": "2026-12-30T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/miller-time-a-tribute-to-the-steve-miller-band-with-canadian-bakin-hits-from-the-great-white-north--205742",
+			"price": "$20",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "visitballard-10005197-2026-12-31",
 			"venueId": "reubens-brews",
 			"title": "Trivia with Head in the Clouds",
@@ -3316,6 +4345,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "nectar-2027-01-01-back-to-the-80s-new-year-s-eve-party-featuring-nite-wave",
+			"title": "BACK TO THE 80s NEW YEAR'S EVE PARTY featuring Nite Wave",
+			"startsAt": "2027-01-01T04:00:00+00:00",
+			"endsAt": "2027-01-01T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/back-to-the-80s-new-year-s-eve-party-featuring-nite-wave-209746",
+			"price": "$50",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "visitballard-10006312-2027-01-01",
 			"venueId": "hatties-hat",
 			"title": "Karaoke at Hattie’s Hat",
@@ -3333,6 +4373,17 @@
 			"category": "art",
 			"source": "nordic-museum",
 			"venueId": "nordic-museum"
+		},
+		{
+			"id": "nectar-2027-01-03-queergxrl-launch-party-new-year-new-queer",
+			"title": "Queergxrl Launch Party: New Year, New Queer",
+			"startsAt": "2027-01-03T05:00:00+00:00",
+			"endsAt": "2027-01-03T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/queergxrl-launch-party-new-year-new-queer-211752",
+			"price": "$15",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
 		},
 		{
 			"id": "visitballard-10008591-2027-01-04",
@@ -3433,6 +4484,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "nectar-2027-01-09-the-lovecats-tribute-to-the-cure-and-dark-wave-mixtape-tribu",
+			"title": "THE LOVECATS (Tribute to the Cure) and DARK WAVE MIXTAPE (Tribute to the 80s underground & Beyond)",
+			"startsAt": "2027-01-09T04:00:00+00:00",
+			"endsAt": "2027-01-09T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/the-lovecats-tribute-to-the-cure-and-dark-wave-mixtape-tribute-to-the-80s-underground-beyond--207679",
+			"price": "$15",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
 			"id": "conor-byrne-200448",
 			"title": "Something United + Daphne + Delridge",
 			"startsAt": "2027-01-09T21:00:00-08:00",
@@ -3441,6 +4503,17 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "nectar-2027-01-10-hit-explosion",
+			"title": "HIT EXPLOSION",
+			"startsAt": "2027-01-10T03:00:00+00:00",
+			"endsAt": "2027-01-10T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/hit-explosion-211916",
+			"price": "$18",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
 		},
 		{
 			"id": "visitballard-10008592-2027-01-11",
@@ -3528,6 +4601,38 @@
 			"url": "https://www.visitballard.com/event/karaoke-at-hatties-hat/2027-01-14/",
 			"category": "karaoke",
 			"source": "visitballard"
+		},
+		{
+			"id": "sunset-hill-hall-10009066-2027-01-16",
+			"venueId": "sunset-hill-community-hall",
+			"title": "SHCH Open Mic",
+			"startsAt": "2027-01-16T02:15:00Z",
+			"endsAt": "2027-01-16T05:30:00Z",
+			"url": "https://sunsethillcommunity.org/event/shch-open-mic-12/2027-01-15/",
+			"category": "open-mic",
+			"source": "sunset-hill-hall"
+		},
+		{
+			"id": "nectar-2027-01-16-crimewave-a-goth-post-punk-darkwave-party",
+			"title": "CRIMEWAVE: A GOTH, POST-PUNK & DARKWAVE PARTY",
+			"startsAt": "2027-01-16T05:00:00+00:00",
+			"endsAt": "2027-01-16T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/crimewave-a-goth-post-punk-darkwave-party-212192",
+			"price": "$15",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2027-01-17-clinton-fearon-a-birthday-celebration-plus-dj-kid-hops-kexp-",
+			"title": "CLINTON FEARON: A Birthday Celebration, plus DJ Kid Hops (KEXP) and Surprise Special Guests",
+			"startsAt": "2027-01-17T04:00:00+00:00",
+			"endsAt": "2027-01-17T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/clinton-fearon-a-birthday-celebration-plus-dj-kid-hops-kexp-and-surprise-special-guests-206469",
+			"price": "$20",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
 		},
 		{
 			"id": "hidden-hall-2027-01-17-veggi-with-mia-maya",
@@ -3637,6 +4742,28 @@
 			"price": "$30",
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2027-01-23-dance-4-u-slayyyter-x-charli-xcx-night",
+			"title": "DANCE... 4 U: SLAYYYTER x CHARLI XCX NIGHT",
+			"startsAt": "2027-01-23T05:30:00+00:00",
+			"endsAt": "2027-01-23T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/dance-4-u-slayyyter-x-charli-xcx-night-211642",
+			"price": "$15",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
+		},
+		{
+			"id": "nectar-2027-01-24-bangers-before-bed",
+			"title": "BANGERS BEFORE BED",
+			"startsAt": "2027-01-24T00:30:00+00:00",
+			"endsAt": "2027-01-24T03:30:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/bangers-before-bed-212538",
+			"price": "$15",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
 			"category": "live-music"
 		},
 		{

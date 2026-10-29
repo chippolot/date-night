@@ -56,6 +56,19 @@ describe("ics", () => {
 		expect(firstOccurrence(night.recurrence, "2026-10-29")).toBe("2026-11-09");
 	});
 
+	test("runs start no earlier than `from` and end with a UTC UNTIL", () => {
+		const run = {
+			kind: "weekly" as const,
+			days: ["WE" as const],
+			from: "2026-11-18",
+			until: "2026-12-26",
+		};
+		expect(firstOccurrence(run, "2026-10-29")).toBe("2026-11-18");
+		expect(rrule(run)).toBe(
+			"RRULE:FREQ=WEEKLY;BYDAY=WE;UNTIL=20261227T075959Z",
+		);
+	});
+
 	test("escapes text", () => {
 		expect(escapeText("a, b; c\nd")).toBe("a\\, b\\; c\\nd");
 	});

@@ -27,6 +27,19 @@ function horizon(): { from: string; to: string } {
 	};
 }
 
+/**
+ * Full date for a month/day listed without a year. Months well before the current one belong
+ * to next year (Dec → Jan rollover). `month` is 1-based.
+ */
+export function withYear(month: number, day: number, today: string): string {
+	const [year = 0, thisMonth = 0] = today.split("-").map(Number);
+	const y = month < thisMonth - 2 ? year + 1 : year;
+	return `${y}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+/** Robots.txt crawl delay between requests to the same site. */
+const pause = (seconds: number) => Bun.sleep(seconds * 1000);
+
 /** "2026-10-29" + "20:00:00" (Seattle local) → ISO with offset. */
 function localIso(date: string, time: string): string | undefined {
 	return toIso(
@@ -63,6 +76,13 @@ const MYBALLARD_VENUES: Record<string, string> = {
 	"phinney community center": "phinney-center",
 };
 
+const PHINNEYWOOD_VENUES: Record<string, string> = {
+	"phinney center": "phinney-center",
+	"phinney center campus": "phinney-center",
+	"phinney center campus: blue (upper) building": "phinney-center",
+	"phinney center campus: brick (lower) building": "phinney-center",
+};
+
 type TribeVenue = { venue?: string };
 type TribeEvent = {
 	id: number;
@@ -80,17 +100,26 @@ function tribeSource(opts: {
 	/** Site origin, e.g. "https://www.visitballard.com" */
 	origin: string;
 	venues: Record<string, string>;
+	/** Keep only events whose title matches (for calendars full of kids' classes and meetings) */
+	include?: RegExp;
+	exclude?: RegExp;
+	/** Seconds between page requests, from robots.txt */
+	crawlDelay?: number;
 }): Source {
 	return {
 		id: opts.id,
 		async fetchEvents() {
 			const { from, to } = horizon();
-			let url: string | undefined =
-				`${opts.origin}/wp-json/tribe/events/v1/events?per_page=50&start_date=${from}&end_date=${to}`;
+			// Build page URLs rather than following `next_rest_url`: some sites hang on its
+			// timestamped start/end parameters.
+			const base = `${opts.origin}/wp-json/tribe/events/v1/events?per_page=50&start_date=${from}&end_date=${to}`;
 			const out: ScrapedEvent[] = [];
-			for (let page = 0; url && page < 40; page++) {
-				const body: { events: TribeEvent[]; next_rest_url?: string } =
-					JSON.parse(await get(url));
+			for (let page = 1, pages = 1; page <= Math.min(pages, 40); page++) {
+				if (page > 1 && opts.crawlDelay) await pause(opts.crawlDelay);
+				const body: { events: TribeEvent[]; total_pages?: number } = JSON.parse(
+					await get(`${base}&page=${page}`),
+				);
+				pages = body.total_pages ?? 1;
 				for (const e of body.events) {
 					if (e.all_day) continue;
 					const venues = Array.isArray(e.venue) ? e.venue : [e.venue];
@@ -101,6 +130,8 @@ function tribeSource(opts: {
 					const venueId = opts.venues[name];
 					if (!venueId) continue;
 					const title = decodeEntities(e.title).trim();
+					if (opts.include && !opts.include.test(title)) continue;
+					if (opts.exclude?.test(title)) continue;
 					out.push({
 						id: `${opts.id}-${e.id}-${e.utc_start_date.slice(0, 10)}`,
 						venueId,
@@ -114,7 +145,6 @@ function tribeSource(opts: {
 						category: guessCategory(title),
 					});
 				}
-				url = body.next_rest_url;
 			}
 			return out;
 		},
@@ -131,6 +161,25 @@ const myBallard = tribeSource({
 	id: "myballard",
 	origin: "https://www.myballard.com",
 	venues: MYBALLARD_VENUES,
+});
+
+// PhinneyWood blog (Phinney Neighborhood Association). Mostly daytime senior-center and kids'
+// events, so only the Phinney Center (whose own site is behind Cloudflare) is mapped.
+const phinneyWood = tribeSource({
+	id: "phinneywood",
+	origin: "https://phinneywood.com",
+	venues: PHINNEYWOOD_VENUES,
+	exclude: /\b(meeting|potluck)\b/i,
+	crawlDelay: 10,
+});
+
+// Sunset Hill Community Hall: dance nights and an open mic among kids' classes, scouts and rentals.
+const sunsetHill = tribeSource({
+	id: "sunset-hill-hall",
+	origin: "https://sunsethillcommunity.org",
+	venues: { "sunset hill community hall": "sunset-hill-community-hall" },
+	include: /\b(waltz|swing|foxtrot|salsa|two-step|tango|open mic)\b/i,
+	crawlDelay: 10,
 });
 
 // ---------------------------------------------------------------------------
@@ -197,7 +246,7 @@ const nordicMuseum: Source = {
 	async fetchEvents() {
 		const out: ScrapedEvent[] = [];
 		for (let page = 1; page <= 4; page++) {
-			if (page > 1) await Bun.sleep(30_000);
+			if (page > 1) await pause(30);
 			const html = await get(
 				page === 1 ? NORDIC_CALENDAR : `${NORDIC_CALENDAR}?page=${page}`,
 			);
@@ -458,7 +507,6 @@ function stripTags(html: string): string {
 
 /** Parse Egan's schedule.html. `today` (YYYY-MM-DD) anchors the year, since the page has none. */
 export function parseEgans(html: string, today: string): ScrapedEvent[] {
-	const [year = 0, month = 0] = today.split("-").map(Number);
 	const out: ScrapedEvent[] = [];
 	for (const [, dl = ""] of html.matchAll(/<dl>([\s\S]*?)<\/dl>/gi)) {
 		const dt = stripTags(dl.match(/<dt>([\s\S]*?)<\/dt>/i)?.[1] ?? "");
@@ -466,9 +514,7 @@ export function parseEgans(html: string, today: string): ScrapedEvent[] {
 		if (!dm) continue; // e.g. "Our Reservation Policy"
 		const mon = MONTHS.indexOf((dm[1] ?? "").toLowerCase()) + 1;
 		if (!mon) continue;
-		// Months well before the current one belong to next year (Dec → Jan rollover).
-		const y = mon < month - 2 ? year + 1 : year;
-		const date = `${y}-${String(mon).padStart(2, "0")}-${String(dm[2]).padStart(2, "0")}`;
+		const date = withYear(mon, Number(dm[2]), today);
 		if (date < today) continue;
 		for (const [, dd = ""] of dl.matchAll(/<dd>([\s\S]*?)<\/dd>/gi)) {
 			const text = stripTags(dd);
@@ -507,6 +553,230 @@ const egans: Source = {
 	},
 };
 
+// ---------------------------------------------------------------------------
+// Nectar Lounge: same Tixr-backed JSON-LD calendar as its sister venue Hidden Hall.
+
+const nectar = jsonldSource({
+	id: "nectar",
+	venueId: "nectar-lounge",
+	category: "live-music",
+	urls: ["https://nectarlounge.com/events/calendar/"],
+	location: /^nectar lounge$/i,
+});
+
+// ---------------------------------------------------------------------------
+// Wayward Music Series (Chapel Performance Space): WordPress posts, each preceded by an
+// "October 29, 2026 | 8:00 PM" meta line. robots.txt asks for a 10s crawl delay; one page suffices.
+
+export function parseWayward(html: string): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const chunk of html.split(/class="entry-meta"/).slice(1)) {
+		// The chunk starts mid-tag, after `class="entry-meta"`.
+		const when = stripTags(
+			(chunk.split(/<\/div>/)[0] ?? "").replace(/^[^>]*>/, ""),
+		);
+		const m = when.match(
+			/^([A-Za-z]+) (\d{1,2}), (\d{4}) \| (\d{1,2}:\d{2} [AP]M)$/i,
+		);
+		const link = chunk.match(
+			/class="entry-title"><a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/,
+		);
+		const month = MONTHS.indexOf((m?.[1] ?? "").slice(0, 3).toLowerCase()) + 1;
+		const time = to24h(m?.[4] ?? "");
+		if (!m || !month || !time || !link?.[1] || !link[2]) continue;
+		const date = `${m[3]}-${String(month).padStart(2, "0")}-${(m[2] ?? "").padStart(2, "0")}`;
+		const startsAt = localIso(date, time);
+		if (!startsAt) continue;
+		const title = stripTags(link[2]);
+		const price = chunk.match(/class="ticket--link">([\s\S]*?)<\/p>/)?.[1];
+		out.push({
+			id: `wayward-${date}-${slug(title)}`,
+			title,
+			startsAt,
+			url: link[1],
+			price: price ? stripTags(price) : undefined,
+		});
+	}
+	return out;
+}
+
+const wayward: Source = {
+	id: "wayward",
+	venueId: "chapel-performance-space",
+	category: "live-music",
+	async fetchEvents() {
+		return parseWayward(await get("https://www.waywardmusic.org/"));
+	},
+};
+
+// ---------------------------------------------------------------------------
+// West of Lenin: Joomla JEvents "latest events" module on the home page (day, month, time, title
+// with ticket link). Hosts plays and Jet City Improv. The JEvents iCal export is broken.
+
+export function parseWestOfLenin(html: string, today: string): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const chunk of html.split(/class="eventsdiv"/).slice(1)) {
+		const d = chunk.match(
+			/jevdateicon1">(\d{1,2})(?:&nbsp;|\s)*<\/span><span class="jevdateicon2">([A-Za-z]{3})/,
+		);
+		const time = to24h(
+			chunk.match(
+				/mod_events_latest_content">[\s\S]*?<strong>([^<]+)<\/strong>/,
+			)?.[1] ?? "",
+		);
+		const link = chunk.match(
+			/<a href="([^"]+)"[^>]*>\s*<strong>([\s\S]*?)<\/strong>/,
+		);
+		const month = MONTHS.indexOf((d?.[2] ?? "").toLowerCase()) + 1;
+		if (!d || !month || !time || !link?.[1] || !link[2]) continue;
+		const date = withYear(month, Number(d[1]), today);
+		if (date < today) continue;
+		const startsAt = localIso(date, time);
+		if (!startsAt) continue;
+		const title = stripTags(link[2]);
+		out.push({
+			id: `west-of-lenin-${date}-${time.replace(":", "")}-${slug(title)}`,
+			title,
+			startsAt,
+			url: decodeEntities(link[1]),
+		});
+	}
+	return out;
+}
+
+const westOfLenin: Source = {
+	id: "west-of-lenin",
+	venueId: "west-of-lenin",
+	category: "theater",
+	async fetchEvents() {
+		return parseWestOfLenin(
+			await get("https://www.westoflenin.com/"),
+			horizon().from,
+		);
+	},
+};
+
+// ---------------------------------------------------------------------------
+// The Octopus Bar: "Special Events" cards on /events (weekly nights are curated in nights.ts).
+// robots.txt asks for a 30s crawl delay; this is a single request. Often there are none.
+
+export function parseOctopus(html: string, today: string): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const card of html.split(/class="card-special-event /).slice(1)) {
+		const link = card.match(
+			/class="card-special-event__title[^"]*">\s*<a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/,
+		);
+		const date = card.match(
+			/<h4>Date<\/h4>\s*<p>[A-Za-z]{3}, ([A-Za-z]{3}) (\d{1,2})<\/p>/,
+		);
+		const time = to24h(
+			card.match(/<h4>Time<\/h4>\s*<p>([^<]+)<\/p>/)?.[1] ?? "",
+		);
+		const month = MONTHS.indexOf((date?.[1] ?? "").toLowerCase()) + 1;
+		if (!link?.[1] || !link[2] || !date || !month || !time) continue;
+		const day = withYear(month, Number(date[2]), today);
+		const startsAt = localIso(day, time);
+		if (!startsAt) continue;
+		// "October 30 + 31 · Pretty Ugly Vol. 13" → "Pretty Ugly Vol. 13"
+		const title = stripTags(link[2]).replace(/^[^·]*·\s*/, "");
+		out.push({
+			id: `octopus-${day}-${slug(title)}`,
+			title,
+			startsAt,
+			url: link[1],
+			category: guessCategory(title),
+		});
+	}
+	return out;
+}
+
+const octopus: Source = {
+	id: "octopus",
+	venueId: "octopus-bar",
+	mayBeEmpty: true,
+	async fetchEvents() {
+		return parseOctopus(
+			await get("https://theoctopusbar.com/events"),
+			horizon().from,
+		);
+	},
+};
+
+// ---------------------------------------------------------------------------
+// Taproot Theatre: full performance calendars live only in OvationTix (a JS app), so this only
+// picks up the specific performances each show page names, e.g.
+// "<strong>Pay What You Can</strong>: Thursday, November 19 at 7:30 PM".
+// Full runs can be curated in nights.ts with `from`/`until`. robots.txt crawl delay is 10s.
+
+const TAPROOT = "https://taproottheatre.org";
+const TAPROOT_LABELS: Record<string, string> = {
+	cc: "Closed Captioned",
+};
+
+export function parseTaprootShow(
+	html: string,
+	url: string,
+	today: string,
+): ScrapedEvent[] {
+	const show = decodeEntities(
+		html.match(/<meta property="og:title" content="([^"]+)"/)?.[1] ?? "",
+	).replace(/\s+-\s+Taproot Theatre$/, "");
+	if (!show) return [];
+	const out: ScrapedEvent[] = [];
+	const re =
+		/<strong>([^<]{2,40}?):?<\/strong>:?\s*(?:[A-Za-z]+day,\s*)?([A-Za-z]+) (\d{1,2}) at (\d{1,2}:\d{2}\s*[AP]M)/gi;
+	for (const [
+		,
+		rawLabel = "",
+		monthName = "",
+		day = "",
+		clock = "",
+	] of html.matchAll(re)) {
+		const month = MONTHS.indexOf(monthName.slice(0, 3).toLowerCase()) + 1;
+		const time = to24h(clock);
+		if (!month || !time) continue;
+		const date = withYear(month, Number(day), today);
+		if (date < today) continue;
+		const startsAt = localIso(date, time);
+		if (!startsAt) continue;
+		const label =
+			TAPROOT_LABELS[rawLabel.trim().toLowerCase()] ?? rawLabel.trim();
+		out.push({
+			id: `taproot-${date}-${time.replace(":", "")}-${slug(show)}`,
+			title: `${show} (${label})`,
+			startsAt,
+			url,
+		});
+	}
+	return out;
+}
+
+const taproot: Source = {
+	id: "taproot",
+	venueId: "taproot-theatre",
+	category: "theater",
+	mayBeEmpty: true,
+	async fetchEvents() {
+		const today = horizon().from;
+		const home = await get(`${TAPROOT}/`);
+		const shows = [
+			...new Set(
+				[
+					...home.matchAll(
+						/href="(https:\/\/taproottheatre\.org\/20\d\d\/[a-z0-9-]+\/)"/g,
+					),
+				].map((m) => m[1] ?? ""),
+			),
+		];
+		const out: ScrapedEvent[] = [];
+		for (const show of shows) {
+			await pause(10);
+			out.push(...parseTaprootShow(await get(show), show, today));
+		}
+		return out;
+	},
+};
+
 // Not scraped (see CLAUDE.md): Tractor Tavern (ModSecurity blocks non-browser clients),
 // Phinney Center (Cloudflare; some events arrive via My Ballard), Sunset Tavern (DICE widget
 // needs an API key and dice.fm is behind Cloudflare), Fremont Abbey (public calendar is mostly
@@ -523,4 +793,11 @@ export const sources: Source[] = [
 	hiddenHall,
 	abbeyArts,
 	egans,
+	nectar,
+	wayward,
+	westOfLenin,
+	octopus,
+	taproot,
+	phinneyWood,
+	sunsetHill,
 ];
