@@ -25,12 +25,7 @@ import type {
 	Vibe,
 	Weekday,
 } from "../lib/types";
-import {
-	CATEGORIES,
-	CATEGORY_ICONS,
-	CATEGORY_VIBES,
-	NEIGHBORHOODS,
-} from "../lib/types";
+import { CATEGORIES, CATEGORY_VIBES, NEIGHBORHOODS } from "../lib/types";
 import {
 	card,
 	cardList,
@@ -57,29 +52,28 @@ export function occurrences(
 }
 
 const PARTS: {
+	id: string;
 	label: string;
-	icon: string;
 	test: (start: string) => boolean;
 }[] = [
-	{ label: "Afternoon & happy hour", icon: "☀️", test: (s) => s < "17:00" },
-	{ label: "Evening", icon: "🌆", test: (s) => s >= "17:00" && s < "21:00" },
-	{ label: "Late", icon: "🌙", test: (s) => s >= "21:00" },
+	{
+		id: "afternoon",
+		label: "Afternoon & happy hour",
+		test: (s) => s < "17:00",
+	},
+	{ id: "evening", label: "Evening", test: (s) => s >= "17:00" && s < "21:00" },
+	{ id: "late", label: "Late", test: (s) => s >= "21:00" },
 ];
 
 export function tonightView(data: SiteData, today: string, f: Filters): string {
 	const venueById = venueMap(data);
 	const list = applyFilters(occurrences(data, today, 1), venueById, f);
-	const heading = formatDate(today, {
-		weekday: "long",
-		month: "long",
-		day: "numeric",
-	});
-	const sections = PARTS.map(({ label, icon, test }) => {
+	const sections = PARTS.map(({ id, label, test }) => {
 		const items = list.filter((o) => test(o.start));
 		if (!items.length) return "";
-		return `<section class="part"><h2 class="part-heading"><span aria-hidden="true">${icon}</span> ${label} <span class="part-count">${items.length}</span></h2>${cardList(items, venueById, today)}</section>`;
+		return `<section class="part"><h2 class="part-heading"><span class="part-mark part-${id}" aria-hidden="true"></span>${label} <span class="part-count">${items.length}</span></h2>${cardList(items, venueById, today)}</section>`;
 	}).join("");
-	return `<p class="date-heading"><span aria-hidden="true">✦</span> ${heading}</p>
+	return `<p class="date-heading"><span class="date-num">${formatDate(today, { day: "2-digit" })}</span><span class="date-words"><span class="date-weekday">${formatDate(today, { weekday: "long" })}</span><span class="date-month">${formatDate(today, { month: "long", year: "numeric" })}</span></span></p>
 ${
 	sections ||
 	`<p class="empty">Nothing on tonight with these filters. <a href="${href("/week/")}">Check the week →</a></p>`
@@ -154,32 +148,39 @@ export function venuesIndexView(data: SiteData): string {
 				.filter((e) => e.venueId === id)
 				.map((e) => e.category ?? "live-music"),
 		]);
-	return Object.entries(NEIGHBORHOODS)
-		.map(([id, name]) => {
-			const vs = data.venues
+	const hoods = Object.entries(NEIGHBORHOODS)
+		.map(([id, name]) => ({
+			id,
+			name,
+			venues: data.venues
 				.filter((v) => v.neighborhood === id)
-				.sort((a, b) => a.name.localeCompare(b.name));
-			if (!vs.length) return "";
-			const items = vs
+				.sort((a, b) => a.name.localeCompare(b.name)),
+		}))
+		.filter((h) => h.venues.length);
+	const jump = hoods
+		.map((h) => `<a class="hood-link" href="#hood-${h.id}">${h.name}</a>`)
+		.join("");
+	const sections = hoods
+		.map((h) => {
+			const items = h.venues
 				.map((v) => {
-					const cats = [...categoriesOf(v.id)];
-					const icons = cats
+					const dots = [...categoriesOf(v.id)]
 						.map(
 							(c) =>
-								`<span title="${CATEGORIES[c]}">${CATEGORY_ICONS[c]}</span>`,
+								`<span class="dot cat-${c}" title="${CATEGORIES[c]}"></span>`,
 						)
 						.join("");
 					const nights = data.nights.filter((n) => n.venueId === v.id).length;
-					return `<a class="venue-card" href="${href(`/venues/${v.id}/`)}">
-  <span class="venue-icons" aria-hidden="true">${icons}</span>
-  <strong>${esc(v.name)}</strong>
-  <span class="muted">${"$".repeat(v.priceLevel)}${nights ? ` · ${nights} recurring` : ""}</span>
-</a>`;
+					return `<li><a class="venue-row" href="${href(`/venues/${v.id}/`)}">
+  <span class="venue-name">${esc(v.name)}</span>
+  <span class="venue-info"><span class="venue-dots">${dots}</span>${nights ? `<span>${nights} recurring</span>` : ""}<span class="venue-price">${"$".repeat(v.priceLevel)}</span></span>
+</a></li>`;
 				})
 				.join("");
-			return `<section><h2 class="part-heading">${name} <span class="part-count">${vs.length}</span></h2><div class="venue-grid">${items}</div></section>`;
+			return `<section id="hood-${h.id}"><h2 class="part-heading">${h.name} <span class="part-count">${h.venues.length}</span></h2><ul class="venue-list">${items}</ul></section>`;
 		})
 		.join("");
+	return `<p class="hood-jump">${jump}</p>${sections}`;
 }
 
 type Kind = {
@@ -239,7 +240,7 @@ export function mapVenues(data: SiteData, f: Filters): Venue[] {
 }
 
 export const footer = `<footer>
-  <p class="footer-moon" aria-hidden="true">☾</p>
+  <p class="footer-mark" aria-hidden="true"><span></span><span></span><span></span></p>
   <p>Recurring nights are hand-curated and change often. Each card shows when it was last checked, so confirm with the venue before you go.</p>
   <p><a href="${href("/calendar.ics")}">Subscribe to every recurring night</a> · ${esc(SITE.title)}</p>
 </footer>`;

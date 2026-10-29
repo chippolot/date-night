@@ -18,6 +18,19 @@ function render(data: SiteData, f: Filters) {
 		page === "week" ? weekView(data, today, f) : tonightView(data, today, f);
 }
 
+const CLOSE_BUTTON = `<button type="button" class="ticket-close" data-close aria-label="Close">×</button>`;
+
+function closeSurprise(out: HTMLElement) {
+	out.innerHTML = "";
+	document.querySelector<HTMLElement>("[data-surprise]")?.focus();
+}
+
+function wireClose(out: HTMLElement) {
+	out
+		.querySelector("[data-close]")
+		?.addEventListener("click", () => closeSurprise(out));
+}
+
 function renderSurprise(data: SiteData, f: Filters) {
 	const out = document.querySelector<HTMLElement>("[data-surprise-result]");
 	if (!out) return;
@@ -31,13 +44,14 @@ function renderSurprise(data: SiteData, f: Filters) {
 		),
 	);
 	if (!pick) {
-		out.innerHTML = `<div class="ticket"><div class="ticket-part"><p>Couldn't find a pairing for tonight with these filters. Try loosening them.</p></div></div>`;
+		out.innerHTML = `<div class="ticket"><div class="ticket-part ticket-empty">${CLOSE_BUTTON}<p>Couldn't find a pairing for tonight with these filters. Try loosening them.</p></div></div>`;
+		wireClose(out);
 		return;
 	}
 	const { food, activity } = pick;
 	const foodHtml = food.occurrence
 		? card(food.occurrence, food.venue, today)
-		: `<article class="card cat-food-drink-special"><div class="card-time"><span class="card-hours">Dinner</span></div><div class="card-body"><h3><a href="${href(`/venues/${food.venue.id}/`)}">${esc(food.venue.name)}</a></h3><p class="card-where">${NEIGHBORHOODS[food.venue.neighborhood]} · ${"$".repeat(food.venue.priceLevel)}</p></div></article>`;
+		: `<article class="card cat-food-drink-special"><div class="card-time"><span class="card-start">Dinner</span></div><div class="card-body"><h3><a href="${href(`/venues/${food.venue.id}/`)}">${esc(food.venue.name)}</a></h3><p class="card-where">${NEIGHBORHOODS[food.venue.neighborhood]} · ${"$".repeat(food.venue.priceLevel)}</p></div></article>`;
 	const activityHtml = activity
 		? card(
 				activity,
@@ -47,17 +61,19 @@ function renderSurprise(data: SiteData, f: Filters) {
 		: `<p class="muted">No activity matches tonight; maybe just a long dinner.</p>`;
 	out.innerHTML = `<div class="ticket">
   <div class="ticket-head">
+    ${CLOSE_BUTTON}
     <span class="ticket-eyebrow">Admit two · ${formatDate(today, { weekday: "long", month: "short", day: "numeric" })}</span>
     <h2>Tonight's plan</h2>
   </div>
   <div class="ticket-part"><p class="step"><span class="step-n">1</span> Dinner or drinks</p>${foodHtml}</div>
   <div class="ticket-tear" aria-hidden="true"></div>
   <div class="ticket-part"><p class="step"><span class="step-n">2</span> Then</p>${activityHtml}</div>
-  <div class="ticket-foot"><button type="button" data-reroll>🎲 Re-roll</button></div>
+  <div class="ticket-foot"><button type="button" data-reroll>Re-roll</button></div>
 </div>`;
 	out
 		.querySelector("[data-reroll]")
 		?.addEventListener("click", () => renderSurprise(data, f));
+	wireClose(out);
 }
 
 /** Tonight covers a single day, so it has no day picker and ignores any `day` in the URL. */
@@ -78,6 +94,10 @@ async function main() {
 	document
 		.querySelector("[data-surprise]")
 		?.addEventListener("click", () => renderSurprise(data, filters));
+	document.addEventListener("keydown", (e) => {
+		const out = document.querySelector<HTMLElement>("[data-surprise-result]");
+		if (e.key === "Escape" && out?.hasChildNodes()) closeSurprise(out);
+	});
 }
 
 main();

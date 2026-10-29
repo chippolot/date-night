@@ -1,103 +1,102 @@
 /* ---------- Tokens ---------- */
+/* Nordic print: flat color blocks, simple shapes, heavy rules instead of boxes. */
 :root {
-	--bg: #fbf6f0;
+	--bg: #f6f5f1;
 	--surface: #ffffff;
-	--surface-2: #f7efe7;
-	--text: #22181c;
-	--muted: #746770;
-	--border: #eadfd6;
-	--accent: #a3123f;
-	--accent-soft: #fde8ee;
-	--gold: #c98a2b;
-	--ok: #166534;
-	--ok-soft: #dcfce7;
-	--warn: #92400e;
-	--warn-soft: #fef3c7;
-	--stale: #6b7280;
-	--stale-soft: #f1f1f3;
-	--radius: 16px;
-	--font:
-		"Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-	--serif: "Fraunces", "Iowan Old Style", Georgia, serif;
-	--shadow: 0 1px 2px rgb(60 20 30 / 0.04), 0 6px 20px rgb(60 20 30 / 0.06);
-	--shadow-hover:
-		0 2px 6px rgb(60 20 30 / 0.07), 0 14px 34px rgb(60 20 30 / 0.12);
-	--dusk: linear-gradient(
-		140deg,
-		#1e1336 0%,
-		#4b1a4a 42%,
-		#8e2a4a 70%,
-		#d0663e 100%
-	);
-	--hero-text: #fff5ec;
+	--text: #121417;
+	--muted: #5a5e66;
+	--line: #121417;
+	--border: #d9d8d1;
+	--ink: #121417;
+	--paper: #f6f5f1;
+	--fjord: #1f3d8c;
+	--lingon: #d9412b;
+	--pine: #1d4a3b;
+	--saffron: #e3a92b;
+	--link: #1f3d8c;
+	--ok: #1d4a3b;
+	--warn: #a33a22;
+
+	--c-music: #d9412b;
+	--c-jazz: #1f3d8c;
+	--c-trivia: #e3a92b;
+	--c-food: #9c2a4f;
+	--c-dance: #e46f8c;
+	--c-comedy: #f08a3c;
+	--c-karaoke: #6b3f8f;
+	--c-art: #2a8c88;
+	--c-market: #1d4a3b;
+	--c-open-mic: #a8652e;
+	--c-class: #7c9a3a;
+	--c-theater: #4c6ea8;
+
+	--sans:
+		"Familjen Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
+	--serif: "Spectral", Georgia, serif;
+	--header-h: 3.75rem;
 	color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg: #100b15;
-		--surface: #1b1422;
-		--surface-2: #231a2c;
-		--text: #f4ecf3;
-		--muted: #ab9fb2;
-		--border: #31263b;
-		--accent: #ff7a9a;
-		--accent-soft: #3a1729;
-		--gold: #f0b45a;
-		--ok: #86efac;
-		--ok-soft: #10301c;
-		--warn: #fcd34d;
-		--warn-soft: #382a0d;
-		--stale: #a1a1aa;
-		--stale-soft: #26222a;
-		--shadow: 0 1px 2px rgb(0 0 0 / 0.35), 0 6px 20px rgb(0 0 0 / 0.3);
-		--shadow-hover: 0 2px 6px rgb(0 0 0 / 0.4), 0 14px 34px rgb(0 0 0 / 0.45);
-		--dusk: linear-gradient(
-			140deg,
-			#0d0820 0%,
-			#2c1040 45%,
-			#5e1c3e 75%,
-			#93402f 100%
-		);
+		--bg: #0e1120;
+		--surface: #161a2c;
+		--text: #eceef4;
+		--muted: #9aa0b4;
+		--line: #eceef4;
+		--border: #2b3049;
+		--fjord: #2a4aa8;
+		--lingon: #d24a33;
+		--pine: #22604c;
+		--saffron: #d9a23a;
+		--link: #9db3ff;
+		--ok: #6fcfa4;
+		--warn: #ff8a70;
+
+		--c-jazz: #5b7fe0;
+		--c-food: #c94a74;
+		--c-karaoke: #9a6bc4;
+		--c-market: #3f8c6c;
+		--c-theater: #7a98cf;
 	}
 }
 
-/* Each category gets its own hue, used by cards and chips. */
+/* Each category gets its own print color, used for dots on cards and venues. */
 .cat-live-music {
-	--cat: #d9541e;
+	--cat: var(--c-music);
 }
 .cat-jazz {
-	--cat: #7c3aed;
+	--cat: var(--c-jazz);
 }
 .cat-trivia {
-	--cat: #0284c7;
+	--cat: var(--c-trivia);
 }
 .cat-food-drink-special {
-	--cat: #be123c;
+	--cat: var(--c-food);
 }
 .cat-dance {
-	--cat: #db2777;
+	--cat: var(--c-dance);
 }
 .cat-comedy {
-	--cat: #ca8a04;
+	--cat: var(--c-comedy);
 }
 .cat-karaoke {
-	--cat: #a21caf;
+	--cat: var(--c-karaoke);
 }
 .cat-art {
-	--cat: #0d9488;
+	--cat: var(--c-art);
 }
 .cat-market {
-	--cat: #15803d;
+	--cat: var(--c-market);
 }
 .cat-open-mic {
-	--cat: #b45309;
+	--cat: var(--c-open-mic);
 }
 .cat-class {
-	--cat: #65a30d;
+	--cat: var(--c-class);
 }
 .cat-theater {
-	--cat: #2563eb;
+	--cat: var(--c-theater);
 }
 
 /* ---------- Base ---------- */
@@ -107,64 +106,62 @@
 
 html {
 	scroll-padding-top: 5rem;
+	-webkit-text-size-adjust: 100%;
 }
 
 body {
 	margin: 0;
-	background:
-		radial-gradient(900px 420px at 90% -8%, var(--accent-soft), transparent 65%),
-		radial-gradient(
-			700px 380px at -10% 10%,
-			color-mix(in srgb, var(--gold) 12%, transparent),
-			transparent 70%
-		),
-		var(--bg);
-	background-attachment: fixed;
+	background: var(--bg);
 	color: var(--text);
-	font-family: var(--font);
-	line-height: 1.55;
+	font-family: var(--sans);
+	font-size: 1rem;
+	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 }
 
 a {
-	color: var(--accent);
+	color: var(--link);
 	text-decoration-thickness: 1px;
 	text-underline-offset: 3px;
 }
 
 ::selection {
-	background: color-mix(in srgb, var(--accent) 25%, transparent);
+	background: color-mix(in srgb, var(--saffron) 45%, transparent);
 }
 
 :focus-visible {
-	outline: 2px solid var(--accent);
-	outline-offset: 2px;
-	border-radius: 6px;
+	outline: 2px solid var(--lingon);
+	outline-offset: 3px;
 }
 
 main {
-	max-width: 880px;
+	max-width: 920px;
 	margin: 0 auto;
-	padding: 1rem 1rem 3rem;
+	padding: 0 max(1rem, env(safe-area-inset-right, 0px)) 3rem
+		max(1rem, env(safe-area-inset-left, 0px));
 }
 
 h1,
 h2,
 h3 {
 	font-family: var(--serif);
-	font-weight: 600;
-	letter-spacing: -0.015em;
+	font-weight: 400;
+	letter-spacing: -0.01em;
+	text-wrap: balance;
 }
 
 h1 {
-	font-size: 2.4rem;
+	font-size: clamp(2.25rem, 8.5vw, 3.5rem);
+	letter-spacing: -0.02em;
 	line-height: 1.05;
 	margin: 0;
 }
 
 h2 {
-	font-size: 1.35rem;
-	margin: 2rem 0 0.75rem;
+	font-size: 1.65rem;
+	font-style: italic;
+	line-height: 1.15;
+	margin: 2.25rem 0 0.5rem;
 }
 
 .muted {
@@ -173,214 +170,348 @@ h2 {
 }
 
 .empty {
+	margin: 0.75rem 0;
+	padding: 1.25rem;
+	border: 1.5px dashed var(--border);
 	color: var(--muted);
+	font-family: var(--serif);
+	font-size: 1.1rem;
 	font-style: italic;
-	padding: 1rem;
-	border: 1px dashed var(--border);
-	border-radius: var(--radius);
 	text-align: center;
+}
+
+.dot {
+	display: inline-block;
+	flex: none;
+	width: 0.65rem;
+	height: 0.65rem;
+	border-radius: 50%;
+	background: var(--cat, var(--muted));
+}
+
+/* Controls behave like controls: no text selection, no double-tap zoom, no tap flash */
+button,
+summary,
+nav a,
+.brand,
+.pill,
+.action,
+.hood-link,
+.venue-row,
+.cal,
+.count,
+.part-count,
+.step-n {
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	touch-action: manipulation;
+}
+
+/* ---------- Footer ---------- */
+footer {
+	margin-top: 3.5rem;
+	padding-top: 1.5rem;
+	border-top: 2px solid var(--line);
+	color: var(--muted);
+	font-size: 0.88rem;
+	text-align: center;
+}
+
+footer p {
+	margin: 0.4rem auto;
+	max-width: 34rem;
+}
+
+.footer-mark {
+	display: flex;
+	gap: 0.4rem;
+	justify-content: center;
+}
+
+.footer-mark span {
+	width: 0.8rem;
+	height: 0.8rem;
+	background: var(--fjord);
+}
+
+.footer-mark span:nth-child(1) {
+	border-radius: 50%;
+	background: var(--saffron);
+}
+
+.footer-mark span:nth-child(2) {
+	background: var(--lingon);
 }
 
 /* ---------- Header ---------- */
 .site-header {
-	position: sticky;
-	top: 0;
-	z-index: 1000;
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0.5rem 1.5rem;
+	gap: 0.25rem 1.5rem;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0.65rem max(1rem, calc((100vw - 880px) / 2));
-	background: color-mix(in srgb, var(--bg) 75%, transparent);
-	backdrop-filter: saturate(1.5) blur(14px);
-	-webkit-backdrop-filter: saturate(1.5) blur(14px);
-	border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+	padding: 0.7rem max(1rem, env(safe-area-inset-right, 0px)) 0
+		max(1rem, env(safe-area-inset-left, 0px));
+	background: var(--bg);
+	border-bottom: 2px solid var(--line);
 }
 
 .brand {
-	font-family: var(--serif);
-	font-weight: 600;
-	font-size: 1.15rem;
-	font-style: italic;
-	letter-spacing: -0.01em;
+	display: inline-flex;
+	gap: 0.55rem;
+	align-items: center;
 	color: var(--text);
+	font-size: 1.05rem;
+	font-weight: 700;
+	letter-spacing: -0.01em;
 	text-decoration: none;
+}
+
+/* A fjord square with a lingonberry sun setting into its corner */
+.brand-mark {
+	flex: none;
+	width: 1.15rem;
+	height: 1.15rem;
+	background:
+		radial-gradient(circle at 100% 100%, var(--lingon) 0 62%, transparent 63%),
+		var(--fjord);
 }
 
 nav {
 	display: flex;
-	gap: 0.25rem;
-	padding: 0.2rem;
-	border-radius: 999px;
-	background: var(--surface-2);
-	border: 1px solid var(--border);
+	width: 100%;
+	justify-content: space-between;
 }
 
 nav a {
-	padding: 0.3rem 0.8rem;
-	border-radius: 999px;
-	color: var(--muted);
-	font-size: 0.92rem;
+	padding: 0.7rem 0 0.55rem;
+	border-bottom: 3px solid transparent;
+	color: var(--text);
+	font-size: 0.95rem;
 	font-weight: 500;
 	text-decoration: none;
-	transition:
-		background 0.15s,
-		color 0.15s;
+	transition: border-color 0.15s;
 }
 
-nav a:hover {
-	color: var(--text);
+@media (hover: hover) {
+	nav a:hover {
+		border-bottom-color: var(--border);
+	}
 }
 
 nav a[aria-current="page"] {
-	background: var(--surface);
-	color: var(--accent);
-	box-shadow: var(--shadow);
+	border-bottom-color: var(--lingon);
+	font-weight: 700;
 }
 
 /* ---------- Hero ---------- */
+/* Each page gets its own print block; the shapes are decoration only. */
 .hero {
+	--block: var(--fjord);
+	--shape: var(--lingon);
+	--on-block: var(--paper);
 	position: relative;
 	overflow: hidden;
 	isolation: isolate;
-	margin: 0.75rem 0 1.25rem;
-	padding: 1.6rem 1.4rem;
-	border-radius: calc(var(--radius) + 8px);
-	background: var(--dusk);
-	color: var(--hero-text);
-	box-shadow: var(--shadow);
+	margin: 1rem 0 1.5rem;
+	padding: 1.75rem 1.25rem 1.6rem;
+	background: var(--block);
+	color: var(--on-block);
 }
 
-/* A scatter of tiny stars */
-.hero::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	z-index: -1;
-	opacity: 0.7;
-	background-image:
-		radial-gradient(1.5px 1.5px at 12% 22%, #fff 50%, transparent 51%),
-		radial-gradient(1px 1px at 28% 68%, #fff 50%, transparent 51%),
-		radial-gradient(1.5px 1.5px at 41% 15%, #fff 50%, transparent 51%),
-		radial-gradient(1px 1px at 57% 45%, #fff 50%, transparent 51%),
-		radial-gradient(1px 1px at 66% 12%, #fff 50%, transparent 51%),
-		radial-gradient(1.5px 1.5px at 74% 62%, #fff 50%, transparent 51%),
-		radial-gradient(1px 1px at 88% 30%, #fff 50%, transparent 51%),
-		radial-gradient(1px 1px at 93% 78%, #fff 50%, transparent 51%),
-		radial-gradient(1px 1px at 6% 82%, #fff 50%, transparent 51%),
-		radial-gradient(1px 1px at 50% 85%, #fff 50%, transparent 51%);
+.hero > * {
+	position: relative;
+	z-index: 1;
 }
 
-/* Horizon glow */
 .hero::after {
 	content: "";
 	position: absolute;
-	inset: auto -10% -60% -10%;
-	height: 90%;
-	z-index: -1;
-	background: radial-gradient(
-		ellipse at center,
-		rgb(255 170 110 / 0.35),
-		transparent 65%
-	);
+	top: -2.75rem;
+	right: -2.75rem;
+	width: 6.5rem;
+	height: 6.5rem;
+	border-radius: 50%;
+	background: var(--shape);
 }
 
-/* Crescent moon: an inset shadow on an empty circle */
-.hero-moon {
+.hero::before {
+	content: "";
 	position: absolute;
-	top: 1.1rem;
 	right: 1.4rem;
-	width: 54px;
-	height: 54px;
-	border-radius: 50%;
-	box-shadow: inset -14px 6px 0 0 #fde9c8;
-	transform: rotate(-20deg);
-	filter: drop-shadow(0 0 14px rgb(253 233 200 / 0.55));
+	bottom: 1.4rem;
+	width: 1.4rem;
+	height: 1.4rem;
+	background: var(--on-block);
+	opacity: 0.18;
+	transform: rotate(45deg);
+}
+
+body[data-page="week"] .hero {
+	--block: var(--pine);
+	--shape: var(--saffron);
+}
+
+body[data-page="map"] .hero {
+	--block: var(--lingon);
+	--shape: var(--fjord);
+}
+
+body[data-page="venues"] .hero,
+body[data-page="venue"] .hero {
+	--block: var(--saffron);
+	--shape: var(--pine);
+	--on-block: var(--ink);
+}
+
+/* Heading, with an optional control beside it that wraps below on very narrow screens */
+.hero-top {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem 1rem;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .hero h1 {
 	color: inherit;
-	padding-right: 4rem;
+	padding-right: 3.75rem;
+}
+
+/* Tonight's banner has its button top-right, so the shapes move out of that corner */
+body[data-page="tonight"] .hero h1 {
+	padding-right: 0;
+}
+
+@media (max-width: 719.98px) {
+	body[data-page="tonight"] .hero::after {
+		top: auto;
+		bottom: -3.25rem;
+	}
+	body[data-page="tonight"] .hero::before {
+		display: none;
+	}
+}
+
+body[data-page="tonight"] .hero h1 {
+	font-size: clamp(2.5rem, 11.5vw, 5rem);
+	font-style: italic;
+	line-height: 1;
 }
 
 .hero .intro {
-	margin-top: 0.6rem;
-	color: rgb(255 245 236 / 0.85);
-	max-width: 38rem;
+	max-width: 34rem;
+	margin-top: 0.75rem;
+	padding-right: 3rem;
+	color: color-mix(in srgb, var(--on-block) 88%, transparent);
+	font-size: 1.05rem;
 }
 
 .hero .intro p {
 	margin: 0;
 }
 
-body[data-page="tonight"] .hero {
-	padding: 2.4rem 1.6rem 2rem;
-}
-
-body[data-page="tonight"] .hero h1 {
-	font-size: 3rem;
-	font-style: italic;
-	font-weight: 500;
-}
-
+/* Wall-calendar date at the top of Tonight */
 .date-heading {
-	display: inline-flex;
-	gap: 0.4rem;
-	align-items: center;
-	margin: 0 0 0.25rem;
-	padding: 0.25rem 0.8rem;
-	border-radius: 999px;
-	background: var(--surface);
-	border: 1px solid var(--border);
-	color: var(--muted);
-	font-size: 0.88rem;
-	font-weight: 500;
+	display: flex;
+	gap: 0.9rem;
+	align-items: flex-end;
+	margin: 0;
+	padding-bottom: 0.9rem;
 }
 
-.date-heading span {
-	color: var(--gold);
+.date-num {
+	font-size: clamp(4.5rem, 22vw, 7rem);
+	font-variant-numeric: tabular-nums;
+	font-weight: 700;
+	letter-spacing: -0.06em;
+	line-height: 0.78;
+}
+
+.date-words {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	padding-bottom: 0.1rem;
+}
+
+.date-weekday {
+	font-family: var(--serif);
+	font-size: clamp(1.9rem, 7vw, 2.3rem);
+	font-style: italic;
+	/* Pull the italic's left side bearing back so it lines up with the month below */
+	margin-left: -0.06em;
+	line-height: 1;
+}
+
+.date-month {
+	color: var(--muted);
+	font-size: 0.875rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
 }
 
 /* ---------- Buttons ---------- */
 button {
+	min-height: 2.75rem;
+	padding: 0.6rem 1.2rem;
+	border: 0;
+	border-radius: 0;
+	background: var(--text);
+	color: var(--bg);
+	cursor: pointer;
 	font: inherit;
 	font-weight: 600;
-	cursor: pointer;
-	padding: 0.5rem 1.15rem;
-	border: 0;
-	border-radius: 999px;
-	background: var(--accent);
-	color: #fff;
-	transition:
-		transform 0.15s,
-		box-shadow 0.15s;
+	transition: background 0.15s;
 }
 
-button:hover {
-	transform: translateY(-1px);
-	box-shadow: 0 8px 22px color-mix(in srgb, var(--accent) 35%, transparent);
+@media (hover: hover) {
+	button:hover {
+		background: var(--fjord);
+		color: var(--paper);
+	}
 }
 
 .hero .surprise {
-	margin-top: 1.1rem;
-	font-size: 1rem;
-	background: var(--hero-text);
-	color: #5a1840;
-	box-shadow: 0 6px 24px rgb(0 0 0 / 0.25);
+	display: inline-flex;
+	flex: none;
+	align-self: flex-start;
+	gap: 0.45rem;
+	align-items: center;
+	padding: 0.5rem 0.9rem;
+	background: var(--on-block);
+	color: var(--ink);
+	font-size: 0.9rem;
 }
 
-.hero .surprise:hover {
-	box-shadow: 0 10px 30px rgb(255 190 140 / 0.45);
+.surprise-star {
+	flex: none;
+	margin-top: 0.15rem;
+	margin-left: -0.15rem;
+	width: 0.85rem;
+	height: 0.85rem;
+	fill: var(--lingon);
+}
+
+@media (hover: hover) {
+	.hero .surprise:hover {
+		background: var(--saffron);
+		color: var(--ink);
+	}
+}
+
+button:active {
+	opacity: 0.85;
 }
 
 /* ---------- Filters ---------- */
 .when {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0.4rem 1.6rem;
+	gap: 0.5rem 1.75rem;
 	align-items: flex-start;
-	margin-top: 1rem;
 }
 
 .when > * {
@@ -388,19 +519,17 @@ button:hover {
 }
 
 .filters details {
-	margin: 1rem 0;
-	padding: 0 1.1rem;
-	background: var(--surface);
-	border: 1px solid var(--border);
-	border-radius: var(--radius);
-	box-shadow: var(--shadow);
+	margin: 1rem 0 0.5rem;
+	border-top: 2px solid var(--line);
+	border-bottom: 1px solid var(--border);
 }
 
 .filters summary {
 	display: flex;
 	align-items: center;
 	gap: 0.6rem;
-	padding: 0.8rem 0;
+	min-height: 2.75rem;
+	padding: 0.6rem 0;
 	cursor: pointer;
 	font-weight: 600;
 	list-style: none;
@@ -412,10 +541,11 @@ button:hover {
 
 .filters summary::before {
 	content: "";
+	flex: none;
 	width: 0.45rem;
 	height: 0.45rem;
-	border-right: 2px solid var(--muted);
-	border-bottom: 2px solid var(--muted);
+	border-right: 2px solid var(--text);
+	border-bottom: 2px solid var(--text);
 	transform: rotate(-45deg);
 	transition: transform 0.2s;
 }
@@ -425,25 +555,31 @@ button:hover {
 }
 
 .count {
-	padding: 0 0.5rem;
+	display: inline-grid;
+	place-items: center;
+	min-width: 1.4rem;
+	height: 1.4rem;
+	padding: 0 0.35rem;
 	border-radius: 999px;
-	background: var(--accent);
-	color: #fff;
+	background: var(--lingon);
+	color: var(--paper);
 	font-size: 0.78rem;
+	font-variant-numeric: tabular-nums;
 }
 
 fieldset {
+	min-width: 0;
 	margin: 0.4rem 0 0.9rem;
 	padding: 0;
 	border: 0;
 }
 
 legend {
-	margin-bottom: 0.35rem;
+	margin-bottom: 0.4rem;
 	color: var(--muted);
 	font-size: 0.72rem;
 	font-weight: 600;
-	letter-spacing: 0.08em;
+	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
 
@@ -461,12 +597,11 @@ legend {
 
 .pill span {
 	display: inline-block;
-	padding: 0.28rem 0.75rem;
-	border: 1px solid var(--border);
-	border-radius: 999px;
-	background: var(--surface-2);
+	padding: 0.4rem 0.6rem;
+	border: 1.5px solid var(--border);
+	border-radius: 2px;
 	cursor: pointer;
-	font-size: 0.88rem;
+	font-size: 0.85rem;
 	text-transform: capitalize;
 	transition:
 		background 0.15s,
@@ -474,18 +609,20 @@ legend {
 		color 0.15s;
 }
 
-.pill span:hover {
-	border-color: var(--accent);
+@media (hover: hover) {
+	.pill span:hover {
+		border-color: var(--text);
+	}
 }
 
 .pill input:checked + span {
-	background: var(--accent);
-	border-color: var(--accent);
-	color: #fff;
+	background: var(--text);
+	border-color: var(--text);
+	color: var(--bg);
 }
 
 .pill input:focus-visible + span {
-	outline: 2px solid var(--accent);
+	outline: 2px solid var(--lingon);
 	outline-offset: 2px;
 }
 
@@ -506,51 +643,74 @@ legend {
 .day-heading {
 	display: flex;
 	align-items: center;
-	gap: 0.6rem;
+	gap: 0.65rem;
 }
 
 .part-count {
 	margin-left: auto;
-	min-width: 1.6rem;
-	padding: 0 0.5rem;
-	border-radius: 999px;
-	background: var(--surface-2);
-	border: 1px solid var(--border);
+	font-style: normal;
 	color: var(--muted);
-	font-family: var(--font);
-	font-size: 0.78rem;
+	font-family: var(--sans);
+	font-size: 0.9rem;
+	font-variant-numeric: tabular-nums;
 	font-weight: 600;
-	text-align: center;
+}
+
+/* One shape per part of the day: sun, sunset, night */
+.part-mark {
+	flex: none;
+	width: 1rem;
+	height: 1rem;
+}
+
+.part-afternoon {
+	border-radius: 50%;
+	background: var(--saffron);
+}
+
+.part-evening {
+	height: 0.5rem;
+	border-radius: 1rem 1rem 0 0;
+	background: var(--lingon);
+}
+
+.part-late {
+	width: 0.8rem;
+	height: 0.8rem;
+	background: var(--fjord);
+	transform: rotate(45deg);
 }
 
 .day-heading {
 	position: sticky;
-	top: 3.6rem;
+	top: 0;
 	z-index: 2;
-	margin: 0;
-	padding: 1.25rem 0 0.6rem;
-	background: linear-gradient(var(--bg) 80%, transparent);
+	margin: 1.75rem 0 0;
+	padding: 0.6rem 0;
+	background: var(--bg);
 }
 
-/* Tear-off calendar badge */
+/* Tear-off calendar block */
 .cal {
 	display: inline-flex;
+	flex: none;
 	flex-direction: column;
-	width: 2.7rem;
-	overflow: hidden;
-	border-radius: 10px;
-	background: var(--surface);
-	border: 1px solid var(--border);
-	box-shadow: var(--shadow);
-	text-align: center;
+	align-items: center;
+	justify-content: center;
+	width: 2.9rem;
+	height: 2.9rem;
+	background: var(--pine);
+	color: var(--paper);
+	font-family: var(--sans);
+	font-style: normal;
 	line-height: 1;
 }
 
+.day:first-child .cal {
+	background: var(--lingon);
+}
+
 .cal-m {
-	padding: 0.2rem 0;
-	background: var(--accent);
-	color: #fff;
-	font-family: var(--font);
 	font-size: 0.6rem;
 	font-weight: 700;
 	letter-spacing: 0.1em;
@@ -558,46 +718,25 @@ legend {
 }
 
 .cal-d {
-	padding: 0.25rem 0 0.3rem;
-	font-size: 1.15rem;
+	font-size: 1.35rem;
+	font-variant-numeric: tabular-nums;
+	font-weight: 700;
+	letter-spacing: -0.03em;
 }
 
 /* ---------- Cards ---------- */
 .card {
-	--cat: var(--accent);
-	position: relative;
 	display: grid;
-	grid-template-columns: 5.25rem 1fr;
+	grid-template-columns: 4.25rem minmax(0, 1fr);
 	gap: 0.9rem;
-	margin: 0.75rem 0;
-	padding: 1rem 1.1rem 1rem 1.25rem;
-	overflow: hidden;
-	background: var(--surface);
-	border: 1px solid var(--border);
-	border-radius: var(--radius);
-	box-shadow: var(--shadow);
-	transition:
-		transform 0.18s ease,
-		box-shadow 0.18s ease;
-}
-
-.card::before {
-	content: "";
-	position: absolute;
-	inset: 0 auto 0 0;
-	width: 4px;
-	background: var(--cat);
-}
-
-.card:hover {
-	transform: translateY(-2px);
-	box-shadow: var(--shadow-hover);
+	padding: 1rem 0 1.15rem;
+	border-top: 2px solid var(--line);
 }
 
 .card h3 {
-	margin: 0 0 0.15rem;
-	font-size: 1.12rem;
-	line-height: 1.25;
+	margin: 0 0 0.3rem;
+	font-size: 1.35rem;
+	line-height: 1.18;
 }
 
 .card h3 a {
@@ -612,143 +751,161 @@ legend {
 	display: flex;
 	flex-direction: column;
 	gap: 0.15rem;
+	padding-top: 0.15rem;
 }
 
-.card-hours {
-	color: var(--cat);
-	font-family: var(--serif);
-	font-size: 1.05rem;
-	font-weight: 600;
+.card-start {
+	font-size: 1.2rem;
 	font-variant-numeric: tabular-nums;
-	line-height: 1.2;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+}
+
+.card-end {
+	color: var(--muted);
+	font-size: 0.8rem;
+	font-variant-numeric: tabular-nums;
 }
 
 .card-when {
 	color: var(--muted);
-	font-size: 0.72rem;
+	font-size: 0.7rem;
 	font-weight: 600;
-	letter-spacing: 0.04em;
+	letter-spacing: 0.06em;
 	line-height: 1.3;
 	text-transform: uppercase;
 }
 
 .card-where {
 	color: var(--muted);
-	font-size: 0.92rem;
+	font-size: 0.95rem;
 }
 
-.card-where a {
+.card .card-where a {
 	color: var(--text);
-	font-weight: 500;
+	font-weight: 600;
 	text-decoration-color: var(--border);
 }
 
-.card-where a:hover {
-	color: var(--accent);
+@media (hover: hover) {
+	.card .card-where a:hover {
+		text-decoration-color: var(--lingon);
+	}
 }
 
-.card-meta {
+.card p.card-meta {
 	display: flex;
 	flex-wrap: wrap;
+	gap: 0.3rem 1rem;
+	align-items: center;
+	margin-top: 0.45rem;
+	font-size: 0.82rem;
+}
+
+.chip,
+.badge {
+	display: inline-flex;
 	gap: 0.4rem;
 	align-items: center;
-	font-size: 0.8rem;
 }
 
 .chip {
-	padding: 0.05rem 0.55rem;
-	border-radius: 999px;
-	background: color-mix(in srgb, var(--cat) 12%, var(--surface));
-	color: color-mix(in srgb, var(--cat) 80%, var(--text));
 	font-weight: 600;
 }
 
+.chip::before {
+	content: "";
+	width: 0.65rem;
+	height: 0.65rem;
+	border-radius: 50%;
+	background: var(--cat, var(--muted));
+}
+
 .cost {
-	color: var(--text);
 	font-weight: 600;
 }
 
 .badge {
-	padding: 0.05rem 0.55rem;
-	border-radius: 999px;
-	font-weight: 500;
+	color: var(--muted);
 }
 
-.badge-ok {
-	background: var(--ok-soft);
-	color: var(--ok);
+.badge::before {
+	content: "";
+	width: 0.5rem;
+	height: 0.5rem;
+	background: var(--ok);
 }
 
-.badge-likely {
-	background: var(--warn-soft);
-	color: var(--warn);
+.badge-likely::before {
+	background: var(--saffron);
 }
 
 .badge-stale {
-	background: var(--stale-soft);
-	color: var(--stale);
+	color: var(--warn);
+	font-weight: 600;
+}
+
+.badge-stale::before {
+	background: transparent;
+	border: 1.5px solid currentColor;
 }
 
 .card-actions {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0.4rem;
-	margin: 0.6rem 0 0;
-	font-size: 0.8rem;
+	gap: 0 1.25rem;
+	margin: 0.4rem 0 0;
+	font-size: 0.88rem;
 }
 
 .action {
-	padding: 0.2rem 0.65rem;
-	border: 1px solid var(--border);
-	border-radius: 999px;
-	color: var(--muted);
-	font-weight: 500;
-	text-decoration: none;
-	transition:
-		color 0.15s,
-		border-color 0.15s,
-		background 0.15s;
+	padding: 0.35rem 0;
+	color: var(--text);
+	font-weight: 600;
+	text-decoration: underline;
+	text-decoration-color: var(--lingon);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 4px;
 }
 
-.action:hover {
-	background: var(--accent-soft);
-	border-color: var(--accent);
-	color: var(--accent);
+@media (hover: hover) {
+	.action:hover {
+		color: var(--lingon);
+	}
 }
 
 /* ---------- Surprise ticket ---------- */
 .ticket {
-	--notch: 16px;
+	--notch: 18px;
 	position: relative;
 	margin: 1.25rem 0;
 	background: var(--surface);
-	border: 1px solid var(--border);
-	border-radius: var(--radius);
-	box-shadow: var(--shadow-hover);
-	animation: ticket-in 0.35s ease-out;
+	border: 2px solid var(--line);
+	animation: ticket-in 0.3s ease-out;
 }
 
 @keyframes ticket-in {
 	from {
 		opacity: 0;
-		transform: translateY(8px) scale(0.98);
+		transform: translateY(8px);
 	}
 }
 
 .ticket-head {
-	padding: 1rem 1.25rem 0.25rem;
-	border-radius: var(--radius) var(--radius) 0 0;
-	background: linear-gradient(180deg, var(--accent-soft), transparent);
+	padding: 1rem 3.5rem 0.9rem 1.25rem;
+	background: var(--saffron);
+	color: var(--ink);
 }
 
 .ticket-head h2 {
-	margin: 0.15rem 0 0;
-	font-size: 1.6rem;
+	margin: 0.2rem 0 0;
+	font-size: 1.75rem;
 	font-style: italic;
+	line-height: 1;
 }
 
 .ticket-eyebrow {
-	color: var(--accent);
 	font-size: 0.72rem;
 	font-weight: 700;
 	letter-spacing: 0.12em;
@@ -759,8 +916,35 @@ legend {
 	padding: 0.25rem 1.25rem;
 }
 
+.ticket-empty {
+	padding-right: 3.5rem;
+}
+
+.ticket-close {
+	position: absolute;
+	top: 0.4rem;
+	right: 0.4rem;
+	display: grid;
+	place-items: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	padding: 0;
+	background: transparent;
+	color: inherit;
+	font-size: 1.75rem;
+	font-weight: 400;
+	line-height: 1;
+}
+
+@media (hover: hover) {
+	.ticket-close:hover {
+		background: color-mix(in srgb, currentColor 12%, transparent);
+		color: inherit;
+	}
+}
+
 .ticket-part .card {
-	box-shadow: none;
+	border-top-width: 1px;
 }
 
 /* Perforation with half-circle notches punched into both edges */
@@ -780,16 +964,16 @@ legend {
 	height: var(--notch);
 	border-radius: 50%;
 	background: var(--bg);
-	border: 1px solid var(--border);
+	border: 2px solid var(--line);
 }
 
 .ticket-tear::before {
-	left: calc(var(--notch) / -2 - 1px);
+	left: calc(var(--notch) / -2 - 2px);
 	clip-path: inset(0 0 0 50%);
 }
 
 .ticket-tear::after {
-	right: calc(var(--notch) / -2 - 1px);
+	right: calc(var(--notch) / -2 - 2px);
 	clip-path: inset(0 50% 0 0);
 }
 
@@ -797,7 +981,7 @@ legend {
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-	margin: 0.6rem 0 0;
+	margin: 0.75rem 0 0.25rem;
 	font-weight: 600;
 }
 
@@ -807,8 +991,8 @@ legend {
 	width: 1.5rem;
 	height: 1.5rem;
 	border-radius: 50%;
-	background: var(--accent);
-	color: #fff;
+	background: var(--fjord);
+	color: var(--paper);
 	font-size: 0.8rem;
 }
 
@@ -817,50 +1001,88 @@ legend {
 }
 
 /* ---------- Venues ---------- */
-.venue-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-	gap: 0.7rem;
+.hood-jump {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem 1.1rem;
+	margin: 0 0 0.5rem;
+	font-size: 0.92rem;
 }
 
-.venue-card {
+.hood-link {
+	padding: 0.3rem 0;
+	color: var(--text);
+	font-weight: 600;
+	text-decoration-color: var(--lingon);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 4px;
+}
+
+/* A directory listing: one line per venue, flowing into columns when there's room */
+.venue-list {
+	margin: 0;
+	padding: 0;
+	border-top: 2px solid var(--line);
+	list-style: none;
+	column-gap: 2.5rem;
+}
+
+.venue-list li {
+	break-inside: avoid;
+	border-bottom: 1px solid var(--border);
+}
+
+.venue-row {
 	display: flex;
-	flex-direction: column;
-	gap: 0.2rem;
-	padding: 0.9rem 1rem;
-	background: var(--surface);
-	border: 1px solid var(--border);
-	border-radius: var(--radius);
-	box-shadow: var(--shadow);
+	gap: 0.75rem;
+	align-items: baseline;
+	justify-content: space-between;
+	min-height: 2.75rem;
+	padding: 0.6rem 0;
 	color: var(--text);
 	text-decoration: none;
-	transition:
-		transform 0.18s,
-		box-shadow 0.18s,
-		border-color 0.18s;
 }
 
-.venue-card:hover {
-	transform: translateY(-2px);
-	border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
-	box-shadow: var(--shadow-hover);
-}
-
-.venue-card strong {
-	font-family: var(--serif);
-	font-size: 1.05rem;
+.venue-name {
+	min-width: 0;
 	font-weight: 600;
-	line-height: 1.25;
+	line-height: 1.3;
+	transition: color 0.15s;
 }
 
-.venue-card .muted {
-	font-size: 0.82rem;
+@media (hover: hover) {
+	.venue-row:hover .venue-name {
+		color: var(--lingon);
+	}
 }
 
-.venue-icons {
-	display: flex;
-	gap: 0.15rem;
-	font-size: 1.05rem;
+.venue-info {
+	display: inline-flex;
+	flex: none;
+	gap: 0.6rem;
+	align-items: center;
+	color: var(--muted);
+	font-size: 0.8rem;
+	font-variant-numeric: tabular-nums;
+}
+
+.venue-dots {
+	display: inline-flex;
+	gap: 0.2rem;
+}
+
+.venue-dots .dot {
+	width: 0.55rem;
+	height: 0.55rem;
+}
+
+.venue-price {
+	min-width: 1.6rem;
+	text-align: right;
+}
+
+body[data-page="venues"] .hero h1 {
+	font-size: clamp(2.25rem, 8vw, 3rem);
 }
 
 .venue-meta {
@@ -869,11 +1091,10 @@ legend {
 
 /* ---------- Map ---------- */
 .map {
-	height: 70vh;
-	min-height: 380px;
-	border: 1px solid var(--border);
-	border-radius: calc(var(--radius) + 4px);
-	box-shadow: var(--shadow);
+	height: 60vh;
+	min-height: 320px;
+	margin-top: 1rem;
+	border: 2px solid var(--line);
 }
 
 .popup-list {
@@ -885,58 +1106,92 @@ legend {
 .leaflet-popup-tip {
 	background: var(--surface);
 	color: var(--text);
-	box-shadow: var(--shadow-hover);
 }
 
 .leaflet-popup-content-wrapper {
-	border-radius: 12px;
-	font-family: var(--font);
-}
-
-/* ---------- Footer ---------- */
-footer {
-	margin-top: 3.5rem;
-	padding-top: 1.5rem;
-	border-top: 1px solid var(--border);
-	color: var(--muted);
-	font-size: 0.85rem;
-	text-align: center;
-}
-
-footer p {
-	margin: 0.35rem auto;
-	max-width: 34rem;
-}
-
-.footer-moon {
-	color: var(--gold);
-	font-family: var(--serif);
-	font-size: 1.6rem;
+	border-radius: 2px;
+	font-family: var(--sans);
 }
 
 /* ---------- Larger screens ---------- */
 @media (min-width: 720px) {
-	h1 {
-		font-size: 2.8rem;
+	html {
+		scroll-padding-top: calc(var(--header-h) + 4.5rem);
+	}
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 1000;
+		flex-wrap: nowrap;
+		height: var(--header-h);
+		padding: 0 max(1.5rem, calc((100vw - 920px) / 2));
+	}
+	nav {
+		width: auto;
+		gap: 1.75rem;
+	}
+	nav a {
+		padding: 1.15rem 0 0.95rem;
 	}
 	.hero {
-		padding: 2rem;
+		margin-top: 1.5rem;
+		padding: 2.5rem 2.25rem 2.25rem;
 	}
-	body[data-page="tonight"] .hero {
-		padding: 3rem 2.25rem 2.5rem;
+	.hero::after {
+		top: auto;
+		right: -3.5rem;
+		bottom: -4.5rem;
+		width: 13rem;
+		height: 13rem;
 	}
-	body[data-page="tonight"] .hero h1 {
-		font-size: 4rem;
+	.hero::before {
+		top: 2rem;
+		right: 12rem;
+		bottom: auto;
+		width: 2.25rem;
+		height: 2.25rem;
 	}
-	.hero-moon {
-		top: 1.75rem;
-		right: 2.25rem;
-		width: 72px;
-		height: 72px;
-		box-shadow: inset -18px 8px 0 0 #fde9c8;
+	body[data-page="tonight"] .hero::before {
+		top: auto;
+		bottom: 2.25rem;
+	}
+	body[data-page="tonight"] .hero::after {
+		bottom: -7rem;
+	}
+	.hero .surprise {
+		padding: 0.6rem 1.2rem;
+		font-size: 1rem;
+	}
+	.hero h1,
+	.hero .intro {
+		padding-right: 0;
+	}
+	.day-heading {
+		top: var(--header-h);
 	}
 	.card {
-		grid-template-columns: 6.75rem 1fr;
+		grid-template-columns: 6.5rem minmax(0, 1fr);
+		gap: 1.25rem;
+	}
+	.card h3 {
+		font-size: 1.5rem;
+	}
+	.card-start {
+		font-size: 1.4rem;
+	}
+	.venue-list {
+		columns: 2;
+	}
+	.pill span {
+		padding-inline: 0.8rem;
+		font-size: 0.9rem;
+	}
+	body[data-page="venues"] .hero {
+		padding-block: 1.75rem;
+	}
+	.map {
+		height: 70vh;
+		min-height: 420px;
 	}
 }
 

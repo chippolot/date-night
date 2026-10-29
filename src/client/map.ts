@@ -12,19 +12,20 @@ import {
 import { eventKind, mapVenues, matchesKind, nightKind } from "../pages/views";
 import { loadSiteData, wireFilters } from "./shared";
 
+// Same print colors as the category dots in styles.css
 const COLORS: Record<Category, string> = {
-	"live-music": "#c2410c",
-	jazz: "#7c3aed",
-	trivia: "#0369a1",
-	"food-drink-special": "#be123c",
-	dance: "#db2777",
-	comedy: "#ca8a04",
-	karaoke: "#9333ea",
-	art: "#0d9488",
-	market: "#15803d",
-	"open-mic": "#b45309",
-	class: "#4d7c0f",
-	theater: "#1d4ed8",
+	"live-music": "#d9412b",
+	jazz: "#1f3d8c",
+	trivia: "#e3a92b",
+	"food-drink-special": "#9c2a4f",
+	dance: "#e46f8c",
+	comedy: "#f08a3c",
+	karaoke: "#6b3f8f",
+	art: "#2a8c88",
+	market: "#1d4a3b",
+	"open-mic": "#a8652e",
+	class: "#7c9a3a",
+	theater: "#4c6ea8",
 };
 
 async function main() {

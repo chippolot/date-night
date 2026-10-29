@@ -1,7 +1,7 @@
 import { href, SITE } from "../config";
 import { type Filters, TIME_SLOTS } from "../lib/filters";
 import type { Night, Nth, Occurrence, Venue, Weekday } from "../lib/types";
-import { CATEGORIES, CATEGORY_ICONS, NEIGHBORHOODS, VIBES } from "../lib/types";
+import { CATEGORIES, NEIGHBORHOODS, VIBES } from "../lib/types";
 
 export function esc(s: string): string {
 	return s
@@ -122,28 +122,26 @@ export function card(
 	/** Replaces the time column, e.g. with a date or recurrence description */
 	timeLabel?: string,
 ): string {
-	const hours = o.end
-		? `${formatTime(o.start)}–${formatTime(o.end)}`
-		: formatTime(o.start);
 	const where = venue
 		? `<a href="${href(`/venues/${venue.id}/`)}">${esc(venue.name)}</a> · ${NEIGHBORHOODS[venue.neighborhood]}`
 		: "";
 	return `<article class="card cat-${o.category}" data-key="${esc(o.key)}">
   <div class="card-time">
     ${timeLabel ? `<span class="card-when">${esc(timeLabel)}</span>` : ""}
-    <span class="card-hours">${hours}</span>
+    <span class="card-start">${formatTime(o.start)}</span>
+    ${o.end ? `<span class="card-end">to ${formatTime(o.end)}</span>` : ""}
   </div>
   <div class="card-body">
     <h3>${esc(o.title)}</h3>
-    ${where ? `<p class="card-where"><span aria-hidden="true">📍</span> ${where}</p>` : ""}
+    ${where ? `<p class="card-where">${where}</p>` : ""}
     <p class="card-meta">
-      <span class="chip"><span aria-hidden="true">${CATEGORY_ICONS[o.category]}</span> ${CATEGORIES[o.category]}</span>
+      <span class="chip">${CATEGORIES[o.category]}</span>
       ${o.cost ? `<span class="cost">${esc(o.cost)}</span>` : ""}
       ${freshnessBadge(o, today)}
     </p>
     <p class="card-actions">
-      <a class="action" href="${icsHref(o)}" download><span aria-hidden="true">＋</span> Calendar</a>
-      <a class="action" href="${esc(o.url)}" rel="noopener" target="_blank"><span aria-hidden="true">↗</span> Source</a>
+      <a class="action" href="${icsHref(o)}" download>Add to calendar</a>
+      <a class="action" href="${esc(o.url)}" rel="noopener" target="_blank">Source <span aria-hidden="true">↗</span></a>
       ${reportLink(`${o.title}${venue ? ` @ ${venue.name}` : ""}`)}
     </p>
   </div>
