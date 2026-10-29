@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-29T17:28:10.379Z",
+	"generatedAt": "2026-10-29T17:41:36.842Z",
 	"events": [
 		{
 			"id": "nordic-museum-2026-10-29-culture-class-hans-christian-andersen-s-gothic-tales",
@@ -235,6 +235,16 @@
 			"startsAt": "2026-11-01T13:20:00-08:00",
 			"endsAt": "2026-11-02T01:00:00-08:00",
 			"url": "https://tickets.venuepilot.com/e/freakout-presents-laborotorios-moreno-buddy-wynkoop-gadfly-weep-wave-matinee-2026-11-01-conor-byrne-c-fdca0e",
+			"category": "live-music",
+			"source": "conor-byrne",
+			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "conor-byrne-201817",
+			"title": "Sunday Song Share",
+			"startsAt": "2026-11-01T18:00:00-08:00",
+			"endsAt": "2026-11-02T01:00:00-08:00",
+			"url": "https://www.conorbyrnepub.com/calendar",
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
@@ -2101,6 +2111,7 @@
 			"endsAt": "2026-12-04T05:00:00Z",
 			"url": "https://www.visitballard.com/event/books-bottles-holiday-wine-tasting-for-book-lovers/",
 			"price": "$25",
+			"category": "food-drink-special",
 			"source": "visitballard"
 		},
 		{
