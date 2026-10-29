@@ -259,7 +259,6 @@ export function mapVenues(data: SiteData, f: Filters): Venue[] {
 }
 
 export const footer = `<footer>
-  <p class="footer-mark" aria-hidden="true"><span></span><span></span><span></span></p>
   <p>Recurring nights are hand-curated and change often. Each card shows when it was last checked, so confirm with the venue before you go.</p>
   <p><a href="${href("/calendar.ics")}">Subscribe to every recurring night</a> · ${esc(SITE.title)}</p>
 </footer>`;

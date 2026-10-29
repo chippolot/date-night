@@ -34,6 +34,8 @@
 		"Familjen Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
 	--serif: "Spectral", Georgia, serif;
 	--header-h: 3.75rem;
+	/* Gray print grain, soft-lit onto color blocks so they read as ink on paper */
+	--grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 	color-scheme: light dark;
 }
 
@@ -211,37 +213,28 @@ nav a,
 /* ---------- Footer ---------- */
 footer {
 	margin-top: 3.5rem;
-	padding-top: 1.5rem;
-	border-top: 2px solid var(--line);
 	color: var(--muted);
 	font-size: 0.88rem;
 	text-align: center;
 }
 
+/* The horizon: one lingonberry sun setting into the closing rule, like the brand mark */
+footer::before {
+	content: "";
+	display: block;
+	height: 1.5rem;
+	margin-bottom: 1.5rem;
+	border-bottom: 2px solid var(--line);
+	background: radial-gradient(
+		circle 1.5rem at 50% 100%,
+		var(--lingon) 97%,
+		transparent
+	);
+}
+
 footer p {
 	margin: 0.4rem auto;
 	max-width: 34rem;
-}
-
-.footer-mark {
-	display: flex;
-	gap: 0.4rem;
-	justify-content: center;
-}
-
-.footer-mark span {
-	width: 0.8rem;
-	height: 0.8rem;
-	background: var(--fjord);
-}
-
-.footer-mark span:nth-child(1) {
-	border-radius: 50%;
-	background: var(--saffron);
-}
-
-.footer-mark span:nth-child(2) {
-	background: var(--lingon);
 }
 
 /* ---------- Header ---------- */
@@ -321,7 +314,8 @@ nav a[aria-current="page"] {
 	isolation: isolate;
 	margin: 1rem 0 1.5rem;
 	padding: 1.75rem 1.25rem 1.6rem;
-	background: var(--block);
+	background: var(--grain), var(--block);
+	background-blend-mode: soft-light;
 	color: var(--on-block);
 }
 
@@ -338,7 +332,8 @@ nav a[aria-current="page"] {
 	width: 6.5rem;
 	height: 6.5rem;
 	border-radius: 50%;
-	background: var(--shape);
+	background: var(--grain), var(--shape);
+	background-blend-mode: soft-light;
 }
 
 .hero::before {
@@ -666,9 +661,9 @@ legend {
 }
 
 .pill input:checked + span {
-	background: var(--text);
-	border-color: var(--text);
-	color: var(--bg);
+	background: var(--fjord);
+	border-color: var(--fjord);
+	color: var(--paper);
 }
 
 /* "Hide" pills read as struck out when on. */
@@ -758,7 +753,8 @@ legend {
 	justify-content: center;
 	width: 2.9rem;
 	height: 2.9rem;
-	background: var(--pine);
+	background: var(--grain) var(--cal-bg, var(--pine));
+	background-blend-mode: soft-light;
 	color: var(--paper);
 	font-family: var(--sans);
 	font-style: normal;
@@ -766,7 +762,7 @@ legend {
 }
 
 .day:first-child .cal {
-	background: var(--lingon);
+	--cal-bg: var(--lingon);
 }
 
 .cal-m {
@@ -785,11 +781,23 @@ legend {
 
 /* ---------- Cards ---------- */
 .card {
+	position: relative;
 	display: grid;
 	grid-template-columns: 4.25rem minmax(0, 1fr);
 	gap: 0.9rem;
 	padding: 1rem 0 1.15rem;
 	border-top: 2px solid var(--line);
+}
+
+/* A thick tab of the category's color printed over the start of each card's rule */
+.card::before {
+	content: "";
+	position: absolute;
+	top: -2px;
+	left: 0;
+	width: 2.75rem;
+	height: 6px;
+	background: var(--cat, var(--line));
 }
 
 .card h3 {
@@ -953,7 +961,8 @@ legend {
 
 .ticket-head {
 	padding: 1rem 3.5rem 0.9rem 1.25rem;
-	background: var(--saffron);
+	background: var(--grain) var(--saffron);
+	background-blend-mode: soft-light;
 	color: var(--ink);
 }
 
