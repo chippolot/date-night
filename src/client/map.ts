@@ -1,5 +1,5 @@
 import L from "leaflet";
-import { href } from "../config";
+import { CARTO_KEY, href } from "../config";
 import type { Filters } from "../lib/filters";
 import { seattleParts } from "../lib/recurrence";
 import { CATEGORIES, type Category, NEIGHBORHOODS } from "../lib/types";
@@ -31,11 +31,19 @@ const COLORS: Record<Category, string> = {
 async function main() {
 	const data = await loadSiteData();
 	const map = L.map("map").setView([47.668, -122.36], 13);
-	L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-		maxZoom: 19,
+	// CARTO basemaps: Voyager, or Dark Matter in dark mode (Voyager has no dark variant).
+	const tiles = L.tileLayer("", {
+		maxZoom: 20,
 		attribution:
-			'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+			'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 	}).addTo(map);
+	const dark = matchMedia("(prefers-color-scheme: dark)");
+	const setTiles = () =>
+		tiles.setUrl(
+			`https://basemaps.cartocdn.com/rastertiles/${dark.matches ? "dark_all" : "voyager"}/{z}/{x}/{y}{r}.png${CARTO_KEY ? `?key=${CARTO_KEY}` : ""}`,
+		);
+	setTiles();
+	dark.addEventListener("change", setTiles);
 	const layer = L.layerGroup().addTo(map);
 
 	const draw = (f: Filters) => {

@@ -320,6 +320,17 @@ export const venues: Venue[] = [
 		priceLevel: 1,
 		tags: ["bar"],
 	},
+	{
+		id: "the-pantry",
+		name: "The Pantry",
+		neighborhood: "ballard",
+		address: "1417 NW 70th St, Seattle, WA 98117",
+		lat: 47.6794,
+		lng: -122.3748,
+		url: "https://thepantryseattle.com/",
+		priceLevel: 3,
+		tags: ["cooking-school", "community-kitchen"],
+	},
 
 	// Crown Hill
 	{

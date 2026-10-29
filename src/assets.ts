@@ -1,4 +1,4 @@
-import { BASE } from "./config";
+import { BASE, CARTO_KEY } from "./config";
 import type { Asset } from "./site";
 
 /** Bundle client scripts and collect static files, keyed by URL path. */
@@ -10,7 +10,10 @@ export async function clientAssets(
 		target: "browser",
 		minify,
 		sourcemap: minify ? "none" : "inline",
-		define: { "process.env.BASE_PATH": JSON.stringify(BASE) },
+		define: {
+			"process.env.BASE_PATH": JSON.stringify(BASE),
+			"process.env.CARTO_KEY": JSON.stringify(CARTO_KEY),
+		},
 	});
 	if (!result.success) {
 		throw new AggregateError(result.logs, "Client build failed");

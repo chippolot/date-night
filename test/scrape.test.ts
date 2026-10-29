@@ -7,6 +7,7 @@ import {
 	parseEgans,
 	parseNordic,
 	parseOctopus,
+	parsePantry,
 	parseTaprootShow,
 	parseWayward,
 	parseWestOfLenin,
@@ -323,6 +324,52 @@ describe("taproot", () => {
 			[
 				"A Charlie Brown Christmas (Closed Captioned)",
 				"2026-12-16T19:30:00-08:00",
+			],
+		]);
+	});
+});
+
+describe("pantry", () => {
+	test("maps classes and dinners, flags sold out, skips private and kids' events", () => {
+		const entry = (
+			id: number,
+			title: string,
+			kind: string,
+			at: string,
+			soldOut = false,
+		) => ({
+			id,
+			title,
+			url: `https://thepantryseattle.com/${kind}/${id}`,
+			soldOut,
+			nextEventDate: at,
+		});
+		const events = parsePantry([
+			entry(1, "Roman Pizza", "class", "2026-12-07 18:00:00"),
+			entry(
+				2,
+				"Family Dinner: Seafood Feast",
+				"dinner",
+				"2026-11-20 19:00:00",
+				true,
+			),
+			entry(3, "Private Class", "class", "2026-11-12 18:00:00", true),
+			entry(
+				4,
+				"Cooking With Kids: Holiday Treats",
+				"class",
+				"2026-11-28 10:00:00",
+			),
+		]);
+		expect(
+			events.map((e) => [e.title, e.startsAt, e.price, e.category]),
+		).toEqual([
+			["Roman Pizza", "2026-12-07T18:00:00-08:00", undefined, "class"],
+			[
+				"Family Dinner: Seafood Feast",
+				"2026-11-20T19:00:00-08:00",
+				"Sold out",
+				"food-drink-special",
 			],
 		]);
 	});

@@ -13,6 +13,7 @@ It's a static site built with Bun, with no runtime server. Pages are pre-rendere
 
 ```sh
 bun install
+cp .env.example .env   # then add a localhost CARTO key for the map tiles
 bun run dev       # http://localhost:3000, hot reload, re-renders on every request
 bun run web       # alias for dev (PORT=… to change the port)
 bun test
@@ -44,22 +45,20 @@ Add an entry to `scripts/scrape/sources.ts`:
 - If it has an iCal feed, use `icsSource({ id, venueId, url })`.
 - Otherwise write a custom `fetchEvents()`.
 
-A source that fails keeps its previous events, so one broken site doesn't empty the calendar.
+- If it's a WordPress "The Events Calendar" site (`/wp-json/tribe/events/v1/events`), use `tribeSource({ id, origin, venues })`.
+- Otherwise write a custom `fetchEvents()`.
 
-Current sources:
+A source that fails keeps its previous events, so one broken site doesn't empty the calendar. A source that throws, or returns no events without setting `mayBeEmpty`, counts as failed: `bun run scrape` lists it and exits 1, and the daily workflow opens (or comments on) a "Scraper failures" GitHub issue, which it closes once every source succeeds again.
 
-- **visitballard.com** (the Ballard Alliance's WordPress events API): only events at venues we list are kept. Map new venue names in `VISITBALLARD_VENUES`.
-- **Conor Byrne** (VenuePilot GraphQL)
-- **Seattle Public Theater** (Squarespace JSON)
-- **Egan's** (static HTML)
+Sources are listed in `sources` at the bottom of `scripts/scrape/sources.ts`, with a comment above each on how it works. Neighborhood calendars (visitballard.com, myballard.com, PhinneyWood, Sunset Hill Community Hall) keep only events at venues mapped in their venue tables. Earlier sources win when two list the same venue and start time. Respect each site's robots.txt crawl delay (`crawlDelay` / `pause`).
 
-Tractor Tavern, Phinney Center, Sunset Tavern and Fremont Abbey aren't scraped (see CLAUDE.md for why).
+The comment above `sources` lists sites that aren't scraped and why (see also CLAUDE.md).
 
 When a scraped event matches a curated night (same venue, same day, within an hour), the site shows the specific event, e.g. tonight's band, in place of the generic night.
 
 ## Deploying
 
-`.github/workflows/daily.yml` checks, tests, scrapes, commits the refreshed events, builds, and deploys to GitHub Pages. It runs on every push to `main` and daily at 6am Pacific. To turn it on, go to the repo's Settings → Pages → Source and choose "GitHub Actions". The base path for a project site is set automatically.
+`.github/workflows/daily.yml` checks, tests, scrapes, commits the refreshed events, builds, and deploys to GitHub Pages. It runs on every push to `main` and daily at 6am Pacific. To turn it on, go to the repo's Settings → Pages → Source and choose "GitHub Actions". The base path for a project site is set automatically. The map's CARTO key comes from the `CARTO_KEY` repo secret (restricted to chippolot.github.io in the CARTO dashboard).
 
 ## Layout
 

@@ -777,6 +777,52 @@ const taproot: Source = {
 	},
 };
 
+// ---------------------------------------------------------------------------
+// The Pantry (community kitchen): the JSON its own calendar page loads (found in its bundle.js;
+// no key). One entry per class/dinner with its next date, in Seattle local time.
+
+type PantryEntry = {
+	id: number;
+	title: string;
+	url: string;
+	soldOut: boolean;
+	nextEventDate: string;
+};
+
+export function parsePantry(entries: PantryEntry[]): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const e of entries) {
+		// Private bookings, kids' classes and take-home packs aren't date nights.
+		if (/\b(private|kids|wine pack)\b/i.test(e.title)) continue;
+		const [date = "", time = ""] = e.nextEventDate.split(" ");
+		const startsAt = localIso(date, time);
+		if (!startsAt) continue;
+		out.push({
+			id: `pantry-${e.id}-${date}`,
+			title: decodeEntities(e.title),
+			startsAt,
+			url: e.url,
+			price: e.soldOut ? "Sold out" : undefined,
+			category: e.url.includes("/dinner/") ? "food-drink-special" : "class",
+		});
+	}
+	return out;
+}
+
+const pantry: Source = {
+	id: "pantry",
+	venueId: "the-pantry",
+	async fetchEvents() {
+		const { from, to } = horizon();
+		const body: { data: PantryEntry[] } = JSON.parse(
+			await get(
+				`https://www.thepantryseattle.com/api/events.json?limit=200&dateRange=${from},${to}&entriesOnly=1`,
+			),
+		);
+		return parsePantry(body.data);
+	},
+};
+
 // Not scraped (see CLAUDE.md): Tractor Tavern (ModSecurity blocks non-browser clients),
 // Phinney Center (Cloudflare; some events arrive via My Ballard), Sunset Tavern (DICE widget
 // needs an API key and dice.fm is behind Cloudflare), Fremont Abbey (public calendar is mostly
@@ -800,4 +846,5 @@ export const sources: Source[] = [
 	taproot,
 	phinneyWood,
 	sunsetHill,
+	pantry,
 ];
