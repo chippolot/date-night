@@ -21,6 +21,8 @@ export type Filters = {
 	day: Weekday[];
 	/** Something matches if it's on during any of these slots */
 	time: TimeSlot[];
+	/** YYYY-MM-DD to show instead of today (Tonight: that day; Coming up: 7 days from it) */
+	date?: string;
 };
 
 /** Time-of-day slots as whole hours; `to` below `from` wraps past midnight. */
@@ -60,11 +62,15 @@ export function parseFilters(params: URLSearchParams): Filters {
 		price: price === 1 || price === 2 || price === 3 ? price : undefined,
 		day: pick(params.getAll("day"), WEEKDAYS),
 		time: pick(params.getAll("time"), Object.keys(TIME_SLOTS) as TimeSlot[]),
+		date: /^\d{4}-\d{2}-\d{2}$/.test(params.get("date") ?? "")
+			? (params.get("date") ?? undefined)
+			: undefined,
 	};
 }
 
 export function toQuery(f: Filters): string {
 	const params = new URLSearchParams();
+	if (f.date) params.set("date", f.date);
 	for (const h of f.hood) params.append("hood", h);
 	for (const c of f.cat) params.append("cat", c);
 	for (const c of f.hide) params.append("hide", c);
@@ -74,6 +80,14 @@ export function toQuery(f: Filters): string {
 	for (const t of f.time) params.append("time", t);
 	const q = params.toString();
 	return q ? `?${q}` : "";
+}
+
+/** Furthest ahead the date picker goes; scraped events only cover the next 90 days. */
+export const MAX_DAYS_AHEAD = 89;
+
+/** The day to show: the picked date if it's today or later, else today. */
+export function viewDate(f: Filters, today: string): string {
+	return f.date && f.date > today ? f.date : today;
 }
 
 export function isEmpty(f: Filters): boolean {

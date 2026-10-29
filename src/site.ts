@@ -38,7 +38,7 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 			heading: "Tonight",
 			intro: `<p>Happy hours, live music and little adventures around Ballard &amp; friends.</p>`,
 			action: `<button type="button" class="surprise" data-surprise><svg class="surprise-star" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C8.6 4.6 11.4 7.4 16 8 11.4 8.6 8.6 11.4 8 16 7.4 11.4 4.6 8.6 0 8 4.6 7.4 7.4 4.6 8 0Z"/></svg>Surprise me</button>`,
-			body: `<div data-surprise-result></div>${filterBar(EMPTY_FILTERS, { days: false })}<div data-view>${tonightView(data, today, EMPTY_FILTERS)}</div>${footer}`,
+			body: `<div data-surprise-result></div>${filterBar(EMPTY_FILTERS, today, { days: false })}<div data-view>${tonightView(data, today, EMPTY_FILTERS)}</div>${footer}`,
 			scripts: ["/app.js"],
 		}),
 	);
@@ -47,10 +47,11 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 		"/week/index.html",
 		layout({
 			page: "week",
-			title: `This week · ${SITE.title}`,
-			heading: "This week",
-			intro: "The next seven nights, recurring and one-off.",
-			body: `${filterBar(EMPTY_FILTERS)}<div data-view>${weekView(data, today, EMPTY_FILTERS)}</div>${footer}`,
+			title: `Coming up · ${SITE.title}`,
+			heading: "Coming up",
+			intro:
+				"Seven nights at a time, recurring and one-off. Pick a start date to look further ahead.",
+			body: `${filterBar(EMPTY_FILTERS, today)}<div data-view>${weekView(data, today, EMPTY_FILTERS)}</div>${footer}`,
 			scripts: ["/app.js"],
 		}),
 	);
@@ -62,7 +63,7 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 			title: `Map · ${SITE.title}`,
 			heading: "Map",
 			intro: "Everything we track, pinned. Tap a dot for what's on.",
-			body: `${filterBar(EMPTY_FILTERS)}<div id="map" class="map" role="region" aria-label="Map of venues"></div>${footer}`,
+			body: `${filterBar(EMPTY_FILTERS, today, { date: false })}<div id="map" class="map" role="region" aria-label="Map of venues"></div>${footer}`,
 			scripts: ["/map.js"],
 			styles: ["/leaflet.css"],
 		}),

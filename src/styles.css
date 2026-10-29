@@ -518,6 +518,22 @@ button:active {
 	margin: 0;
 }
 
+.date-pick input {
+	padding: 0.32rem 0.5rem;
+	border: 1.5px solid var(--border);
+	border-radius: 2px;
+	background: var(--bg);
+	color: var(--text);
+	font: inherit;
+	font-size: 0.85rem;
+	color-scheme: light dark;
+}
+
+.date-pick input:focus-visible {
+	outline: 2px solid var(--lingon);
+	outline-offset: 2px;
+}
+
 .filters details {
 	margin: 1rem 0 0.5rem;
 	border-top: 2px solid var(--line);

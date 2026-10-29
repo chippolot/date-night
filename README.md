@@ -7,7 +7,7 @@ The site has two kinds of content:
 - **Recurring nights** (`data/nights.ts`): hand-curated weekly or monthly things like jazz Wednesdays, trivia, and oyster happy hours. Every entry records where the info came from and when it was last checked, and the site shows that on each card.
 - **Dated events** (`data/events.generated.json`): pulled daily from venue calendars by `scripts/scrape/`.
 
-It's a static site built with Bun, with no runtime server. Pages are pre-rendered at build time. A small client script then re-renders "Tonight" and "This week" for the visitor's real date and filters.
+It's a static site built with Bun, with no runtime server. Pages are pre-rendered at build time. A small client script then re-renders "Tonight" and "Coming up" for the visitor's real date and filters.
 
 ## Commands
 

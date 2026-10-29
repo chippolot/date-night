@@ -1,6 +1,6 @@
 import { href } from "../config";
 import type { SiteData } from "../lib/data";
-import { applyFilters, type Filters } from "../lib/filters";
+import { applyFilters, type Filters, viewDate } from "../lib/filters";
 import { todayInSeattle } from "../lib/recurrence";
 import { surprise } from "../lib/surprise";
 import { NEIGHBORHOODS } from "../lib/types";
@@ -10,12 +10,29 @@ import { loadSiteData, wireFilters } from "./shared";
 
 const page = document.body.dataset.page;
 const view = document.querySelector<HTMLElement>("[data-view]");
+const h1 = document.querySelector("h1");
+const defaultHeading = h1?.textContent ?? "";
 
 function render(data: SiteData, f: Filters) {
 	if (!view) return;
 	const today = todayInSeattle();
+	const day = viewDate(f, today);
 	view.innerHTML =
-		page === "week" ? weekView(data, today, f) : tonightView(data, today, f);
+		page === "week"
+			? weekView(data, day, f, today)
+			: tonightView(data, day, f, today);
+	if (h1) {
+		h1.textContent =
+			day === today
+				? defaultHeading
+				: page === "week"
+					? `Week of ${formatDate(day, { month: "short", day: "numeric" })}`
+					: formatDate(day, {
+							weekday: "long",
+							month: "short",
+							day: "numeric",
+						});
+	}
 }
 
 const CLOSE_BUTTON = `<button type="button" class="ticket-close" data-close aria-label="Close">×</button>`;
@@ -35,8 +52,9 @@ function renderSurprise(data: SiteData, f: Filters) {
 	const out = document.querySelector<HTMLElement>("[data-surprise-result]");
 	if (!out) return;
 	const today = todayInSeattle();
+	const day = viewDate(f, today);
 	const venueById = venueMap(data);
-	const tonight = applyFilters(occurrences(data, today, 1), venueById, f);
+	const tonight = applyFilters(occurrences(data, day, 1), venueById, f);
 	const pick = surprise(
 		tonight,
 		data.venues.filter(
@@ -44,7 +62,7 @@ function renderSurprise(data: SiteData, f: Filters) {
 		),
 	);
 	if (!pick) {
-		out.innerHTML = `<div class="ticket"><div class="ticket-part ticket-empty">${CLOSE_BUTTON}<p>Couldn't find a pairing for tonight with these filters. Try loosening them.</p></div></div>`;
+		out.innerHTML = `<div class="ticket"><div class="ticket-part ticket-empty">${CLOSE_BUTTON}<p>Couldn't find a pairing for ${day === today ? "tonight" : "that day"} with these filters. Try loosening them.</p></div></div>`;
 		wireClose(out);
 		return;
 	}
@@ -58,12 +76,12 @@ function renderSurprise(data: SiteData, f: Filters) {
 				activity.venueId ? venueById.get(activity.venueId) : undefined,
 				today,
 			)
-		: `<p class="muted">No activity matches tonight; maybe just a long dinner.</p>`;
+		: `<p class="muted">No activity matches${day === today ? " tonight" : ""}; maybe just a long dinner.</p>`;
 	out.innerHTML = `<div class="ticket">
   <div class="ticket-head">
     ${CLOSE_BUTTON}
-    <span class="ticket-eyebrow">Admit two · ${formatDate(today, { weekday: "long", month: "short", day: "numeric" })}</span>
-    <h2>Tonight's plan</h2>
+    <span class="ticket-eyebrow">Admit two · ${formatDate(day, { weekday: "long", month: "short", day: "numeric" })}</span>
+    <h2>${day === today ? "Tonight's plan" : "The plan"}</h2>
   </div>
   <div class="ticket-part"><p class="step"><span class="step-n">1</span> Dinner or drinks</p>${foodHtml}</div>
   <div class="ticket-tear" aria-hidden="true"></div>

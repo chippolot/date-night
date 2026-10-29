@@ -65,30 +65,44 @@ const PARTS: {
 	{ id: "late", label: "Late", test: (s) => s >= "21:00" },
 ];
 
-export function tonightView(data: SiteData, today: string, f: Filters): string {
+/** One day's listings: tonight, or `day` when a date is picked. */
+export function tonightView(
+	data: SiteData,
+	day: string,
+	f: Filters,
+	today = day,
+): string {
 	const venueById = venueMap(data);
-	const list = applyFilters(occurrences(data, today, 1), venueById, f);
+	const list = applyFilters(occurrences(data, day, 1), venueById, f);
 	const sections = PARTS.map(({ id, label, test }) => {
 		const items = list.filter((o) => test(o.start));
 		if (!items.length) return "";
 		return `<section class="part"><h2 class="part-heading"><span class="part-mark part-${id}" aria-hidden="true"></span>${label} <span class="part-count">${items.length}</span></h2>${cardList(items, venueById, today)}</section>`;
 	}).join("");
-	return `<p class="date-heading"><span class="date-num">${formatDate(today, { day: "2-digit" })}</span><span class="date-words"><span class="date-weekday">${formatDate(today, { weekday: "long" })}</span><span class="date-month">${formatDate(today, { month: "long", year: "numeric" })}</span></span></p>
-${
-	sections ||
-	`<p class="empty">Nothing on tonight with these filters. <a href="${href("/week/")}">Check the week →</a></p>`
-}`;
+	const empty =
+		day === today
+			? `Nothing on tonight with these filters. <a href="${href("/week/")}">See what's coming up →</a>`
+			: `Nothing on this day with these filters. <a href="${href(`/week/?date=${day}`)}">Check that week →</a>`;
+	return `<p class="date-heading"><span class="date-num">${formatDate(day, { day: "2-digit" })}</span><span class="date-words"><span class="date-weekday">${formatDate(day, { weekday: "long" })}</span><span class="date-month">${formatDate(day, { month: "long", year: "numeric" })}</span></span></p>
+${sections || `<p class="empty">${empty}</p>`}`;
 }
 
-export function weekView(data: SiteData, today: string, f: Filters): string {
+/** Seven days from `start` (today unless a date is picked). */
+export function weekView(
+	data: SiteData,
+	start: string,
+	f: Filters,
+	today = start,
+): string {
 	const venueById = venueMap(data);
-	const list = applyFilters(occurrences(data, today, 7), venueById, f);
-	const days = Array.from({ length: 7 }, (_, i) => addDays(today, i));
+	const list = applyFilters(occurrences(data, start, 7), venueById, f);
+	const days = Array.from({ length: 7 }, (_, i) => addDays(start, i));
 	return `<div class="week">${days
-		.map((date, i) => {
+		.map((date) => {
 			if (!matchesDay(weekdayOf(date), f)) return "";
 			const items = list.filter((o) => o.date === date);
-			const label = i === 0 ? "Today" : formatDate(date, { weekday: "long" });
+			const label =
+				date === today ? "Today" : formatDate(date, { weekday: "long" });
 			const month = formatDate(date, { month: "short" });
 			const day = formatDate(date, { day: "numeric" });
 			return `<section class="day"><h2 class="day-heading"><span class="cal" aria-hidden="true"><span class="cal-m">${month}</span><span class="cal-d">${day}</span></span><span>${label}</span><span class="part-count">${items.length}</span></h2>${cardList(items, venueById, today, "Nothing listed.")}</section>`;

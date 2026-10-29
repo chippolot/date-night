@@ -7,6 +7,7 @@ import {
 	parseFilters,
 	type TimeSlot,
 	toQuery,
+	viewDate,
 } from "../src/lib/filters";
 import type { Occurrence } from "../src/lib/types";
 
@@ -83,5 +84,27 @@ describe("hide", () => {
 		expect(applyFilters(list, new Map(), f).map((o) => o.category)).toEqual([
 			"trivia",
 		]);
+	});
+});
+
+describe("date", () => {
+	test("parses a valid date, ignores junk, and never shows the past", () => {
+		expect(parseFilters(new URLSearchParams("date=2026-11-14")).date).toBe(
+			"2026-11-14",
+		);
+		expect(
+			parseFilters(new URLSearchParams("date=tomorrow")).date,
+		).toBeUndefined();
+		expect(toQuery({ ...EMPTY_FILTERS, date: "2026-11-14" })).toBe(
+			"?date=2026-11-14",
+		);
+		const today = "2026-10-29";
+		expect(viewDate({ ...EMPTY_FILTERS, date: "2026-11-14" }, today)).toBe(
+			"2026-11-14",
+		);
+		expect(viewDate({ ...EMPTY_FILTERS, date: "2026-10-01" }, today)).toBe(
+			today,
+		);
+		expect(viewDate(EMPTY_FILTERS, today)).toBe(today);
 	});
 });

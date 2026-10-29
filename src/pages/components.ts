@@ -1,5 +1,6 @@
 import { href, SITE } from "../config";
-import { type Filters, TIME_SLOTS } from "../lib/filters";
+import { type Filters, MAX_DAYS_AHEAD, TIME_SLOTS } from "../lib/filters";
+import { addDays } from "../lib/recurrence";
 import type { Night, Nth, Occurrence, Venue, Weekday } from "../lib/types";
 import { CATEGORIES, NEIGHBORHOODS, VIBES } from "../lib/types";
 
@@ -192,9 +193,14 @@ const DAY_PILLS: [Weekday, string][] = [
 
 /**
  * A plain GET form, so filtering works without JS; the client upgrades it to live updates.
- * Day and time sit above the collapsible panel. Pass `days: false` where the page covers a single day.
+ * Date, day and time sit above the collapsible panel. Pass `days: false` where the page covers a
+ * single day, and `date: false` where a starting date doesn't apply (the map).
  */
-export function filterBar(f: Filters, { days = true } = {}): string {
+export function filterBar(
+	f: Filters,
+	today: string,
+	{ days = true, date = true } = {},
+): string {
 	const prices: [string, string][] = [
 		["", "Any"],
 		["1", "$"],
@@ -216,6 +222,7 @@ export function filterBar(f: Filters, { days = true } = {}): string {
 		(f.price ? 1 : 0);
 	return `<form class="filters" method="get" data-filters>
   <div class="when">
+    ${date ? `<fieldset class="date-pick"><legend>${days ? "Starting" : "Date"}</legend><input type="date" name="date" value="${f.date ?? ""}" min="${today}" max="${addDays(today, MAX_DAYS_AHEAD)}" aria-label="${days ? "Show the week starting on" : "Show events on"}"></fieldset>` : ""}
     ${days ? checkboxGroup("day", "Day", DAY_PILLS, f.day) : ""}
     ${checkboxGroup(
 			"time",

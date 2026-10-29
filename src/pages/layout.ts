@@ -5,7 +5,7 @@ export type PageId = "tonight" | "week" | "map" | "venues" | "venue";
 
 const NAV: [PageId, string, string][] = [
 	["tonight", "Tonight", "/"],
-	["week", "This week", "/week/"],
+	["week", "Coming up", "/week/"],
 	["map", "Map", "/map/"],
 	["venues", "Venues", "/venues/"],
 ];

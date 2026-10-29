@@ -1,6 +1,12 @@
 import { href } from "../config";
 import type { SiteData } from "../lib/data";
-import { type Filters, parseFilters, toQuery } from "../lib/filters";
+import {
+	type Filters,
+	MAX_DAYS_AHEAD,
+	parseFilters,
+	toQuery,
+} from "../lib/filters";
+import { addDays, todayInSeattle } from "../lib/recurrence";
 
 export async function loadSiteData(): Promise<SiteData> {
 	const res = await fetch(href("/data.json"));
@@ -42,6 +48,14 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 
 	// The pre-rendered form has no selections; reflect the URL's filters.
 	for (const input of form.querySelectorAll<HTMLInputElement>("input")) {
+		if (input.type === "date") {
+			// The static page was built on an earlier day; keep the range relative to today.
+			const today = todayInSeattle();
+			input.min = today;
+			input.max = addDays(today, MAX_DAYS_AHEAD);
+			input.value = initial.date ?? "";
+			continue;
+		}
 		const values = params.getAll(input.name);
 		input.checked =
 			input.type === "radio" && input.value === ""
@@ -71,7 +85,8 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 		e.preventDefault();
 		form.reset();
 		for (const input of form.querySelectorAll<HTMLInputElement>("input")) {
-			input.checked = input.type === "radio" && input.value === "";
+			if (input.type === "date") input.value = "";
+			else input.checked = input.type === "radio" && input.value === "";
 		}
 		form.dispatchEvent(new Event("change"));
 	});
