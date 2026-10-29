@@ -1,0 +1,24 @@
+{
+	"name": "date-night",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"dev": "bun --hot src/server.ts",
+		"web": "bun run dev",
+		"build": "bun src/build.ts",
+		"preview": "bun src/preview.ts",
+		"scrape": "bun scripts/scrape/index.ts",
+		"test": "bun test",
+		"check": "biome check . && tsc --noEmit",
+		"fix": "biome check --write ."
+	},
+	"dependencies": {
+		"leaflet": "^1.9.4"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.6.4",
+		"@types/bun": "latest",
+		"@types/leaflet": "^1.9.22",
+		"typescript": "^5"
+	}
+}

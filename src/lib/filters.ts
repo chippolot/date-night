@@ -1,0 +1,150 @@
+import { weekdayOf } from "./recurrence";
+import type {
+	Category,
+	Neighborhood,
+	Occurrence,
+	PriceLevel,
+	Venue,
+	Vibe,
+	Weekday,
+} from "./types";
+import { CATEGORIES, NEIGHBORHOODS, VIBES, WEEKDAYS } from "./types";
+
+export type Filters = {
+	hood: Neighborhood[];
+	cat: Category[];
+	vibe: Vibe[];
+	/** Max venue price level; undefined means any */
+	price?: PriceLevel;
+	day: Weekday[];
+	/** Something matches if it's on during any of these slots */
+	time: TimeSlot[];
+};
+
+/** Time-of-day slots as whole hours; `to` below `from` wraps past midnight. */
+export const TIME_SLOTS = {
+	afternoon: { label: "Afternoon", hours: "12–5pm", from: 12, to: 17 },
+	evening: { label: "Evening", hours: "5–8pm", from: 17, to: 20 },
+	night: { label: "Night", hours: "8–11pm", from: 20, to: 23 },
+	late: { label: "Late", hours: "11pm+", from: 23, to: 4 },
+} as const;
+export type TimeSlot = keyof typeof TIME_SLOTS;
+
+export const EMPTY_FILTERS: Filters = {
+	hood: [],
+	cat: [],
+	vibe: [],
+	day: [],
+	time: [],
+};
+
+function pick<T extends string>(values: string[], allowed: readonly T[]): T[] {
+	return values.filter((v): v is T =>
+		(allowed as readonly string[]).includes(v),
+	);
+}
+
+export function parseFilters(params: URLSearchParams): Filters {
+	const price = Number(params.get("price"));
+	return {
+		hood: pick(
+			params.getAll("hood"),
+			Object.keys(NEIGHBORHOODS) as Neighborhood[],
+		),
+		cat: pick(params.getAll("cat"), Object.keys(CATEGORIES) as Category[]),
+		vibe: pick(params.getAll("vibe"), VIBES),
+		price: price === 1 || price === 2 || price === 3 ? price : undefined,
+		day: pick(params.getAll("day"), WEEKDAYS),
+		time: pick(params.getAll("time"), Object.keys(TIME_SLOTS) as TimeSlot[]),
+	};
+}
+
+export function toQuery(f: Filters): string {
+	const params = new URLSearchParams();
+	for (const h of f.hood) params.append("hood", h);
+	for (const c of f.cat) params.append("cat", c);
+	for (const v of f.vibe) params.append("vibe", v);
+	if (f.price) params.set("price", String(f.price));
+	for (const d of f.day) params.append("day", d);
+	for (const t of f.time) params.append("time", t);
+	const q = params.toString();
+	return q ? `?${q}` : "";
+}
+
+export function isEmpty(f: Filters): boolean {
+	return (
+		!f.hood.length &&
+		!f.cat.length &&
+		!f.vibe.length &&
+		!f.price &&
+		!f.day.length &&
+		!f.time.length
+	);
+}
+
+function minutes(hhmm: string): number {
+	const [h = 0, m = 0] = hhmm.split(":").map(Number);
+	return h * 60 + m;
+}
+
+/**
+ * Whether something starting at `start` (and running to `end`, if known) is on
+ * between hours `from` and `to`. Without an end time it must start in the window.
+ */
+function inWindow(
+	start: string,
+	end: string | undefined,
+	from: number,
+	to: number,
+): boolean {
+	// A window like 11pm–4am wraps past midnight: check both halves.
+	if (to <= from)
+		return inWindow(start, end, from, 24) || inWindow(start, end, 0, to);
+	const lo = from * 60;
+	const hi = to * 60;
+	const s = minutes(start);
+	if (!end) return s >= lo && s < hi;
+	let e = minutes(end);
+	if (e <= s) e += 24 * 60; // ends after midnight
+	return s < hi && e > lo;
+}
+
+export function matchesTime(
+	start: string,
+	end: string | undefined,
+	f: Filters,
+): boolean {
+	return (
+		!f.time.length ||
+		f.time.some((t) =>
+			inWindow(start, end, TIME_SLOTS[t].from, TIME_SLOTS[t].to),
+		)
+	);
+}
+
+export function matchesDay(day: Weekday, f: Filters): boolean {
+	return !f.day.length || f.day.includes(day);
+}
+
+export function matchesVenue(venue: Venue | undefined, f: Filters): boolean {
+	if (f.hood.length && (!venue || !f.hood.includes(venue.neighborhood)))
+		return false;
+	if (f.price && venue && venue.priceLevel > f.price) return false;
+	return true;
+}
+
+export function applyFilters(
+	list: Occurrence[],
+	venueById: Map<string, Venue>,
+	f: Filters,
+): Occurrence[] {
+	return list.filter((o) => {
+		const venue = o.venueId ? venueById.get(o.venueId) : undefined;
+		if (!matchesVenue(venue, f)) return false;
+		if (f.cat.length && !f.cat.includes(o.category)) return false;
+		if (f.vibe.length && !o.vibe.some((v) => f.vibe.includes(v))) return false;
+		if (!matchesDay(weekdayOf(o.date), f)) return false;
+		if (!matchesTime(o.start, o.end, f)) return false;
+		return true;
+	});
+}
