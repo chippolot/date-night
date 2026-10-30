@@ -70,4 +70,5 @@ src/pages/       pure HTML render functions (shared by build and browser)
 src/client/      browser scripts: live filters, surprise, map (Leaflet)
 src/site.ts      every route → content; used by build.ts and server.ts
 scripts/scrape/  JSON-LD + iCal parsers, per-venue sources
+brand/           social profile images (not part of the site build)
 ```
