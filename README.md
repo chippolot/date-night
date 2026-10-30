@@ -35,7 +35,7 @@ bun run preview   # serve dist/ like a static host, http://localhost:4173
    - `lastVerified`: set to today whenever you re-check it.
 3. Run `bun test`. The data tests catch unknown venue IDs, duplicate IDs, bad times, and coordinates outside the area.
 
-To find leads in venues' Instagram posts, run `bun run ig-leads` (or `bun run ig-leads <venue-id>…`). It reads each venue's `instagram` account once through the Graph API and writes captions that look like recurring nights to `out/ig-leads.md`. Verify each lead by hand before adding it. Posts it has reported are remembered in `data/cache/ig-seen.json`, and `--new` leaves them out.
+To find leads in venues' Instagram posts, run `bun run ig-leads` (or `bun run ig-leads <venue-id>…`). It reads each venue's `instagram` account once through the Graph API and writes captions that look like recurring nights to `out/ig-leads.md`. Verify each lead by hand before adding it. With `--new` it leaves out posts already reported and records the ones it reports in `data/cache/ig-seen.json` (the weekly workflow commits that file); runs without `--new` leave the file alone.
 
 `.github/workflows/ig-leads.yml` runs `ig-leads --new` every Monday and posts new leads to an open "Instagram leads" issue. It needs the `META_ACCESS_TOKEN` and `INSTAGRAM_USER_ID` repo secrets. The token expires about every 60 days: when it does, the workflow opens an "Instagram token needs refreshing" issue, and `bun run meta-token <short-lived token> --github` updates both `.env` and the secret.
 

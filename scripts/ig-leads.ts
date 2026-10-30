@@ -3,8 +3,9 @@
 // Leads are for hand verification only: this never writes to data/nights.ts (see CLAUDE.md).
 // `bun run ig-leads` checks every venue with an `instagram` handle; `bun run ig-leads <venue-id>…` checks
 // only those. Needs META_ACCESS_TOKEN and INSTAGRAM_USER_ID in .env (refresh with `bun run meta-token`).
-// Posts already reported are remembered in data/cache/ig-seen.json; `--new` leaves them out, which is
-// how the weekly workflow (.github/workflows/ig-leads.yml) reports only what's new.
+// `--new` leaves out posts already reported and remembers the ones it reports in
+// data/cache/ig-seen.json, which is how the weekly workflow (.github/workflows/ig-leads.yml) reports
+// only what's new. Runs without `--new` leave that file alone.
 // Exits 2 when the token is missing or rejected, so the workflow can say the token needs refreshing.
 // The app shares a limit of about 200 calls per hour, so each account is asked for once (profile and
 // posts in one call) and the run stops on "Application request limit reached".
@@ -257,16 +258,20 @@ async function main() {
 	].join("\n");
 	await Bun.write(OUT, report);
 
-	for (const key of reported) seen[key] ??= today;
-	const cutoff = new Date(Date.now() - SEEN_DAYS * 86_400_000)
-		.toISOString()
-		.slice(0, 10);
-	const kept = Object.fromEntries(
-		Object.entries(seen)
-			.filter(([, date]) => date >= cutoff)
-			.sort(([a], [b]) => a.localeCompare(b)),
-	);
-	await Bun.write(SEEN, `${JSON.stringify(kept, null, "\t")}\n`);
+	// Only `--new` runs (the weekly workflow, which commits the file) remember what they reported, so
+	// a local look at some venues doesn't leave the checkout modified or hide leads from the issue.
+	if (onlyNew) {
+		for (const key of reported) seen[key] ??= today;
+		const cutoff = new Date(Date.now() - SEEN_DAYS * 86_400_000)
+			.toISOString()
+			.slice(0, 10);
+		const kept = Object.fromEntries(
+			Object.entries(seen)
+				.filter(([, date]) => date >= cutoff)
+				.sort(([a], [b]) => a.localeCompare(b)),
+		);
+		await Bun.write(SEEN, `${JSON.stringify(kept, null, "\t")}\n`);
+	}
 
 	console.log(
 		`${reached} of ${targets.length} accounts checked, ${leadCount} ${onlyNew ? "new " : ""}leads at ${sections.length} venues, ${problems.length} failed → ${OUT}`,
