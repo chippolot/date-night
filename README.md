@@ -35,7 +35,11 @@ bun run preview   # serve dist/ like a static host, http://localhost:4173
    - `lastVerified`: set to today whenever you re-check it.
 3. Run `bun test`. The data tests catch unknown venue IDs, duplicate IDs, bad times, and coordinates outside the area.
 
-To find leads in venues' Instagram posts, run `bun run ig-leads` (or `bun run ig-leads <venue-id>…`). It reads each venue's `instagram` account once through the Graph API and writes captions that look like recurring nights to `out/ig-leads.md`. Verify each lead by hand before adding it.
+To find leads in venues' Instagram posts, run `bun run ig-leads` (or `bun run ig-leads <venue-id>…`). It reads each venue's `instagram` account once through the Graph API and writes captions that look like recurring nights to `out/ig-leads.md`. Verify each lead by hand before adding it. Posts it has reported are remembered in `data/cache/ig-seen.json`, and `--new` leaves them out.
+
+`.github/workflows/ig-leads.yml` runs `ig-leads --new` every Monday and posts new leads to an open "Instagram leads" issue. It needs the `META_ACCESS_TOKEN` and `INSTAGRAM_USER_ID` repo secrets. The token expires about every 60 days: when it does, the workflow opens an "Instagram token needs refreshing" issue, and `bun run meta-token <short-lived token> --github` updates both `.env` and the secret.
+
+Each card links to a pre-filled "Something changed" issue (`.github/ISSUE_TEMPLATE/listing-change.yml`), labeled `listing`.
 
 Nights checked more than 90 days ago show a "May be outdated" badge. You can change that in `src/config.ts`.
 
@@ -45,8 +49,6 @@ Add an entry to `scripts/scrape/sources.ts`:
 
 - If the venue's page has schema.org JSON-LD, use `jsonldSource({ id, venueId, urls })`.
 - If it has an iCal feed, use `icsSource({ id, venueId, url })`.
-- Otherwise write a custom `fetchEvents()`.
-
 - If it's a WordPress "The Events Calendar" site (`/wp-json/tribe/events/v1/events`), use `tribeSource({ id, origin, venues })`.
 - Otherwise write a custom `fetchEvents()`.
 
@@ -57,6 +59,10 @@ Sources are listed in `sources` at the bottom of `scripts/scrape/sources.ts`, wi
 The comment above `sources` lists sites that aren't scraped and why (see also CLAUDE.md).
 
 When a scraped event matches a curated night (same venue, same day, within an hour), the site shows the specific event, e.g. tonight's band, in place of the generic night.
+
+## Calendar feeds
+
+The build writes subscribable calendars to `/feeds/`: `all.ics`, one per category (`what/<category>.ics`), one per neighborhood (`hood/<neighborhood>.ics`), and one per pair (`hood/<neighborhood>/<category>.ics`). Recurring nights are repeating events, skipped on days a scraped event stands in for them. Tonight and Coming up link to the feeds that match the picked categories and neighborhoods.
 
 ## Deploying
 

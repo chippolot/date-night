@@ -1,0 +1,83 @@
+name: Instagram leads
+
+# Weekly: read venues' Instagram posts through the Graph API and post any new leads to one open
+# "Instagram leads" issue for hand verification (never written to nights.ts). Needs the
+# META_ACCESS_TOKEN and INSTAGRAM_USER_ID repo secrets; `bun run meta-token --github` refreshes the
+# token secret, which expires about every 60 days.
+on:
+  schedule:
+    - cron: "0 16 * * 1" # Mondays, 9am Pacific (8am during PST)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: ig-leads
+  cancel-in-progress: false
+
+jobs:
+  leads:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+
+      - name: Find new leads
+        id: leads
+        # Exit codes: 0 ok, 1 failed or stopped at the rate limit, 2 token missing or rejected
+        run: |
+          set +e
+          bun run ig-leads --new
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+
+      - name: Report
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CODE: ${{ steps.leads.outputs.code }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          open_issue() {
+            gh issue list --state open --search "in:title \"$1\"" --json number --jq '.[0].number // empty'
+          }
+          post() { # title, body: comment on the open issue with that title, or open one
+            issue=$(open_issue "$1")
+            if [ -n "$issue" ]; then gh issue comment "$issue" --body "$2"; else gh issue create --title "$1" --body "$2"; fi
+          }
+
+          token_title="Instagram token needs refreshing"
+          token_issue=$(open_issue "$token_title")
+          if [ "$CODE" = "2" ]; then
+            post "$token_title" "The Instagram leads run couldn't use META_ACCESS_TOKEN (missing or expired). Get a short-lived token from the Graph API Explorer, then run \`bun run meta-token <token> --github\`."$'\n\n'"Run: $RUN_URL"
+            exit 1
+          elif [ -n "$token_issue" ]; then
+            gh issue close "$token_issue" --comment "The token works again: $RUN_URL"
+          fi
+
+          # Venue sections start with "## " (the failed-accounts section too)
+          if grep -q '^## ' out/ig-leads.md; then
+            # GitHub caps issue bodies at 65,536 characters
+            body="$(head -c 60000 out/ig-leads.md)"$'\n\n'"Run: $RUN_URL"
+            post "Instagram leads" "$body"
+          fi
+          if [ "$CODE" != "0" ]; then
+            echo "ig-leads exited $CODE; see the log above." >&2
+            exit 1
+          fi
+
+      - name: Remember reported posts
+        if: always() && steps.leads.outputs.code != '2'
+        run: |
+          git add data/cache/ig-seen.json
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore: remember reported Instagram posts"
+            git pull --rebase
+            git push
+          fi

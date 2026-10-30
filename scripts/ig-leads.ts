@@ -3,6 +3,9 @@
 // Leads are for hand verification only: this never writes to data/nights.ts (see CLAUDE.md).
 // `bun run ig-leads` checks every venue with an `instagram` handle; `bun run ig-leads <venue-id>…` checks
 // only those. Needs META_ACCESS_TOKEN and INSTAGRAM_USER_ID in .env (refresh with `bun run meta-token`).
+// Posts already reported are remembered in data/cache/ig-seen.json; `--new` leaves them out, which is
+// how the weekly workflow (.github/workflows/ig-leads.yml) reports only what's new.
+// Exits 2 when the token is missing or rejected, so the workflow can say the token needs refreshing.
 // The app shares a limit of about 200 calls per hour, so each account is asked for once (profile and
 // posts in one call) and the run stops on "Application request limit reached".
 import { nights } from "../data/nights";
@@ -11,6 +14,9 @@ import type { Night } from "../src/lib/types";
 
 const GRAPH = "https://graph.facebook.com/v23.0";
 const OUT = "out/ig-leads.md";
+const SEEN = "data/cache/ig-seen.json";
+/** Forget seen posts after this long; by then they've dropped out of the latest posts anyway. */
+const SEEN_DAYS = 365;
 const POSTS = 25;
 /** Posts newer than this may back a `confirmed` night (CLAUDE.md) */
 const RECENT_DAYS = 60;
@@ -101,10 +107,12 @@ async function main() {
 		console.error(
 			"Needs META_ACCESS_TOKEN and INSTAGRAM_USER_ID in .env (refresh the token with `bun run meta-token`).",
 		);
-		process.exit(1);
+		process.exit(2);
 	}
 
-	const wanted = process.argv.slice(2);
+	const args = process.argv.slice(2);
+	const onlyNew = args.includes("--new");
+	const wanted = args.filter((a) => !a.startsWith("--"));
 	const unknown = wanted.filter((id) => !venues.some((v) => v.id === id));
 	if (unknown.length) {
 		console.error(`Unknown venue ids: ${unknown.join(", ")}`);
@@ -121,6 +129,13 @@ async function main() {
 	// Venues named in the "Known but left out" comment at the top of nights.ts
 	const header =
 		(await Bun.file("data/nights.ts").text()).split("export const")[0] ?? "";
+
+	// Permalinks (and "bio:<handle>" for bios) → the date first reported
+	const seen: Record<string, string> = (await Bun.file(SEEN).exists())
+		? await Bun.file(SEEN).json()
+		: {};
+	const today = new Date().toISOString().slice(0, 10);
+	const reported: string[] = [];
 
 	const sections: string[] = [];
 	const problems: string[] = [];
@@ -150,7 +165,7 @@ async function main() {
 				console.error(
 					`Token rejected (${message}). Run \`bun run meta-token\` with a fresh token.`,
 				);
-				process.exit(1);
+				process.exit(2);
 			}
 			if (
 				[4, 17, 32].includes(code ?? 0) ||
@@ -169,9 +184,17 @@ async function main() {
 		const posts = account?.media?.data ?? [];
 		const leads = posts.flatMap((p) => {
 			const lead = p.caption ? extractLeads(p.caption) : null;
-			return lead ? [{ post: p, lead }] : [];
+			if (!lead || (onlyNew && seen[p.permalink])) return [];
+			return [{ post: p, lead, isNew: !seen[p.permalink] }];
 		});
-		const bioLead = account?.biography ? extractLeads(account.biography) : null;
+		// A bio counts as new when its text changed since it was last reported
+		const bioKey = `bio:${handle}:${Bun.hash(account?.biography ?? "")}`;
+		const bioLead =
+			account?.biography && !(onlyNew && seen[bioKey])
+				? extractLeads(account.biography)
+				: null;
+		reported.push(...leads.map((l) => l.post.permalink));
+		if (bioLead) reported.push(bioKey);
 
 		if (leads.length || bioLead) {
 			leadCount += leads.length;
@@ -187,12 +210,12 @@ async function main() {
 				lines.push(
 					`- Bio: ${account?.biography?.replace(/\s+/g, " ")} (days: ${bioLead.days.join(", ")}; times: ${bioLead.times.join(", ") || "none"})`,
 				);
-			for (const { post, lead } of leads) {
+			for (const { post, lead, isNew } of leads) {
 				const age = daysAgo(post.timestamp);
 				const excerpt = (post.caption ?? "").replace(/\s+/g, " ").slice(0, 280);
 				lines.push(
 					"",
-					`### ${post.timestamp.slice(0, 10)} (${age} days ago${age < RECENT_DAYS ? ", recent enough for `confirmed`" : ""})`,
+					`### ${isNew ? "New: " : ""}${post.timestamp.slice(0, 10)} (${age} days ago${age < RECENT_DAYS ? ", recent enough for `confirmed`" : ""})`,
 					"",
 					`- ${post.permalink}`,
 					`- Days: ${lead.days.join(", ")}; times: ${lead.times.join(", ") || "none"}; about: ${lead.keywords.join(", ")}`,
@@ -234,8 +257,19 @@ async function main() {
 	].join("\n");
 	await Bun.write(OUT, report);
 
+	for (const key of reported) seen[key] ??= today;
+	const cutoff = new Date(Date.now() - SEEN_DAYS * 86_400_000)
+		.toISOString()
+		.slice(0, 10);
+	const kept = Object.fromEntries(
+		Object.entries(seen)
+			.filter(([, date]) => date >= cutoff)
+			.sort(([a], [b]) => a.localeCompare(b)),
+	);
+	await Bun.write(SEEN, `${JSON.stringify(kept, null, "\t")}\n`);
+
 	console.log(
-		`${reached} of ${targets.length} accounts checked, ${leadCount} leads at ${sections.length} venues, ${problems.length} failed → ${OUT}`,
+		`${reached} of ${targets.length} accounts checked, ${leadCount} ${onlyNew ? "new " : ""}leads at ${sections.length} venues, ${problems.length} failed → ${OUT}`,
 	);
 	if (stopped) {
 		console.error(
