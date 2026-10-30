@@ -2,7 +2,9 @@ import { describe, expect, test } from "bun:test";
 import {
 	applyFilters,
 	EMPTY_FILTERS,
+	entryPrice,
 	type Filters,
+	matchesCost,
 	matchesTime,
 	parseFilters,
 	type TimeSlot,
@@ -167,5 +169,47 @@ describe("search", () => {
 		expect(titles("stories")).toEqual(["Comedy Battle Royale"]); // category label
 		expect(titles("ballard jazz")).toEqual([]);
 		expect(titles("")).toHaveLength(3);
+	});
+});
+
+describe("cost filter", () => {
+	const o = (
+		cost: string | undefined,
+		category: Occurrence["category"] = "live-music",
+	) => ({
+		cost,
+		category,
+	});
+
+	test("entryPrice reads the lowest stated price", () => {
+		expect(entryPrice(o("Free"))).toBe(0);
+		expect(entryPrice(o("No cover"))).toBe(0);
+		expect(entryPrice(o("Free; $10 kit optional"))).toBe(0);
+		expect(entryPrice(o("$10–20 cover"))).toBe(10);
+		expect(entryPrice(o("$19.80–$25.87"))).toBe(19.8);
+		expect(entryPrice(o("Ticketed"))).toBeNull();
+		expect(entryPrice(o(undefined))).toBeUndefined();
+		// Happy hour prices are deals, not a cover
+		expect(entryPrice(o("$3 oysters", "food-drink-special"))).toBeUndefined();
+	});
+
+	test("free and up to $20", () => {
+		const free: Pick<Filters, "cost"> = { cost: "free" };
+		const under20: Pick<Filters, "cost"> = { cost: "under20" };
+		expect(matchesCost(o("Free"), free)).toBe(true);
+		expect(matchesCost(o(undefined), free)).toBe(false);
+		expect(matchesCost(o(undefined), under20)).toBe(true);
+		expect(matchesCost(o("$20 cover"), under20)).toBe(true);
+		expect(matchesCost(o("$25"), under20)).toBe(false);
+		expect(matchesCost(o("Sold out"), under20)).toBe(false);
+	});
+
+	test("round-trips through the URL", () => {
+		const f = parseFilters(new URLSearchParams("cost=free&price=1"));
+		expect(f.cost).toBe("free");
+		expect(toQuery(f)).toBe("?price=1&cost=free");
+		expect(
+			parseFilters(new URLSearchParams("cost=cheap")).cost,
+		).toBeUndefined();
 	});
 });

@@ -16,8 +16,10 @@ export type Filters = {
 	/** Categories to leave out, e.g. happy hours (remembered per browser by the client) */
 	hide: Category[];
 	vibe: Vibe[];
-	/** Max venue price level; undefined means any */
+	/** Max venue food & drink price level; undefined means any */
 	price?: PriceLevel;
+	/** What it costs to get in; undefined means any */
+	cost?: CostFilter;
 	day: Weekday[];
 	/** Something matches if it's on during any of these slots */
 	time: TimeSlot[];
@@ -35,6 +37,40 @@ export const TIME_SLOTS = {
 	late: { label: "Late", hours: "11pm+", from: 23, to: 4 },
 } as const;
 export type TimeSlot = keyof typeof TIME_SLOTS;
+
+export const COST_FILTERS = {
+	free: "Free",
+	under20: "Up to $20",
+} as const;
+export type CostFilter = keyof typeof COST_FILTERS;
+
+/**
+ * The lowest stated cost to get in, in dollars: 0 for free, undefined when nothing is stated
+ * (most trivia and jams), and null when it's ticketed but no price is given. Happy hours and
+ * food & drink deals list what's on special, not a cover, so they count as nothing stated.
+ */
+export function entryPrice(
+	o: Pick<Occurrence, "cost" | "category">,
+): number | null | undefined {
+	if (!o.cost || o.category === "food-drink-special") return undefined;
+	if (/^(free|no cover)\b/i.test(o.cost.trim())) return 0;
+	const amounts = [...o.cost.matchAll(/\$(\d+(?:\.\d+)?)/g)].map((m) =>
+		Number(m[1]),
+	);
+	if (amounts.length) return Math.min(...amounts);
+	return /free/i.test(o.cost) ? 0 : null;
+}
+
+export function matchesCost(
+	o: Pick<Occurrence, "cost" | "category">,
+	f: Pick<Filters, "cost">,
+): boolean {
+	if (!f.cost) return true;
+	const price = entryPrice(o);
+	if (f.cost === "free") return price === 0;
+	// "Up to $20" keeps nights with no cover listed, but not ticketed ones of unknown price.
+	return price === undefined || (price !== null && price <= 20);
+}
 
 export const EMPTY_FILTERS: Filters = {
 	hood: [],
@@ -54,6 +90,7 @@ function pick<T extends string>(values: string[], allowed: readonly T[]): T[] {
 
 export function parseFilters(params: URLSearchParams): Filters {
 	const price = Number(params.get("price"));
+	const cost = params.get("cost");
 	return {
 		hood: pick(
 			params.getAll("hood"),
@@ -63,6 +100,7 @@ export function parseFilters(params: URLSearchParams): Filters {
 		hide: pick(params.getAll("hide"), Object.keys(CATEGORIES) as Category[]),
 		vibe: pick(params.getAll("vibe"), VIBES),
 		price: price === 1 || price === 2 || price === 3 ? price : undefined,
+		cost: cost && cost in COST_FILTERS ? (cost as CostFilter) : undefined,
 		day: pick(params.getAll("day"), WEEKDAYS),
 		time: pick(params.getAll("time"), Object.keys(TIME_SLOTS) as TimeSlot[]),
 		date: /^\d{4}-\d{2}-\d{2}$/.test(params.get("date") ?? "")
@@ -81,6 +119,7 @@ export function toQuery(f: Filters): string {
 	for (const c of f.hide) params.append("hide", c);
 	for (const v of f.vibe) params.append("vibe", v);
 	if (f.price) params.set("price", String(f.price));
+	if (f.cost) params.set("cost", f.cost);
 	for (const d of f.day) params.append("day", d);
 	for (const t of f.time) params.append("time", t);
 	const q = params.toString();
@@ -102,6 +141,7 @@ export function isEmpty(f: Filters): boolean {
 		!f.hide.length &&
 		!f.vibe.length &&
 		!f.price &&
+		!f.cost &&
 		!f.day.length &&
 		!f.time.length &&
 		!f.q
@@ -191,6 +231,7 @@ export function applyFilters(
 		if (!matchesVenue(venue, f)) return false;
 		if (f.cat.length && !f.cat.includes(o.category)) return false;
 		if (f.hide.includes(o.category)) return false;
+		if (!matchesCost(o, f)) return false;
 		if (f.vibe.length && !o.vibe.some((v) => f.vibe.includes(v))) return false;
 		if (!matchesDay(weekdayOf(o.date), f)) return false;
 		if (!matchesTime(o.start, o.end, f)) return false;

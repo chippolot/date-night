@@ -76,6 +76,12 @@ export type Weekday = "SU" | "MO" | "TU" | "WE" | "TH" | "FR" | "SA";
 export const WEEKDAYS: Weekday[] = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
 
 export type PriceLevel = 1 | 2 | 3;
+/** What food and drinks cost at a venue, in words; the levels are our estimates. */
+export const PRICE_LEVELS: Record<PriceLevel, string> = {
+	1: "Budget",
+	2: "Mid-range",
+	3: "Pricier",
+};
 
 export type Venue = {
 	id: string;

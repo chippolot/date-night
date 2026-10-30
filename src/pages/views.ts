@@ -3,6 +3,7 @@ import type { SiteData } from "../lib/data";
 import {
 	applyFilters,
 	type Filters,
+	matchesCost,
 	matchesDay,
 	matchesText,
 	matchesTime,
@@ -27,7 +28,12 @@ import type {
 	Vibe,
 	Weekday,
 } from "../lib/types";
-import { CATEGORIES, CATEGORY_VIBES, NEIGHBORHOODS } from "../lib/types";
+import {
+	CATEGORIES,
+	CATEGORY_VIBES,
+	NEIGHBORHOODS,
+	PRICE_LEVELS,
+} from "../lib/types";
 import {
 	card,
 	cardList,
@@ -150,7 +156,7 @@ export function venueView(
 	]
 		.filter(Boolean)
 		.join(" · ");
-	return `<p class="venue-meta">${NEIGHBORHOODS[venue.neighborhood]} · ${"$".repeat(venue.priceLevel)} · ${esc(venue.address)}</p>
+	return `<p class="venue-meta">${NEIGHBORHOODS[venue.neighborhood]} · ${PRICE_LEVELS[venue.priceLevel]} food &amp; drinks · ${esc(venue.address)}</p>
 <p>${links}</p>
 <section><h2>Recurring nights</h2>${recurring.join("\n") || `<p class="empty">No recurring nights listed.</p>`}</section>
 <section><h2>Upcoming events</h2>${events.join("\n") || `<p class="empty">No dated events in the next 60 days.</p>`}</section>`;
@@ -189,7 +195,7 @@ export function venuesIndexView(data: SiteData): string {
 					const nights = data.nights.filter((n) => n.venueId === v.id).length;
 					return `<li><a class="venue-row" href="${href(`/venues/${v.id}/`)}">
   <span class="venue-name">${esc(v.name)}</span>
-  <span class="venue-info"><span class="venue-dots">${dots}</span>${nights ? `<span>${nights} recurring</span>` : ""}<span class="venue-price">${"$".repeat(v.priceLevel)}</span></span>
+  <span class="venue-info"><span class="venue-dots">${dots}</span>${nights ? `<span>${nights} recurring</span>` : ""}<span class="venue-price" title="Food &amp; drink prices (our estimate)">${PRICE_LEVELS[v.priceLevel]}</span></span>
 </a></li>`;
 				})
 				.join("");
@@ -203,6 +209,7 @@ type Kind = {
 	title: string;
 	category: Category;
 	vibe: Vibe[];
+	cost?: string;
 	days: Weekday[];
 	start: string;
 	end?: string;
@@ -212,6 +219,7 @@ type Kind = {
 export function matchesKind(k: Kind, f: Filters): boolean {
 	if (f.cat.length && !f.cat.includes(k.category)) return false;
 	if (f.hide.includes(k.category)) return false;
+	if (!matchesCost(k, f)) return false;
 	if (f.vibe.length && !k.vibe.some((x) => f.vibe.includes(x))) return false;
 	if (f.day.length && !k.days.some((d) => matchesDay(d, f))) return false;
 	return matchesTime(k.start, k.end, f);
@@ -231,6 +239,7 @@ export function nightKind(n: Night): Kind {
 		title: n.title,
 		category: n.category,
 		vibe: n.vibe,
+		cost: n.cost,
 		days: r.kind === "weekly" ? r.days : [r.day],
 		start: n.start,
 		end: n.end,
@@ -244,6 +253,7 @@ export function eventKind(e: DatedEvent): Kind {
 		title: e.title,
 		category,
 		vibe: CATEGORY_VIBES[category],
+		cost: e.price,
 		days: [weekdayOf(date)],
 		start: time,
 		end: e.endsAt ? seattleParts(e.endsAt).time : undefined,
@@ -262,6 +272,7 @@ export function mapVenues(data: SiteData, f: Filters): Venue[] {
 		f.cat.length ||
 		f.hide.length ||
 		f.vibe.length ||
+		f.cost ||
 		f.day.length ||
 		f.time.length;
 	return data.venues.filter((v) => {

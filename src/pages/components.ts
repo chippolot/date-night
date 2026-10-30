@@ -1,5 +1,10 @@
 import { href, SITE } from "../config";
-import { type Filters, MAX_DAYS_AHEAD, TIME_SLOTS } from "../lib/filters";
+import {
+	COST_FILTERS,
+	type Filters,
+	MAX_DAYS_AHEAD,
+	TIME_SLOTS,
+} from "../lib/filters";
 import { addDays } from "../lib/recurrence";
 import type { Night, Nth, Occurrence, Venue, Weekday } from "../lib/types";
 import {
@@ -249,25 +254,37 @@ export function filterBar(
 	today: string,
 	{ days = true, date = true } = {},
 ): string {
-	const prices: [string, string][] = [
-		["", "Any"],
-		["1", "$"],
-		["2", "$$ or less"],
-	];
-	const priceRadios = prices
-		.map(
-			([value, text]) =>
-				`<label class="pill"><input type="radio" name="price" value="${value}"${
-					String(f.price ?? "") === value ? " checked" : ""
-				}><span>${text}</span></label>`,
-		)
-		.join("");
+	const radios = (name: string, options: [string, string][], value = "") =>
+		options
+			.map(
+				([v, text]) =>
+					`<label class="pill"><input type="radio" name="${name}" value="${v}"${
+						value === v ? " checked" : ""
+					}><span>${esc(text)}</span></label>`,
+			)
+			.join("");
+	const costRadios = radios(
+		"cost",
+		[["", "Any"], ...Object.entries(COST_FILTERS)],
+		f.cost,
+	);
+	// Venue price levels are our estimates of what food and drinks cost there.
+	const priceRadios = radios(
+		"price",
+		[
+			["", "Any"],
+			["1", "Budget"],
+			["2", "Mid-range or less"],
+		],
+		f.price ? String(f.price) : "",
+	);
 	const active =
 		f.hood.length +
 		f.cat.length +
 		f.hide.filter((c) => c !== SPECIALS).length +
 		f.vibe.length +
-		(f.price ? 1 : 0);
+		(f.price ? 1 : 0) +
+		(f.cost ? 1 : 0);
 	return `<form class="filters" method="get" data-filters>
   <div class="when">
     <fieldset class="search-pick"><legend>Search</legend><label class="search-field">${SEARCH_ICON}<input type="search" name="q" value="${esc(f.q ?? "")}" placeholder="jazz, trivia, Substation…" aria-label="Search events and venues" autocomplete="off" enterkeyhint="search"></label></fieldset>
@@ -292,7 +309,8 @@ export function filterBar(
 			VIBES.map((v) => [v, v]),
 			f.vibe,
 		)}
-    <fieldset><legend>Budget</legend><div class="pills">${priceRadios}</div></fieldset>
+    <fieldset><legend>Cost to get in <span class="legend-hint">"up to $20" includes nights with no cover listed</span></legend><div class="pills">${costRadios}</div></fieldset>
+    <fieldset><legend>Food &amp; drink prices</legend><div class="pills">${priceRadios}</div></fieldset>
     <div class="filter-actions">
       <button type="submit" class="js-hide">Apply</button>
       <a href="?" data-clear>Clear all</a>

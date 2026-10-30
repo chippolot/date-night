@@ -3,7 +3,7 @@ import type { SiteData } from "../lib/data";
 import { applyFilters, type Filters, viewDate } from "../lib/filters";
 import { todayInSeattle } from "../lib/recurrence";
 import { surprise } from "../lib/surprise";
-import { NEIGHBORHOODS } from "../lib/types";
+import { NEIGHBORHOODS, PRICE_LEVELS } from "../lib/types";
 import { card, esc, formatDate } from "../pages/components";
 import { occurrences, tonightView, venueMap, weekView } from "../pages/views";
 import { loadSiteData, wireFilters } from "./shared";
@@ -69,7 +69,7 @@ function renderSurprise(data: SiteData, f: Filters) {
 	const { food, activity } = pick;
 	const foodHtml = food.occurrence
 		? card(food.occurrence, food.venue, today)
-		: `<article class="card cat-food-drink-special"><div class="card-time"><span class="card-start">Dinner</span></div><div class="card-body"><h3><a href="${href(`/venues/${food.venue.id}/`)}">${esc(food.venue.name)}</a></h3><p class="card-where">${NEIGHBORHOODS[food.venue.neighborhood]} · ${"$".repeat(food.venue.priceLevel)}</p></div></article>`;
+		: `<article class="card cat-food-drink-special"><div class="card-time"><span class="card-start">Dinner</span></div><div class="card-body"><h3><a href="${href(`/venues/${food.venue.id}/`)}">${esc(food.venue.name)}</a></h3><p class="card-where">${NEIGHBORHOODS[food.venue.neighborhood]} · ${PRICE_LEVELS[food.venue.priceLevel]}</p></div></article>`;
 	const activityHtml = activity
 		? card(
 				activity,

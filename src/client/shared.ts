@@ -73,7 +73,8 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 		initial.cat.length ||
 		initial.hide.some((c) => c !== SPECIALS) ||
 		initial.vibe.length ||
-		initial.price
+		initial.price ||
+		initial.cost
 	)
 		form.querySelector("details")?.setAttribute("open", "");
 
