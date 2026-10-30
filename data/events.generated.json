@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-30T03:01:18.755Z",
+	"generatedAt": "2026-10-30T03:19:13.485Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-30T02:14:04.303Z",
 		"aslan-fremont": "2026-10-30T02:14:04.303Z",
@@ -29,6 +29,7 @@
 		"visitballard": "2026-10-30T02:14:04.303Z",
 		"wayward": "2026-10-30T02:14:04.304Z",
 		"west-of-lenin": "2026-10-30T02:14:04.304Z",
+		"woodland-theater": "2026-10-30T03:19:13.484Z",
 		"yu-tang": "2026-10-30T02:14:04.304Z"
 	},
 	"events": [
@@ -315,6 +316,16 @@
 			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240072471",
 			"category": "comedy",
 			"source": "dinodad-comedy"
+		},
+		{
+			"id": "woodland-theater-2026-10-30-raphael-rogin-ski-poland-playing-john-coltrane-langston-hugh",
+			"title": "Raphael Rogiński (Poland) - Playing John Coltrane/Langston Hughes on guitar solo!",
+			"startsAt": "2026-10-30T19:00:00-07:00",
+			"url": "https://www.woodlandtheater.org/events",
+			"price": "$20",
+			"category": "live-music",
+			"source": "woodland-theater",
+			"venueId": "woodland-theater"
 		},
 		{
 			"id": "spt-2026-10-31T02:30-neel-neha-and-neel",
@@ -1544,6 +1555,16 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "woodland-theater-2026-11-06-woodland-centennial-zine-release-party",
+			"title": "Woodland Centennial Zine Release Party!",
+			"startsAt": "2026-11-06T18:00:00-08:00",
+			"url": "https://www.woodlandtheater.org/events",
+			"price": "Free",
+			"category": "live-music",
+			"source": "woodland-theater",
+			"venueId": "woodland-theater"
+		},
+		{
 			"id": "saltstone-10319067054293",
 			"title": "Clay Curious",
 			"startsAt": "2026-11-06T18:30:00-08:00",
@@ -1775,6 +1796,16 @@
 			"source": "substation"
 		},
 		{
+			"id": "woodland-theater-2026-11-07-woodlandstock-day-1-negative-passengers-mary-for-money-slici",
+			"title": "Woodlandstock Day 1: Negative Passengers, Mary for Money, Slicing Grandpa, Repetitions, Great Ooze, ABC-Quick",
+			"startsAt": "2026-11-07T17:00:00-08:00",
+			"url": "https://www.woodlandtheater.org/events",
+			"price": "Free",
+			"category": "live-music",
+			"source": "woodland-theater",
+			"venueId": "woodland-theater"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-07T18:00-olivia-dean-the-art-of-loving",
 			"title": "Olivia Dean - The Art of Loving",
 			"startsAt": "2026-11-07T18:00:00-08:00",
@@ -1944,6 +1975,16 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "woodland-theater-2026-11-08-woodlandstock-day-2-joy-james-madson-rn-white-trash-dick-rec",
+			"title": "Woodlandstock Day 2: Joy, James Madson, RN White, Trash Dick Records, Michelle Renee Panell, Desert Sushi",
+			"startsAt": "2026-11-08T17:00:00-08:00",
+			"url": "https://www.woodlandtheater.org/events",
+			"price": "Free",
+			"category": "live-music",
+			"source": "woodland-theater",
+			"venueId": "woodland-theater"
 		},
 		{
 			"id": "conor-byrne-201818",
@@ -2788,6 +2829,16 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "woodland-theater-2026-11-14-not-clickbait-improv",
+			"title": "Not Clickbait Improv",
+			"startsAt": "2026-11-14T19:00:00-08:00",
+			"url": "https://www.woodlandtheater.org/events",
+			"price": "$10",
+			"category": "comedy",
+			"source": "woodland-theater",
+			"venueId": "woodland-theater"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-14T19:30-sade-love-deluxe",
 			"title": "Sade - Love Deluxe",
 			"startsAt": "2026-11-14T19:30:00-08:00",
@@ -2912,6 +2963,15 @@
 			"price": "$28.29",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "woodland-theater-2026-11-15-end-of-small-sanctuary-tamarack-pauses-i-forgot-they-had-laz",
+			"title": "End of Small Sanctuary, Tamarack, Pauses, I Forgot They Had Lazers",
+			"startsAt": "2026-11-15T19:00:00-08:00",
+			"url": "https://www.woodlandtheater.org/events",
+			"category": "live-music",
+			"source": "woodland-theater",
+			"venueId": "woodland-theater"
 		},
 		{
 			"id": "conor-byrne-193022",
@@ -3755,6 +3815,16 @@
 			"category": "jazz",
 			"source": "egans",
 			"venueId": "egans-ballard-jam-house"
+		},
+		{
+			"id": "woodland-theater-2026-11-21-old-af-improv",
+			"title": "OLD AF Improv",
+			"startsAt": "2026-11-21T19:00:00-08:00",
+			"url": "https://www.woodlandtheater.org/events",
+			"price": "$10",
+			"category": "comedy",
+			"source": "woodland-theater",
+			"venueId": "woodland-theater"
 		},
 		{
 			"id": "visitballard-45380-2026-11-21",
