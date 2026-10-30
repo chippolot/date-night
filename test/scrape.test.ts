@@ -7,6 +7,7 @@ import {
 	matoEventSlugs,
 	parseEgans,
 	parseEventbrite,
+	parseEvey,
 	parseMatoEvents,
 	parseNordic,
 	parseOctopus,
@@ -863,5 +864,61 @@ describe("sea monster lounge", () => {
 			"https://www.seamonsterlounge.com/event-info/funky-2-death-2026-10-30-22-00",
 			"https://www.seamonsterlounge.com/event-info/extra-thick-6",
 		]);
+	});
+});
+
+describe("book larder", () => {
+	const event = {
+		product_id: "1",
+		title: "Author Talk: Becky Selengut, Lettuce Riot",
+		location: "Book Larder",
+		date_type: "one-time",
+		start_at: "2026-11-24T02:30:00.000Z",
+		end_at: "2026-11-24T04:00:00.000Z",
+		min_price: 7.5,
+	};
+
+	test("keeps upcoming one-time events at the shop, linked to their product", () => {
+		const events = parseEvey(
+			[
+				event,
+				{ ...event, product_id: "2", start_at: "2022-03-16T01:30:00.000Z" },
+				{
+					...event,
+					product_id: "3",
+					title: "Knife Sharpening (appointment only)",
+				},
+				{ ...event, product_id: "4", location: "Elsewhere" },
+				{
+					...event,
+					product_id: "5",
+					title: "Cooking Class: Tapas",
+					min_price: 130,
+				},
+				{ ...event, product_id: "6", title: "Soup Stand", min_price: 0 },
+			],
+			new Map([["1", "author-talk-becky-selengut-lettuce-riot"]]),
+			"2026-10-30",
+		);
+		expect(events.map((e) => [e.id, e.price, e.category])).toEqual([
+			["book-larder-1", "$7.50", "comedy"],
+			["book-larder-5", "$130", "class"],
+			["book-larder-6", "Free", "class"],
+		]);
+		expect(events[0]).toMatchObject({
+			startsAt: "2026-11-24T02:30:00.000Z",
+			url: "https://booklarder.com/products/author-talk-becky-selengut-lettuce-riot",
+		});
+		expect(events[1]?.url).toBe("https://booklarder.com/apps/events/calendar");
+	});
+
+	test("an evening event counts on its Seattle date, not its UTC date", () => {
+		expect(
+			parseEvey(
+				[{ ...event, start_at: "2026-10-30T02:30:00.000Z" }],
+				new Map(),
+				"2026-10-29",
+			),
+		).toHaveLength(1);
 	});
 });

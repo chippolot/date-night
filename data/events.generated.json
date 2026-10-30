@@ -1,15 +1,17 @@
 {
-	"generatedAt": "2026-10-30T19:38:19.346Z",
+	"generatedAt": "2026-10-30T21:05:53.733Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-30T18:26:41.077Z",
 		"artemis-coffee": "2026-10-30T18:26:41.077Z",
 		"aslan-fremont": "2026-10-30T18:26:41.076Z",
+		"book-larder": "2026-10-30T21:05:53.728Z",
 		"brimmer-and-heeltap": "2026-10-30T18:26:41.077Z",
 		"classpop": "2026-10-30T18:26:41.077Z",
 		"conor-byrne": "2026-10-30T18:26:41.076Z",
 		"dinodad-comedy": "2026-10-30T18:26:41.077Z",
 		"egans": "2026-10-30T18:26:41.077Z",
 		"figurehead-stone-way": "2026-10-30T18:26:41.077Z",
+		"greenstage": "2026-10-30T20:55:07.755Z",
 		"halcyon": "2026-10-30T18:26:41.076Z",
 		"halfseas": "2026-10-30T18:26:41.076Z",
 		"hidden-hall": "2026-10-30T18:26:41.077Z",
@@ -24,6 +26,7 @@
 		"pantry": "2026-10-30T18:26:41.077Z",
 		"phinneywood": "2026-10-30T18:26:41.077Z",
 		"pono-ranch": "2026-10-30T18:26:41.077Z",
+		"salmon-bay-eagles": "2026-10-30T21:05:23.433Z",
 		"saltstone": "2026-10-30T18:26:41.077Z",
 		"sea-monster-lounge": "2026-10-30T18:26:41.077Z",
 		"seafolklore": "2026-10-30T18:26:41.077Z",
@@ -36,6 +39,7 @@
 		"visitballard": "2026-10-30T18:26:41.076Z",
 		"wayward": "2026-10-30T18:26:41.077Z",
 		"west-of-lenin": "2026-10-30T18:26:41.077Z",
+		"woodland-park-zoo": "2026-10-30T20:55:11.966Z",
 		"woodland-theater": "2026-10-30T18:26:41.077Z",
 		"yu-tang": "2026-10-30T18:26:41.077Z"
 	},
@@ -59,6 +63,16 @@
 			"venueId": "trailbend-taproom",
 			"category": "food-drink-special",
 			"source": "mato"
+		},
+		{
+			"id": "woodland-park-zoo-10002218-2026-10-30",
+			"venueId": "woodland-park-zoo",
+			"title": "Animal Ofrenda",
+			"startsAt": "2026-10-30T16:30:00Z",
+			"endsAt": "2026-10-30T23:00:00Z",
+			"url": "https://zoo.org/event/animal-ofrenda/2026-10-30/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "shibuya-hifi-2026-10-30T17:00-dave-brubeck-quartet-time-out",
@@ -274,6 +288,16 @@
 			"category": "live-music"
 		},
 		{
+			"id": "salmon-bay-eagles-9205-2026-10-31",
+			"venueId": "salmon-bay-eagles",
+			"title": "Tony Lease w/ Russel Brothers & Guests",
+			"startsAt": "2026-10-31T03:00:00Z",
+			"endsAt": "2026-10-31T03:00:00Z",
+			"url": "https://salmonbayeagles.com/event/tony-lease-w-russel-brothers-guests/",
+			"category": "live-music",
+			"source": "salmon-bay-eagles"
+		},
+		{
 			"id": "nectar-2026-10-31-i-m-not-okay-an-emo-pop-punk-halloween-party-w-dj-baby-van-b",
 			"title": "I'M NOT OKAY!! An Emo & Pop Punk Halloween Party!! w/ DJ BABY VAN BEEZLY",
 			"startsAt": "2026-10-31T04:30:00+00:00",
@@ -384,6 +408,16 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "woodland-park-zoo-10002219-2026-10-31",
+			"venueId": "woodland-park-zoo",
+			"title": "Animal Ofrenda",
+			"startsAt": "2026-10-31T16:30:00Z",
+			"endsAt": "2026-10-31T23:00:00Z",
+			"url": "https://zoo.org/event/animal-ofrenda/2026-10-31/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "shibuya-hifi-2026-10-31T17:00-blue-velvet-original-motion-picture-soundtrack",
@@ -610,6 +644,16 @@
 			"source": "myballard"
 		},
 		{
+			"id": "salmon-bay-eagles-9206-2026-11-01",
+			"venueId": "salmon-bay-eagles",
+			"title": "All Stars No Stripes",
+			"startsAt": "2026-11-01T03:00:00Z",
+			"endsAt": "2026-11-01T03:00:00Z",
+			"url": "https://salmonbayeagles.com/event/all-stars-no-stripes-11/",
+			"category": "live-music",
+			"source": "salmon-bay-eagles"
+		},
+		{
 			"id": "nordic-museum-2026-11-01-31st-annual-wallenberg-lecture-with-marko-liias",
 			"title": "31st Annual Wallenberg Lecture with Marko Liias",
 			"startsAt": "2026-11-01T11:00:00-08:00",
@@ -678,6 +722,16 @@
 			"category": "class",
 			"source": "pantry",
 			"venueId": "the-pantry"
+		},
+		{
+			"id": "woodland-park-zoo-10002220-2026-11-01",
+			"venueId": "woodland-park-zoo",
+			"title": "Animal Ofrenda",
+			"startsAt": "2026-11-01T17:30:00Z",
+			"endsAt": "2026-11-02T00:00:00Z",
+			"url": "https://zoo.org/event/animal-ofrenda/2026-11-01/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "conor-byrne-201817",
@@ -821,6 +875,16 @@
 			"price": "Free",
 			"category": "comedy",
 			"source": "visitballard"
+		},
+		{
+			"id": "greenstage-14295-2026-11-02",
+			"venueId": "hatties-hat",
+			"title": "Play Reading Series: Hamlet (2nd half)",
+			"startsAt": "2026-11-02T02:00:00Z",
+			"endsAt": "2026-11-02T04:00:00Z",
+			"url": "https://greenstage.org/show/play-reading-series-hamlet-part-two/",
+			"category": "theater",
+			"source": "greenstage"
 		},
 		{
 			"id": "hidden-hall-2026-11-02-rittz-with-kung-fu-vampire-jay-fiddy-vic-daggs-ii",
@@ -1272,6 +1336,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "salmon-bay-eagles-9294-2026-11-05",
+			"venueId": "salmon-bay-eagles",
+			"title": "Jazz Sessions hosted by Harris & Buzz",
+			"startsAt": "2026-11-05T04:00:00Z",
+			"endsAt": "2026-11-05T04:00:00Z",
+			"url": "https://salmonbayeagles.com/event/jazz-sessions-hosted-by-harris-buzz-3/",
+			"category": "jazz",
+			"source": "salmon-bay-eagles"
+		},
+		{
 			"id": "nordic-museum-2026-11-05-free-first-thursday",
 			"title": "Free First Thursday",
 			"startsAt": "2026-11-05T10:00:00-08:00",
@@ -1538,6 +1612,16 @@
 			"category": "live-music"
 		},
 		{
+			"id": "salmon-bay-eagles-9282-2026-11-06",
+			"venueId": "salmon-bay-eagles",
+			"title": "John Stephan Band",
+			"startsAt": "2026-11-06T04:00:00Z",
+			"endsAt": "2026-11-06T04:00:00Z",
+			"url": "https://salmonbayeagles.com/event/john-stephan-band-11/",
+			"category": "live-music",
+			"source": "salmon-bay-eagles"
+		},
+		{
 			"id": "abbey-arts-2026-11-06T04:00-the-moth-storyslam",
 			"venueId": "fremont-abbey",
 			"title": "The Moth StorySLAM",
@@ -1742,6 +1826,16 @@
 			"category": "live-music"
 		},
 		{
+			"id": "salmon-bay-eagles-9283-2026-11-07",
+			"venueId": "salmon-bay-eagles",
+			"title": "Ryan T Higgins Band",
+			"startsAt": "2026-11-07T04:00:00Z",
+			"endsAt": "2026-11-07T04:00:00Z",
+			"url": "https://salmonbayeagles.com/event/ryan-t-higgins-band-7/",
+			"category": "live-music",
+			"source": "salmon-bay-eagles"
+		},
+		{
 			"id": "nordic-museum-2026-11-07-forest-bathing-at-discovery-park",
 			"title": "Forest Bathing at Discovery Park",
 			"startsAt": "2026-11-07T10:00:00-08:00",
@@ -1901,6 +1995,17 @@
 			"venueId": "sea-monster-lounge"
 		},
 		{
+			"id": "book-larder-9448631599322",
+			"title": "Soup Stand: November 2026",
+			"startsAt": "2026-11-07T19:00:00.000Z",
+			"endsAt": "2026-11-07T22:00:00.000Z",
+			"url": "https://booklarder.com/products/soup-stand-november-2026",
+			"price": "Free",
+			"category": "class",
+			"source": "book-larder",
+			"venueId": "book-larder"
+		},
+		{
 			"id": "spt-2026-11-08T03:30-neel-neha-and-neel",
 			"title": "नेहा & NEEL (Neha and Neel नेहा और नील)",
 			"startsAt": "2026-11-07T19:30:00-08:00",
@@ -2042,6 +2147,16 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "salmon-bay-eagles-9285-2026-11-08",
+			"venueId": "salmon-bay-eagles",
+			"title": "Keith Scott",
+			"startsAt": "2026-11-08T04:00:00Z",
+			"endsAt": "2026-11-08T04:00:00Z",
+			"url": "https://salmonbayeagles.com/event/keith-scott/",
+			"category": "live-music",
+			"source": "salmon-bay-eagles"
 		},
 		{
 			"id": "kings-hardware-2026-11-08T21:00-drag-bingo",
@@ -2256,6 +2371,17 @@
 			"price": "Free",
 			"category": "trivia",
 			"source": "visitballard"
+		},
+		{
+			"id": "book-larder-9465984254170",
+			"title": "Author Talk: Anna Voloshyna, Ukraine",
+			"startsAt": "2026-11-10T02:30:00.000Z",
+			"endsAt": "2026-11-10T04:00:00.000Z",
+			"url": "https://booklarder.com/products/author-talk-anna-voloshyna-ukraine",
+			"price": "$7.50",
+			"category": "comedy",
+			"source": "book-larder",
+			"venueId": "book-larder"
 		},
 		{
 			"id": "visitballard-10001819-2026-11-10",
@@ -2520,6 +2646,16 @@
 			"source": "mato"
 		},
 		{
+			"id": "woodland-park-zoo-22493-2026-11-11",
+			"venueId": "woodland-park-zoo",
+			"title": "A Brush With Nature: Dex Rothschild (21+)",
+			"startsAt": "2026-11-11T20:30:00Z",
+			"endsAt": "2026-11-11T23:00:00Z",
+			"url": "https://zoo.org/event/a-brush-with-nature-dex-rothschild-21/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "sea-monster-lounge-2026-11-11T22:00-hurricane-dreamz",
 			"title": "Hurricane Dreamz",
 			"startsAt": "2026-11-11T22:00:00-08:00",
@@ -2528,6 +2664,17 @@
 			"category": "live-music",
 			"source": "sea-monster-lounge",
 			"venueId": "sea-monster-lounge"
+		},
+		{
+			"id": "book-larder-10302682955994",
+			"title": "Author Talk: Katie Button, Spanish Accent",
+			"startsAt": "2026-11-12T02:30:00.000Z",
+			"endsAt": "2026-11-12T04:00:00.000Z",
+			"url": "https://booklarder.com/products/author-talk-katie-button-spanish-accent",
+			"price": "$7.50",
+			"category": "comedy",
+			"source": "book-larder",
+			"venueId": "book-larder"
 		},
 		{
 			"id": "visitballard-10005190-2026-11-12",
@@ -2716,6 +2863,17 @@
 			"source": "substation"
 		},
 		{
+			"id": "book-larder-15266304032986",
+			"title": "Community Event: The Heart-Shaped Tin: Stories from Our Kitchens with Cynthia Nims",
+			"startsAt": "2026-11-13T02:30:00.000Z",
+			"endsAt": "2026-11-13T04:00:00.000Z",
+			"url": "https://booklarder.com/products/community-event-the-heart-shaped-tin-stories-from-our-kitchens-with-cynthia-nims",
+			"price": "Free",
+			"category": "class",
+			"source": "book-larder",
+			"venueId": "book-larder"
+		},
+		{
 			"id": "visitballard-45352-2026-11-13",
 			"venueId": "swoon-city",
 			"title": "Book Gold Foiling Workshop",
@@ -2746,6 +2904,16 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "salmon-bay-eagles-9286-2026-11-13",
+			"venueId": "salmon-bay-eagles",
+			"title": "Annie Eastwood & Her All Star Band",
+			"startsAt": "2026-11-13T04:00:00Z",
+			"endsAt": "2026-11-13T04:00:00Z",
+			"url": "https://salmonbayeagles.com/event/annie-eastwood-her-all-star-band-2/",
+			"category": "live-music",
+			"source": "salmon-bay-eagles"
 		},
 		{
 			"id": "visitballard-10006305-2026-11-13",
@@ -2878,6 +3046,16 @@
 			"price": "$25.87–$31.94",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "woodland-park-zoo-10001808-2026-11-14",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-11-14T00:00:00Z",
+			"endsAt": "2026-11-14T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-11-13/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "abbey-arts-2026-11-14T03:00-bandit-theater-presents-dear-diary-7p-show-mad-science-8-30p",
@@ -3075,6 +3253,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "woodland-park-zoo-10001814-2026-11-15",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-11-15T00:00:00Z",
+			"endsAt": "2026-11-15T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-11-14/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "hidden-hall-2026-11-15-clay-street-unit",
 			"title": "CLAY STREET UNIT",
 			"startsAt": "2026-11-15T01:30:00+00:00",
@@ -3116,6 +3304,16 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "salmon-bay-eagles-9287-2026-11-15",
+			"venueId": "salmon-bay-eagles",
+			"title": "Polly O’Keary & the Rhythm Method",
+			"startsAt": "2026-11-15T04:00:00Z",
+			"endsAt": "2026-11-15T04:00:00Z",
+			"url": "https://salmonbayeagles.com/event/polly-okeary-the-rhythm-method-7/",
+			"category": "live-music",
+			"source": "salmon-bay-eagles"
 		},
 		{
 			"id": "hidden-hall-2026-11-15-i-want-it-that-way-90s-2000s-dance-party-feat-all4doras-and-",
@@ -3177,6 +3375,16 @@
 			"category": "open-mic",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "woodland-park-zoo-10001815-2026-11-16",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-11-16T00:00:00Z",
+			"endsAt": "2026-11-16T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-11-15/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-10008584-2026-11-16",
@@ -3261,6 +3469,17 @@
 			"price": "Free",
 			"category": "trivia",
 			"source": "visitballard"
+		},
+		{
+			"id": "book-larder-15259733950682",
+			"title": "Author Talk: Maria Geyman, With Tea",
+			"startsAt": "2026-11-17T02:30:00.000Z",
+			"endsAt": "2026-11-17T04:00:00.000Z",
+			"url": "https://booklarder.com/products/author-talk-maria-geyman-with-tea",
+			"price": "$7.50",
+			"category": "comedy",
+			"source": "book-larder",
+			"venueId": "book-larder"
 		},
 		{
 			"id": "visitballard-10001820-2026-11-17",
@@ -3540,6 +3759,17 @@
 			"source": "mato"
 		},
 		{
+			"id": "book-larder-15264852672730",
+			"title": "Cooking Class: Tapas Espana with Catherine Alioto",
+			"startsAt": "2026-11-19T02:30:00.000Z",
+			"endsAt": "2026-11-19T05:00:00.000Z",
+			"url": "https://booklarder.com/products/cooking-class-tapas-espana-with-catherine-alioto",
+			"price": "$130",
+			"category": "class",
+			"source": "book-larder",
+			"venueId": "book-larder"
+		},
+		{
 			"id": "hidden-hall-2026-11-19-reel-rock-20",
 			"title": "REEL ROCK 20",
 			"startsAt": "2026-11-19T03:00:00+00:00",
@@ -3614,6 +3844,16 @@
 			"price": "Free",
 			"category": "trivia",
 			"source": "visitballard"
+		},
+		{
+			"id": "salmon-bay-eagles-9295-2026-11-19",
+			"venueId": "salmon-bay-eagles",
+			"title": "Jazz Sessions hosted by Harris & Buzz",
+			"startsAt": "2026-11-19T04:00:00Z",
+			"endsAt": "2026-11-19T04:00:00Z",
+			"url": "https://salmonbayeagles.com/event/jazz-sessions-hosted-by-harris-buzz-4/",
+			"category": "jazz",
+			"source": "salmon-bay-eagles"
 		},
 		{
 			"id": "mato-2026-11-19T16:00-beer-and-curry-thursdays",
@@ -3756,6 +3996,27 @@
 			"source": "substation"
 		},
 		{
+			"id": "woodland-park-zoo-10001819-2026-11-20",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-11-20T00:00:00Z",
+			"endsAt": "2026-11-20T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-11-19/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
+			"id": "book-larder-15259658092762",
+			"title": "Author Talk + Demo: Yenvy & Quynh-Vy Pham, Phonomenal Nights",
+			"startsAt": "2026-11-20T02:30:00.000Z",
+			"endsAt": "2026-11-20T04:00:00.000Z",
+			"url": "https://booklarder.com/products/author-talk-demo-yenvy-quynh-pham-phonomenal-nights",
+			"price": "$7.50",
+			"category": "comedy",
+			"source": "book-larder",
+			"venueId": "book-larder"
+		},
+		{
 			"id": "hidden-hall-2026-11-20-mister-blank-album-release-show-with-the-fabulous-downey-bro",
 			"title": "MISTER BLANK *Album Release Show* with The Fabulous Downey Brothers, MuerteMen",
 			"startsAt": "2026-11-20T03:00:00+00:00",
@@ -3776,6 +4037,16 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "salmon-bay-eagles-9289-2026-11-20",
+			"venueId": "salmon-bay-eagles",
+			"title": "Mark DuFresne",
+			"startsAt": "2026-11-20T04:00:00Z",
+			"endsAt": "2026-11-20T04:00:00Z",
+			"url": "https://salmonbayeagles.com/event/mark-dufresne-4/",
+			"category": "live-music",
+			"source": "salmon-bay-eagles"
 		},
 		{
 			"id": "visitballard-10006306-2026-11-20",
@@ -3928,6 +4199,16 @@
 			"source": "substation"
 		},
 		{
+			"id": "woodland-park-zoo-10001790-2026-11-21",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns: 21+ Night Owls",
+			"startsAt": "2026-11-21T00:00:00Z",
+			"endsAt": "2026-11-21T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns-21-night-owls-2/2026-11-20/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "myballard-363116-2026-11-21",
 			"venueId": "olympic-rooftop-pavilion",
 			"title": "Up on the Roof: ABBA",
@@ -3979,6 +4260,16 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "salmon-bay-eagles-9290-2026-11-21",
+			"venueId": "salmon-bay-eagles",
+			"title": "Grooved Pavement",
+			"startsAt": "2026-11-21T04:00:00Z",
+			"endsAt": "2026-11-21T04:00:00Z",
+			"url": "https://salmonbayeagles.com/event/grooved-pavement-2/",
+			"category": "live-music",
+			"source": "salmon-bay-eagles"
 		},
 		{
 			"id": "pantry-2106-2026-11-21",
@@ -4154,6 +4445,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "woodland-park-zoo-10001821-2026-11-22",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-11-22T00:00:00Z",
+			"endsAt": "2026-11-22T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-11-21/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "hidden-hall-2026-11-22-cowboys-aliens-a-cabaret-invasion-volume-2",
 			"title": "COWBOYS & ALIENS: A Cabaret Invasion Volume 2!",
 			"startsAt": "2026-11-22T01:00:00+00:00",
@@ -4184,6 +4485,16 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "salmon-bay-eagles-9291-2026-11-22",
+			"venueId": "salmon-bay-eagles",
+			"title": "Joe Cook’s Blues Band",
+			"startsAt": "2026-11-22T04:00:00Z",
+			"endsAt": "2026-11-22T04:00:00Z",
+			"url": "https://salmonbayeagles.com/event/joe-cooks-blues-band/",
+			"category": "live-music",
+			"source": "salmon-bay-eagles"
 		},
 		{
 			"id": "mr-bs-meadery-2026-11-22T21:00-mr-b-s-mead-making-class",
@@ -4278,6 +4589,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "woodland-park-zoo-10001822-2026-11-23",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-11-23T00:00:00Z",
+			"endsAt": "2026-11-23T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-11-22/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "visitballard-10008585-2026-11-23",
 			"venueId": "the-ink-drinker",
 			"title": "Silent Reading at The Ink Drinker",
@@ -4352,6 +4673,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "book-larder-15259697676506",
+			"title": "Author Talk: Becky Selengut, Lettuce Riot",
+			"startsAt": "2026-11-24T02:30:00.000Z",
+			"endsAt": "2026-11-24T04:00:00.000Z",
+			"url": "https://booklarder.com/products/author-talk-becky-selengut-lettuce-riot",
+			"price": "$7.50",
+			"category": "comedy",
+			"source": "book-larder",
+			"venueId": "book-larder"
+		},
+		{
 			"id": "visitballard-10001821-2026-11-24",
 			"venueId": "ballard-beer-box",
 			"title": "Join Us for BINGO | Games – Prize – Party MONDAY",
@@ -4411,6 +4743,16 @@
 			"venueId": "tractor-tavern",
 			"category": "live-music",
 			"source": "mato"
+		},
+		{
+			"id": "woodland-park-zoo-10001824-2026-11-25",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-11-25T00:00:00Z",
+			"endsAt": "2026-11-25T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-11-24/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-10003703-2026-11-25",
@@ -4521,6 +4863,16 @@
 			"price": "$25.87–$38",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "woodland-park-zoo-10001825-2026-11-26",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-11-26T00:00:00Z",
+			"endsAt": "2026-11-26T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-11-25/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-10005192-2026-11-26",
@@ -4705,6 +5057,16 @@
 			"source": "substation"
 		},
 		{
+			"id": "woodland-park-zoo-10001827-2026-11-28",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-11-28T00:00:00Z",
+			"endsAt": "2026-11-28T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-11-27/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "hidden-hall-2026-11-28-russian-blue-with-ghost-fetish-fruit-juice",
 			"title": "RUSSIAN BLUE with Ghost Fetish, Fruit Juice",
 			"startsAt": "2026-11-28T04:00:00+00:00",
@@ -4724,6 +5086,16 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "salmon-bay-eagles-9292-2026-11-28",
+			"venueId": "salmon-bay-eagles",
+			"title": "Salmon Dan’s Jam",
+			"startsAt": "2026-11-28T04:00:00Z",
+			"endsAt": "2026-11-28T04:00:00Z",
+			"url": "https://salmonbayeagles.com/event/salmon-dans-jam-25/",
+			"category": "live-music",
+			"source": "salmon-bay-eagles"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-28T12:30-tracy-chapman-tracy-chapman",
@@ -4835,6 +5207,16 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "woodland-park-zoo-10001828-2026-11-29",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-11-29T00:00:00Z",
+			"endsAt": "2026-11-29T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-11-28/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "hidden-hall-2026-11-29-nouveau-arcade-and-kj-sawka-live-with-ritual-scars-dj-psyop",
 			"title": "NOUVEAU ARCADE and KJ SAWKA (Live) with Ritual Scars & DJ PsyOp",
 			"startsAt": "2026-11-29T03:00:00+00:00",
@@ -4854,6 +5236,16 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "salmon-bay-eagles-9293-2026-11-29",
+			"venueId": "salmon-bay-eagles",
+			"title": "Tim Turner Band",
+			"startsAt": "2026-11-29T04:00:00Z",
+			"endsAt": "2026-11-29T04:00:00Z",
+			"url": "https://salmonbayeagles.com/event/tim-turner-band/",
+			"category": "live-music",
+			"source": "salmon-bay-eagles"
 		},
 		{
 			"id": "nordic-museum-2026-11-29-intermediate-na-lebinding-with-christin-curran",
@@ -4926,6 +5318,16 @@
 			"category": "open-mic",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "woodland-park-zoo-10001829-2026-11-30",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-11-30T00:00:00Z",
+			"endsAt": "2026-11-30T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-11-29/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-10008586-2026-11-30",
@@ -5040,6 +5442,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "woodland-park-zoo-10001831-2026-12-02",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-02T00:00:00Z",
+			"endsAt": "2026-12-02T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-01/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "visitballard-10003704-2026-12-02",
 			"venueId": "ballard-beer-box",
 			"title": "TRIVIA NIGHT",
@@ -5118,6 +5530,16 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "woodland-park-zoo-10001832-2026-12-03",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-03T00:00:00Z",
+			"endsAt": "2026-12-03T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-02/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-45914-2026-12-03",
@@ -5276,6 +5698,16 @@
 			"source": "substation"
 		},
 		{
+			"id": "woodland-park-zoo-10001833-2026-12-04",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-04T00:00:00Z",
+			"endsAt": "2026-12-04T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-03/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "hidden-hall-2026-12-04-hi-crime-with-sister-swimmer-clam-owie",
 			"title": "HI CRIME with Sister Swimmer, Clam & Owie",
 			"startsAt": "2026-12-04T03:00:00+00:00",
@@ -5367,6 +5799,16 @@
 			"price": "$25.87–$38",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "woodland-park-zoo-10001834-2026-12-05",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-05T00:00:00Z",
+			"endsAt": "2026-12-05T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-04/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "myballard-361962-2026-12-05",
@@ -5494,6 +5936,16 @@
 			"source": "mato"
 		},
 		{
+			"id": "woodland-park-zoo-10001835-2026-12-06",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-06T00:00:00Z",
+			"endsAt": "2026-12-06T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-05/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "nectar-2026-12-06-grapevine-groove-an-early-evening-motown-inspired-party",
 			"title": "GRAPEVINE GROOVE: AN EARLY EVENING MOTOWN-INSPIRED PARTY",
 			"startsAt": "2026-12-06T01:00:00+00:00",
@@ -5616,6 +6068,16 @@
 			"source": "mato"
 		},
 		{
+			"id": "woodland-park-zoo-22377-2026-12-06",
+			"venueId": "woodland-park-zoo",
+			"title": "A Brush With Nature: Emma Giles",
+			"startsAt": "2026-12-06T21:00:00Z",
+			"endsAt": "2026-12-07T00:00:00Z",
+			"url": "https://zoo.org/event/a-brush-with-nature-emma-giles-6/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "visitballard-44674-2026-12-06",
 			"venueId": "swoon-city",
 			"title": "Painting Class: Watercolor Landscapes for Beginners",
@@ -5627,6 +6089,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "woodland-park-zoo-10001836-2026-12-07",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-07T00:00:00Z",
+			"endsAt": "2026-12-07T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-06/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "visitballard-10008587-2026-12-07",
 			"venueId": "the-ink-drinker",
 			"title": "Silent Reading at The Ink Drinker",
@@ -5636,6 +6108,16 @@
 			"price": "Free",
 			"category": "comedy",
 			"source": "visitballard"
+		},
+		{
+			"id": "greenstage-14297-2026-12-07",
+			"venueId": "hatties-hat",
+			"title": "Play Reading Series: Only 7 more scripts to complete reading the canon!",
+			"startsAt": "2026-12-07T02:00:00Z",
+			"endsAt": "2026-12-07T04:00:00Z",
+			"url": "https://greenstage.org/show/play-reading-series-to-be-announced-4/",
+			"category": "theater",
+			"source": "greenstage"
 		},
 		{
 			"id": "hidden-hall-2026-12-07-lau-noah-adam-neely",
@@ -5772,6 +6254,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "woodland-park-zoo-10001838-2026-12-09",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-09T00:00:00Z",
+			"endsAt": "2026-12-09T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-08/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "visitballard-10003705-2026-12-09",
 			"venueId": "ballard-beer-box",
 			"title": "TRIVIA NIGHT",
@@ -5854,6 +6346,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "woodland-park-zoo-10001839-2026-12-10",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-10T00:00:00Z",
+			"endsAt": "2026-12-10T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-09/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "visitballard-10005194-2026-12-10",
 			"venueId": "reubens-brews",
 			"title": "Trivia with Head in the Clouds",
@@ -5933,6 +6435,16 @@
 			"url": "https://www.eventbrite.com/e/kd-presents-kill-the-kd-tickets-2003375395738",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "woodland-park-zoo-10001840-2026-12-11",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-11T00:00:00Z",
+			"endsAt": "2026-12-11T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-10/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-45385-2026-12-11",
@@ -6064,6 +6576,16 @@
 			"source": "substation"
 		},
 		{
+			"id": "woodland-park-zoo-10001841-2026-12-12",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-12T00:00:00Z",
+			"endsAt": "2026-12-12T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-11/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "nectar-2026-12-12-that-1-guy",
 			"title": "THAT 1 GUY",
 			"startsAt": "2026-12-12T01:30:00+00:00",
@@ -6178,6 +6700,16 @@
 			"source": "substation"
 		},
 		{
+			"id": "woodland-park-zoo-10001842-2026-12-13",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-13T00:00:00Z",
+			"endsAt": "2026-12-13T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-12/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "hidden-hall-2026-12-13-gatsby-s-american-dream-with-the-divorce",
 			"title": "GATSBY'S AMERICAN DREAM with The Divorce",
 			"startsAt": "2026-12-13T04:00:00+00:00",
@@ -6290,6 +6822,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "woodland-park-zoo-10001843-2026-12-14",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-14T00:00:00Z",
+			"endsAt": "2026-12-14T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-13/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "visitballard-10008588-2026-12-14",
 			"venueId": "the-ink-drinker",
 			"title": "Silent Reading at The Ink Drinker",
@@ -6392,6 +6934,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "woodland-park-zoo-10001845-2026-12-16",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-16T00:00:00Z",
+			"endsAt": "2026-12-16T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-15/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "nectar-2026-12-16-robert-glasper-two-shows",
 			"title": "ROBERT GLASPER (two shows!)",
 			"startsAt": "2026-12-16T01:00:00+00:00",
@@ -6430,6 +6982,16 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "woodland-park-zoo-10001846-2026-12-17",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-17T00:00:00Z",
+			"endsAt": "2026-12-17T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-16/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "hidden-hall-2026-12-17-western-wednesdays-country-dance-night",
@@ -6535,6 +7097,16 @@
 			"price": "$19.80–$25.87",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "woodland-park-zoo-10001847-2026-12-18",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-18T00:00:00Z",
+			"endsAt": "2026-12-18T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-17/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-38612-2026-12-18",
@@ -6681,6 +7253,16 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "woodland-park-zoo-10001791-2026-12-19",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns: 21+ Night Owls",
+			"startsAt": "2026-12-19T00:00:00Z",
+			"endsAt": "2026-12-19T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns-21-night-owls-2/2026-12-18/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "sunset-hill-hall-10009065-2026-12-19",
 			"venueId": "sunset-hill-community-hall",
 			"title": "SHCH Open Mic",
@@ -6793,6 +7375,16 @@
 			"source": "substation"
 		},
 		{
+			"id": "woodland-park-zoo-10001849-2026-12-20",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-20T00:00:00Z",
+			"endsAt": "2026-12-20T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-19/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "hidden-hall-2026-12-20-cascadia-winter-solstice-weekender-ft-marques-wyatt-sabo-jam",
 			"title": "CASCADIA WINTER SOLSTICE WEEKENDER Ft. MARQUES WYATT, SABO, Jamie Schwabl B2B Onyx, Michael Manahan",
 			"startsAt": "2026-12-20T02:30:00+00:00",
@@ -6875,6 +7467,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "woodland-park-zoo-10001850-2026-12-21",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-21T00:00:00Z",
+			"endsAt": "2026-12-21T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-20/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "visitballard-10008589-2026-12-21",
 			"venueId": "the-ink-drinker",
 			"title": "Silent Reading at The Ink Drinker",
@@ -6948,6 +7550,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "woodland-park-zoo-10001851-2026-12-22",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-22T00:00:00Z",
+			"endsAt": "2026-12-22T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-21/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "visitballard-10005456-2026-12-22",
 			"venueId": "reubens-brews",
 			"title": "Magic Monday Casual Commander Night | Reuben’s Brews Ballard Taproom",
@@ -7009,6 +7621,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "woodland-park-zoo-10001852-2026-12-23",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-23T00:00:00Z",
+			"endsAt": "2026-12-23T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-22/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "spt-2026-12-23T22:00-the-flight-before-xmas",
 			"title": "The Flight Before Xmas",
 			"startsAt": "2026-12-23T14:00:00-08:00",
@@ -7026,6 +7648,16 @@
 			"url": "https://mrbsmeadery.com/events/open-mic-with-mr-b-july26-n5ysn-6crm5-8zf4w-w8fy6-w3b2n-tx7zj-4remp",
 			"source": "mr-bs-meadery",
 			"venueId": "mr-bs-meadery"
+		},
+		{
+			"id": "woodland-park-zoo-10001853-2026-12-24",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-24T00:00:00Z",
+			"endsAt": "2026-12-24T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-23/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-10005196-2026-12-24",
@@ -7121,6 +7753,16 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "woodland-park-zoo-10001856-2026-12-27",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-27T00:00:00Z",
+			"endsAt": "2026-12-27T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-26/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "nectar-2026-12-27-true-loves-with-guests-mega-cat",
 			"title": "TRUE LOVES with guests mega cat",
 			"startsAt": "2026-12-27T04:00:00+00:00",
@@ -7142,6 +7784,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "woodland-park-zoo-10001857-2026-12-28",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-28T00:00:00Z",
+			"endsAt": "2026-12-28T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-27/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "visitballard-10008590-2026-12-28",
 			"venueId": "the-ink-drinker",
 			"title": "Silent Reading at The Ink Drinker",
@@ -7151,6 +7803,16 @@
 			"price": "Free",
 			"category": "comedy",
 			"source": "visitballard"
+		},
+		{
+			"id": "woodland-park-zoo-10001858-2026-12-29",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-29T00:00:00Z",
+			"endsAt": "2026-12-29T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-28/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-10005457-2026-12-29",
@@ -7195,6 +7857,16 @@
 			"source": "sunset-hill-hall"
 		},
 		{
+			"id": "woodland-park-zoo-10001859-2026-12-30",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-30T00:00:00Z",
+			"endsAt": "2026-12-30T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-29/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "nectar-2026-12-30-miller-time-a-tribute-to-the-steve-miller-band-with-canadian",
 			"title": "MILLER TIME (A Tribute to the Steve Miller Band) with Canadian Bakin' (Hits from the Great White North)",
 			"startsAt": "2026-12-30T03:00:00+00:00",
@@ -7204,6 +7876,16 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "woodland-park-zoo-10001860-2026-12-31",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2026-12-31T00:00:00Z",
+			"endsAt": "2026-12-31T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-30/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-10005197-2026-12-31",
@@ -7250,6 +7932,16 @@
 			"source": "substation"
 		},
 		{
+			"id": "woodland-park-zoo-10001861-2027-01-01",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2027-01-01T00:00:00Z",
+			"endsAt": "2027-01-01T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2026-12-31/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "nectar-2027-01-01-back-to-the-80s-new-year-s-eve-party-featuring-nite-wave",
 			"title": "BACK TO THE 80s NEW YEAR'S EVE PARTY featuring Nite Wave",
 			"startsAt": "2027-01-01T04:00:00+00:00",
@@ -7292,6 +7984,16 @@
 			"source": "substation"
 		},
 		{
+			"id": "woodland-park-zoo-10001862-2027-01-02",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2027-01-02T00:00:00Z",
+			"endsAt": "2027-01-02T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2027-01-01/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "nordic-museum-2027-01-02-seattle-kraken-nordic-night",
 			"title": "Seattle Kraken Nordic Night",
 			"startsAt": "2027-01-02T19:00:00-08:00",
@@ -7310,6 +8012,16 @@
 			"price": "$19.80",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "woodland-park-zoo-10001792-2027-01-03",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns: 21+ Night Owls",
+			"startsAt": "2027-01-03T00:00:00Z",
+			"endsAt": "2027-01-03T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns-21-night-owls-2/2027-01-02/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "nectar-2027-01-03-queergxrl-launch-party-new-year-new-queer",
@@ -7331,6 +8043,16 @@
 			"url": "https://www.eventbrite.com/e/the-rickshaw-jokes-in-progress-openmic-tickets-1986264438404",
 			"category": "comedy",
 			"source": "dinodad-comedy"
+		},
+		{
+			"id": "woodland-park-zoo-10001864-2027-01-04",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2027-01-04T00:00:00Z",
+			"endsAt": "2027-01-04T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2027-01-03/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-10008591-2027-01-04",
@@ -7431,6 +8153,16 @@
 			"venueId": "mr-bs-meadery"
 		},
 		{
+			"id": "woodland-park-zoo-10001868-2027-01-08",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2027-01-08T00:00:00Z",
+			"endsAt": "2027-01-08T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2027-01-07/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "hidden-hall-2027-01-08-azalee-schwartz-with-kingdow-witcher",
 			"title": "AZALEE SCHWARTZ with KingDow, Witcher",
 			"startsAt": "2027-01-08T03:00:00+00:00",
@@ -7473,6 +8205,16 @@
 			"source": "dinodad-comedy"
 		},
 		{
+			"id": "woodland-park-zoo-10001869-2027-01-09",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2027-01-09T00:00:00Z",
+			"endsAt": "2027-01-09T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2027-01-08/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "nectar-2027-01-09-the-lovecats-tribute-to-the-cure-and-dark-wave-mixtape-tribu",
 			"title": "THE LOVECATS (Tribute to the Cure) and DARK WAVE MIXTAPE (Tribute to the 80s underground & Beyond)",
 			"startsAt": "2027-01-09T04:00:00+00:00",
@@ -7494,6 +8236,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "woodland-park-zoo-10001870-2027-01-10",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2027-01-10T00:00:00Z",
+			"endsAt": "2027-01-10T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2027-01-09/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "nectar-2027-01-10-hit-explosion",
 			"title": "HIT EXPLOSION",
 			"startsAt": "2027-01-10T03:00:00+00:00",
@@ -7503,6 +8255,16 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "woodland-park-zoo-10001871-2027-01-11",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2027-01-11T00:00:00Z",
+			"endsAt": "2027-01-11T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2027-01-10/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-10008592-2027-01-11",
@@ -7591,6 +8353,16 @@
 			"source": "mato"
 		},
 		{
+			"id": "woodland-park-zoo-10001875-2027-01-15",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2027-01-15T00:00:00Z",
+			"endsAt": "2027-01-15T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2027-01-14/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "visitballard-10006314-2027-01-15",
 			"venueId": "hatties-hat",
 			"title": "Karaoke at Hattie’s Hat",
@@ -7609,6 +8381,16 @@
 			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240083504",
 			"category": "comedy",
 			"source": "dinodad-comedy"
+		},
+		{
+			"id": "woodland-park-zoo-10001876-2027-01-16",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2027-01-16T00:00:00Z",
+			"endsAt": "2027-01-16T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2027-01-15/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "sunset-hill-hall-10009066-2027-01-16",
@@ -7643,6 +8425,16 @@
 			"source": "substation"
 		},
 		{
+			"id": "woodland-park-zoo-10001877-2027-01-17",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2027-01-17T00:00:00Z",
+			"endsAt": "2027-01-17T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2027-01-16/",
+			"category": "art",
+			"source": "woodland-park-zoo"
+		},
+		{
 			"id": "nectar-2027-01-17-clinton-fearon-a-birthday-celebration-plus-dj-kid-hops-kexp-",
 			"title": "CLINTON FEARON: A Birthday Celebration, plus DJ Kid Hops (KEXP) and Surprise Special Guests",
 			"startsAt": "2027-01-17T04:00:00+00:00",
@@ -7663,6 +8455,16 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "woodland-park-zoo-10001878-2027-01-18",
+			"venueId": "woodland-park-zoo",
+			"title": "WildLanterns presented by Kaiser Permanente",
+			"startsAt": "2027-01-18T00:00:00Z",
+			"endsAt": "2027-01-18T05:00:00Z",
+			"url": "https://zoo.org/event/wildlanterns/2027-01-17/",
+			"category": "art",
+			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "visitballard-10008593-2027-01-18",

@@ -90,6 +90,8 @@ type TribeVenue = { venue?: string };
 type TribeEvent = {
 	id: number;
 	title: string;
+	/** Venue local, "2026-10-29 20:00:00" */
+	start_date: string;
 	utc_start_date: string;
 	utc_end_date?: string;
 	all_day: boolean;
@@ -108,9 +110,16 @@ function tribeSource(opts: {
 	exclude?: RegExp;
 	/** Seconds between page requests, from robots.txt */
 	crawlDelay?: number;
+	/** Category for titles `guessCategory` can't place */
+	category?: Category;
+	mayBeEmpty?: boolean;
+	/** Keep only events starting at or after this local time ("20:00") */
+	notBefore?: string;
 }): Source {
 	return {
 		id: opts.id,
+		category: opts.category,
+		mayBeEmpty: opts.mayBeEmpty,
 		async fetchEvents() {
 			const { from, to } = horizon();
 			// Build page URLs rather than following `next_rest_url`: some sites hang on its
@@ -125,6 +134,8 @@ function tribeSource(opts: {
 				pages = body.total_pages ?? 1;
 				for (const e of body.events) {
 					if (e.all_day) continue;
+					if (opts.notBefore && e.start_date.slice(11, 16) < opts.notBefore)
+						continue;
 					const venues = Array.isArray(e.venue) ? e.venue : [e.venue];
 					const name = decodeEntities(venues[0]?.venue ?? "")
 						.replace(/[‘’]/g, "'")
@@ -132,7 +143,7 @@ function tribeSource(opts: {
 						.trim();
 					const venueId = opts.venues[name];
 					if (!venueId) continue;
-					const title = decodeEntities(e.title).trim();
+					const title = decodeEntities(e.title).replace(/\s+/g, " ").trim();
 					if (opts.include && !opts.include.test(title)) continue;
 					if (opts.exclude?.test(title)) continue;
 					out.push({
@@ -183,6 +194,45 @@ const sunsetHill = tribeSource({
 	venues: { "sunset hill community hall": "sunset-hill-community-hall" },
 	include: /\b(waltz|swing|foxtrot|salsa|two-step|tango|open mic)\b/i,
 	crawlDelay: 10,
+});
+
+// Woodland Park Zoo: ZooTunes concerts in summer, WildLanterns evenings in winter, 21+ nights and
+// talks. Its pages are behind Cloudflare, but the Tribe API isn't and robots.txt allows everything.
+// Kids', senior and low-sensory events and closure notices are left out.
+const woodlandParkZoo = tribeSource({
+	id: "woodland-park-zoo",
+	origin: "https://zoo.org",
+	venues: { "woodland park zoo": "woodland-park-zoo" },
+	exclude: /\b(kids?|toddlers?|senior|low sensory|pumpkin bash|closure)\b/i,
+	category: "art",
+});
+
+// GreenStage: free Shakespeare in the Park (July and August) at parks around the region, and a
+// play-reading series at Hattie's Hat. Only the parks in our area are mapped.
+const greenStage = tribeSource({
+	id: "greenstage",
+	origin: "https://greenstage.org",
+	venues: {
+		"lower woodland park": "lower-woodland-park",
+		"wallingford playfield": "wallingford-playfield",
+		"salmon bay park": "salmon-bay-park",
+		"hattie's hat – ballard": "hatties-hat",
+	},
+	category: "theater",
+	// Readings pause between seasons
+	mayBeEmpty: true,
+});
+
+// Salmon Bay Eagles (Ballard): blues and jazz bands most Wednesdays to Saturdays. Non-members get in
+// with a $5 temporary membership. The calendar has no categories; bands go on at 8pm, while
+// dinners, meetings and Seahawks games start earlier.
+const salmonBayEagles = tribeSource({
+	id: "salmon-bay-eagles",
+	origin: "https://salmonbayeagles.com",
+	venues: { "social room": "salmon-bay-eagles" },
+	notBefore: "20:00",
+	exclude: /\b(meeting|initiation|seahawks|poker)\b/i,
+	category: "live-music",
 });
 
 // ---------------------------------------------------------------------------
@@ -1142,6 +1192,83 @@ const saltstone: Source = {
 	},
 };
 
+// Book Larder (Fremont): cookbook author talks and cooking classes, sold as Shopify products. Dates
+// come from the Evey Events app's storefront calendar API (the shop name is its only parameter),
+// links from the events collection's products.json, which robots.txt allows.
+
+export type EveyEvent = {
+	product_id: string;
+	title: string;
+	location: string | null;
+	date_type: string;
+	start_at: string;
+	end_at?: string | null;
+	min_price: number;
+};
+
+export function parseEvey(
+	events: EveyEvent[],
+	handles: Map<string, string>,
+	today: string,
+): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const e of events) {
+		// The calendar also returns past events; recurring ones don't say which dates apply
+		if (e.date_type !== "one-time" || e.location !== "Book Larder") continue;
+		if (/appointment/i.test(e.title)) continue;
+		const startsAt = new Date(e.start_at).toISOString();
+		const day = new Date(startsAt).toLocaleDateString("en-CA", {
+			timeZone: "America/Los_Angeles",
+		});
+		if (day < today) continue;
+		const handle = handles.get(e.product_id);
+		out.push({
+			id: `book-larder-${e.product_id}`,
+			title: decodeEntities(e.title).trim(),
+			startsAt,
+			endsAt: e.end_at ? new Date(e.end_at).toISOString() : undefined,
+			url: handle
+				? `https://booklarder.com/products/${handle}`
+				: "https://booklarder.com/apps/events/calendar",
+			// Pricier tiers add a copy of the book
+			price: e.min_price === 0 ? "Free" : dollars(String(e.min_price)),
+			category: guessCategory(e.title, "class"),
+		});
+	}
+	return out;
+}
+
+const bookLarder: Source = {
+	id: "book-larder",
+	venueId: "book-larder",
+	category: "class",
+	async fetchEvents() {
+		const { from, to } = horizon();
+		const calendar: { events: EveyEvent[] } = JSON.parse(
+			await get(
+				`https://api.eveyevents.com/production-v2/storefront/calendar?${new URLSearchParams(
+					{
+						shop: "book-larder.myshopify.com",
+						startDate: from,
+						endDate: to,
+						currentDate: from,
+						lang: "en",
+					},
+				)}`,
+			),
+		);
+		const products: { products: ShopifyProduct[] } = JSON.parse(
+			await get(
+				"https://booklarder.com/collections/evey-events/products.json?limit=250",
+			),
+		);
+		const handles = new Map(
+			products.products.map((p) => [String(p.id), p.handle]),
+		);
+		return parseEvey(calendar.events, handles, from);
+	},
+};
+
 // Yu Tang Ceramics (Fremont): Squarespace store. The workshops page embeds its products as JSON in a
 // `data-context` attribute; date-night wheel classes are one product with a "Day/Time" option per
 // session, e.g. "November 7th 2026 6pm". Products without that option (members-only workshops) are
@@ -1699,6 +1826,10 @@ export const sources: Source[] = [
 	taproot,
 	phinneyWood,
 	sunsetHill,
+	woodlandParkZoo,
+	greenStage,
+	salmonBayEagles,
+	bookLarder,
 	pantry,
 	shibuyaHifi,
 	seaMonster,
