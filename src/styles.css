@@ -848,10 +848,18 @@ legend {
 	margin: 0.75rem 0 0;
 	font-family: var(--sans);
 	font-size: 0.95rem;
+	font-style: normal;
 	padding: 0;
 	list-style: none;
 	display: grid;
 	gap: 0.5rem;
+}
+
+.empty-ideas li {
+	display: flex;
+	gap: 0.5rem;
+	justify-content: center;
+	align-items: center;
 }
 
 .filter-actions {
