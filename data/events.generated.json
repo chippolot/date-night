@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-30T01:01:01.118Z",
+	"generatedAt": "2026-10-30T01:22:33.796Z",
 	"events": [
 		{
 			"id": "shibuya-hifi-2026-10-29T17:00-charles-mingus-mingus",
@@ -100,6 +100,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "substation-1993352760767",
+			"title": "Mall Grab",
+			"startsAt": "2026-10-29T21:00:00-07:00",
+			"endsAt": "2026-10-30T02:00:00-07:00",
+			"url": "https://www.eventbrite.com/e/mall-grab-tickets-1993352760767",
+			"price": "$31.94–$50.14",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "hidden-hall-2026-10-30-frankie-j-with-viktoria-silk",
@@ -219,6 +230,17 @@
 			"url": "https://theoctopusbar.com/events/pretty-ugly-vol-13-halloween-weekend",
 			"source": "octopus",
 			"venueId": "octopus-bar"
+		},
+		{
+			"id": "substation-1995508424415",
+			"title": "TR/ST (DJ Set) x Marie Davidson x Dark Chisme x MØAA",
+			"startsAt": "2026-10-30T20:00:00-07:00",
+			"endsAt": "2026-10-31T01:30:00-07:00",
+			"url": "https://www.eventbrite.com/e/trst-dj-set-x-marie-davidson-x-dark-chisme-x-maa-tickets-1995508424415",
+			"price": "$25.87–$44.08",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "shibuya-hifi-2026-10-30T21:00-frank-ocean-channel-orange",
@@ -374,6 +396,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "myballard-363135-2026-10-31",
+			"venueId": "ballard-beer-box",
+			"title": "Halloween: Dogs in Costume at Ballard Beer Box",
+			"startsAt": "2026-10-31T19:00:00Z",
+			"endsAt": "2026-11-01T05:00:00Z",
+			"url": "https://www.myballard.com/event/halloween-dogs-in-costume-at-ballard-beer-box/",
+			"price": "Free",
+			"source": "myballard"
+		},
+		{
 			"id": "shibuya-hifi-2026-10-31T19:30-d-angelo-voodoo",
 			"title": "D’Angelo - Voodoo",
 			"startsAt": "2026-10-31T19:30:00-07:00",
@@ -421,6 +453,17 @@
 			"url": "https://www.myballard.com/event/spooktacular-pup-party/",
 			"price": "Free",
 			"source": "myballard"
+		},
+		{
+			"id": "substation-2001083432414",
+			"title": "The Gaslamp Killer",
+			"startsAt": "2026-10-31T22:00:00-07:00",
+			"endsAt": "2026-11-01T02:00:00-07:00",
+			"url": "https://www.eventbrite.com/e/the-gaslamp-killer-tickets-2001083432414",
+			"price": "$25.87–$31.94",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "myballard-354048-2026-10-31",
@@ -761,6 +804,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "myballard-363160-2026-11-04",
+			"venueId": "ballard-beer-box",
+			"title": "Free Trivia Night at Ballard Beer Box",
+			"startsAt": "2026-11-04T02:30:00Z",
+			"endsAt": "2026-11-04T04:30:00Z",
+			"url": "https://www.myballard.com/event/free-trivia-night-at-ballard-beer-box/",
+			"price": "Free",
+			"category": "trivia",
+			"source": "myballard"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-04T18:00-deep-listening-steve-reich-drumming",
 			"title": "Deep Listening: Steve Reich - Drumming",
 			"startsAt": "2026-11-04T18:00:00-08:00",
@@ -789,6 +843,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "substation-1986264694169",
+			"title": "Cut Copy (DJ Set)",
+			"startsAt": "2026-11-04T21:00:00-08:00",
+			"endsAt": "2026-11-05T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/cut-copy-dj-set-tickets-1986264694169",
+			"price": "$19.80–$38",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "visitballard-45340-2026-11-05",
@@ -986,6 +1051,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "substation-1989611724226",
+			"title": "Izzy Vadim",
+			"startsAt": "2026-11-05T21:00:00-08:00",
+			"endsAt": "2026-11-06T01:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/izzy-vadim-tickets-1989611724226",
+			"price": "$19.80–$31.94",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "visitballard-44638-2026-11-06",
 			"venueId": "swoon-city",
 			"title": "Polymer Clay Class: Charcuterie Board",
@@ -1129,6 +1205,15 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "myballard-363285-2026-11-06",
+			"venueId": "ballard-beer-box",
+			"title": "Diwali Week at Ballard Beer Box: Indian Pizzas and Party Orders",
+			"startsAt": "2026-11-06T20:00:00Z",
+			"endsAt": "2026-11-12T05:00:00Z",
+			"url": "https://www.myballard.com/event/diwali-week-at-ballard-beer-box-indian-pizzas-and-party-orders/",
+			"source": "myballard"
+		},
+		{
 			"id": "conor-byrne-182667",
 			"title": "Dear John Letters, Spanish for 100 & Skates!",
 			"startsAt": "2026-11-06T20:30:00-08:00",
@@ -1137,6 +1222,17 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "substation-1994518410256",
+			"title": "Riot Ten",
+			"startsAt": "2026-11-06T22:00:00-08:00",
+			"endsAt": "2026-11-07T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/riot-ten-tickets-1994518410256",
+			"price": "$25.87–$31.94",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "hidden-hall-2026-11-07-deante-hitchcock-with-joe-the-poet-shane-diamanti-coaster",
@@ -1250,6 +1346,16 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "substation-1996895453055",
+			"title": "Lilyisthatyou - The Flowers Have Feelings Tour w/ James the Seventh",
+			"startsAt": "2026-11-07T17:00:00-08:00",
+			"endsAt": "2026-11-07T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/lilyisthatyou-the-flowers-have-feelings-tour-w-james-the-seventh-tickets-1996895453055",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-07T18:00-olivia-dean-the-art-of-loving",
 			"title": "Olivia Dean - The Art of Loving",
 			"startsAt": "2026-11-07T18:00:00-08:00",
@@ -1309,6 +1415,16 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "seafolklore-2026-11-07T19:30-katie-mcnally-neil-pearlman-in-concert",
+			"venueId": "phinney-center",
+			"title": "Katie McNally & Neil Pearlman in concert",
+			"startsAt": "2026-11-07T19:30:00-08:00",
+			"endsAt": "2026-11-07T22:00:00-08:00",
+			"url": "https://www.seafolklore.org/events/katie-mcnally-neil-pearlman-in-concert/",
+			"source": "seafolklore",
+			"category": "live-music"
+		},
+		{
 			"id": "wayward-2026-11-07-morgan-o-asa-nakagawa-precious-bane",
 			"title": "Morgan O. + Asa Nakagawa + Precious Bane",
 			"startsAt": "2026-11-07T20:00:00-08:00",
@@ -1347,6 +1463,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "substation-1986265943907",
+			"title": "Capochino",
+			"startsAt": "2026-11-07T22:00:00-08:00",
+			"endsAt": "2026-11-08T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/capochino-tickets-1986265943907",
+			"price": "$19.80–$31.94",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "phinneywood-19788-2026-11-07",
@@ -1437,6 +1564,17 @@
 			"category": "open-mic",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "substation-1999431374063",
+			"title": "Big Freedia",
+			"startsAt": "2026-11-08T21:00:00-08:00",
+			"endsAt": "2026-11-09T01:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/big-freedia-tickets-1999431374063",
+			"price": "$65.32",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "sunset-hill-hall-2193-2026-11-08",
@@ -1612,6 +1750,17 @@
 			"source": "myballard"
 		},
 		{
+			"id": "myballard-363162-2026-11-11",
+			"venueId": "ballard-beer-box",
+			"title": "Free Trivia Night at Ballard Beer Box",
+			"startsAt": "2026-11-11T02:30:00Z",
+			"endsAt": "2026-11-11T04:30:00Z",
+			"url": "https://www.myballard.com/event/free-trivia-night-at-ballard-beer-box-2/",
+			"price": "Free",
+			"category": "trivia",
+			"source": "myballard"
+		},
+		{
 			"id": "sunset-hill-hall-10009927-2026-11-11",
 			"venueId": "sunset-hill-community-hall",
 			"title": "Beginning East Coast Swing – Class Series",
@@ -1691,6 +1840,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "substation-1987565799811",
+			"title": "Sassy 009",
+			"startsAt": "2026-11-11T20:00:00-08:00",
+			"endsAt": "2026-11-11T23:30:00-08:00",
+			"url": "https://www.eventbrite.com/e/sassy-009-tickets-1987565799811",
+			"price": "$19.80–$25.87",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "visitballard-10005190-2026-11-12",
@@ -1785,6 +1945,17 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "substation-1994275744436",
+			"title": "Triptides",
+			"startsAt": "2026-11-12T19:00:00-08:00",
+			"endsAt": "2026-11-12T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/triptides-tickets-1994275744436",
+			"price": "$25.87",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "conor-byrne-193754",
 			"title": "Bhavya (EP Release) + Townsend's Solitaire + Dax Millan",
 			"startsAt": "2026-11-12T19:30:00-08:00",
@@ -1823,6 +1994,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "substation-1986266273894",
+			"title": "Whales - Dangerous Waters Tour",
+			"startsAt": "2026-11-12T21:00:00-08:00",
+			"endsAt": "2026-11-13T01:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/whales-dangerous-waters-tour-tickets-1986266273894",
+			"price": "$25.87",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "visitballard-45352-2026-11-13",
@@ -1927,6 +2109,17 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "substation-1999723107646",
+			"title": "Peach Tree Rascals",
+			"startsAt": "2026-11-13T19:00:00-08:00",
+			"endsAt": "2026-11-13T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/peach-tree-rascals-tickets-1999723107646",
+			"price": "$38–$107.24",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-13T19:30-tyler-the-creator-igor",
 			"title": "Tyler the Creator - Igor",
 			"startsAt": "2026-11-13T19:30:00-08:00",
@@ -1955,6 +2148,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "substation-1999057877926",
+			"title": "Mild Minds (DJ Set)",
+			"startsAt": "2026-11-13T22:00:00-08:00",
+			"endsAt": "2026-11-14T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/mild-minds-dj-set-tickets-1999057877926",
+			"price": "$25.87–$31.94",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "abbey-arts-2026-11-14T03:00-bandit-theater-presents-dear-diary-7p-show-mad-science-8-30p",
@@ -2038,6 +2242,17 @@
 			"venueId": "the-pantry"
 		},
 		{
+			"id": "substation-2001411643101",
+			"title": "Serial Hawk",
+			"startsAt": "2026-11-14T18:00:00-08:00",
+			"endsAt": "2026-11-14T21:30:00-08:00",
+			"url": "https://www.eventbrite.com/e/serial-hawk-tickets-2001411643101",
+			"price": "$19.80",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "visitballard-44642-2026-11-14",
 			"venueId": "swoon-city",
 			"title": "Mending Class: Sashiko Style Visible Mending",
@@ -2087,6 +2302,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "substation-1986461116674",
+			"title": "AEREA",
+			"startsAt": "2026-11-14T22:00:00-08:00",
+			"endsAt": "2026-11-15T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/aerea-tickets-1986461116674",
+			"price": "$25.87–$31.94",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "visitballard-45357-2026-11-14",
@@ -2161,6 +2387,17 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "substation-1995734004130",
+			"title": "Sofie Royer",
+			"startsAt": "2026-11-15T19:00:00-08:00",
+			"endsAt": "2026-11-15T22:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/sofie-royer-tickets-1995734004130",
+			"price": "$28.29",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "conor-byrne-193022",
@@ -2329,6 +2566,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "substation-1992395887734",
+			"title": "Agriculture",
+			"startsAt": "2026-11-17T19:00:00-08:00",
+			"endsAt": "2026-11-17T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/agriculture-tickets-1992395887734",
+			"price": "$31.94",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "conor-byrne-194642",
 			"title": "Country Dance Night w/ Freddy & The Longshots",
 			"startsAt": "2026-11-17T20:00:00-08:00",
@@ -2357,6 +2605,17 @@
 			"url": "https://www.visitballard.com/event/trivia-night/2026-11-17/",
 			"category": "trivia",
 			"source": "visitballard"
+		},
+		{
+			"id": "myballard-363164-2026-11-18",
+			"venueId": "ballard-beer-box",
+			"title": "Free Trivia Night at Ballard Beer Box",
+			"startsAt": "2026-11-18T02:30:00Z",
+			"endsAt": "2026-11-18T04:30:00Z",
+			"url": "https://www.myballard.com/event/free-trivia-night-at-ballard-beer-box-3/",
+			"price": "Free",
+			"category": "trivia",
+			"source": "myballard"
 		},
 		{
 			"id": "sunset-hill-hall-10009928-2026-11-18",
@@ -2440,6 +2699,17 @@
 			"source": "wayward",
 			"venueId": "chapel-performance-space",
 			"category": "live-music"
+		},
+		{
+			"id": "substation-1996666754010",
+			"title": "socialHOUSE Presents: Julian Fijma",
+			"startsAt": "2026-11-18T19:00:00-08:00",
+			"endsAt": "2026-11-19T00:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/socialhouse-presents-julian-fijma-tickets-1996666754010",
+			"price": "$13.73–$19.80",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "west-of-lenin-2026-11-18-1930-good-people",
@@ -2645,6 +2915,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "substation-1984154265821",
+			"title": "Josh Baker",
+			"startsAt": "2026-11-19T21:00:00-08:00",
+			"endsAt": "2026-11-20T01:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/josh-baker-tickets-1984154265821",
+			"price": "Sold out",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "hidden-hall-2026-11-20-mister-blank-album-release-show-with-the-fabulous-downey-bro",
 			"title": "MISTER BLANK *Album Release Show* with The Fabulous Downey Brothers, MuerteMen",
 			"startsAt": "2026-11-20T03:00:00+00:00",
@@ -2783,6 +3064,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "substation-1991493549817",
+			"title": "Josh Baker - Night 2",
+			"startsAt": "2026-11-20T22:00:00-08:00",
+			"endsAt": "2026-11-21T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/josh-baker-night-2-tickets-1991493549817",
+			"price": "$44.08–$56.21",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "myballard-363116-2026-11-21",
@@ -2958,6 +3250,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "substation-1995149991332",
+			"title": "Emancipator",
+			"startsAt": "2026-11-21T22:00:00-08:00",
+			"endsAt": "2026-11-22T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/emancipator-tickets-1995149991332",
+			"price": "$25.87–$38",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "myballard-356649-2026-11-21",
 			"venueId": "phinney-center",
 			"title": "Holiday Bookfest",
@@ -3070,6 +3373,17 @@
 			"category": "open-mic",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "substation-1990826170668",
+			"title": "Buunshin",
+			"startsAt": "2026-11-22T20:00:00-08:00",
+			"endsAt": "2026-11-22T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/buunshin-tickets-1990826170668",
+			"price": "$19.80–$25.87",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "visitballard-35349-2026-11-22",
@@ -3297,6 +3611,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "substation-1999719040481",
+			"title": "Skream (Open to Close)",
+			"startsAt": "2026-11-25T21:00:00-08:00",
+			"endsAt": "2026-11-26T01:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/skream-open-to-close-tickets-1999719040481",
+			"price": "$25.87–$38",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "visitballard-10005192-2026-11-26",
 			"venueId": "reubens-brews",
 			"title": "Trivia with Head in the Clouds",
@@ -3438,6 +3763,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "substation-1990146551910",
+			"title": "Feed Me",
+			"startsAt": "2026-11-27T22:00:00-08:00",
+			"endsAt": "2026-11-28T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/feed-me-tickets-1990146551910",
+			"price": "$25.87–$38",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "hidden-hall-2026-11-28-russian-blue-with-ghost-fetish-fruit-juice",
@@ -3650,6 +3986,17 @@
 			"source": "saltstone",
 			"venueId": "saltstone-ceramics",
 			"category": "class"
+		},
+		{
+			"id": "substation-2000486833972",
+			"title": "Ladrones",
+			"startsAt": "2026-11-29T19:00:00-08:00",
+			"endsAt": "2026-11-29T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/ladrones-tickets-2000486833972",
+			"price": "$34.37",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "conor-byrne-193024",
@@ -3960,6 +4307,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "substation-2002459212409",
+			"title": "1788-L",
+			"startsAt": "2026-12-03T21:00:00-08:00",
+			"endsAt": "2026-12-04T01:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/1788-l-tickets-2002459212409",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "hidden-hall-2026-12-04-hi-crime-with-sister-swimmer-clam-owie",
 			"title": "HI CRIME with Sister Swimmer, Clam & Owie",
 			"startsAt": "2026-12-04T03:00:00+00:00",
@@ -4020,6 +4377,17 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "substation-2003534267929",
+			"title": "AFTERLIFE AFTERPARTY: FROST CHILDREN (DJ)",
+			"startsAt": "2026-12-04T22:00:00-08:00",
+			"endsAt": "2026-12-05T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/afterlife-afterparty-frost-children-dj-tickets-2003534267929",
+			"price": "$25.87–$38",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "myballard-361962-2026-12-05",
@@ -4124,6 +4492,17 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "substation-2003534312061",
+			"title": "Cr1tter",
+			"startsAt": "2026-12-05T20:00:00-08:00",
+			"endsAt": "2026-12-05T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/cr1tter-tickets-2003534312061",
+			"price": "$31.94",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "nectar-2026-12-06-grapevine-groove-an-early-evening-motown-inspired-party",
@@ -4405,6 +4784,17 @@
 			"source": "sunset-hill-hall"
 		},
 		{
+			"id": "substation-1999790296610",
+			"title": "Alison's Halo",
+			"startsAt": "2026-12-09T19:00:00-08:00",
+			"endsAt": "2026-12-09T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/alisons-halo-tickets-1999790296610",
+			"price": "$28.29",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "conor-byrne-199712",
 			"title": "WillyPete + Silversmith + Manila Folder",
 			"startsAt": "2026-12-09T20:00:00-08:00",
@@ -4486,6 +4876,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "substation-2003375395738",
+			"title": "K?D Presents: Kill The K?D",
+			"startsAt": "2026-12-10T21:00:00-08:00",
+			"endsAt": "2026-12-11T01:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/kd-presents-kill-the-kd-tickets-2003375395738",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "visitballard-45385-2026-12-11",
 			"venueId": "swoon-city",
 			"title": "Paint Your Own Romantasy-Inspired Tote",
@@ -4546,6 +4946,17 @@
 			"category": "theater"
 		},
 		{
+			"id": "substation-2002354895394",
+			"title": "ELEVATED MUSIC FEST 3",
+			"startsAt": "2026-12-11T18:00:00-08:00",
+			"endsAt": "2026-12-11T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/elevated-music-fest-3-tickets-2002354895394",
+			"price": "$19.80",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "egans-2026-12-11-1900-jeff-busch-group-details-to-follow",
 			"title": "Jeff Busch Group (details to follow)",
 			"startsAt": "2026-12-11T19:00:00-08:00",
@@ -4581,6 +4992,17 @@
 			"category": "jazz",
 			"source": "egans",
 			"venueId": "egans-ballard-jam-house"
+		},
+		{
+			"id": "substation-2002575413971",
+			"title": "Jantsen",
+			"startsAt": "2026-12-11T22:00:00-08:00",
+			"endsAt": "2026-12-12T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/jantsen-tickets-2002575413971",
+			"price": "$19.80–$25.87",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "nectar-2026-12-12-that-1-guy",
@@ -4674,6 +5096,17 @@
 			"price": "$150",
 			"category": "class",
 			"source": "visitballard"
+		},
+		{
+			"id": "substation-1987553851072",
+			"title": "NEO4IC TAKEOVER: [IVY]  x Blossom x Oliverse",
+			"startsAt": "2026-12-12T22:00:00-08:00",
+			"endsAt": "2026-12-13T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/neo4ic-takeover-ivy-x-blossom-x-oliverse-tickets-1987553851072",
+			"price": "$28.60–$35.31",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "hidden-hall-2026-12-13-gatsby-s-american-dream-with-the-divorce",
@@ -5006,6 +5439,17 @@
 			"category": "theater"
 		},
 		{
+			"id": "substation-1988857617673",
+			"title": "Austeria",
+			"startsAt": "2026-12-17T21:00:00-08:00",
+			"endsAt": "2026-12-18T01:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/austeria-tickets-1988857617673",
+			"price": "$19.80–$25.87",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "visitballard-38612-2026-12-18",
 			"venueId": "swoon-city",
 			"title": "Embroidery Class: Winter Botanical Embroidered Ornament",
@@ -5109,6 +5553,17 @@
 			"category": "theater"
 		},
 		{
+			"id": "substation-2003534416373",
+			"title": "Project Pat",
+			"startsAt": "2026-12-18T20:00:00-08:00",
+			"endsAt": "2026-12-18T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/project-pat-tickets-2003534416373",
+			"price": "$44.08–$62.28",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "conor-byrne-189877",
 			"title": "Garage Punk X-Mas Party: The Sinister Six, Hutchie & Small Yards",
 			"startsAt": "2026-12-18T21:00:00-08:00",
@@ -5190,6 +5645,17 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "substation-2004085020244",
+			"title": "Project Pat: Night 2",
+			"startsAt": "2026-12-19T19:00:00-08:00",
+			"endsAt": "2026-12-19T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/project-pat-night-2-tickets-2004085020244",
+			"price": "$44.08–$62.28",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "spt-2026-12-20T03:30-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-19T19:30:00-08:00",
@@ -5200,6 +5666,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "seafolklore-2026-12-19T19:30-winter-s-return-pint-dale-opland-freeman",
+			"venueId": "phinney-center",
+			"title": "Winter's Return (Pint & Dale, Opland & Freeman)",
+			"startsAt": "2026-12-19T19:30:00-08:00",
+			"endsAt": "2026-12-19T22:00:00-08:00",
+			"url": "https://www.seafolklore.org/events/winters-return-pint-dale-opland-freeman/",
+			"source": "seafolklore",
+			"category": "live-music"
+		},
+		{
 			"id": "egans-2026-12-19-2100-vocalist-mackenzie-madsen-backed-by-david-lee-joyner-piano-c",
 			"title": "Vocalist Mackenzie Madsen, backed by David Lee Joyner (piano), Clipper Anderson (bass) and",
 			"startsAt": "2026-12-19T21:00:00-08:00",
@@ -5208,6 +5684,16 @@
 			"category": "jazz",
 			"source": "egans",
 			"venueId": "egans-ballard-jam-house"
+		},
+		{
+			"id": "substation-2003020506254",
+			"title": "Two Guys (Crawdad Sniper x Chez): Spy Dub Tour",
+			"startsAt": "2026-12-19T22:00:00-08:00",
+			"endsAt": "2026-12-20T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/two-guys-crawdad-sniper-x-chez-spy-dub-tour-tickets-2003020506254",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "hidden-hall-2026-12-20-cascadia-winter-solstice-weekender-ft-marques-wyatt-sabo-jam",
@@ -5607,6 +6093,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "substation-1984823079260",
+			"title": "The Glitch Mob NYE with Sam Binga",
+			"startsAt": "2026-12-31T21:00:00-08:00",
+			"endsAt": "2027-01-01T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-glitch-mob-nye-with-sam-binga-tickets-1984823079260",
+			"price": "$38–$44.08",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "nectar-2027-01-01-back-to-the-80s-new-year-s-eve-party-featuring-nite-wave",
 			"title": "BACK TO THE 80s NEW YEAR'S EVE PARTY featuring Nite Wave",
 			"startsAt": "2027-01-01T04:00:00+00:00",
@@ -5628,6 +6125,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "substation-2003028405882",
+			"title": "Lady Faith x LNY TNZ",
+			"startsAt": "2027-01-01T21:00:00-08:00",
+			"endsAt": "2027-01-02T02:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/lady-faith-x-lny-tnz-tickets-2003028405882",
+			"price": "$25.87",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "nordic-museum-2027-01-02-seattle-kraken-nordic-night",
 			"title": "Seattle Kraken Nordic Night",
 			"startsAt": "2027-01-02T19:00:00-08:00",
@@ -5635,6 +6143,17 @@
 			"category": "art",
 			"source": "nordic-museum",
 			"venueId": "nordic-museum"
+		},
+		{
+			"id": "substation-2003672736091",
+			"title": "Conjurer",
+			"startsAt": "2027-01-02T19:00:00-08:00",
+			"endsAt": "2027-01-02T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/conjurer-tickets-2003672736091",
+			"price": "$19.80",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "nectar-2027-01-03-queergxrl-launch-party-new-year-new-queer",
@@ -5886,6 +6405,17 @@
 			"category": "live-music"
 		},
 		{
+			"id": "substation-2002485359616",
+			"title": "Holy Mountain Brewing Anniversary with True Widow",
+			"startsAt": "2027-01-16T18:00:00-08:00",
+			"endsAt": "2027-01-16T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/holy-mountain-brewing-anniversary-with-true-widow-tickets-2002485359616",
+			"price": "$55.43",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "nectar-2027-01-17-clinton-fearon-a-birthday-celebration-plus-dj-kid-hops-kexp-",
 			"title": "CLINTON FEARON: A Birthday Celebration, plus DJ Kid Hops (KEXP) and Surprise Special Guests",
 			"startsAt": "2027-01-17T04:00:00+00:00",
@@ -5985,6 +6515,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "substation-2003678179372",
+			"title": "Dillinja",
+			"startsAt": "2027-01-21T21:00:00-08:00",
+			"endsAt": "2027-01-22T01:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/dillinja-tickets-2003678179372",
+			"price": "$19.80–$25.87",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
+		},
+		{
 			"id": "hidden-hall-2027-01-22-taper-s-choice-2-sets",
 			"title": "TAPER'S CHOICE (2 sets)",
 			"startsAt": "2027-01-22T03:00:00+00:00",
@@ -5994,6 +6535,16 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "substation-2003523005242",
+			"title": "Come Back To Earth: Mac Miller Live Band Tribute",
+			"startsAt": "2027-01-22T19:00:00-08:00",
+			"endsAt": "2027-01-22T23:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/come-back-to-earth-mac-miller-live-band-tribute-tickets-2003523005242",
+			"category": "live-music",
+			"source": "substation",
+			"venueId": "substation"
 		},
 		{
 			"id": "hidden-hall-2027-01-23-satsang-full-band-with-guest",
