@@ -305,31 +305,18 @@ function whatPills(f: Filters): string {
 		.join("");
 }
 
-/** Happy hours and food & drink deals, common enough to get their own on/off switch. */
+/** Happy hours and food & drink deals, which get their own collapsed shelf on each day. */
 export const SPECIALS: Category = "food-drink-special";
 
-/**
- * One-tap switches beside day and time. "No happy hours" submits the same `hide` value as the
- * panel's "What" pill, and the client keeps the two in step. "Indoors only" is for rainy nights.
- */
+/** One-tap switches beside day and time. "Indoors only" is for rainy nights. */
 function quickPills(f: Filters): string {
-	return [
-		pill(
-			"checkbox",
-			"indoors",
-			"1",
-			`<span class="pill-icon" aria-hidden="true">☔</span>Indoors only`,
-			!!f.indoors,
-		),
-		pill(
-			"checkbox",
-			"hide",
-			SPECIALS,
-			"No happy hours",
-			f.hide.includes(SPECIALS),
-			" data-hide-specials",
-		),
-	].join("");
+	return pill(
+		"checkbox",
+		"indoors",
+		"1",
+		`<span class="pill-icon" aria-hidden="true">☔</span>Indoors only`,
+		!!f.indoors,
+	);
 }
 
 const DAY_PILLS: [Weekday, string][] = [
@@ -347,7 +334,7 @@ export function panelCount(f: Filters): number {
 	return (
 		f.hood.length +
 		f.cat.length +
-		f.hide.filter((c) => c !== SPECIALS).length +
+		f.hide.length +
 		f.vibe.length +
 		(f.price ? 1 : 0) +
 		(f.cost ? 1 : 0)
