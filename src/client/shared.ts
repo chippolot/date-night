@@ -74,6 +74,28 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 
 	const read = () =>
 		parseFilters(new URLSearchParams(new FormData(form) as never));
+	// "What" pills cycle off → picked (`cat`) → hidden (`hide`) → off.
+	form.addEventListener("click", (e) => {
+		const target = e.target as Element;
+		const pill = target.closest(".tri");
+		const [pick, hide] = pill?.querySelectorAll("input") ?? [];
+		if (!pick || !hide) return;
+		e.preventDefault();
+		// Keyboard and screen readers click the checkbox itself, which flips before this runs and
+		// flips back after the cancelled click; read its original state and act once that's done.
+		const direct = target instanceof HTMLInputElement;
+		const was = {
+			pick: direct && target === pick ? !pick.checked : pick.checked,
+			hide: direct && target === hide ? !hide.checked : hide.checked,
+		};
+		const cycle = () => {
+			pick.checked = !was.pick && !was.hide;
+			hide.checked = was.pick;
+			form.dispatchEvent(new Event("change"));
+		};
+		if (direct) setTimeout(cycle);
+		else cycle();
+	});
 	form.addEventListener("change", () => {
 		const f = read();
 		storeHide(f.hide);

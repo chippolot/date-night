@@ -2,7 +2,13 @@ import { href, SITE } from "../config";
 import { type Filters, MAX_DAYS_AHEAD, TIME_SLOTS } from "../lib/filters";
 import { addDays } from "../lib/recurrence";
 import type { Night, Nth, Occurrence, Venue, Weekday } from "../lib/types";
-import { CATEGORIES, NEIGHBORHOODS, VIBES } from "../lib/types";
+import {
+	CATEGORIES,
+	CATEGORY_ICONS,
+	type Category,
+	NEIGHBORHOODS,
+	VIBES,
+} from "../lib/types";
 
 export function esc(s: string): string {
 	return s
@@ -181,6 +187,21 @@ function checkboxGroup(
 	return `<fieldset><legend>${label}</legend><div class="${className}">${boxes}</div></fieldset>`;
 }
 
+/**
+ * "What" as tri-state pills: tapping cycles off → picked (show only these, `cat`) → hidden
+ * (`hide`) → off. Each pill holds both checkboxes, so the URL format and filtering are unchanged;
+ * without JS the label toggles only the first one (pick).
+ */
+function whatGroup(f: Filters): string {
+	const pills = (Object.entries(CATEGORIES) as [Category, string][])
+		.map(([value, text]) => {
+			const checked = (on: boolean) => (on ? " checked" : "");
+			return `<label class="pill tri"><input type="checkbox" name="cat" value="${value}"${checked(f.cat.includes(value))}><input type="checkbox" name="hide" value="${value}" tabindex="-1" aria-label="Hide ${esc(text)}"${checked(f.hide.includes(value))}><span>${CATEGORY_ICONS[value]} ${esc(text)}</span></label>`;
+		})
+		.join("");
+	return `<fieldset><legend>What <span class="legend-hint">tap to pick, again to hide</span></legend><div class="pills">${pills}</div></fieldset>`;
+}
+
 const CALENDAR_ICON = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.75" y="3" width="12.5" height="11.25" rx="1"/><path d="M1.75 6.5h12.5M5 1.5v3M11 1.5v3"/></svg>`;
 
 const DAY_PILLS: [Weekday, string][] = [
@@ -237,14 +258,7 @@ export function filterBar(
   <details${active ? " open" : ""}>
     <summary><span>Filter by neighborhood, vibe &amp; more</span>${active ? ` <span class="count">${active}</span>` : ""}</summary>
     ${checkboxGroup("hood", "Neighborhood", Object.entries(NEIGHBORHOODS), f.hood)}
-    ${checkboxGroup("cat", "What", Object.entries(CATEGORIES), f.cat)}
-    ${checkboxGroup(
-			"hide",
-			"Hide",
-			Object.entries(CATEGORIES),
-			f.hide,
-			"pills pills-hide",
-		)}
+    ${whatGroup(f)}
     ${checkboxGroup(
 			"vibe",
 			"Vibe",

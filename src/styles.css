@@ -666,18 +666,39 @@ legend {
 	color: var(--paper);
 }
 
-/* "Hide" pills read as struck out when on. */
-.pills-hide .pill input:checked + span {
-	background: transparent;
-	border-color: var(--border);
+.legend-hint {
+	margin-left: 0.4rem;
 	color: var(--muted);
-	text-decoration: line-through;
-	opacity: 0.7;
+	font-weight: 400;
+	letter-spacing: normal;
+	text-transform: none;
 }
 
 .pill input:focus-visible + span {
 	outline: 2px solid var(--lingon);
 	outline-offset: 2px;
+}
+
+/* "What" tri-state pills: picked fills like any pill; hidden is struck through in lingon. */
+.tri:has(input:focus-visible) span {
+	outline: 2px solid var(--lingon);
+	outline-offset: 2px;
+}
+
+.tri:has(input[name="cat"]:checked) span {
+	background: var(--fjord);
+	border-color: var(--fjord);
+	color: var(--paper);
+}
+
+.tri:has(input[name="hide"]:checked) span {
+	/* The base `.pill input:checked + span` fill would otherwise apply: the hide box sits last. */
+	background: transparent;
+	border-color: var(--lingon);
+	border-style: dashed;
+	color: var(--muted);
+	text-decoration: line-through;
+	text-decoration-color: var(--lingon);
 }
 
 .filter-actions {
