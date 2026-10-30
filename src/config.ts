@@ -1,5 +1,11 @@
+const NAME = "Date Night";
+const PLACE = "North Seattle";
+
 export const SITE = {
-	title: "Date Night North Seattle",
+	title: `${NAME} ${PLACE}`,
+	/** The header wordmark: the name, then the place in a lighter weight */
+	name: NAME,
+	place: PLACE,
 	tagline:
 		"Recurring nights and local events around Ballard, Fremont & friends",
 	/** Where "report a change" links point. Leave empty to hide them until the site goes public. */

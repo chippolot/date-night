@@ -1,6 +1,21 @@
 import { href, SITE } from "../config";
 import { esc } from "./components";
 
+/**
+ * The brand mark: two overlapping circles, fjord and lingonberry, for the two people on the date.
+ * Fills are for the favicon (its overlap turns light on dark tab bars); in the header, the
+ * `.brand-mark` classes recolor it per theme.
+ */
+const MARK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 36">\
+<style>@media (prefers-color-scheme: dark){.m-both{fill:#eceef4}}</style>\
+<defs><clipPath id="m-left"><circle cx="16" cy="18" r="14"/></clipPath></defs>\
+<circle class="m-one" cx="16" cy="18" r="14" fill="#1f3d8c"/>\
+<circle class="m-two" cx="32" cy="18" r="14" fill="#d9412b"/>\
+<circle class="m-both" cx="32" cy="18" r="14" fill="#121417" clip-path="url(#m-left)"/>\
+</svg>`;
+
+const FAVICON = `data:image/svg+xml,${encodeURIComponent(MARK)}`;
+
 export type PageId = "tonight" | "week" | "map" | "venues" | "venue";
 
 const NAV: [PageId, string, string][] = [
@@ -40,7 +55,7 @@ export function layout(opts: {
   <meta name="theme-color" content="#0e1120" media="(prefers-color-scheme: dark)">
   <title>${esc(opts.title)}</title>
   <meta name="description" content="${esc(SITE.tagline)}">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231f3d8c'/><circle cx='70' cy='70' r='34' fill='%23d9412b'/></svg>">
+  <link rel="icon" href="${FAVICON}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=Spectral:ital,wght@0,400;1,400&display=swap">
@@ -49,7 +64,7 @@ export function layout(opts: {
 </head>
 <body data-page="${opts.page}" data-base="${esc(href(""))}">
   <header class="site-header">
-    <a class="brand" href="${href("/")}"><span class="brand-mark" aria-hidden="true"></span>${esc(SITE.title)}</a>
+    <a class="brand" href="${href("/")}"><span class="brand-mark" aria-hidden="true">${MARK}</span>${esc(SITE.name)} <span class="brand-place">${esc(SITE.place)}</span></a>
     <nav>${nav}</nav>
   </header>
   <main>
