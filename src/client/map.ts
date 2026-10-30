@@ -65,7 +65,7 @@ async function main() {
 				COLORS[ns[0]?.category ?? upcoming[0]?.category ?? "live-music"];
 			const nightItems = ns.map(
 				(n) =>
-					`<li><strong>${esc(n.title)}</strong><br><span>${describeRecurrence(n)} ${formatTime(n.start)} · ${CATEGORIES[n.category]}</span></li>`,
+					`<li><strong>${esc(n.title)}</strong><br><span>${describeRecurrence(n)} ${n.allDay ? "all day" : formatTime(n.start)} · ${CATEGORIES[n.category]}</span></li>`,
 			);
 			const eventItems = ns.length
 				? []

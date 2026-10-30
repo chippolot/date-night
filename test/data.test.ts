@@ -30,6 +30,8 @@ describe("curated data", () => {
 			expect(venueIds.has(n.venueId), `${n.id} → ${n.venueId}`).toBe(true);
 			expect(n.start, n.id).toMatch(TIME);
 			if (n.end) expect(n.end, n.id).toMatch(TIME);
+			// All-day nights need the open hours so time-of-day filters can match them
+			if (n.allDay) expect(n.end, n.id).toBeDefined();
 			expect(n.lastVerified, n.id).toMatch(DATE);
 			expect(n.sourceUrl, n.id).toStartWith("https://");
 			// Throws if the recurrence can never happen (e.g. 5th weekday restricted to one short month).

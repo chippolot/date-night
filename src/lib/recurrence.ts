@@ -89,6 +89,7 @@ export function nightOccurrences(
 				date,
 				start: n.start,
 				end: n.end,
+				allDay: n.allDay,
 				title: n.title,
 				venueId: n.venueId,
 				category: n.category,

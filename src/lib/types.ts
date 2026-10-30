@@ -117,6 +117,8 @@ export type Night = {
 	/** 24h "HH:MM", Seattle local time */
 	start: string;
 	end?: string;
+	/** Runs the whole time the venue is open: shown as "All day", with start/end set to the open hours */
+	allDay?: boolean;
 	cost?: string;
 	description: string;
 	vibe: Vibe[];
@@ -147,6 +149,7 @@ export type Occurrence = {
 	date: string; // YYYY-MM-DD local
 	start: string; // HH:MM local
 	end?: string;
+	allDay?: boolean;
 	title: string;
 	venueId?: string;
 	category: Category;

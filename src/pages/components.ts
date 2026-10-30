@@ -135,8 +135,8 @@ export function card(
 	return `<article class="card cat-${o.category}" data-key="${esc(o.key)}">
   <div class="card-time">
     ${timeLabel ? `<span class="card-when">${esc(timeLabel)}</span>` : ""}
-    <span class="card-start">${formatTime(o.start)}</span>
-    ${o.end ? `<span class="card-end">to ${formatTime(o.end)}</span>` : ""}
+    <span class="card-start">${o.allDay ? "All day" : formatTime(o.start)}</span>
+    ${o.end && !o.allDay ? `<span class="card-end">to ${formatTime(o.end)}</span>` : ""}
   </div>
   <div class="card-body">
     <h3>${esc(o.title)}</h3>
