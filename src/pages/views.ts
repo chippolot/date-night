@@ -43,6 +43,8 @@ import {
 	describeRecurrence,
 	esc,
 	formatDate,
+	SPECIALS,
+	specialsShelf,
 	subscribeLinks,
 } from "./components";
 
@@ -70,12 +72,28 @@ const PARTS: {
 }[] = [
 	{
 		id: "afternoon",
-		label: "Afternoon & happy hour",
+		label: "Afternoon",
 		test: (s) => s < "17:00",
 	},
 	{ id: "evening", label: "Evening", test: (s) => s >= "17:00" && s < "21:00" },
 	{ id: "late", label: "Late", test: (s) => s >= "21:00" },
 ];
+
+/**
+ * Split happy hours out for their own shelf, unless they're all that was asked for: then
+ * they're the main event and stay as cards.
+ */
+function splitSpecials(
+	list: Occurrence[],
+	f: Filters,
+): { main: Occurrence[]; specials: Occurrence[] } {
+	if (f.cat.length && f.cat.every((c) => c === SPECIALS))
+		return { main: list, specials: [] };
+	return {
+		main: list.filter((o) => o.category !== SPECIALS),
+		specials: list.filter((o) => o.category === SPECIALS),
+	};
+}
 
 /** One filter to loosen when nothing matches, and how many listings that would bring back. */
 type Relaxation = { label: string; f: Filters; count: number };
@@ -164,9 +182,9 @@ export function tonightView(
 ): string {
 	const venueById = venueMap(data);
 	const all = occurrences(data, day, 1);
-	const list = applyFilters(all, venueById, f);
+	const { main, specials } = splitSpecials(applyFilters(all, venueById, f), f);
 	const sections = PARTS.map(({ id, label, test }) => {
-		const items = list.filter((o) => test(o.start));
+		const items = main.filter((o) => test(o.start));
 		if (!items.length) return "";
 		return `<section class="part"><h2 class="part-heading"><span class="part-mark part-${id}" aria-hidden="true"></span>${label} <span class="part-count">${items.length}</span></h2>${cardList(items, venueById, today)}</section>`;
 	}).join("");
@@ -179,7 +197,7 @@ export function tonightView(
 		after: addDays(day, 1),
 	});
 	return `<p class="date-heading"><span class="date-num">${formatDate(day, { day: "2-digit" })}</span><span class="date-words"><span class="date-weekday">${formatDate(day, { weekday: "long" })}</span><span class="date-month">${formatDate(day, { month: "long", year: "numeric" })}</span></span></p>
-${sections || empty}
+${sections || specials.length ? `${specialsShelf(specials, venueById)}${sections}` : empty}
 ${subscribeLinks(f)}`;
 }
 
@@ -204,11 +222,12 @@ export function weekView(
 		.map((date) => {
 			if (!matchesDay(weekdayOf(date), f)) return "";
 			const items = list.filter((o) => o.date === date);
+			const { main, specials } = splitSpecials(items, f);
 			const label =
 				date === today ? "Today" : formatDate(date, { weekday: "long" });
 			const month = formatDate(date, { month: "short" });
 			const day = formatDate(date, { day: "numeric" });
-			return `<section class="day"><h2 class="day-heading"><span class="cal" aria-hidden="true"><span class="cal-m">${month}</span><span class="cal-d">${day}</span></span><span>${label}</span><span class="part-count">${items.length}</span></h2>${cardList(items, venueById, today, "Nothing listed.")}</section>`;
+			return `<section class="day"><h2 class="day-heading"><span class="cal" aria-hidden="true"><span class="cal-m">${month}</span><span class="cal-d">${day}</span></span><span>${label}</span><span class="part-count">${items.length}</span></h2>${specialsShelf(specials, venueById)}${main.length || !specials.length ? cardList(main, venueById, today, "Nothing listed.") : ""}</section>`;
 		})
 		.join("")}</div>
 ${subscribeLinks(f)}`;

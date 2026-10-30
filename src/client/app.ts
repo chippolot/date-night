@@ -13,6 +13,22 @@ const view = document.querySelector<HTMLElement>("[data-view]");
 const h1 = document.querySelector("h1");
 const defaultHeading = h1?.textContent ?? "";
 
+// Dates whose happy hour shelf is open, so a filter change doesn't snap it shut.
+const openSpecials = new Set<string>();
+// `toggle` doesn't bubble, so listen while capturing.
+view?.addEventListener(
+	"toggle",
+	(e) => {
+		const shelf = e.target;
+		if (!(shelf instanceof HTMLDetailsElement)) return;
+		const date = shelf.dataset.specials;
+		if (date === undefined) return;
+		if (shelf.open) openSpecials.add(date);
+		else openSpecials.delete(date);
+	},
+	true,
+);
+
 function render(data: SiteData, f: Filters) {
 	if (!view) return;
 	const today = todayInSeattle();
@@ -21,6 +37,11 @@ function render(data: SiteData, f: Filters) {
 		page === "week"
 			? weekView(data, day, f, today)
 			: tonightView(data, day, f, today);
+	for (const shelf of view.querySelectorAll<HTMLDetailsElement>(
+		"details[data-specials]",
+	)) {
+		if (openSpecials.has(shelf.dataset.specials ?? "")) shelf.open = true;
+	}
 	webcalLinks();
 	if (h1) {
 		h1.textContent =

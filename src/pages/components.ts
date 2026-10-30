@@ -192,6 +192,40 @@ export function card(
 </article>`;
 }
 
+/** A happy hour as one compact row: hours, where, and the deal. */
+export function specialRow(o: Occurrence, venue: Venue | undefined): string {
+	const when = o.allDay
+		? "All day"
+		: `${formatTime(o.start)}${o.end ? `–${formatTime(o.end)}` : ""}`;
+	const where = venue
+		? `<a href="${href(`/venues/${venue.id}/`)}">${esc(venue.name)}</a> · ${NEIGHBORHOODS[venue.neighborhood]}`
+		: "";
+	return `<li class="special-row cat-${o.category}" data-key="${esc(o.key)}">
+  <span class="special-when">${when}</span>
+  <span class="special-body">
+    <span class="special-where">${where || esc(o.title)}</span>
+    <span class="special-deal">${esc(o.cost || o.title)}</span>
+  </span>
+  <a class="icon-action" href="${esc(o.url)}" rel="noopener" target="_blank" title="Source" aria-label="Source (opens in a new tab)">${EXTERNAL_ICON}</a>
+</li>`;
+}
+
+/**
+ * Happy hours gathered into one closed shelf above the day's other listings, so they don't
+ * bury them.
+ * The client keeps it open across re-renders once someone opens it.
+ */
+export function specialsShelf(
+	list: Occurrence[],
+	venueById: Map<string, Venue>,
+): string {
+	if (!list.length) return "";
+	const rows = list
+		.map((o) => specialRow(o, o.venueId ? venueById.get(o.venueId) : undefined))
+		.join("\n");
+	return `<details class="specials" data-specials="${list[0]?.date ?? ""}"><summary class="specials-summary"><h2 class="part-heading specials-heading"><span class="part-mark part-specials" aria-hidden="true"></span>Happy hours <span class="part-count">${list.length}</span></h2></summary><ul class="special-list">${rows}</ul></details>`;
+}
+
 /**
  * Calendar feeds for the picked categories and neighborhoods. Links are https; the client turns
  * them into webcal:// (data-webcal) so a tap subscribes instead of downloading.

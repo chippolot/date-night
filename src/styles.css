@@ -923,6 +923,108 @@ legend {
 	transform: rotate(45deg);
 }
 
+/* Happy hours: a ring in the deal color, behind a closed shelf of one-line rows */
+.part-specials {
+	border: 2.5px solid var(--c-food);
+	border-radius: 50%;
+}
+
+.specials-summary {
+	cursor: pointer;
+	list-style: none;
+}
+
+.specials-summary::-webkit-details-marker {
+	display: none;
+}
+
+.specials-heading::after {
+	content: "";
+	flex: none;
+	width: 0.5rem;
+	height: 0.5rem;
+	margin: 0 0.25rem 0.25rem 0;
+	border-right: 1.5px solid currentColor;
+	border-bottom: 1.5px solid currentColor;
+	transform: rotate(45deg);
+	transition: transform 0.2s;
+}
+
+.specials[open] .specials-heading::after {
+	margin-bottom: -0.25rem;
+	transform: rotate(-135deg);
+}
+
+.specials-summary:focus-visible {
+	outline: 2px solid var(--lingon);
+	outline-offset: 2px;
+}
+
+.day .specials-heading {
+	margin-top: 0.75rem;
+	font-size: 1.25rem;
+}
+
+.special-list {
+	margin: 0 0 0.5rem;
+	padding: 0;
+	list-style: none;
+}
+
+.special-row {
+	display: grid;
+	grid-template-columns: 6.5rem minmax(0, 1fr) auto;
+	gap: 0.75rem;
+	align-items: center;
+	padding: 0.35rem 0;
+	border-top: 1px solid var(--border);
+	font-size: 0.92rem;
+}
+
+.special-when {
+	font-variant-numeric: tabular-nums;
+	font-weight: 700;
+}
+
+.special-body {
+	display: flex;
+	gap: 0.15rem 0.75rem;
+	min-width: 0;
+}
+
+.special-where {
+	flex: none;
+	color: var(--muted);
+}
+
+.special-where a {
+	color: var(--text);
+	font-weight: 600;
+	text-decoration-color: var(--border);
+}
+
+.special-deal {
+	overflow: hidden;
+	color: var(--muted);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@media (max-width: 719.98px) {
+	.special-row {
+		grid-template-columns: 5rem minmax(0, 1fr) auto;
+		align-items: start;
+	}
+
+	.special-body {
+		flex-direction: column;
+	}
+
+	.special-where {
+		flex: initial;
+	}
+}
+
 .day-heading {
 	position: sticky;
 	top: 0;

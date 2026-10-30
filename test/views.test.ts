@@ -78,3 +78,67 @@ describe("empty state", () => {
 		expect(html).not.toContain('class="week"');
 	});
 });
+
+describe("happy hour shelf", () => {
+	const happyHour: Night = {
+		...night("pub-hh", "pub", {
+			kind: "weekly",
+			days: ["MO", "TU", "WE", "TH", "FR", "SA", "SU"],
+		}),
+		title: "Happy hour",
+		category: "food-drink-special",
+		start: "15:00",
+		end: "18:00",
+		cost: "$2 off drafts",
+	};
+	const withHH: SiteData = { ...data, nights: [...data.nights, happyHour] };
+	const sections = (html: string) => html.split("</details>")[1] ?? "";
+
+	test("gathers happy hours into one closed shelf above the day's sections", () => {
+		const html = tonightView(withHH, "2026-10-30", EMPTY_FILTERS);
+		expect(sections(html)).not.toContain("cat-food-drink-special");
+		expect(html.indexOf("specials")).toBeLessThan(html.indexOf("fri-trivia"));
+		expect(html).toContain(
+			'<details class="specials" data-specials="2026-10-30">',
+		);
+		expect(html).not.toContain(
+			'<details class="specials" data-specials="2026-10-30" open',
+		);
+		expect(html).toContain('Happy hours <span class="part-count">1</span>');
+		expect(html).toContain("3pm–6pm");
+		expect(html).toContain("$2 off drafts");
+	});
+
+	test("leaves it out when happy hours are hidden", () => {
+		const html = tonightView(withHH, "2026-10-30", {
+			...EMPTY_FILTERS,
+			hide: ["food-drink-special"],
+		});
+		expect(html).not.toContain("specials");
+		expect(html).toContain("fri-trivia");
+	});
+
+	test("shows full cards when happy hours are all that's asked for", () => {
+		const html = tonightView(withHH, "2026-10-30", {
+			...EMPTY_FILTERS,
+			cat: ["food-drink-special"],
+		});
+		expect(html).not.toContain('<details class="specials"');
+		expect(html).toContain('<article class="card cat-food-drink-special"');
+	});
+
+	test("shows the shelf instead of the empty state when only happy hours match", () => {
+		const html = tonightView(withHH, "2026-10-30", {
+			...EMPTY_FILTERS,
+			hood: ["ballard"],
+		});
+		expect(html).not.toContain("Nothing on tonight");
+		expect(html).toContain('data-specials="2026-10-30"');
+	});
+
+	test("gives each day of the week its own shelf", () => {
+		const html = weekView(withHH, "2026-10-30", EMPTY_FILTERS);
+		expect(html.match(/<details class="specials"/g)?.length).toBe(7);
+		expect(html).toContain('data-specials="2026-11-05"');
+	});
+});
