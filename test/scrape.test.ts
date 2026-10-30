@@ -9,6 +9,7 @@ import {
 	parseEgans,
 	parseEventbrite,
 	parseEvey,
+	parseJetCityShow,
 	parseMatoEvents,
 	parseMeany,
 	parseNordic,
@@ -1087,5 +1088,36 @@ describe("mato street address", () => {
 				(e) => e.title,
 			),
 		).toEqual(["Tuesday Tacos 'n Trivia"]);
+	});
+});
+
+describe("jet city improv", () => {
+	const page = (block: string) =>
+		`<div class="paragraph"><strong>Show Dates / Times:</strong> ${block}<br/><strong>Featuring:</strong> The Ensemble</div>`;
+
+	test("reads dated performances at The Drama Room, with or without a year", () => {
+		const html = page(
+			"Select Saturdays at 7:30 PM<br/>November 2026<br/>Saturday, November 21<br/>January 2027<br/>Saturday, January 2<br/>Friday, October 2, 2026<br/>Tickets: $18<br/>The Drama Room<br/>University Heights Center",
+		);
+		expect(
+			parseJetCityShow(
+				html,
+				"The Jet City Show",
+				"https://x/show",
+				"2026-10-30",
+			).map((e) => e.startsAt),
+		).toEqual(["2026-11-21T19:30:00-08:00", "2027-01-02T19:30:00-08:00"]);
+	});
+
+	test("skips shows at West of Lenin and pages without a schedule", () => {
+		const lenin = page(
+			"Saturdays 7:00 PM<br/>Saturday, November 7, 2026<br/>West of Lenin 203 N 36th St",
+		);
+		expect(
+			parseJetCityShow(lenin, "Last Call", "https://x", "2026-10-30"),
+		).toEqual([]);
+		expect(
+			parseJetCityShow("<p>Coming soon</p>", "X", "https://x", "2026-10-30"),
+		).toEqual([]);
 	});
 });

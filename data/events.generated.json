@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-30T21:56:34.625Z",
+	"generatedAt": "2026-10-30T22:00:23.458Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-30T18:26:41.077Z",
 		"artemis-coffee": "2026-10-30T18:26:41.077Z",
@@ -15,6 +15,7 @@
 		"halcyon": "2026-10-30T18:26:41.076Z",
 		"halfseas": "2026-10-30T18:26:41.076Z",
 		"hidden-hall": "2026-10-30T18:26:41.077Z",
+		"jet-city-improv": "2026-10-30T22:00:23.451Z",
 		"kings-hardware": "2026-10-30T18:26:41.077Z",
 		"lake-city-contra": "2026-10-30T21:38:00.510Z",
 		"lovestruck": "2026-10-30T21:37:38.986Z",
@@ -1972,6 +1973,15 @@
 			"url": "https://drama.washington.edu/events/2026-11-05/phedre",
 			"category": "theater",
 			"source": "uw-campus"
+		},
+		{
+			"id": "jet-city-2026-11-06-improv-of-shame",
+			"title": "Improv of Shame",
+			"startsAt": "2026-11-06T19:30:00-08:00",
+			"url": "https://www.jetcityimprov.org/improvofshame.html",
+			"category": "comedy",
+			"source": "jet-city-improv",
+			"venueId": "drama-room"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-06T19:30-peter-gabriel-so",
@@ -4834,6 +4844,15 @@
 			"category": "theater"
 		},
 		{
+			"id": "jet-city-2026-11-21-the-jet-city-show",
+			"title": "The Jet City Show",
+			"startsAt": "2026-11-21T19:30:00-08:00",
+			"url": "https://www.jetcityimprov.org/thejetcityshow.html",
+			"category": "comedy",
+			"source": "jet-city-improv",
+			"venueId": "drama-room"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-21T19:30-d-angelo-and-the-vanguard-black-messiah",
 			"title": "D'Angelo and the Vanguard - Black Messiah",
 			"startsAt": "2026-11-21T19:30:00-08:00",
@@ -5690,6 +5709,15 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "jet-city-2026-11-28-the-jet-city-show",
+			"title": "The Jet City Show",
+			"startsAt": "2026-11-28T19:30:00-08:00",
+			"url": "https://www.jetcityimprov.org/thejetcityshow.html",
+			"category": "comedy",
+			"source": "jet-city-improv",
+			"venueId": "drama-room"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-28T19:30-rosali-a-lux",
 			"title": "Rosalía - LUX",
 			"startsAt": "2026-11-28T19:30:00-08:00",
@@ -6364,6 +6392,15 @@
 			"source": "uw-campus"
 		},
 		{
+			"id": "jet-city-2026-12-04-improv-of-shame",
+			"title": "Improv of Shame",
+			"startsAt": "2026-12-04T19:30:00-08:00",
+			"url": "https://www.jetcityimprov.org/improvofshame.html",
+			"category": "comedy",
+			"source": "jet-city-improv",
+			"venueId": "drama-room"
+		},
+		{
 			"id": "substation-2003534267929",
 			"venueId": "substation",
 			"title": "AFTERLIFE AFTERPARTY: FROST CHILDREN (DJ)",
@@ -6497,6 +6534,15 @@
 			"url": "https://music.washington.edu/events/2026-12-05/modern-music-ensemble",
 			"category": "live-music",
 			"source": "uw-campus"
+		},
+		{
+			"id": "jet-city-2026-12-05-the-jet-city-show",
+			"title": "The Jet City Show",
+			"startsAt": "2026-12-05T19:30:00-08:00",
+			"url": "https://www.jetcityimprov.org/thejetcityshow.html",
+			"category": "comedy",
+			"source": "jet-city-improv",
+			"venueId": "drama-room"
 		},
 		{
 			"id": "conor-byrne-176024",
@@ -8091,6 +8137,15 @@
 			"category": "theater"
 		},
 		{
+			"id": "jet-city-2026-12-19-the-jet-city-show",
+			"title": "The Jet City Show",
+			"startsAt": "2026-12-19T19:30:00-08:00",
+			"url": "https://www.jetcityimprov.org/thejetcityshow.html",
+			"category": "comedy",
+			"source": "jet-city-improv",
+			"venueId": "drama-room"
+		},
+		{
 			"id": "seafolklore-2026-12-19T19:30-winter-s-return-pint-dale-opland-freeman",
 			"venueId": "phinney-center",
 			"title": "Winter's Return (Pint & Dale, Opland & Freeman)",
@@ -8520,6 +8575,15 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "jet-city-2026-12-26-the-jet-city-show",
+			"title": "The Jet City Show",
+			"startsAt": "2026-12-26T19:30:00-08:00",
+			"url": "https://www.jetcityimprov.org/thejetcityshow.html",
+			"category": "comedy",
+			"source": "jet-city-improv",
+			"venueId": "drama-room"
+		},
+		{
 			"id": "woodland-park-zoo-10001856-2026-12-27",
 			"venueId": "woodland-park-zoo",
 			"title": "WildLanterns presented by Kaiser Permanente",
@@ -8779,6 +8843,15 @@
 			"price": "$19.80",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "jet-city-2027-01-02-the-jet-city-show",
+			"title": "The Jet City Show",
+			"startsAt": "2027-01-02T19:30:00-08:00",
+			"url": "https://www.jetcityimprov.org/thejetcityshow.html",
+			"category": "comedy",
+			"source": "jet-city-improv",
+			"venueId": "drama-room"
 		},
 		{
 			"id": "woodland-park-zoo-10001792-2027-01-03",
@@ -9224,6 +9297,15 @@
 			"source": "substation"
 		},
 		{
+			"id": "jet-city-2027-01-16-the-jet-city-show",
+			"title": "The Jet City Show",
+			"startsAt": "2027-01-16T19:30:00-08:00",
+			"url": "https://www.jetcityimprov.org/thejetcityshow.html",
+			"category": "comedy",
+			"source": "jet-city-improv",
+			"venueId": "drama-room"
+		},
+		{
 			"id": "woodland-park-zoo-10001877-2027-01-17",
 			"venueId": "woodland-park-zoo",
 			"title": "WildLanterns presented by Kaiser Permanente",
@@ -9413,6 +9495,15 @@
 			"url": "https://music.washington.edu/events/2027-01-22/faculty-recital-john-popham-cello",
 			"category": "live-music",
 			"source": "uw-campus"
+		},
+		{
+			"id": "jet-city-2027-01-22-improv-of-shame",
+			"title": "Improv of Shame",
+			"startsAt": "2027-01-22T19:30:00-08:00",
+			"url": "https://www.jetcityimprov.org/improvofshame.html",
+			"category": "comedy",
+			"source": "jet-city-improv",
+			"venueId": "drama-room"
 		},
 		{
 			"id": "hidden-hall-2027-01-23-satsang-full-band-with-guest",

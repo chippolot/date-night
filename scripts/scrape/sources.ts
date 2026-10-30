@@ -1856,6 +1856,65 @@ const mato: Source = {
 // ---------------------------------------------------------------------------
 // NE Seattle (east of I-5)
 
+// Jet City Improv: each show's Weebly page has a "Show Dates / Times:" block with a start time, the
+// dated performances ("Saturday, November 21") and the theater. Only The Drama Room (U District) is
+// kept; West of Lenin's shows come from its own calendar. Indieprov and DndProv are curated nights.
+const JET_CITY_SHOWS: Record<string, string> = {
+	thejetcityshow: "The Jet City Show",
+	improvofshame: "Improv of Shame",
+	"shot-prov": "ShotProv",
+	"emerald-city-slasher": "Emerald City Slasher",
+};
+
+export function parseJetCityShow(
+	html: string,
+	title: string,
+	url: string,
+	today: string,
+): ScrapedEvent[] {
+	const text = stripTags(html);
+	const block = text.match(/Show Dates? \/ Times?:([\s\S]*?)Featuring:/i)?.[1];
+	if (!block || !/The Drama Room/.test(block)) return [];
+	const time = to24h(block.match(/\d{1,2}:\d{2}\s*[AP]M/i)?.[0] ?? "");
+	if (!time) return [];
+	const out: ScrapedEvent[] = [];
+	for (const [, mon = "", day = "", year] of block.matchAll(
+		/\b(?:Mon|Tues|Wednes|Thurs|Fri|Satur|Sun)day, ([A-Z][a-z]+) (\d{1,2})(?:, (\d{4}))?/g,
+	)) {
+		const month = MONTHS.indexOf(mon.slice(0, 3).toLowerCase()) + 1;
+		if (!month) continue;
+		const date = year
+			? `${year}-${String(month).padStart(2, "0")}-${day.padStart(2, "0")}`
+			: withYear(month, Number(day), today);
+		const startsAt = date >= today ? localIso(date, time) : undefined;
+		if (!startsAt) continue;
+		out.push({
+			id: `jet-city-${date}-${slug(title)}`,
+			title,
+			startsAt,
+			url,
+			category: "comedy",
+		});
+	}
+	return out;
+}
+
+const jetCity: Source = {
+	id: "jet-city-improv",
+	venueId: "drama-room",
+	category: "comedy",
+	async fetchEvents() {
+		const today = horizon().from;
+		const out: ScrapedEvent[] = [];
+		for (const [page, title] of Object.entries(JET_CITY_SHOWS)) {
+			const url = `https://www.jetcityimprov.org/${page}.html`;
+			out.push(...parseJetCityShow(await get(url), title, url, today));
+			await pause(1);
+		}
+		return out;
+	},
+};
+
 // Magnuson Park Gallery (Sand Point): opening receptions and open studios in Building 30. The
 // calendar also lists its daily gallery hours, which are left out.
 const magnusonGallery = tribeSource({
@@ -2100,6 +2159,7 @@ export const sources: Source[] = [
 	meanyCenter,
 	watershed,
 	lakeCityContra,
+	jetCity,
 	magnusonGallery,
 	uwBotanicGardens,
 	pantry,
