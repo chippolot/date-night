@@ -1,0 +1,29 @@
+name: Something changed
+description: A night or event on the site is wrong, moved, or no longer happening.
+title: "Change: "
+labels: ["listing"]
+body:
+  - type: input
+    id: listing
+    attributes:
+      label: Listing
+      description: The night or event, and where it is.
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What changed?
+      description: New day or time, a different price, closed, cancelled for good…
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Where did you see it?
+      description: A link to the venue's site, a post, or a listing, if you have one.
+  - type: input
+    id: source
+    attributes:
+      label: Source on the site
+      description: Filled in for you.

@@ -65,10 +65,22 @@ export function icsHref(o: Occurrence): string {
 	return href(`/ics/${o.kind}/${o.refId}.ics`);
 }
 
-export function reportLink(subject: string): string {
-	if (!SITE.reportEmail) return "";
-	const url = `mailto:${SITE.reportEmail}?subject=${encodeURIComponent(`Change: ${subject}`)}`;
-	return `<a class="muted" href="${esc(url)}">Report a change</a>`;
+/** A link to a pre-filled "Something changed" issue (.github/ISSUE_TEMPLATE/listing-change.yml). */
+export function reportLink(o: Occurrence, venue: Venue | undefined): string {
+	if (!SITE.reportRepo) return "";
+	const when =
+		o.kind === "night"
+			? "recurring night"
+			: formatDate(o.date, { month: "short", day: "numeric" });
+	const listing = `${o.title}${venue ? ` @ ${venue.name}` : ""} (${when}, ${o.kind}:${o.refId})`;
+	const params = new URLSearchParams({
+		template: "listing-change.yml",
+		title: `Change: ${o.title}${venue ? ` @ ${venue.name}` : ""}`,
+		listing,
+		source: o.url,
+	});
+	const url = `https://github.com/${SITE.reportRepo}/issues/new?${params}`;
+	return `<a class="action muted" href="${esc(url)}" rel="noopener" target="_blank">Something changed?</a>`;
 }
 
 const DAY_NAMES: Record<Weekday, string> = {
@@ -149,7 +161,7 @@ export function card(
     <p class="card-actions">
       <a class="action" href="${icsHref(o)}" download>Add to calendar</a>
       <a class="action" href="${esc(o.url)}" rel="noopener" target="_blank">Source <span aria-hidden="true">↗</span></a>
-      ${reportLink(`${o.title}${venue ? ` @ ${venue.name}` : ""}`)}
+      ${reportLink(o, venue)}
     </p>
   </div>
 </article>`;

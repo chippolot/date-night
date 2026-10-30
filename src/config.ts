@@ -8,8 +8,8 @@ export const SITE = {
 	place: PLACE,
 	tagline:
 		"Recurring nights and local events around Ballard, Fremont & friends",
-	/** Where "report a change" links point. Leave empty to hide them until the site goes public. */
-	reportEmail: "",
+	/** GitHub repo ("owner/name") whose listing-change issue form "Something changed?" links open. Empty hides them. */
+	reportRepo: "chippolot/date-night",
 	/** Nights verified longer ago than this get a "may be outdated" badge. */
 	freshDays: 90,
 };
