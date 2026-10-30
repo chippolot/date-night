@@ -5,7 +5,7 @@ import type { Night } from "../src/lib/types";
 //   Fremont Abbey: Argentine tango 1st & 3rd Mondays; Open Arts Mic 1st & 3rd Tuesdays
 //     (neither is on Abbey Arts' Humanitix page)
 //   Aslan Brewing (Fremont): jazz 4th Tuesdays 7–9pm, from KNKX only; not on Aslan's own VenuePilot calendar
-//   Aslan Tangletown: "Girl Dinner" Mondays (no start time stated)
+//   Aslan Tangletown: "Girl Dinner" Mondays, fries, caesar and two cocktails for $40 (no start time stated)
 //     (Aslan's Instagram weekly-deals post is for its Bellingham brewpub, not the Seattle taprooms)
 //   Add-a-Ball: "Live shows every Friday and Saturday night" (no start time stated)
 //   Ballard Clay: "Sip N Spin" BYOB one-time wheel class, $100 (dates and times only in its KilnFire
@@ -27,13 +27,13 @@ import type { Night } from "../src/lib/types";
 //   Changes (Wallingford): noon–7pm happy hour on its Tuesday and Friday flyers, not stated as daily
 //   Latona Pub: all-day Sunday happy hour "during football season" (from Sep 13; no end date)
 //   The Octopus Bar: daily 4–6pm happy hour (Instagram bio only)
-//   Little Red Hen: site fails TLS and is behind ModSecurity; 2025 news covered a landlord dispute, so check it's open
+//   Little Red Hen: site fails TLS and is behind ModSecurity. Still open: the eviction case was dismissed (news, Sep 27 2026)
 //   Lockspot Cafe (Ballard Locks): Monday trivia (The Infatuation; no time, nothing on its Instagram)
 //   Fish Ladder Lounge (Ballard): Thursday trivia (Intentionalist; no time, site down)
 //   Hattie's Hat: Thursday karaoke (no time; Instagram handle not found)
-//   Halcyon Brewing: Wednesday bluegrass on the patio 6–9pm, listed as summer-only but still running Oct 7
+//   Halcyon Brewing: Wednesday bluegrass on the patio 6–9pm "on summer Wednesdays" (ended Sep 30; add with `from`/`until` next summer).
+//     Free Saturday comedy (8pm) runs on some Saturdays only (Sep 26, Oct 10, Oct 24); the dated listings are scraped
 //   Rickshaw: Thursday music bingo 7pm (host left in late August; not posted since)
-//   The Shanghai Room: drag shows every first Wednesday (no time)
 //   Draft Punk (Greenwood): Wednesday video game night (no time)
 //   Ballard Pizza Company: Wing Wednesday, "$1 wings and $6 drafts" (no hours stated)
 //   The Barking Dog Alehouse: half-off wine on Wednesdays (no hours stated)
@@ -42,7 +42,7 @@ import type { Night } from "../src/lib/types";
 //   Ballard Beer Box: Monday–Thursday happy hour "from open until 5pm" (opening time not stated)
 //   Triangle Spirits (Fremont): Wing Wednesday (Instagram only; no times or deal stated)
 //   El Sueñito (Fremont): themed trivia, book club, drag brunch (Wix events mixed with its Bellingham taproom)
-//   Cocoa Legato (Greenwood): weekend concerts (show list isn't in a readable format)
+//   Cocoa Legato (Greenwood): ticketed Friday/Saturday 8pm concerts, but not every weekend; afternoon open mics on irregular Sundays
 //   The Tin Hat (512 NW 65th): monthly Thursday "Vinyl Nite" per its Instagram (thetinhatballard), but
 //     which Thursday varies and only one 2025 flyer gave a time (7pm–late); no venue site
 //   Taproot Theatre: full show runs (Wed–Sat 7:30pm per past seasons) need the days confirmed in OvationTix;
@@ -51,7 +51,7 @@ import type { Night } from "../src/lib/types";
 //   ComedySportz (show calendar is a Crowdwork embed behind Cloudflare; FAQ gives times but not days).
 // Removed as closed or discontinued: Bastille, Ballard Annex, Pike Taproom Ballard, Babalu, Norm's,
 //   High Dive karaoke, Ballard Pizza Company Thursday trivia (its source post no longer mentions it), Egan's Wednesday showcase, Abbey "Open Space", and "Green Lake Concerts in the Park"
-//   (that listing was Green Lake, Wisconsin).
+//   (that listing was Green Lake, Wisconsin), and the monthly Art Up PhinneyWood walk (now one weekend each August).
 export const nights: Night[] = [
 	// Ballard
 	{
@@ -867,6 +867,21 @@ export const nights: Night[] = [
 		confidence: "confirmed",
 	},
 	{
+		id: "cocoa-legato-songwriters",
+		venueId: "cocoa-legato",
+		title: "Songwriters showcase",
+		category: "live-music",
+		recurrence: { kind: "monthly-nth", nth: [2], day: "SU" },
+		start: "13:00",
+		end: "15:00",
+		description:
+			"Local songwriters play four short sets at 1, 1:30, 2 and 2:30 in a chocolate cafe.",
+		vibe: ["low-key", "romantic"],
+		sourceUrl: "https://www.meetup.com/vocalists-183/",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
+	{
 		id: "couth-buzzard-open-mic",
 		venueId: "couth-buzzard",
 		title: "Wednesday open mic",
@@ -913,8 +928,8 @@ export const nights: Night[] = [
 			"Afternoon jazz jam; the store calendar shows it on 1st and 3rd Sundays.",
 		vibe: ["low-key", "romantic"],
 		sourceUrl: "https://www.couthbuzzard.com/event-calendar",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "couth-buzzard-free-jazz",
@@ -930,8 +945,8 @@ export const nights: Night[] = [
 		description: "Free-jazz night; the store calendar shows it on 1st Fridays.",
 		vibe: ["lively"],
 		sourceUrl: "https://www.couthbuzzard.com/event-calendar",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "phinney-farmers-market",
@@ -955,27 +970,6 @@ export const nights: Night[] = [
 		confidence: "confirmed",
 	},
 	{
-		id: "art-up-phinneywood",
-		venueId: "art-up-phinneywood",
-		title: "Art Up art walk",
-		category: "art",
-		recurrence: {
-			kind: "monthly-nth",
-			nth: [2],
-			day: "FR",
-		},
-		start: "18:00",
-		end: "21:00",
-		cost: "Free",
-		description:
-			"This was historically a 2nd-Friday walk with 40+ venues. It was reportedly folded into one annual summer walk after the pandemic.",
-		vibe: ["low-key"],
-		sourceUrl:
-			"https://phinneywood.com/2019/03/art-up-and-chow-down-phinneywood-art-walk-this-friday/",
-		lastVerified: "2026-10-29",
-		confidence: "stale",
-	},
-	{
 		id: "chucks-greenwood-trivia",
 		venueId: "chucks-hop-shop-greenwood",
 		title: "Tuesday trivia (Geeks Who Drink)",
@@ -991,8 +985,8 @@ export const nights: Night[] = [
 			"Free trivia at a beer bar and bottle shop with a huge cooler selection.",
 		vibe: ["lively", "low-key"],
 		sourceUrl: "https://www.chuckshopshop.com/trivia-night",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "chez-phinney-happy-hour",
@@ -1008,8 +1002,8 @@ export const nights: Night[] = [
 		description: "Happy hour at a self-serve wine bar.",
 		vibe: ["romantic", "low-key"],
 		sourceUrl: "https://chezphinney.com/",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "dark-room-golden-hour",
@@ -1027,8 +1021,8 @@ export const nights: Night[] = [
 			"Happy hour at a Greenwood craft cocktail bar with a good N/A list. The menu says 4–6pm daily; the bar is open Wed–Sat. The source is an undated menu image.",
 		vibe: ["low-key", "romantic"],
 		sourceUrl: "https://darkroomseattle.com/golden-hour",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 
 	{
@@ -1046,22 +1040,6 @@ export const nights: Night[] = [
 		sourceUrl: "https://halcyonbrewingco.com/events",
 		lastVerified: "2026-10-30",
 		confidence: "confirmed",
-	},
-	{
-		id: "halcyon-comedy",
-		venueId: "halcyon-brewing",
-		title: "Saturday comedy",
-		category: "comedy",
-		recurrence: { kind: "weekly", days: ["SA"] },
-		start: "20:00",
-		end: "21:30",
-		cost: "Free",
-		description:
-			"Free stand-up from the Open Mic Collective; the audience votes for its favorite comic.",
-		vibe: ["lively"],
-		sourceUrl: "https://halcyonbrewingco.com/events",
-		lastVerified: "2026-10-30",
-		confidence: "likely",
 	},
 	{
 		id: "rickshaw-karaoke",
@@ -1103,12 +1081,11 @@ export const nights: Night[] = [
 		category: "karaoke",
 		recurrence: { kind: "weekly", days: ["TH"] },
 		start: "21:00",
-		description:
-			"Thursday karaoke, added in December 2025 but not yet on the venue site.",
+		description: "Thursday karaoke, every week on the venue calendar.",
 		vibe: ["lively"],
-		sourceUrl: "https://www.instagram.com/p/DeP6ac8yu3V/",
+		sourceUrl: "https://www.theshanghairoom.com/calendar",
 		lastVerified: "2026-10-30",
-		confidence: "likely",
+		confidence: "confirmed",
 	},
 	{
 		id: "shanghai-room-queer-night",
@@ -1120,6 +1097,21 @@ export const nights: Night[] = [
 		description: "Monthly queer karaoke mixer with themed drinks.",
 		vibe: ["lively"],
 		sourceUrl: "https://www.instagram.com/p/DeP6ac8yu3V/",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
+	{
+		id: "shanghai-room-drag",
+		venueId: "shanghai-room",
+		title: "Drag show + dragaoke",
+		category: "theater",
+		recurrence: { kind: "monthly-nth", nth: [1], day: "WE" },
+		start: "21:00",
+		end: "01:30",
+		description:
+			"A drag show on the first Wednesday of the month, followed by drag karaoke.",
+		vibe: ["lively"],
+		sourceUrl: "https://www.theshanghairoom.com/calendar",
 		lastVerified: "2026-10-30",
 		confidence: "confirmed",
 	},
@@ -2251,8 +2243,8 @@ export const nights: Night[] = [
 		description: "Happy hour at Aslan's Tangletown brewpub.",
 		vibe: ["low-key"],
 		sourceUrl: "https://www.aslanbrewing.com/seattle-tangletown",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "latona-taco-tuesday",

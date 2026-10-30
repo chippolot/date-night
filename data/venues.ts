@@ -663,6 +663,17 @@ export const venues: Venue[] = [
 		tags: ["cafe", "bookstore", "music-venue"],
 	},
 	{
+		id: "cocoa-legato",
+		name: "Cocoa Legato",
+		neighborhood: "greenwood",
+		address: "8420 Greenwood Ave N, Seattle, WA 98103",
+		lat: 47.6903,
+		lng: -122.3553,
+		url: "https://www.cocoalegatochocolate.com/",
+		priceLevel: 1,
+		tags: ["cafe", "music-venue"],
+	},
+	{
 		id: "halcyon-brewing",
 		name: "Halcyon Brewing",
 		neighborhood: "greenwood",
