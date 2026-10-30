@@ -14,6 +14,12 @@ import type { Night } from "../src/lib/types";
 //   The Rebel (309 NE 45th): Monday trivia, Wednesday karaoke (Wallyhood, Feb 2026; no times, no venue site)
 //   Molly Maguire's (610 NW 65th): Sunday afternoon Irish session, 1–3pm only in old forum posts; no venue site
 //   Russells: "Mezcal Monday" and "Pie & Whiskey Wednesday" (no times; folded into the happy hour description)
+//   Baker's (Sunset Hill): Wednesday live music, Tuesday all-day happy hour (no times on its site)
+//   The Whit's End (Phinney): karaoke and open mic nights (no days or times on its site)
+//   Fremont Dock: karaoke Thursday to Saturday (no times; its one dated listing says 4:30–7:30pm)
+//   Meesha 127 (Fremont): Thursday sliders & game night, Monday industry night (no times)
+//   El Sueñito (Fremont): themed trivia, book club, drag brunch (Wix events mixed with its Bellingham taproom)
+//   Cocoa Legato (Greenwood): weekend concerts (show list isn't in a readable format)
 //   The Tin Hat (512 NW 65th): listed as "live entertainment", but no schedule anywhere; no venue site
 //   Taproot Theatre: full show runs (Wed–Sat 7:30pm per past seasons) need the days confirmed in OvationTix;
 //     add them with recurrence `from`/`until` once confirmed. Named performances are scraped.
@@ -24,6 +30,91 @@ import type { Night } from "../src/lib/types";
 //   (that listing was Green Lake, Wisconsin).
 export const nights: Night[] = [
 	// Ballard
+	{
+		id: "veras-trivia",
+		venueId: "veras-ballard",
+		title: "Trivia",
+		category: "trivia",
+		recurrence: { kind: "weekly", days: ["TH"] },
+		start: "19:30",
+		description:
+			"Thursday trivia at a Ballard pizza bar open until 2am on weekends.",
+		vibe: ["lively"],
+		sourceUrl: "https://www.verasballard.com/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "veras-karaoke",
+		venueId: "veras-ballard",
+		title: "Karaoke",
+		category: "karaoke",
+		recurrence: { kind: "weekly", days: ["FR", "SA"] },
+		start: "21:00",
+		description: "Late-night karaoke with pizza; the bar is open until 2am.",
+		vibe: ["lively"],
+		sourceUrl: "https://www.verasballard.com/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "tarasco-trivia",
+		venueId: "tarasco",
+		title: "Wednesday trivia",
+		category: "trivia",
+		recurrence: { kind: "weekly", days: ["WE"] },
+		start: "19:00",
+		end: "21:30",
+		description:
+			"Trivia at a north Ballard Mexican restaurant, billed as one of Ballard's best.",
+		vibe: ["lively"],
+		sourceUrl: "https://tarascoseattle.com/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "tarasco-happy-hour",
+		venueId: "tarasco",
+		title: "Happy hour",
+		category: "food-drink-special",
+		recurrence: { kind: "weekly", days: ["MO", "TU", "WE", "TH", "FR", "SA"] },
+		start: "16:00",
+		end: "18:30",
+		description:
+			"$1 off beer, wine, wells and the house margarita, plus appetizer specials. Happy hour runs all day on Sundays.",
+		vibe: ["low-key"],
+		sourceUrl: "https://tarascoseattle.com/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "kochendorfers-trivia",
+		venueId: "kochendorfers",
+		title: "Monday trivia",
+		category: "trivia",
+		recurrence: { kind: "weekly", days: ["MO"] },
+		start: "19:30",
+		end: "21:00",
+		description: "Trivia, drinks and prizes at a Ballard brewpub.",
+		vibe: ["lively"],
+		sourceUrl: "https://kochendorfers.com/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "urban-family-trivia",
+		venueId: "urban-family-brewing",
+		title: "First Tuesday Trivia",
+		category: "trivia",
+		recurrence: { kind: "monthly-nth", nth: [1], day: "TU" },
+		start: "19:30",
+		end: "21:30",
+		description: "Monthly trivia at a Ballard brewery.",
+		vibe: ["lively"],
+		sourceUrl: "https://urbanfamilybrewing.com/home/calendar/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
 	{
 		id: "ballard-farmers-market",
 		venueId: "ballard-farmers-market",
@@ -409,9 +500,10 @@ export const nights: Night[] = [
 			days: ["TH"],
 		},
 		start: "19:30",
-		description: "Weekly trivia at a Ballard Ave sports bar.",
+		description:
+			"Trivia with Gonzo: prizes and drink specials at a Ballard Ave sports bar. The bar's site says 7:30pm in one place and 7pm in another.",
 		vibe: ["lively"],
-		sourceUrl: "https://ma.to/event/thursday-night-trivia-25-jun-2026",
+		sourceUrl: "https://slimgoodyseattle.com/",
 		lastVerified: "2026-10-29",
 		confidence: "likely",
 	},
@@ -751,6 +843,33 @@ export const nights: Night[] = [
 	},
 
 	// Fremont
+	{
+		id: "4bs-karaoke",
+		venueId: "4bs",
+		title: "Karaoke",
+		category: "karaoke",
+		recurrence: { kind: "weekly", days: ["SA", "SU", "MO"] },
+		start: "21:00",
+		description:
+			"Karaoke at a pool, pinball and sports bar between Ballard and Fremont.",
+		vibe: ["lively"],
+		sourceUrl: "https://4bsseattle.com/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "fremont-dock-trivia",
+		venueId: "fremont-dock",
+		title: "Wednesday trivia",
+		category: "trivia",
+		recurrence: { kind: "weekly", days: ["WE"] },
+		start: "19:30",
+		description: "Trivia at a Fremont sports bar a block from the canal.",
+		vibe: ["lively"],
+		sourceUrl: "https://fremontdock.com/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
 	{
 		id: "shawn-odonnells-irish-music",
 		venueId: "shawn-odonnells-fremont",
@@ -1397,6 +1516,19 @@ export const nights: Night[] = [
 		confidence: "confirmed",
 	},
 	// Green Lake
+	{
+		id: "lenys-trivia",
+		venueId: "lenys-place",
+		title: "Trivia night",
+		category: "trivia",
+		recurrence: { kind: "weekly", days: ["TU"] },
+		start: "19:00",
+		description: "Tuesday trivia with prizes at a Tangletown neighborhood bar.",
+		vibe: ["lively", "low-key"],
+		sourceUrl: "https://www.lenysplace.net/events",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
 	{
 		id: "latona-friday-jazz",
 		venueId: "latona-pub",

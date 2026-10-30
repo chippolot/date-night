@@ -411,6 +411,60 @@ async function squarespaceEvents(
 	return parseSquarespaceEvents(await get(`${base}${path}`), base, idPrefix);
 }
 
+// Bars and cafes whose Squarespace events pages list dated events.
+function squarespaceSource(opts: {
+	id: string;
+	base: string;
+	path: string;
+	category?: Category;
+	/** Titles to drop, e.g. closure notices */
+	skip?: RegExp;
+}): Source {
+	return {
+		id: opts.id,
+		venueId: opts.id,
+		category: opts.category,
+		mayBeEmpty: true,
+		fetchEvents: async () =>
+			(await squarespaceEvents(opts.base, opts.path, opts.id))
+				.filter((e) => !opts.skip?.test(e.title))
+				.map((e) => ({
+					...e,
+					category: guessCategory(e.title, opts.category),
+				})),
+	};
+}
+
+// King's Hardware (Ballard): 1st & 3rd Tuesday trivia, drag bingo.
+const kingsHardware = squarespaceSource({
+	id: "kings-hardware",
+	base: "https://www.kingsballard.com",
+	path: "/events-1-1-1",
+});
+
+// Artemis Coffee (Ballard): open mics, craft and game nights.
+const artemisCoffee = squarespaceSource({
+	id: "artemis-coffee",
+	base: "https://www.artemis.cafe",
+	path: "/events",
+});
+
+// Mr. B's Meadery (Fremont): live music, silent reading happy hours.
+const mrBsMeadery = squarespaceSource({
+	id: "mr-bs-meadery",
+	base: "https://mrbsmeadery.com",
+	path: "/events",
+	skip: /^closed\b/i,
+});
+
+// Pono Ranch (Ballard): shows and dance parties in its /live-music collection.
+const ponoRanch = squarespaceSource({
+	id: "pono-ranch",
+	base: "https://www.ponoranch.com",
+	path: "/live-music",
+	category: "live-music",
+});
+
 // Brimmer & Heeltap (Ballard): occasional ticketed workshops on its Squarespace events page.
 const brimmerAndHeeltap: Source = {
 	id: "brimmer-and-heeltap",
@@ -1659,6 +1713,10 @@ export const sources: Source[] = [
 	woodlandTheater,
 	figurehead,
 	brimmerAndHeeltap,
+	kingsHardware,
+	artemisCoffee,
+	mrBsMeadery,
+	ponoRanch,
 	// Last: least reliable, so every other source wins a shared venue and start time.
 	mato,
 ];
