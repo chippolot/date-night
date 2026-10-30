@@ -23,6 +23,8 @@ export type Filters = {
 	time: TimeSlot[];
 	/** YYYY-MM-DD to show instead of today (Tonight: that day; Coming up: 7 days from it) */
 	date?: string;
+	/** Free-text search: every word must appear in the title, venue, neighborhood or category */
+	q?: string;
 };
 
 /** Time-of-day slots as whole hours; `to` below `from` wraps past midnight. */
@@ -65,11 +67,13 @@ export function parseFilters(params: URLSearchParams): Filters {
 		date: /^\d{4}-\d{2}-\d{2}$/.test(params.get("date") ?? "")
 			? (params.get("date") ?? undefined)
 			: undefined,
+		q: params.get("q")?.trim().slice(0, 100) || undefined,
 	};
 }
 
 export function toQuery(f: Filters): string {
 	const params = new URLSearchParams();
+	if (f.q) params.set("q", f.q);
 	if (f.date) params.set("date", f.date);
 	for (const h of f.hood) params.append("hood", h);
 	for (const c of f.cat) params.append("cat", c);
@@ -98,8 +102,31 @@ export function isEmpty(f: Filters): boolean {
 		!f.vibe.length &&
 		!f.price &&
 		!f.day.length &&
-		!f.time.length
+		!f.time.length &&
+		!f.q
 	);
+}
+
+/** Lowercase without accents, so "skal" finds "Skål". */
+function fold(s: string): string {
+	return s.normalize("NFKD").replace(/\p{M}/gu, "").toLowerCase();
+}
+
+/** Whether every word of the search appears somewhere in `texts`. */
+export function matchesText(
+	texts: (string | undefined)[],
+	f: Pick<Filters, "q">,
+): boolean {
+	if (!f.q) return true;
+	const haystack = fold(texts.filter(Boolean).join(" "));
+	return fold(f.q)
+		.split(/\s+/)
+		.every((word) => haystack.includes(word));
+}
+
+/** What a search looks through for a venue: its name and neighborhood. */
+export function venueText(venue: Venue | undefined): string[] {
+	return venue ? [venue.name, NEIGHBORHOODS[venue.neighborhood]] : [];
 }
 
 function minutes(hhmm: string): number {
@@ -166,6 +193,9 @@ export function applyFilters(
 		if (f.vibe.length && !o.vibe.some((v) => f.vibe.includes(v))) return false;
 		if (!matchesDay(weekdayOf(o.date), f)) return false;
 		if (!matchesTime(o.start, o.end, f)) return false;
-		return true;
+		return matchesText(
+			[o.title, CATEGORIES[o.category], ...venueText(venue)],
+			f,
+		);
 	});
 }

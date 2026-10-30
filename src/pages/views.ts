@@ -4,8 +4,10 @@ import {
 	applyFilters,
 	type Filters,
 	matchesDay,
+	matchesText,
 	matchesTime,
 	matchesVenue,
+	venueText,
 } from "../lib/filters";
 import {
 	addDays,
@@ -198,6 +200,7 @@ export function venuesIndexView(data: SiteData): string {
 }
 
 type Kind = {
+	title: string;
 	category: Category;
 	vibe: Vibe[];
 	days: Weekday[];
@@ -214,9 +217,18 @@ export function matchesKind(k: Kind, f: Filters): boolean {
 	return matchesTime(k.start, k.end, f);
 }
 
+/** Whether a venue or one of its nights/events matches the search. */
+function matchesSearch(v: Venue, kinds: Kind[], f: Filters): boolean {
+	if (matchesText(venueText(v), f)) return true;
+	return kinds.some((k) =>
+		matchesText([k.title, CATEGORIES[k.category], ...venueText(v)], f),
+	);
+}
+
 export function nightKind(n: Night): Kind {
 	const r = n.recurrence;
 	return {
+		title: n.title,
 		category: n.category,
 		vibe: n.vibe,
 		days: r.kind === "weekly" ? r.days : [r.day],
@@ -229,6 +241,7 @@ export function eventKind(e: DatedEvent): Kind {
 	const category = e.category ?? "live-music";
 	const { date, time } = seattleParts(e.startsAt);
 	return {
+		title: e.title,
 		category,
 		vibe: CATEGORY_VIBES[category],
 		days: [weekdayOf(date)],
@@ -253,8 +266,10 @@ export function mapVenues(data: SiteData, f: Filters): Venue[] {
 		f.time.length;
 	return data.venues.filter((v) => {
 		if (!matchesVenue(v, f)) return false;
+		const own = kinds.get(v.id) ?? [];
+		if (!matchesSearch(v, own, f)) return false;
 		if (!whenOrWhat) return true;
-		return (kinds.get(v.id) ?? []).some((k) => matchesKind(k, f));
+		return own.some((k) => matchesKind(k, f));
 	});
 }
 

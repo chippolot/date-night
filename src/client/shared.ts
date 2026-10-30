@@ -48,6 +48,10 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 
 	// The pre-rendered form has no selections; reflect the URL's filters.
 	for (const input of form.querySelectorAll<HTMLInputElement>("input")) {
+		if (input.type === "search") {
+			input.value = initial.q ?? "";
+			continue;
+		}
 		if (input.type === "date") {
 			// The static page was built on an earlier day; keep the range relative to today.
 			const today = todayInSeattle();
@@ -102,12 +106,19 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 		history.replaceState(null, "", `${location.pathname}${toQuery(f)}`);
 		onChange(f);
 	});
+	// Search as you type, without re-rendering on every keystroke.
+	let typing: ReturnType<typeof setTimeout> | undefined;
+	form.addEventListener("input", (e) => {
+		if ((e.target as HTMLInputElement).type !== "search") return;
+		clearTimeout(typing);
+		typing = setTimeout(() => form.dispatchEvent(new Event("change")), 150);
+	});
 	form.addEventListener("submit", (e) => e.preventDefault());
 	form.querySelector("[data-clear]")?.addEventListener("click", (e) => {
 		e.preventDefault();
 		form.reset();
 		for (const input of form.querySelectorAll<HTMLInputElement>("input")) {
-			if (input.type === "date") input.value = "";
+			if (input.type === "date" || input.type === "search") input.value = "";
 			else input.checked = input.type === "radio" && input.value === "";
 		}
 		form.dispatchEvent(new Event("change"));

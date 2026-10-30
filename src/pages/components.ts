@@ -202,6 +202,8 @@ function whatGroup(f: Filters): string {
 	return `<fieldset><legend>What <span class="legend-hint">tap to pick, again to hide</span></legend><div class="pills">${pills}</div></fieldset>`;
 }
 
+const SEARCH_ICON = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="4.75"/><path d="M10.5 10.5l3.75 3.75"/></svg>`;
+
 const CALENDAR_ICON = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.75" y="3" width="12.5" height="11.25" rx="1"/><path d="M1.75 6.5h12.5M5 1.5v3M11 1.5v3"/></svg>`;
 
 const DAY_PILLS: [Weekday, string][] = [
@@ -245,6 +247,7 @@ export function filterBar(
 		(f.price ? 1 : 0);
 	return `<form class="filters" method="get" data-filters>
   <div class="when">
+    <fieldset class="search-pick"><legend>Search</legend><label class="search-field">${SEARCH_ICON}<input type="search" name="q" value="${esc(f.q ?? "")}" placeholder="jazz, trivia, Substation…" aria-label="Search events and venues" autocomplete="off" enterkeyhint="search"></label></fieldset>
     ${date ? `<fieldset class="date-pick"><legend>${days ? "Starting" : "Date"}</legend><label class="date-field">${CALENDAR_ICON}<input type="date" name="date" value="${f.date ?? ""}" min="${today}" max="${addDays(today, MAX_DAYS_AHEAD)}" aria-label="${days ? "Show the week starting on" : "Show events on"}"></label></fieldset>` : ""}
     ${days ? checkboxGroup("day", "Day", DAY_PILLS, f.day) : ""}
     ${checkboxGroup(

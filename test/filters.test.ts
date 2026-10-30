@@ -9,7 +9,7 @@ import {
 	toQuery,
 	viewDate,
 } from "../src/lib/filters";
-import type { Occurrence } from "../src/lib/types";
+import type { Occurrence, Venue } from "../src/lib/types";
 
 const slots = (...time: TimeSlot[]): Filters => ({ ...EMPTY_FILTERS, time });
 
@@ -106,5 +106,66 @@ describe("date", () => {
 			today,
 		);
 		expect(viewDate(EMPTY_FILTERS, today)).toBe(today);
+	});
+});
+
+describe("search", () => {
+	const occ = (
+		title: string,
+		category: Occurrence["category"],
+		venueId?: string,
+	): Occurrence => ({
+		key: title,
+		kind: "event",
+		refId: title,
+		date: "2026-10-29",
+		start: "19:00",
+		title,
+		venueId,
+		category,
+		vibe: [],
+		url: "https://example.com",
+		confidence: "confirmed",
+	});
+	const venues = new Map<string, Venue>([
+		[
+			"skal",
+			{
+				id: "skal",
+				name: "Skål Beer Hall",
+				neighborhood: "ballard",
+				address: "",
+				lat: 47.66,
+				lng: -122.38,
+				url: "https://example.com",
+				priceLevel: 2,
+				tags: [],
+			},
+		],
+	]);
+	const list = [
+		occ("Viking Trivia", "trivia", "skal"),
+		occ("Late Jazz Set", "jazz"),
+		occ("Comedy Battle Royale", "comedy"),
+	];
+	const titles = (q: string) =>
+		applyFilters(list, venues, parseFilters(new URLSearchParams({ q }))).map(
+			(o) => o.title,
+		);
+
+	test("round-trips through the URL, trimmed", () => {
+		const f = parseFilters(new URLSearchParams("q=%20jazz%20"));
+		expect(f.q).toBe("jazz");
+		expect(toQuery(f)).toBe("?q=jazz");
+		expect(parseFilters(new URLSearchParams("q=%20%20")).q).toBeUndefined();
+	});
+
+	test("matches every word across title, venue, neighborhood and category", () => {
+		expect(titles("jazz")).toEqual(["Late Jazz Set"]);
+		expect(titles("skal")).toEqual(["Viking Trivia"]); // accent-insensitive venue name
+		expect(titles("ballard trivia")).toEqual(["Viking Trivia"]);
+		expect(titles("stories")).toEqual(["Comedy Battle Royale"]); // category label
+		expect(titles("ballard jazz")).toEqual([]);
+		expect(titles("")).toHaveLength(3);
 	});
 });
