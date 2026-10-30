@@ -3,7 +3,7 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"dev": "bun --hot src/server.ts",
+		"dev": "bun --watch src/server.ts",
 		"web": "bun run dev",
 		"build": "bun src/build.ts",
 		"preview": "bun src/preview.ts",

@@ -1,8 +1,10 @@
-// Local server. `bun run dev` (alias `bun run web`) runs it with --hot, which
-// re-evaluates this module when an imported file changes and so clears the cache
-// below. Files outside the import graph (styles.css, the client bundle) are
-// watched separately, and open pages reload themselves after any change.
-import { type FSWatcher, watch } from "node:fs";
+// Local server. `bun run dev` (alias `bun run web`) runs it with --watch, which
+// restarts the process when an imported file changes. (--hot re-evaluates in
+// place instead, and after a reload that fails, e.g. on a syntax error, its file
+// watcher stopped reaching open pages.) Files outside the import graph
+// (styles.css, the client bundle) are watched below. Open pages reload after
+// either: on a "reload" message, or on reconnecting to a restarted server.
+import { watch } from "node:fs";
 import { clientAssets } from "./assets";
 import { loadData } from "./lib/data";
 import { todayInSeattle } from "./lib/recurrence";
@@ -30,31 +32,29 @@ function site(): Promise<Map<string, Asset>> {
 	return cache.files;
 }
 
-// --hot re-runs this module but keeps globalThis, so the watcher and the open
-// reload streams live there instead of being duplicated on every edit.
-const dev = globalThis as {
-	devWatchers?: FSWatcher[];
-	devClients?: Set<ReadableStreamDefaultController<string>>;
-};
-dev.devClients ??= new Set();
-const clients = dev.devClients;
+const clients = new Set<ReadableStreamDefaultController<string>>();
 
 let pending: Timer | undefined;
 function changed() {
 	cache = undefined;
-	// Editors often write a file in several steps, and --hot needs a moment to
-	// re-evaluate imported modules, so wait for things to settle before reloading.
+	// Editors often write a file in several steps, so wait for things to settle.
 	clearTimeout(pending);
 	pending = setTimeout(() => {
-		for (const c of clients) c.enqueue("data: reload\n\n");
+		for (const c of clients) {
+			try {
+				c.enqueue("data: reload\n\n");
+			} catch {
+				clients.delete(c); // A page that went away without closing its stream
+			}
+		}
 	}, 150);
 }
-for (const w of dev.devWatchers ?? []) w.close();
-dev.devWatchers = ["src", "data"].map((dir) =>
-	watch(dir, { recursive: true }, changed),
-);
+for (const dir of ["src", "data"]) watch(dir, { recursive: true }, changed);
 
-const RELOAD_SCRIPT = `<script>new EventSource("/__reload").onmessage = () => location.reload();</script>`;
+/** Changes on every restart, so a page that reconnects to a new server reloads. */
+const BOOT = String(Date.now());
+
+const RELOAD_SCRIPT = `<script>{let boot;new EventSource("/__reload").onmessage=(e)=>{if(e.data==="reload"||(boot&&e.data!==boot))location.reload();boot??=e.data;};}</script>`;
 
 function reloadStream(): Response {
 	let controller: ReadableStreamDefaultController<string>;
@@ -62,6 +62,8 @@ function reloadStream(): Response {
 		start(c) {
 			controller = c;
 			clients.add(c);
+			// Reconnect quickly after a restart, then compare boot ids.
+			c.enqueue(`retry: 250\ndata: ${BOOT}\n\n`);
 		},
 		cancel() {
 			clients.delete(controller);

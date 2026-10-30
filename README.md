@@ -14,7 +14,7 @@ It's a static site built with Bun, with no runtime server. Pages are pre-rendere
 ```sh
 bun install
 cp .env.example .env   # then add a localhost CARTO key (map tiles) and an Eventbrite token (Substation)
-bun run dev       # http://localhost:3000, hot reload, re-renders on every request
+bun run dev       # http://localhost:3000, restarts and reloads open pages on every change
 bun run web       # alias for dev (PORT=… to change the port)
 bun test
 bun run check     # biome + tsc
