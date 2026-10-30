@@ -33,9 +33,13 @@ jobs:
         id: scrape
         run: bun run scrape
         continue-on-error: true
+        # Each source has its own 5-minute timeout; this is a backstop.
+        timeout-minutes: 15
         env:
           SCRAPE_REPORT: ${{ runner.temp }}/scrape-report.md
           EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
+          # Pushes skip sources scraped in the last 20 hours; the daily and manual runs refresh all.
+          SCRAPE_FORCE: ${{ github.event_name != 'push' }}
 
       - name: Report scraper failures
         # One open "Scraper failures" issue: opened or commented on when sources fail,

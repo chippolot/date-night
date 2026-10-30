@@ -890,6 +890,7 @@ const shibuyaHifi: Source = {
 			await get(`${SHIBUYA}/event-pages-sitemap.xml`),
 			since,
 		);
+		// One page at a time: Wix answers concurrent requests with HTTP 429.
 		const out: ScrapedEvent[] = [];
 		for (const url of urls) {
 			await pause(0.5);
