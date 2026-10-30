@@ -39,6 +39,7 @@ import type { Night } from "../src/lib/types";
 //   The Barking Dog Alehouse: half-off wine on Wednesdays (no hours stated)
 //   Urban Family Brewing: square dances (no regular pattern)
 //   Meesha 127 (Fremont): Thursday sliders & game night, Monday industry night (no times)
+//   Ballard Beer Box: Monday–Thursday happy hour "from open until 5pm" (opening time not stated)
 //   Triangle Spirits (Fremont): Wing Wednesday (Instagram only; no times or deal stated)
 //   El Sueñito (Fremont): themed trivia, book club, drag brunch (Wix events mixed with its Bellingham taproom)
 //   Cocoa Legato (Greenwood): weekend concerts (show list isn't in a readable format)
@@ -754,6 +755,36 @@ export const nights: Night[] = [
 		confidence: "likely",
 	},
 	// Phinney Ridge / Greenwood
+	{
+		id: "ballard-beer-box-bingo",
+		venueId: "ballard-beer-box",
+		title: "Bingo Mondays",
+		category: "trivia",
+		recurrence: { kind: "weekly", days: ["MO"] },
+		start: "18:30",
+		cost: "Free",
+		description:
+			"Free bingo, no booking, any team size, with prizes that change weekly. Pizza, craft beer on tap and in the fridges.",
+		vibe: ["lively", "low-key"],
+		sourceUrl: "https://www.instagram.com/p/DfAVJdRgZRb/",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
+	{
+		id: "ballard-beer-box-trivia",
+		venueId: "ballard-beer-box",
+		title: "Trivia Tuesdays",
+		category: "trivia",
+		recurrence: { kind: "weekly", days: ["TU"] },
+		start: "18:30",
+		cost: "Free",
+		description:
+			"Free trivia, no booking: bring a team of any size or join one. Prizes change weekly.",
+		vibe: ["lively", "low-key"],
+		sourceUrl: "https://www.instagram.com/p/DfAVUGZAbg4/",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
 	{
 		id: "the-dray-trivia",
 		venueId: "the-dray",
