@@ -379,6 +379,18 @@ export const venues: Venue[] = [
 		tags: ["bar", "music-venue"],
 	},
 
+	{
+		id: "ballard-odd-fellows",
+		name: "Ballard Odd Fellows Hall",
+		neighborhood: "ballard",
+		address: "1706 NW Market St, Seattle, WA 98107",
+		lat: 47.6689,
+		lng: -122.3793,
+		url: "https://www.eventbrite.com/o/18723181210",
+		priceLevel: 1,
+		tags: ["dance", "community-center"],
+	},
+
 	// Crown Hill
 	{
 		id: "arc-dance",
@@ -390,6 +402,18 @@ export const venues: Venue[] = [
 		url: "https://arcdance.org/",
 		priceLevel: 2,
 		tags: ["studio"],
+	},
+
+	{
+		id: "entity-candles",
+		name: "Entity Candles",
+		neighborhood: "crown-hill",
+		address: "8327 15th Ave NW, Seattle, WA 98117",
+		lat: 47.6896,
+		lng: -122.377,
+		url: "https://www.entitycandles.com/",
+		priceLevel: 2,
+		tags: ["studio", "candle-making"],
 	},
 
 	// Sunset Hill
@@ -520,6 +544,18 @@ export const venues: Venue[] = [
 		url: "https://darkroomseattle.com/",
 		priceLevel: 2,
 		tags: ["bar"],
+	},
+
+	{
+		id: "rickshaw",
+		name: "Rickshaw Restaurant & Lounge",
+		neighborhood: "greenwood",
+		address: "322 N 105th St, Seattle, WA 98133",
+		lat: 47.7053,
+		lng: -122.3545,
+		url: "https://www.seattlemet.com/bars/rickshaw-restaurant-and-lounge",
+		priceLevel: 1,
+		tags: ["bar", "restaurant", "karaoke"],
 	},
 
 	// Fremont

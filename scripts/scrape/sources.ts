@@ -1074,11 +1074,11 @@ const seaFolklore: Source = {
 };
 
 // ---------------------------------------------------------------------------
-// Substation: Eventbrite's public API (its site terms forbid scraping the pages). Needs a personal
-// OAuth token from the repo owner's own Eventbrite account in EVENTBRITE_TOKEN (.env locally, a repo
-// secret in CI).
-
-const SUBSTATION_ORGANIZER = "18831550522";
+// Eventbrite organizers, through Eventbrite's public API (its site terms forbid scraping the pages,
+// and the API has no location search, so organizers are listed by id). Only events at venues we map
+// are kept. Needs a personal OAuth token from the repo owner's own Eventbrite account in
+// EVENTBRITE_TOKEN (.env locally, a repo secret in CI). An organizer's id is the number at the end
+// of its eventbrite.com/o/… page.
 
 type EventbriteEvent = {
 	id: string;
@@ -1087,6 +1087,7 @@ type EventbriteEvent = {
 	start: { local: string; timezone: string };
 	end?: { local: string; timezone: string };
 	is_free?: boolean;
+	venue?: { name: string } | null;
 	ticket_availability?: {
 		is_sold_out?: boolean;
 		minimum_ticket_price?: { major_value: string } | null;
@@ -1107,18 +1108,25 @@ function dollars(value: string): string {
 
 export function parseEventbrite(
 	events: EventbriteEvent[],
-	idPrefix: string,
+	opts: {
+		idPrefix: string;
+		/** Eventbrite venue name (lowercased) → our venue id */
+		venues: Record<string, string>;
+		category?: Category;
+	},
 ): ScrapedEvent[] {
 	const out: ScrapedEvent[] = [];
 	for (const e of events) {
+		const venueId = opts.venues[(e.venue?.name ?? "").toLowerCase().trim()];
 		const startsAt = eventbriteIso(e.start.local, e.start.timezone);
-		if (!startsAt) continue;
+		if (!venueId || !startsAt) continue;
 		const t = e.ticket_availability;
 		const low = t?.minimum_ticket_price?.major_value;
 		const high = t?.maximum_ticket_price?.major_value;
 		const title = e.name.text.trim();
 		out.push({
-			id: `${idPrefix}-${e.id}`,
+			id: `${opts.idPrefix}-${e.id}`,
+			venueId,
 			title,
 			startsAt,
 			endsAt: e.end ? eventbriteIso(e.end.local, e.end.timezone) : undefined,
@@ -1132,59 +1140,122 @@ export function parseEventbrite(
 							? `${dollars(low)}–${dollars(high)}`
 							: dollars(low)
 						: undefined,
-			category: guessCategory(title, "live-music"),
+			category: guessCategory(title, opts.category),
 		});
 	}
 	return out;
 }
 
-async function eventbriteOrganizerEvents(
-	organizerId: string,
-	idPrefix: string,
-): Promise<ScrapedEvent[]> {
-	const token = process.env.EVENTBRITE_TOKEN;
-	if (!token) throw new Error("EVENTBRITE_TOKEN is not set");
-	const out: ScrapedEvent[] = [];
-	let continuation: string | undefined;
-	for (let page = 0; page < 10; page++) {
-		const url = new URL(
-			`https://www.eventbriteapi.com/v3/organizers/${organizerId}/events/`,
-		);
-		url.searchParams.set("status", "live");
-		url.searchParams.set("order_by", "start_asc");
-		url.searchParams.set("expand", "ticket_availability");
-		if (continuation) url.searchParams.set("continuation", continuation);
-		const res = await fetch(url, {
-			headers: { authorization: `Bearer ${token}` },
-			signal: AbortSignal.timeout(20_000),
-		});
-		if (!res.ok) throw new Error(`Eventbrite → HTTP ${res.status}`);
-		const body = (await res.json()) as {
-			events: EventbriteEvent[];
-			pagination: { has_more_items: boolean; continuation?: string };
-		};
-		out.push(...parseEventbrite(body.events, idPrefix));
-		continuation = body.pagination.continuation;
-		if (!body.pagination.has_more_items || !continuation) break;
-	}
-	return out;
+function eventbriteSource(opts: {
+	id: string;
+	organizerId: string;
+	venues: Record<string, string>;
+	category?: Category;
+	mayBeEmpty?: boolean;
+	/** Pages of 50, soonest first; national organizers need more to reach our horizon */
+	maxPages?: number;
+	cleanTitle?: (title: string) => string;
+}): Source {
+	return {
+		id: opts.id,
+		mayBeEmpty: opts.mayBeEmpty,
+		async fetchEvents() {
+			const token = process.env.EVENTBRITE_TOKEN;
+			if (!token) throw new Error("EVENTBRITE_TOKEN is not set");
+			const out: ScrapedEvent[] = [];
+			let continuation: string | undefined;
+			for (let page = 0; page < (opts.maxPages ?? 10); page++) {
+				const url = new URL(
+					`https://www.eventbriteapi.com/v3/organizers/${opts.organizerId}/events/`,
+				);
+				url.searchParams.set("status", "live");
+				url.searchParams.set("order_by", "start_asc");
+				url.searchParams.set("expand", "venue,ticket_availability");
+				if (continuation) url.searchParams.set("continuation", continuation);
+				const res = await fetch(url, {
+					headers: { authorization: `Bearer ${token}` },
+					signal: AbortSignal.timeout(20_000),
+				});
+				if (!res.ok) throw new Error(`Eventbrite → HTTP ${res.status}`);
+				const body = (await res.json()) as {
+					events: EventbriteEvent[];
+					pagination: { has_more_items: boolean; continuation?: string };
+				};
+				const events = parseEventbrite(body.events, {
+					idPrefix: opts.id,
+					venues: opts.venues,
+					category: opts.category,
+				});
+				const { cleanTitle } = opts;
+				out.push(
+					...(cleanTitle
+						? events.map((e) => ({ ...e, title: cleanTitle(e.title) }))
+						: events),
+				);
+				continuation = body.pagination.continuation;
+				if (!body.pagination.has_more_items || !continuation) break;
+			}
+			return out;
+		},
+	};
 }
 
-const substation: Source = {
+const substation = eventbriteSource({
 	id: "substation",
-	venueId: "substation",
+	organizerId: "18831550522",
+	venues: { substation: "substation" },
 	category: "live-music",
-	fetchEvents: () =>
-		eventbriteOrganizerEvents(SUBSTATION_ORGANIZER, "substation"),
-};
+});
 
-// Not scraped (see CLAUDE.md): Tractor Tavern (ModSecurity blocks non-browser clients),
-// Phinney Center (Cloudflare; some events arrive via My Ballard, PhinneyWood and SFS), Sunset Tavern (DICE widget
-// needs an API key and dice.fm is behind Cloudflare), Fremont Abbey (public calendar is mostly
-// rental placeholders), Mox Boarding House
-// (Occasion calendar behind Cloudflare), U Wine Bar (robots.txt disallows all but Google), Ballard
-// Clay and Throw & Build (KilnFire booking pages disallowed by robots.txt), Wet Clay Cafe (Wix
-// Bookings sessions load client-side only), Waystone Wargaming (scrapable, but daytime tournaments).
+// Mockingbird Comedy: weekly and one-off stand-up shows, mostly at breweries; only Old Stove's
+// Ballard garden is in our area.
+const mockingbird = eventbriteSource({
+	id: "mockingbird-comedy",
+	organizerId: "109263369901",
+	venues: { "old stove brewing co - gardens": "old-stove-gardens" },
+	category: "comedy",
+});
+
+// Tango is About the Connection: occasional milongas at the Ballard Odd Fellows Hall.
+const tangoConnection = eventbriteSource({
+	id: "tango-connection",
+	organizerId: "18723181210",
+	venues: { "ballard oddfellows hall": "ballard-odd-fellows" },
+	category: "dance",
+	mayBeEmpty: true,
+});
+
+// Classpop!: a national class marketplace (paint-and-sips, cooking classes) with thousands of events,
+// a few at Channel Marker Cider. Its first 1,000 events reach about two months ahead.
+const classpop = eventbriteSource({
+	id: "classpop",
+	organizerId: "25190855215",
+	venues: { "channel marker cider": "channel-marker-cider" },
+	category: "class",
+	mayBeEmpty: true,
+	maxPages: 20,
+	// "Falling Leaves Lane - Paint and Sip in Seattle | Classpop!™" → "Falling Leaves Lane - Paint and Sip"
+	cleanTitle: (t) =>
+		t.replace(/\s*\|\s*Classpop!™?$/i, "").replace(/ in Seattle$/i, ""),
+});
+
+// DinoDadComedy: a weekly Friday comedy show and a monthly Sunday open mic at the Rickshaw.
+const dinoDad = eventbriteSource({
+	id: "dinodad-comedy",
+	organizerId: "38594623373",
+	venues: { "rickshaw restaurant & lounge": "rickshaw" },
+	category: "comedy",
+	cleanTitle: (t) => t.replace(/^The Rickshaw /, ""),
+});
+
+// Not scraped (see CLAUDE.md): Tractor Tavern (ModSecurity blocks non-browser clients), Phinney
+// Center (Cloudflare; some events arrive via My Ballard, PhinneyWood and SFS), Sunset Tavern (DICE
+// widget needs an API key and dice.fm is behind Cloudflare), Fremont Abbey (public calendar is
+// mostly rental placeholders), Mox Boarding House (Occasion calendar behind Cloudflare), U Wine Bar
+// (robots.txt disallows all but Google), Ballard Clay and Throw & Build (KilnFire booking pages
+// disallowed by robots.txt), Wet Clay Cafe (Wix Bookings sessions load client-side only), Waystone
+// Wargaming (scrapable, but daytime tournaments). TicketWeb (Tractor) and the Wizards event locator
+// (Mox, U Wine Bar) are fetchable but their terms forbid scraping.
 export const sources: Source[] = [
 	visitBallard,
 	myBallard,
@@ -1210,4 +1281,8 @@ export const sources: Source[] = [
 	yuTang,
 	seaFolklore,
 	substation,
+	mockingbird,
+	tangoConnection,
+	classpop,
+	dinoDad,
 ];

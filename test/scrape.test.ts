@@ -640,12 +640,13 @@ describe("seattle folklore society", () => {
 });
 
 describe("eventbrite", () => {
-	test("maps API events with local times and prices", () => {
+	test("keeps events at mapped venues, with local times and prices", () => {
 		const event = (id: string, name: string, local: string, extra = {}) => ({
 			id,
 			name: { text: name },
 			url: `https://www.eventbrite.com/e/${id}`,
 			start: { local, timezone: "America/Los_Angeles" },
+			venue: { name: "Old Stove Brewing Co - Gardens" },
 			...extra,
 		});
 		const events = parseEventbrite(
@@ -666,28 +667,46 @@ describe("eventbrite", () => {
 				event("3", "Free Trivia Night", "2026-11-07T19:00:00", {
 					is_free: true,
 				}),
+				event("4", "Elsewhere", "2026-11-08T19:00:00", {
+					venue: { name: "Old Stove Brewing Ship Canal" },
+				}),
+				event("5", "Online", "2026-11-09T19:00:00", { venue: null }),
 			],
-			"substation",
+			{
+				idPrefix: "eb",
+				venues: { "old stove brewing co - gardens": "old-stove-gardens" },
+				category: "comedy",
+			},
 		);
 		expect(
-			events.map((e) => [e.id, e.startsAt, e.endsAt, e.price, e.category]),
+			events.map((e) => [
+				e.id,
+				e.venueId,
+				e.startsAt,
+				e.endsAt,
+				e.price,
+				e.category,
+			]),
 		).toEqual([
 			[
-				"substation-1",
+				"eb-1",
+				"old-stove-gardens",
 				"2026-11-04T21:00:00-08:00",
 				"2026-11-05T02:00:00-08:00",
 				"$25–$38.50",
-				"live-music",
+				"comedy",
 			],
 			[
-				"substation-2",
+				"eb-2",
+				"old-stove-gardens",
 				"2026-11-06T20:00:00-08:00",
 				undefined,
 				"Sold out",
-				"live-music",
+				"comedy",
 			],
 			[
-				"substation-3",
+				"eb-3",
+				"old-stove-gardens",
 				"2026-11-07T19:00:00-08:00",
 				undefined,
 				"Free",
