@@ -177,6 +177,18 @@ export const venues: Venue[] = [
 	},
 
 	{
+		id: "shibuya-hifi",
+		name: "Shibuya HiFi",
+		neighborhood: "ballard",
+		address: "4912 Leary Ave NW, Seattle, WA 98107",
+		lat: 47.6646,
+		lng: -122.3793,
+		url: "https://www.shibuyahifi.com/",
+		instagram: "shibuyahifi",
+		priceLevel: 2,
+		tags: ["bar", "listening-bar"],
+	},
+	{
 		id: "hatties-hat",
 		name: "Hattie's Hat",
 		neighborhood: "ballard",
@@ -332,6 +344,29 @@ export const venues: Venue[] = [
 		tags: ["cooking-school", "community-kitchen"],
 	},
 
+	{
+		id: "mox-boarding-house",
+		name: "Mox Boarding House",
+		neighborhood: "ballard",
+		address: "5105 Leary Ave NW, Seattle, WA 98107",
+		lat: 47.6649,
+		lng: -122.3805,
+		url: "https://www.moxboardinghouse.com/pages/seattle",
+		priceLevel: 2,
+		tags: ["restaurant", "bar", "board-games"],
+	},
+	{
+		id: "blowing-sands",
+		name: "Blowing Sands Glass",
+		neighborhood: "ballard",
+		address: "5805 14th Ave NW, Seattle, WA 98107",
+		lat: 47.6712,
+		lng: -122.3738,
+		url: "https://www.blowingsands.com/",
+		priceLevel: 3,
+		tags: ["studio", "glassblowing"],
+	},
+
 	// Crown Hill
 	{
 		id: "arc-dance",
@@ -463,6 +498,18 @@ export const venues: Venue[] = [
 		tags: ["bar"],
 	},
 
+	{
+		id: "dark-room",
+		name: "Dark Room",
+		neighborhood: "greenwood",
+		address: "8505 Greenwood Ave N, Seattle, WA 98103",
+		lat: 47.6908,
+		lng: -122.3555,
+		url: "https://darkroomseattle.com/",
+		priceLevel: 2,
+		tags: ["bar"],
+	},
+
 	// Fremont
 	{
 		id: "fremont-sunday-market",
@@ -588,6 +635,41 @@ export const venues: Venue[] = [
 		tags: ["bar", "arcade"],
 	},
 
+	{
+		id: "dreamland",
+		name: "Dreamland Bar & Diner",
+		neighborhood: "fremont",
+		address: "3401 Evanston Ave N, Seattle, WA 98103",
+		lat: 47.6501,
+		lng: -122.3516,
+		url: "https://www.dreamlandfremont.com/",
+		instagram: "dreamlandfremont",
+		priceLevel: 2,
+		tags: ["bar", "restaurant"],
+	},
+	{
+		id: "yu-tang-ceramics",
+		name: "Yu Tang Ceramics",
+		neighborhood: "fremont",
+		address: "4019 Aurora Ave N, Seattle, WA 98103",
+		lat: 47.656,
+		lng: -122.3477,
+		url: "https://www.yutangceramics.com/",
+		priceLevel: 2,
+		tags: ["studio", "pottery"],
+	},
+	{
+		id: "wet-clay-cafe",
+		name: "Wet Clay Cafe",
+		neighborhood: "fremont",
+		address: "1109 N 35th St, Seattle, WA 98103",
+		lat: 47.6494,
+		lng: -122.3436,
+		url: "https://www.wetclaycafe.com/",
+		priceLevel: 2,
+		tags: ["cafe", "pottery"],
+	},
+
 	// Wallingford
 	{
 		id: "murphys-pub",
@@ -632,6 +714,18 @@ export const venues: Venue[] = [
 		url: "https://www.waywardmusic.org/",
 		priceLevel: 1,
 		tags: ["music-venue"],
+	},
+
+	{
+		id: "saltstone-ceramics",
+		name: "Saltstone Ceramics",
+		neighborhood: "wallingford",
+		address: "2206 N 45th St, Seattle, WA 98103",
+		lat: 47.6615,
+		lng: -122.3322,
+		url: "https://saltstoneceramics.com/",
+		priceLevel: 2,
+		tags: ["studio", "pottery"],
 	},
 
 	// Green Lake

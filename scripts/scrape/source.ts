@@ -53,6 +53,8 @@ export async function get(url: string, retries = 1): Promise<string> {
 			headers: {
 				"user-agent": UA,
 				accept: "text/html,text/calendar,application/json,*/*",
+				// Bun fails to decode some brotli responses (seen on Wix sites).
+				"accept-encoding": "gzip, deflate",
 			},
 			signal: AbortSignal.timeout(20_000),
 		});

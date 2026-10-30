@@ -357,34 +357,55 @@ const aslanFremont: Source = {
 };
 
 // ---------------------------------------------------------------------------
-// Squarespace events collections expose their upcoming events at `?format=json`.
+// Squarespace events collections. robots.txt on Squarespace sites disallows `?format=json`, so this
+// reads the upcoming events from the rendered list page. Times there are in the site's time zone.
 
-type SquarespaceEvent = {
-	title: string;
-	startDate: number;
-	endDate?: number;
-	fullUrl: string;
-};
+/** One "localized" start or end time: `<time class="event-time-localized-start" datetime="2026-11-03">5:00 PM</time>` */
+function squarespaceTime(article: string, which: "start" | "end") {
+	const m = article.match(
+		new RegExp(
+			`class="event-time-localized-${which}" datetime="(\\d{4}-\\d{2}-\\d{2})">([^<]+)<`,
+		),
+	);
+	const time = to24h(m?.[2] ?? "");
+	return m?.[1] && time ? localIso(m[1], time) : undefined;
+}
+
+export function parseSquarespaceEvents(
+	html: string,
+	base: string,
+	idPrefix: string,
+): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const [article] of html.matchAll(
+		/<article class="eventlist-event eventlist-event--upcoming[\s\S]*?<\/article>/g,
+	)) {
+		const link = article.match(
+			/class="eventlist-title"><a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/,
+		);
+		const startsAt = squarespaceTime(article, "start");
+		// All-day events have no time.
+		if (!link?.[1] || !link[2] || !startsAt) continue;
+		const title = stripTags(link[2]);
+		// UTC in the id keeps ids from the old `?format=json` scraper stable.
+		const utc = new Date(startsAt).toISOString();
+		out.push({
+			id: `${idPrefix}-${utc.slice(0, 16)}-${slug(title)}`,
+			title,
+			startsAt,
+			endsAt: squarespaceTime(article, "end"),
+			url: `${base}${decodeEntities(link[1])}`,
+		});
+	}
+	return out;
+}
 
 async function squarespaceEvents(
 	base: string,
 	path: string,
 	idPrefix: string,
 ): Promise<ScrapedEvent[]> {
-	const body: { upcoming?: SquarespaceEvent[] } = JSON.parse(
-		await get(`${base}${path}?format=json`),
-	);
-	return (body.upcoming ?? []).map((e) => {
-		const title = decodeEntities(e.title).trim();
-		const startsAt = new Date(e.startDate).toISOString();
-		return {
-			id: `${idPrefix}-${startsAt.slice(0, 16)}-${slug(title)}`,
-			title,
-			startsAt,
-			endsAt: e.endDate ? new Date(e.endDate).toISOString() : undefined,
-			url: `${base}${e.fullUrl}`,
-		};
-	});
+	return parseSquarespaceEvents(await get(`${base}${path}`), base, idPrefix);
 }
 
 // Seattle Public Theater (Green Lake Bathhouse).
@@ -422,7 +443,7 @@ const halcyon: Source = {
 	fetchEvents: async () =>
 		(
 			await squarespaceEvents(
-				"https://halcyonbrewingco.com",
+				"https://www.halcyonbrewingco.com",
 				"/events",
 				"halcyon",
 			)
@@ -823,10 +844,199 @@ const pantry: Source = {
 	},
 };
 
+// ---------------------------------------------------------------------------
+// Shibuya HiFi (listening bar): album listening sessions as Wix Events. The events page renders
+// client-side, but every event page carries JSON-LD and the event sitemap lists all of them
+// (1,000+, past included) with a lastmod. Each month's schedule is posted a few weeks ahead, so
+// only pages modified in the last 60 days are fetched.
+
+const SHIBUYA = "https://www.shibuyahifi.com";
+
+/** Event page URLs from the Wix event sitemap with a lastmod on or after `since` (YYYY-MM-DD). */
+export function shibuyaEventUrls(xml: string, since: string): string[] {
+	return [
+		...xml.matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>(\d{4}-\d{2}-\d{2})/g),
+	]
+		.filter(([, , mod = ""]) => mod >= since)
+		.map(([, loc = ""]) => loc);
+}
+
+export function parseShibuyaEvent(html: string, url: string): ScrapedEvent[] {
+	if (html.includes("schema.org/EventCancelled")) return [];
+	return extractLdEvents(html).map((e) => {
+		const title = e.name;
+		return {
+			id: `shibuya-hifi-${e.startDate.slice(0, 16)}-${slug(title)}`,
+			title,
+			startsAt: e.startDate,
+			endsAt: e.endDate,
+			url: e.url ?? url,
+			// Recorded music, not a band, but "live-music" is the closest category. Other
+			// guessCategory matches (e.g. "dance" in an album title) would mislead.
+			category: guessCategory(title) === "jazz" ? "jazz" : "live-music",
+		};
+	});
+}
+
+const shibuyaHifi: Source = {
+	id: "shibuya-hifi",
+	venueId: "shibuya-hifi",
+	async fetchEvents() {
+		const today = horizon().from;
+		const since = isoDate(
+			new Date(Date.parse(`${today}T12:00:00Z`) - 60 * 86_400_000),
+		);
+		const urls = shibuyaEventUrls(
+			await get(`${SHIBUYA}/event-pages-sitemap.xml`),
+			since,
+		);
+		const out: ScrapedEvent[] = [];
+		for (const url of urls) {
+			await pause(0.5);
+			const events = parseShibuyaEvent(await get(url), url);
+			out.push(...events.filter((e) => e.startsAt.slice(0, 10) >= today));
+		}
+		return out;
+	},
+};
+
+// ---------------------------------------------------------------------------
+// Pottery studios selling one-night wheel classes as store products, one product or option per date.
+
+/** "6pm" or "6:30 pm" → "18:00", with the meridiem taken from `fallback` when missing ("6:30-8:30pm") */
+function clock(text: string, fallback?: string): string | undefined {
+	return to24h(text.replace(/^\s*(\d{1,2})(?!\d|:)/, "$1:00"), fallback);
+}
+
+// Saltstone Ceramics (Wallingford): Shopify. Each product in the one-night class collection is a
+// single session, with its date and time only in the title, e.g.
+// "Clay Curious: Friday November 6th, 6:30pm - 8:30pm". No year; robots.txt allows products.json.
+
+type ShopifyProduct = {
+	id: number;
+	title: string;
+	handle: string;
+	variants: { price: string; available: boolean }[];
+};
+
+export function parseSaltstone(
+	products: ShopifyProduct[],
+	today: string,
+): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const p of products) {
+		const m = p.title.match(
+			/^(.+?)[\s:,]+[A-Za-z]+day,?\s+([A-Za-z]+)\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+([\d:]+\s*(?:am|pm)?)\s*-\s*([\d:]+\s*(?:am|pm))/i,
+		);
+		const month = MONTHS.indexOf((m?.[2] ?? "").slice(0, 3).toLowerCase()) + 1;
+		if (!m?.[1] || !month) continue;
+		const endMeridiem = m[5]?.match(/am|pm/i)?.[0];
+		const start = clock(m[4] ?? "", endMeridiem);
+		const end = clock(m[5] ?? "");
+		const date = withYear(month, Number(m[3]), today);
+		if (!start || date < today) continue;
+		const startsAt = localIso(date, start);
+		if (!startsAt) continue;
+		const variant = p.variants[0];
+		out.push({
+			id: `saltstone-${p.id}`,
+			title: m[1].trim(),
+			startsAt,
+			endsAt: end && end > start ? localIso(date, end) : undefined,
+			url: `https://saltstoneceramics.com/products/${p.handle}`,
+			price: !variant
+				? undefined
+				: variant.available
+					? `$${Number(variant.price)}`
+					: "Sold out",
+		});
+	}
+	return out;
+}
+
+const saltstone: Source = {
+	id: "saltstone",
+	venueId: "saltstone-ceramics",
+	category: "class",
+	async fetchEvents() {
+		const body: { products: ShopifyProduct[] } = JSON.parse(
+			await get(
+				"https://saltstoneceramics.com/collections/adult-one-night-classes/products.json?limit=250",
+			),
+		);
+		return parseSaltstone(body.products, horizon().from);
+	},
+};
+
+// Yu Tang Ceramics (Fremont): Squarespace store. The workshops page embeds its products as JSON in a
+// `data-context` attribute; date-night wheel classes are one product with a "Day/Time" option per
+// session, e.g. "November 7th 2026 6pm". Products without that option (members-only workshops) are
+// skipped.
+
+const YU_TANG = "https://www.yutangceramics.com";
+
+type YuTangItem = {
+	title: string;
+	fullUrl: string;
+	variants: {
+		price: { value: string };
+		soldOut: boolean;
+		attributes: Record<string, string>;
+	}[];
+};
+
+export function parseYuTang(html: string): ScrapedEvent[] {
+	const attr = html.match(
+		/data-controller="ProductList"\s+data-context="([^"]+)"/,
+	)?.[1];
+	if (!attr) return [];
+	const { items }: { items: YuTangItem[] } = JSON.parse(decodeEntities(attr));
+	const out: ScrapedEvent[] = [];
+	for (const item of items) {
+		const title = decodeEntities(item.title).trim();
+		for (const v of item.variants) {
+			const m = (v.attributes["Day/Time"] ?? "").match(
+				/^([A-Za-z]+) (\d{1,2})(?:st|nd|rd|th)?,? (\d{4}),? (.+)$/,
+			);
+			const month =
+				MONTHS.indexOf((m?.[1] ?? "").slice(0, 3).toLowerCase()) + 1;
+			const time = clock(m?.[4] ?? "");
+			if (!m || !month || !time) continue;
+			const date = `${m[3]}-${String(month).padStart(2, "0")}-${(m[2] ?? "").padStart(2, "0")}`;
+			const startsAt = localIso(date, time);
+			if (!startsAt) continue;
+			out.push({
+				id: `yu-tang-${date}-${time.replace(":", "")}-${slug(title)}`,
+				title,
+				startsAt,
+				url: `${YU_TANG}${item.fullUrl}`,
+				price: v.soldOut ? "Sold out" : `$${Number(v.price.value)}`,
+			});
+		}
+	}
+	return out;
+}
+
+const yuTang: Source = {
+	id: "yu-tang",
+	venueId: "yu-tang-ceramics",
+	category: "class",
+	mayBeEmpty: true,
+	async fetchEvents() {
+		const today = horizon().from;
+		return parseYuTang(await get(`${YU_TANG}/workshops`)).filter(
+			(e) => e.startsAt.slice(0, 10) >= today,
+		);
+	},
+};
+
 // Not scraped (see CLAUDE.md): Tractor Tavern (ModSecurity blocks non-browser clients),
 // Phinney Center (Cloudflare; some events arrive via My Ballard), Sunset Tavern (DICE widget
 // needs an API key and dice.fm is behind Cloudflare), Fremont Abbey (public calendar is mostly
-// rental placeholders), Substation (Eventbrite page has no event markup).
+// rental placeholders), Substation (Eventbrite page has no event markup), Mox Boarding House
+// (Occasion calendar behind Cloudflare), U Wine Bar (robots.txt disallows all but Google), Ballard
+// Clay and Throw & Build (KilnFire booking pages disallowed by robots.txt), Wet Clay Cafe (Wix
+// Bookings sessions load client-side only), Waystone Wargaming (scrapable, but daytime tournaments).
 export const sources: Source[] = [
 	visitBallard,
 	myBallard,
@@ -847,4 +1057,7 @@ export const sources: Source[] = [
 	phinneyWood,
 	sunsetHill,
 	pantry,
+	shibuyaHifi,
+	saltstone,
+	yuTang,
 ];

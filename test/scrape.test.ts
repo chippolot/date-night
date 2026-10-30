@@ -8,9 +8,14 @@ import {
 	parseNordic,
 	parseOctopus,
 	parsePantry,
+	parseSaltstone,
+	parseShibuyaEvent,
+	parseSquarespaceEvents,
 	parseTaprootShow,
 	parseWayward,
 	parseWestOfLenin,
+	parseYuTang,
+	shibuyaEventUrls,
 	withYear,
 } from "../scripts/scrape/sources";
 
@@ -370,6 +375,220 @@ describe("pantry", () => {
 				"2026-11-20T19:00:00-08:00",
 				"Sold out",
 				"food-drink-special",
+			],
+		]);
+	});
+});
+
+describe("shibuya hifi", () => {
+	test("keeps sitemap entries modified since the cutoff", () => {
+		const xml = `<urlset>
+<url><loc>https://www.shibuyahifi.com/event-details/old</loc><lastmod>2026-02-01</lastmod></url>
+<url><loc>https://www.shibuyahifi.com/event-details/new</loc><lastmod>2026-10-21</lastmod><image:image></image:image></url>
+</urlset>`;
+		expect(shibuyaEventUrls(xml, "2026-08-30")).toEqual([
+			"https://www.shibuyahifi.com/event-details/new",
+		]);
+	});
+
+	test("reads the event page JSON-LD and skips cancelled sessions", () => {
+		const page = (name: string, status = "EventScheduled") =>
+			`<script type="application/ld+json">${JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "Event",
+				name,
+				startDate: "2026-11-06T17:00:00-08:00",
+				endDate: "2026-11-06T18:30:00-08:00",
+				eventStatus: `https://schema.org/${status}`,
+				location: {
+					"@type": "Place",
+					url: "https://www.shibuyahifi.com/event-details/x",
+					name: "Shibuya HiFi",
+				},
+			})}</script>`;
+		const url = "https://www.shibuyahifi.com/event-details/x";
+		expect(
+			parseShibuyaEvent(page("Ben Webster Quintet - Soulville"), url),
+		).toEqual([
+			{
+				id: "shibuya-hifi-2026-11-06T17:00-ben-webster-quintet-soulville",
+				title: "Ben Webster Quintet - Soulville",
+				startsAt: "2026-11-06T17:00:00-08:00",
+				endsAt: "2026-11-06T18:30:00-08:00",
+				url,
+				category: "jazz",
+			},
+		]);
+		expect(parseShibuyaEvent(page("Dancing Queen"), url)[0]?.category).toBe(
+			"live-music",
+		);
+		expect(parseShibuyaEvent(page("Thriller", "EventCancelled"), url)).toEqual(
+			[],
+		);
+	});
+});
+
+describe("squarespace", () => {
+	test("reads upcoming events from the list page, skipping past and all-day ones", () => {
+		const article = (
+			state: string,
+			href: string,
+			title: string,
+			meta: string,
+		) =>
+			`<article class="eventlist-event eventlist-event--${state} eventlist-event--hasimg">
+<h1 class="eventlist-title"><a href="${href}" class="eventlist-title-link">${title}</a></h1>
+<ul class="eventlist-meta event-meta">${meta}</ul></article>`;
+		const times = (date: string, start: string, end: string) =>
+			`<li class="eventlist-meta-item eventlist-meta-time event-meta-item">
+<span class="event-time-localized">
+<time class="event-time-localized-start" datetime="${date}">${start}</time>
+<span class="event-datetime-divider"></span>
+<time class="event-time-localized-end" datetime="${date}">${end}</time>
+</span></li>`;
+		const html = [
+			article(
+				"past",
+				"/events/old",
+				"Old",
+				times("2026-10-01", "5:00 PM", "6:00 PM"),
+			),
+			article(
+				"upcoming",
+				"/events/tarot-nov-3",
+				"Tarot &amp; Wine",
+				times("2026-11-03", "5:00 PM", "8:00 PM"),
+			),
+			article(
+				"upcoming",
+				"/events/market",
+				"All-Day Market",
+				'<li class="eventlist-meta-item eventlist-meta-date"><time class="event-date" datetime="2026-11-04">Wednesday</time></li>',
+			),
+		].join("\n");
+		expect(parseSquarespaceEvents(html, "https://example.com", "ex")).toEqual([
+			{
+				id: "ex-2026-11-04T01:00-tarot-wine",
+				title: "Tarot & Wine",
+				startsAt: "2026-11-03T17:00:00-08:00",
+				endsAt: "2026-11-03T20:00:00-08:00",
+				url: "https://example.com/events/tarot-nov-3",
+			},
+		]);
+	});
+});
+
+describe("saltstone", () => {
+	test("reads date and time from product titles, inferring the year", () => {
+		const product = (
+			id: number,
+			title: string,
+			price: string,
+			available = true,
+		) => ({
+			id,
+			title,
+			handle: `p${id}`,
+			variants: [{ price, available }],
+		});
+		const events = parseSaltstone(
+			[
+				product(
+					1,
+					"Clay Curious: Friday November 6th, 6:30pm - 8:30pm",
+					"100.00",
+				),
+				product(
+					2,
+					"Queer Night! Throwing On The Wheel! Sunday, November 22nd, 6:30-8:30pm",
+					"25.00",
+					false,
+				),
+				product(
+					3,
+					"BIPOC Wheel Night Sunday, January 3rd, 6:30-8:30pm",
+					"25.00",
+				),
+				product(
+					4,
+					"Clay Curious: Sunday October 4th, 6:30pm - 8:30pm",
+					"100.00",
+				),
+				product(5, "Gift Card", "50.00"),
+			],
+			"2026-10-29",
+		);
+		expect(events.map((e) => [e.title, e.startsAt, e.endsAt, e.price])).toEqual(
+			[
+				[
+					"Clay Curious",
+					"2026-11-06T18:30:00-08:00",
+					"2026-11-06T20:30:00-08:00",
+					"$100",
+				],
+				[
+					"Queer Night! Throwing On The Wheel!",
+					"2026-11-22T18:30:00-08:00",
+					"2026-11-22T20:30:00-08:00",
+					"Sold out",
+				],
+				[
+					"BIPOC Wheel Night",
+					"2027-01-03T18:30:00-08:00",
+					"2027-01-03T20:30:00-08:00",
+					"$25",
+				],
+			],
+		);
+		expect(events[0]?.url).toBe("https://saltstoneceramics.com/products/p1");
+	});
+});
+
+describe("yu tang", () => {
+	test("reads each Day/Time option of the embedded workshop products", () => {
+		const context = {
+			items: [
+				{
+					title: "One-Time Wheel Throwing",
+					fullUrl: "/workshops/p/onetimewheel",
+					variants: [
+						{
+							price: { value: "80.00" },
+							soldOut: false,
+							attributes: { "Day/Time": "November 7th 2026 6pm" },
+						},
+						{
+							price: { value: "80.00" },
+							soldOut: true,
+							attributes: { "Day/Time": "November 21st 2026 6:30pm" },
+						},
+					],
+				},
+				{
+					title: "Raku workshop December 5th 2026",
+					fullUrl: "/workshops/p/raku",
+					variants: [
+						{ price: { value: "75.00" }, soldOut: false, attributes: {} },
+					],
+				},
+			],
+		};
+		const html = `<div class="product-list" data-controller="ProductList"
+    data-context="${JSON.stringify(context).replaceAll('"', "&quot;")}"></div>`;
+		expect(
+			parseYuTang(html).map((e) => [e.title, e.startsAt, e.price, e.url]),
+		).toEqual([
+			[
+				"One-Time Wheel Throwing",
+				"2026-11-07T18:00:00-08:00",
+				"$80",
+				"https://www.yutangceramics.com/workshops/p/onetimewheel",
+			],
+			[
+				"One-Time Wheel Throwing",
+				"2026-11-21T18:30:00-08:00",
+				"Sold out",
+				"https://www.yutangceramics.com/workshops/p/onetimewheel",
 			],
 		]);
 	});

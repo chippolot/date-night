@@ -7,6 +7,10 @@ import type { Night } from "../src/lib/types";
 //   Aslan Brewing (Fremont): jazz 4th Tuesdays 7–9pm, from KNKX only; not on Aslan's own VenuePilot calendar
 //   Aslan Tangletown: "Girl Dinner" Mondays (no start time stated)
 //   Add-a-Ball: "Live shows every Friday and Saturday night" (no start time stated)
+//   Ballard Clay: "Sip N Spin" BYOB one-time wheel class, $100 (dates and times only in its KilnFire
+//     booking app, which robots.txt disallows)
+//   Wet Clay Cafe: Friday and Saturday "social club" wheel nights, $125 (times load client-side only)
+//   Dreamland: Sunday drag shows "multiple times a month" (dates only on Resy)
 //   The Rebel (309 NE 45th): Monday trivia, Wednesday karaoke (Wallyhood, Feb 2026; no times, no venue site)
 //   Taproot Theatre: full show runs (Wed–Sat 7:30pm per past seasons) need the days confirmed in OvationTix;
 //     add them with recurrence `from`/`until` once confirmed. Named performances are scraped.
@@ -694,6 +698,26 @@ export const nights: Night[] = [
 		lastVerified: "2026-10-29",
 		confidence: "likely",
 	},
+	{
+		id: "dark-room-golden-hour",
+		venueId: "dark-room",
+		title: "Golden hour",
+		category: "food-drink-special",
+		recurrence: {
+			kind: "weekly",
+			days: ["WE", "TH", "FR", "SA"],
+		},
+		start: "16:00",
+		end: "18:00",
+		cost: "$12 classic cocktails, $10 bubbles / N/A Negroni / boilermaker",
+		description:
+			"Happy hour at a Greenwood craft cocktail bar with a good N/A list. The menu says 4–6pm daily; the bar is open Wed–Sat. The source is an undated menu image.",
+		vibe: ["low-key", "romantic"],
+		sourceUrl: "https://darkroomseattle.com/golden-hour",
+		lastVerified: "2026-10-29",
+		confidence: "likely",
+	},
+
 	// Fremont
 	{
 		id: "fremont-sunday-market-summer",
@@ -877,6 +901,42 @@ export const nights: Night[] = [
 		lastVerified: "2026-10-29",
 		confidence: "likely",
 	},
+	{
+		id: "dreamland-drag-brunch",
+		venueId: "dreamland",
+		title: "Dream Girls drag brunch",
+		category: "theater",
+		recurrence: {
+			kind: "weekly",
+			days: ["SA"],
+		},
+		start: "11:15",
+		description:
+			"Drag brunch on Dreamland's heated tropical patio, every Saturday. Doors 10:45am; a second show has doors at 1pm and starts at 1:45pm. 18+, ticketed through Resy.",
+		vibe: ["lively"],
+		sourceUrl: "https://www.dreamlandfremont.com/drag",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "dreamland-happy-hour",
+		venueId: "dreamland",
+		title: "Happy hour",
+		category: "food-drink-special",
+		recurrence: {
+			kind: "weekly",
+			days: ["MO", "TU", "WE", "TH", "FR"],
+		},
+		start: "15:00",
+		end: "18:00",
+		description:
+			"Weekday happy hour at the Fremont diner and bar, whose patio was home to the Carnelian Bay tiki bar.",
+		vibe: ["low-key"],
+		sourceUrl: "https://www.dreamlandfremont.com/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+
 	// Wallingford
 	{
 		id: "murphys-trivia",
