@@ -8,6 +8,8 @@ export type LdEvent = {
 	price?: string;
 	/** `location.name`, when given */
 	location?: string;
+	/** `location.address.streetAddress`, when given */
+	address?: string;
 	/** `eventStatus` is EventCancelled */
 	cancelled?: boolean;
 };
@@ -54,11 +56,27 @@ function priceOf(offers: unknown): string | undefined {
 	return high && high !== low ? `$${low}–$${high}` : `$${low}`;
 }
 
-function locationOf(location: unknown): string | undefined {
+function placeOf(location: unknown): Record<string, unknown> | undefined {
 	const place = Array.isArray(location) ? location[0] : location;
-	if (!place || typeof place !== "object") return undefined;
-	const name = (place as Record<string, unknown>).name;
+	return place && typeof place === "object"
+		? (place as Record<string, unknown>)
+		: undefined;
+}
+
+function locationOf(location: unknown): string | undefined {
+	const name = placeOf(location)?.name;
 	return typeof name === "string" ? decodeEntities(name).trim() : undefined;
+}
+
+function addressOf(location: unknown): string | undefined {
+	const address = placeOf(location)?.address;
+	const street =
+		typeof address === "string"
+			? address
+			: address && typeof address === "object"
+				? (address as Record<string, unknown>).streetAddress
+				: undefined;
+	return typeof street === "string" ? decodeEntities(street).trim() : undefined;
 }
 
 export function extractLdEvents(html: string): LdEvent[] {
@@ -85,6 +103,7 @@ export function extractLdEvents(html: string): LdEvent[] {
 				url: typeof obj.url === "string" ? obj.url : undefined,
 				price: priceOf(obj.offers),
 				location: locationOf(obj.location),
+				address: addressOf(obj.location),
 				cancelled:
 					String(obj.eventStatus ?? "").endsWith("EventCancelled") || undefined,
 			});

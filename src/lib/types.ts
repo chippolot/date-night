@@ -7,6 +7,14 @@ export const NEIGHBORHOODS = {
 	"crown-hill": "Crown Hill",
 	"green-lake": "Green Lake",
 	wallingford: "Wallingford",
+	"university-district": "U District",
+	roosevelt: "Roosevelt",
+	ravenna: "Ravenna",
+	"maple-leaf": "Maple Leaf",
+	wedgwood: "Wedgwood",
+	"lake-city": "Lake City",
+	laurelhurst: "Laurelhurst",
+	"sand-point": "Sand Point",
 } as const;
 export type Neighborhood = keyof typeof NEIGHBORHOODS;
 
@@ -18,8 +26,22 @@ export const ADJACENT: Record<Neighborhood, Neighborhood[]> = {
 	"phinney-ridge": ["greenwood", "fremont", "green-lake", "ballard"],
 	greenwood: ["phinney-ridge", "crown-hill", "green-lake"],
 	"crown-hill": ["ballard", "greenwood", "sunset-hill"],
-	"green-lake": ["wallingford", "phinney-ridge", "greenwood"],
-	wallingford: ["fremont", "green-lake"],
+	"green-lake": [
+		"wallingford",
+		"phinney-ridge",
+		"greenwood",
+		"roosevelt",
+		"maple-leaf",
+	],
+	wallingford: ["fremont", "green-lake", "university-district"],
+	"university-district": ["wallingford", "roosevelt", "ravenna", "laurelhurst"],
+	roosevelt: ["green-lake", "university-district", "ravenna", "maple-leaf"],
+	ravenna: ["roosevelt", "university-district", "wedgwood", "laurelhurst"],
+	"maple-leaf": ["roosevelt", "green-lake", "wedgwood", "lake-city"],
+	wedgwood: ["ravenna", "maple-leaf", "lake-city", "sand-point"],
+	"lake-city": ["maple-leaf", "wedgwood"],
+	laurelhurst: ["university-district", "ravenna", "sand-point"],
+	"sand-point": ["laurelhurst", "wedgwood"],
 };
 
 export const CATEGORIES = {

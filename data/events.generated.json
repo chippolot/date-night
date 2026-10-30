@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-30T21:09:41.181Z",
+	"generatedAt": "2026-10-30T21:50:30.847Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-30T18:26:41.077Z",
 		"artemis-coffee": "2026-10-30T18:26:41.077Z",
@@ -11,13 +11,17 @@
 		"dinodad-comedy": "2026-10-30T18:26:41.077Z",
 		"egans": "2026-10-30T18:26:41.077Z",
 		"figurehead-stone-way": "2026-10-30T18:26:41.077Z",
-		"greenstage": "2026-10-30T20:55:07.755Z",
+		"greenstage": "2026-10-30T21:40:42.123Z",
 		"halcyon": "2026-10-30T18:26:41.076Z",
 		"halfseas": "2026-10-30T18:26:41.076Z",
 		"hidden-hall": "2026-10-30T18:26:41.077Z",
 		"kings-hardware": "2026-10-30T18:26:41.077Z",
-		"mato": "2026-10-30T18:26:41.077Z",
-		"mockingbird-comedy": "2026-10-30T18:26:41.077Z",
+		"lake-city-contra": "2026-10-30T21:38:00.510Z",
+		"lovestruck": "2026-10-30T21:37:38.986Z",
+		"magnuson-park-gallery": "2026-10-30T21:40:45.854Z",
+		"mato": "2026-10-30T21:50:30.841Z",
+		"meany-center": "2026-10-30T21:39:40.251Z",
+		"mockingbird-comedy": "2026-10-30T21:40:56.904Z",
 		"mr-bs-meadery": "2026-10-30T18:26:41.077Z",
 		"myballard": "2026-10-30T18:26:41.076Z",
 		"nectar": "2026-10-30T18:26:41.077Z",
@@ -36,7 +40,10 @@
 		"sunset-hill-hall": "2026-10-30T18:26:41.077Z",
 		"tango-connection": "2026-10-30T18:26:41.077Z",
 		"taproot": "2026-10-30T18:26:41.077Z",
+		"uw-botanic-gardens": "2026-10-30T21:48:37.245Z",
+		"uw-campus": "2026-10-30T21:39:20.086Z",
 		"visitballard": "2026-10-30T18:26:41.076Z",
+		"watershed-pub": "2026-10-30T21:38:00.231Z",
 		"wayward": "2026-10-30T18:26:41.077Z",
 		"west-of-lenin": "2026-10-30T18:26:41.077Z",
 		"woodland-park-zoo": "2026-10-30T20:55:11.966Z",
@@ -174,6 +181,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "uw-2026-10-30T19:30-uw-symphony-with-pala-garcia-violin",
+			"venueId": "meany-hall",
+			"title": "UW Symphony with Pala Garcia, violin",
+			"startsAt": "2026-10-30T19:30:00-07:00",
+			"endsAt": "2026-10-30T19:30:00-07:00",
+			"url": "https://music.washington.edu/events/2026-10-30/uw-symphony-pala-garcia",
+			"category": "live-music",
+			"source": "uw-campus"
+		},
+		{
 			"id": "shibuya-hifi-2026-10-30T19:30-frank-ocean-channel-orange",
 			"title": "Frank Ocean - Channel Orange",
 			"startsAt": "2026-10-30T19:30:00-07:00",
@@ -256,6 +273,16 @@
 			"venueId": "pono-ranch"
 		},
 		{
+			"id": "mato-2026-10-30T21:00-halloween-special-show",
+			"title": "Halloween Special Show",
+			"startsAt": "2026-10-30T21:00:00.000-07:00",
+			"endsAt": "2026-10-31T00:00:00.000-07:00",
+			"url": "https://ma.to/event/halloween-special-show-31-oct-2026",
+			"venueId": "blue-moon-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
 			"id": "sea-monster-lounge-2026-10-30T22:00-funky-2-death",
 			"title": "Funky 2 Death",
 			"startsAt": "2026-10-30T22:00:00-07:00",
@@ -320,6 +347,15 @@
 			"venueId": "nordic-museum"
 		},
 		{
+			"id": "mato-2026-10-31T11:00-halloween-pet-costume-photo-voting",
+			"title": "Halloween Pet Costume Photo Voting",
+			"startsAt": "2026-10-31T11:00:00.000-07:00",
+			"endsAt": "2026-10-31T22:00:00.000-07:00",
+			"url": "https://ma.to/event/halloween-pet-costume-photo-voting-31-oct-2026",
+			"venueId": "ravenna-brewing",
+			"source": "mato"
+		},
+		{
 			"id": "shibuya-hifi-2026-10-31T12:30-claudio-gizzi-andy-warhol-s-dracula-original-motion-picture-",
 			"title": "Claudio Gizzi - Andy Warhol's Dracula, Original Motion Picture Soundtrack",
 			"startsAt": "2026-10-31T12:30:00-07:00",
@@ -328,6 +364,16 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "uw-botanic-gardens-2026-10-31-windowsill-carnivorous-bogs",
+			"title": "Windowsill Carnivorous Bogs",
+			"startsAt": "2026-10-31T13:00:00-07:00",
+			"endsAt": "2026-10-31T14:00:00-07:00",
+			"url": "https://apps.ideal-logic.com/uwbg?key=2WSB-TGY2T_K9KH-5PTF_e120327a3d5e",
+			"category": "class",
+			"source": "uw-botanic-gardens",
+			"venueId": "center-for-urban-horticulture"
 		},
 		{
 			"id": "shibuya-hifi-2026-10-31T14:00-black-sabbath-paranoid",
@@ -499,6 +545,17 @@
 			"source": "mato"
 		},
 		{
+			"id": "mockingbird-comedy-1999195856624",
+			"venueId": "elliott-bay-lake-city",
+			"title": "Howlin' on Halloween Comedy Show & Costume Contest",
+			"startsAt": "2026-10-31T20:00:00-07:00",
+			"endsAt": "2026-10-31T21:30:00-07:00",
+			"url": "https://www.eventbrite.com/e/howlin-on-halloween-comedy-show-costume-contest-tickets-1999195856624",
+			"price": "$19.73",
+			"category": "comedy",
+			"source": "mockingbird-comedy"
+		},
+		{
 			"id": "mato-2026-10-31T20:00-dr-ralph-stanley-tribute-show",
 			"title": "Dr. Ralph Stanley Tribute Show",
 			"startsAt": "2026-10-31T20:00:00.000-07:00",
@@ -556,6 +613,16 @@
 			"category": "live-music",
 			"source": "pono-ranch",
 			"venueId": "pono-ranch"
+		},
+		{
+			"id": "mato-2026-10-31T21:00-happy-halloween-blame-aphrodite",
+			"title": "Happy Halloween: Blame Aphrodite",
+			"startsAt": "2026-10-31T21:00:00.000-07:00",
+			"endsAt": "2026-11-01T00:00:00.000-07:00",
+			"url": "https://ma.to/event/happy-halloween-blame-aphrodite-01-nov-2026",
+			"venueId": "blue-moon-tavern",
+			"category": "live-music",
+			"source": "mato"
 		},
 		{
 			"id": "myballard-360217-2026-10-31",
@@ -795,6 +862,16 @@
 			"source": "dinodad-comedy"
 		},
 		{
+			"id": "mato-2026-11-01T19:00-sunday-karaoke-at-blue-moon",
+			"title": "Sunday Karaoke at Blue Moon",
+			"startsAt": "2026-11-01T19:00:00.000-08:00",
+			"endsAt": "2026-11-01T23:00:00.000-08:00",
+			"url": "https://ma.to/event/sunday-karaoke-at-blue-moon-02-nov-2026",
+			"venueId": "blue-moon-tavern",
+			"category": "karaoke",
+			"source": "mato"
+		},
+		{
 			"id": "conor-byrne-193020",
 			"title": "Conor Byrne Open Mic! Sign Ups @7:30",
 			"startsAt": "2026-11-01T20:00:00-08:00",
@@ -909,6 +986,16 @@
 			"category": "live-music"
 		},
 		{
+			"id": "watershed-2026-11-02-bricks-brews-bricks-minifigs-x-icicle-brewing",
+			"title": "Bricks & Brews: Bricks & Minifigs x Icicle Brewing",
+			"startsAt": "2026-11-02T17:00:00-08:00",
+			"endsAt": "2026-11-02T20:00:00-08:00",
+			"url": "https://watershedpub.com/events",
+			"category": "food-drink-special",
+			"source": "watershed-pub",
+			"venueId": "watershed-pub"
+		},
+		{
 			"id": "classpop-1998799229301",
 			"venueId": "channel-marker-cider",
 			"title": "Handmade Gnocchi at a Ballard Cidery With Chef Jason - Pasta Making Cooking Class",
@@ -957,6 +1044,16 @@
 			"category": "live-music",
 			"source": "sea-monster-lounge",
 			"venueId": "sea-monster-lounge"
+		},
+		{
+			"id": "mato-2026-11-02T19:00-what-the-sea-keeps-author-talk",
+			"title": "What the Sea Keeps Author Talk",
+			"startsAt": "2026-11-02T19:00:00.000-08:00",
+			"endsAt": "2026-11-02T20:00:00.000-08:00",
+			"url": "https://ma.to/event/what-the-sea-keeps-author-talk-2026-11-02",
+			"venueId": "third-place-ravenna",
+			"category": "comedy",
+			"source": "mato"
 		},
 		{
 			"id": "conor-byrne-193911",
@@ -1089,6 +1186,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "lovestruck-2003373537179",
+			"venueId": "lovestruck",
+			"title": "Women Winning Book Club | Home Field Advantage",
+			"startsAt": "2026-11-03T18:30:00-08:00",
+			"endsAt": "2026-11-03T20:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/women-winning-book-club-home-field-advantage-tickets-2003373537179",
+			"price": "Free",
+			"category": "comedy",
+			"source": "lovestruck"
+		},
+		{
 			"id": "mato-2026-11-03T19:00-trivia-at-trailbend-taproom",
 			"title": "Trivia at Trailbend Taproom",
 			"startsAt": "2026-11-03T19:00:00.000-08:00",
@@ -1097,6 +1205,27 @@
 			"venueId": "trailbend-taproom",
 			"category": "trivia",
 			"source": "mato"
+		},
+		{
+			"id": "mato-2026-11-03T19:00-tuesday-tacos-n-trivia",
+			"title": "Tuesday Tacos ‘n Trivia",
+			"startsAt": "2026-11-03T19:00:00.000-08:00",
+			"endsAt": "2026-11-03T21:00:00.000-08:00",
+			"url": "https://ma.to/event/tuesday-tacos-n-trivia-2026-11-03",
+			"price": "$5",
+			"venueId": "elliott-bay-lake-city",
+			"category": "trivia",
+			"source": "mato"
+		},
+		{
+			"id": "uw-2026-11-03T19:30-guest-pianist-recital-joanne-polk",
+			"venueId": "jones-playhouse",
+			"title": "Guest Pianist Recital: Joanne Polk",
+			"startsAt": "2026-11-03T19:30:00-08:00",
+			"endsAt": "2026-11-03T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-11-03/guest-pianist-recital-joanne-polk-0",
+			"category": "live-music",
+			"source": "uw-campus"
 		},
 		{
 			"id": "sea-monster-lounge-2026-11-03T19:30-the-350s",
@@ -1145,6 +1274,16 @@
 			"endsAt": "2026-11-03T23:00:00.000-08:00",
 			"url": "https://ma.to/event/sven-jackie-tulsa-2026-11-03",
 			"venueId": "sunset-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-11-03T20:00-the-aces",
+			"title": "The Aces",
+			"startsAt": "2026-11-03T20:00:00.000-08:00",
+			"endsAt": "2026-11-03T23:00:00.000-08:00",
+			"url": "https://ma.to/event/the-aces-the-neptune-03-nov-2026",
+			"venueId": "neptune-theatre",
 			"category": "live-music",
 			"source": "mato"
 		},
@@ -1209,6 +1348,27 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "mockingbird-comedy-1998044201994",
+			"venueId": "elliott-bay-lake-city",
+			"title": "The Happy Hour Comedy Show",
+			"startsAt": "2026-11-04T19:00:00-08:00",
+			"endsAt": "2026-11-04T20:30:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-happy-hour-comedy-show-tickets-1998044201994",
+			"price": "$7.18",
+			"category": "comedy",
+			"source": "mockingbird-comedy"
+		},
+		{
+			"id": "mato-2026-11-04T19:00-donna-miscolta-ofelia-norma",
+			"title": "Donna Miscolta: Ofelia & Norma",
+			"startsAt": "2026-11-04T19:00:00.000-08:00",
+			"endsAt": "2026-11-04T20:30:00.000-08:00",
+			"url": "https://ma.to/event/donna-miscolta-ofelia-norma-04-nov-2026",
+			"venueId": "third-place-ravenna",
+			"category": "comedy",
+			"source": "mato"
+		},
+		{
 			"id": "sea-monster-lounge-2026-11-04T19:30-the-automat",
 			"title": "The Automat",
 			"startsAt": "2026-11-04T19:30:00-08:00",
@@ -1247,6 +1407,26 @@
 			"price": "$17",
 			"venueId": "sunset-tavern",
 			"category": "live-music",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-11-04T20:00-blue-moon-tavern-open-mic",
+			"title": "Blue Moon Tavern Open Mic",
+			"startsAt": "2026-11-04T20:00:00.000-08:00",
+			"endsAt": "2026-11-04T23:00:00.000-08:00",
+			"url": "https://ma.to/event/blue-moon-tavern-open-mic-2026-11-04",
+			"venueId": "blue-moon-tavern",
+			"category": "open-mic",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-11-04T20:00-big-star-quintet-at-the-neptune",
+			"title": "Big Star Quintet at The Neptune",
+			"startsAt": "2026-11-04T20:00:00.000-08:00",
+			"endsAt": "2026-11-04T23:00:00.000-08:00",
+			"url": "https://ma.to/event/big-star-quintet-05-nov-2026",
+			"venueId": "neptune-theatre",
+			"category": "jazz",
 			"source": "mato"
 		},
 		{
@@ -1427,6 +1607,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "lovestruck-2003372096871",
+			"venueId": "lovestruck",
+			"title": "Queerly Ever After Book Club | Kiss Her Once for Me",
+			"startsAt": "2026-11-05T18:30:00-08:00",
+			"endsAt": "2026-11-05T20:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/queerly-ever-after-book-club-kiss-her-once-for-me-tickets-2003372096871",
+			"price": "Free",
+			"category": "comedy",
+			"source": "lovestruck"
+		},
+		{
 			"id": "egans-2026-11-05-1900-brazilian-global-jam-session",
 			"title": "Brazilian/Global Jam Session",
 			"startsAt": "2026-11-05T19:00:00-08:00",
@@ -1477,6 +1668,16 @@
 			"venueId": "pono-ranch"
 		},
 		{
+			"id": "mato-2026-11-05T19:00-jodi-ann-burey-authentic",
+			"title": "Jodi-Ann Burey: Authentic",
+			"startsAt": "2026-11-05T19:00:00.000-08:00",
+			"endsAt": "2026-11-05T20:30:00.000-08:00",
+			"url": "https://ma.to/event/jodi-ann-burey-authentic-2026-11-05",
+			"venueId": "third-place-ravenna",
+			"category": "comedy",
+			"source": "mato"
+		},
+		{
 			"id": "spt-2026-11-06T03:30-neel-neha-and-neel",
 			"title": "नेहा & NEEL (Neha and Neel नेहा और नील)",
 			"startsAt": "2026-11-05T19:30:00-08:00",
@@ -1485,6 +1686,27 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "uw-2026-11-05T19:30-phe-dre",
+			"venueId": "meany-studio-theatre",
+			"title": "Phèdre",
+			"startsAt": "2026-11-05T19:30:00-08:00",
+			"endsAt": "2026-11-05T21:30:00-08:00",
+			"url": "https://drama.washington.edu/events/2026-11-05/phedre",
+			"category": "theater",
+			"source": "uw-campus"
+		},
+		{
+			"id": "lake-city-contra-2026-11-05",
+			"title": "Contra dance",
+			"startsAt": "2026-11-05T19:30:00-08:00",
+			"endsAt": "2026-11-05T22:00:00-08:00",
+			"url": "https://www.seattledance.org/contra/lakecity/",
+			"price": "$10–20",
+			"source": "lake-city-contra",
+			"venueId": "seattle-latvian-center",
+			"category": "dance"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-05T19:30-the-killers-hot-fuss",
@@ -1536,6 +1758,16 @@
 			"source": "wayward",
 			"venueId": "chapel-performance-space",
 			"category": "live-music"
+		},
+		{
+			"id": "mato-2026-11-05T20:00-marc-broussard",
+			"title": "Marc Broussard",
+			"startsAt": "2026-11-05T20:00:00.000-08:00",
+			"endsAt": "2026-11-05T23:00:00.000-08:00",
+			"url": "https://ma.to/event/marc-broussard-neptune-05-nov-2026",
+			"venueId": "neptune-theatre",
+			"category": "live-music",
+			"source": "mato"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-05T21:00-tame-impala-lonerism",
@@ -1732,6 +1964,16 @@
 			"category": "live-music"
 		},
 		{
+			"id": "uw-2026-11-06T19:30-phe-dre",
+			"venueId": "meany-studio-theatre",
+			"title": "Phèdre",
+			"startsAt": "2026-11-06T19:30:00-08:00",
+			"endsAt": "2026-11-06T21:30:00-08:00",
+			"url": "https://drama.washington.edu/events/2026-11-05/phedre",
+			"category": "theater",
+			"source": "uw-campus"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-06T19:30-peter-gabriel-so",
 			"title": "Peter Gabriel - So",
 			"startsAt": "2026-11-06T19:30:00-08:00",
@@ -1875,6 +2117,16 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "uw-botanic-gardens-2026-11-07-botanical-relief-block-printing-in-person",
+			"title": "Botanical Relief Block Printing (in-person)",
+			"startsAt": "2026-11-07T13:00:00-08:00",
+			"endsAt": "2026-11-07T16:00:00-08:00",
+			"url": "https://apps.ideal-logic.com/uwbg?key=2WSB-TGY2T_K9KH-5PTF_1639dcb823cb",
+			"category": "class",
+			"source": "uw-botanic-gardens",
+			"venueId": "center-for-urban-horticulture"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-07T14:00-lauryn-hill-the-miseducation-of-lauryn-hill",
 			"title": "Lauryn Hill - The Miseducation of Lauryn Hill",
 			"startsAt": "2026-11-07T14:00:00-08:00",
@@ -1995,6 +2247,16 @@
 			"venueId": "sea-monster-lounge"
 		},
 		{
+			"id": "mato-2026-11-07T19:00-kevonstage",
+			"title": "Kevonstage",
+			"startsAt": "2026-11-07T19:00:00.000-08:00",
+			"endsAt": "2026-11-07T21:30:00.000-08:00",
+			"url": "https://ma.to/event/kevonstage-07-nov-2026",
+			"venueId": "neptune-theatre",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
 			"id": "book-larder-9448631599322",
 			"title": "Soup Stand: November 2026",
 			"startsAt": "2026-11-07T19:00:00.000Z",
@@ -2014,6 +2276,16 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "uw-2026-11-07T19:30-phe-dre",
+			"venueId": "meany-studio-theatre",
+			"title": "Phèdre",
+			"startsAt": "2026-11-07T19:30:00-08:00",
+			"endsAt": "2026-11-07T21:30:00-08:00",
+			"url": "https://drama.washington.edu/events/2026-11-05/phedre",
+			"category": "theater",
+			"source": "uw-campus"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-07T19:30-sza-sos",
@@ -2179,6 +2451,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "uw-2026-11-08T14:00-phe-dre",
+			"venueId": "meany-studio-theatre",
+			"title": "Phèdre",
+			"startsAt": "2026-11-08T14:00:00-08:00",
+			"endsAt": "2026-11-08T16:00:00-08:00",
+			"url": "https://drama.washington.edu/events/2026-11-05/phedre",
+			"category": "theater",
+			"source": "uw-campus"
+		},
+		{
 			"id": "sea-monster-lounge-2026-11-08T17:00-vitrolinha-a-brazilian-80s-90s-pop-rock-party",
 			"title": "Vitrolinha - a Brazilian 80s/90s Pop/Rock party!",
 			"startsAt": "2026-11-08T17:00:00-08:00",
@@ -2267,6 +2549,16 @@
 			"source": "mato"
 		},
 		{
+			"id": "mato-2026-11-08T20:00-taylor-mac-in-concert",
+			"title": "Taylor Mac In Concert",
+			"startsAt": "2026-11-08T20:00:00.000-08:00",
+			"endsAt": "2026-11-08T23:00:00.000-08:00",
+			"url": "https://ma.to/event/taylor-mac-tender-heart-revolution-08-nov-2026",
+			"venueId": "neptune-theatre",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
 			"id": "substation-1999431374063",
 			"venueId": "substation",
 			"title": "Big Freedia",
@@ -2329,6 +2621,16 @@
 			"price": "$72.81",
 			"category": "class",
 			"source": "classpop"
+		},
+		{
+			"id": "uw-2026-11-09T19:30-guest-artist-concert-seattle-modern-orchestra-90-100-tribute",
+			"venueId": "meany-hall",
+			"title": "Guest Artist Concert: Seattle Modern Orchestra, \"90/100,\" Tribute to Stuart Dempster and William O. Smith",
+			"startsAt": "2026-11-09T19:30:00-08:00",
+			"endsAt": "2026-11-09T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-11-09/guest-orchestra-concert-seattle-modern-orchestra-90100",
+			"category": "live-music",
+			"source": "uw-campus"
 		},
 		{
 			"id": "conor-byrne-196410",
@@ -2451,6 +2753,25 @@
 			"venueId": "tractor-tavern",
 			"category": "live-music",
 			"source": "mato"
+		},
+		{
+			"id": "uw-2026-11-10T19:30-phe-dre",
+			"venueId": "meany-studio-theatre",
+			"title": "Phèdre",
+			"startsAt": "2026-11-10T19:30:00-08:00",
+			"endsAt": "2026-11-10T21:30:00-08:00",
+			"url": "https://drama.washington.edu/events/2026-11-05/phedre",
+			"category": "theater",
+			"source": "uw-campus"
+		},
+		{
+			"id": "meany-2026-11-10T19:30-janice-carissa",
+			"title": "Janice Carissa",
+			"startsAt": "2026-11-10T19:30:00-08:00",
+			"url": "https://meanycenter.org/tickets/2026-11/production/janice-carissa",
+			"category": "live-music",
+			"source": "meany-center",
+			"venueId": "meany-hall"
 		},
 		{
 			"id": "conor-byrne-194638",
@@ -2582,6 +2903,16 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-11-11T18:30-rbc-jazz-nights-quartet-de-garde",
+			"title": "RBC Jazz Nights: Quartet De Garde",
+			"startsAt": "2026-11-11T18:30:00.000-08:00",
+			"endsAt": "2026-11-11T20:30:00.000-08:00",
+			"url": "https://ma.to/event/rbc-jazz-nights-quartet-de-garde-2026-11-11",
+			"venueId": "ravenna-brewing",
+			"category": "jazz",
+			"source": "mato"
 		},
 		{
 			"id": "mockingbird-comedy-2003441365054",
@@ -2822,6 +3153,27 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "uw-2026-11-12T19:30-phe-dre",
+			"venueId": "meany-studio-theatre",
+			"title": "Phèdre",
+			"startsAt": "2026-11-12T19:30:00-08:00",
+			"endsAt": "2026-11-12T21:30:00-08:00",
+			"url": "https://drama.washington.edu/events/2026-11-05/phedre",
+			"category": "theater",
+			"source": "uw-campus"
+		},
+		{
+			"id": "lake-city-contra-2026-11-12",
+			"title": "Contra dance with Ice Cream Truckers",
+			"startsAt": "2026-11-12T19:30:00-08:00",
+			"endsAt": "2026-11-12T22:00:00-08:00",
+			"url": "https://www.seattledance.org/contra/lakecity/",
+			"price": "$10–20",
+			"source": "lake-city-contra",
+			"venueId": "seattle-latvian-center",
+			"category": "dance"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-12T19:30-taylor-swift-evermore-taylor-s-version",
 			"title": "Taylor Swift - Evermore (Taylor's Version)",
 			"startsAt": "2026-11-12T19:30:00-08:00",
@@ -2861,6 +3213,16 @@
 			"price": "$25.87",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "magnuson-park-gallery-1181-2026-11-13",
+			"venueId": "magnuson-park-gallery",
+			"title": "Gathering Opening Reception",
+			"startsAt": "2026-11-13T01:00:00Z",
+			"endsAt": "2026-11-13T04:00:00Z",
+			"url": "https://www.magnusonparkgallery.org/event/gathering-opening-reception/",
+			"category": "art",
+			"source": "magnuson-park-gallery"
 		},
 		{
 			"id": "book-larder-15266304032986",
@@ -3005,6 +3367,25 @@
 			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240074477",
 			"category": "comedy",
 			"source": "dinodad-comedy"
+		},
+		{
+			"id": "uw-2026-11-13T19:30-phe-dre",
+			"venueId": "meany-studio-theatre",
+			"title": "Phèdre",
+			"startsAt": "2026-11-13T19:30:00-08:00",
+			"endsAt": "2026-11-13T21:30:00-08:00",
+			"url": "https://drama.washington.edu/events/2026-11-05/phedre",
+			"category": "theater",
+			"source": "uw-campus"
+		},
+		{
+			"id": "meany-2026-11-13T19:30-orpheus-chamber-orchestra-with-isata-kanneh-mason",
+			"title": "Orpheus Chamber Orchestra with Isata Kanneh-Mason",
+			"startsAt": "2026-11-13T19:30:00-08:00",
+			"url": "https://meanycenter.org/tickets/2026-11/production/orpheus-chamber-orchestra-isata-kanneh-mason",
+			"category": "live-music",
+			"source": "meany-center",
+			"venueId": "meany-hall"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-13T19:30-tyler-the-creator-igor",
@@ -3202,6 +3583,16 @@
 			"venueId": "woodland-theater"
 		},
 		{
+			"id": "uw-2026-11-14T19:30-phe-dre",
+			"venueId": "meany-studio-theatre",
+			"title": "Phèdre",
+			"startsAt": "2026-11-14T19:30:00-08:00",
+			"endsAt": "2026-11-14T21:30:00-08:00",
+			"url": "https://drama.washington.edu/events/2026-11-05/phedre",
+			"category": "theater",
+			"source": "uw-campus"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-14T19:30-sade-love-deluxe",
 			"title": "Sade - Love Deluxe",
 			"startsAt": "2026-11-14T19:30:00-08:00",
@@ -3325,6 +3716,16 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "uw-2026-11-15T14:00-phe-dre",
+			"venueId": "meany-studio-theatre",
+			"title": "Phèdre",
+			"startsAt": "2026-11-15T14:00:00-08:00",
+			"endsAt": "2026-11-15T16:00:00-08:00",
+			"url": "https://drama.washington.edu/events/2026-11-05/phedre",
+			"category": "theater",
+			"source": "uw-campus"
 		},
 		{
 			"id": "artemis-coffee-2026-11-15T23:00-photo-video-film-meetup-ballard-film-club",
@@ -3719,6 +4120,17 @@
 			"source": "substation"
 		},
 		{
+			"id": "mockingbird-comedy-1998044205003",
+			"venueId": "elliott-bay-lake-city",
+			"title": "The Happy Hour Comedy Show",
+			"startsAt": "2026-11-18T19:00:00-08:00",
+			"endsAt": "2026-11-18T20:30:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-happy-hour-comedy-show-tickets-1998044205003",
+			"price": "$7.18",
+			"category": "comedy",
+			"source": "mockingbird-comedy"
+		},
+		{
 			"id": "west-of-lenin-2026-11-18-1930-good-people",
 			"title": "Good People",
 			"startsAt": "2026-11-18T19:30:00-08:00",
@@ -3726,6 +4138,16 @@
 			"source": "west-of-lenin",
 			"venueId": "west-of-lenin",
 			"category": "theater"
+		},
+		{
+			"id": "uw-2026-11-18T19:30-jazz-innovations-part-i",
+			"venueId": "jones-playhouse",
+			"title": "Jazz Innovations, Part I",
+			"startsAt": "2026-11-18T19:30:00-08:00",
+			"endsAt": "2026-11-18T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-11-18/jazz-innovations-i",
+			"category": "jazz",
+			"source": "uw-campus"
 		},
 		{
 			"id": "conor-byrne-194067",
@@ -3896,6 +4318,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "lovestruck-2003925829099",
+			"venueId": "lovestruck",
+			"title": "Lovestruck & Spellbound Book Club | The Everlasting",
+			"startsAt": "2026-11-19T18:30:00-08:00",
+			"endsAt": "2026-11-19T20:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/lovestruck-spellbound-book-club-the-everlasting-tickets-2003925829099",
+			"price": "Sold out",
+			"category": "comedy",
+			"source": "lovestruck"
+		},
+		{
 			"id": "egans-2026-11-19-1900-jo-s-jazz-vocal-jam-hosted-by-joanne-klein",
 			"title": "Jo's Jazz Vocal Jam hosted by Joanne Klein",
 			"startsAt": "2026-11-19T19:00:00-08:00",
@@ -3945,6 +4378,27 @@
 			"category": "theater"
 		},
 		{
+			"id": "uw-2026-11-19T19:30-jazz-innovations-part-ii",
+			"venueId": "jones-playhouse",
+			"title": "Jazz Innovations, Part II",
+			"startsAt": "2026-11-19T19:30:00-08:00",
+			"endsAt": "2026-11-19T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-11-19/jazz-innovations-ii",
+			"category": "jazz",
+			"source": "uw-campus"
+		},
+		{
+			"id": "lake-city-contra-2026-11-19",
+			"title": "Contra dance with Pajamajam",
+			"startsAt": "2026-11-19T19:30:00-08:00",
+			"endsAt": "2026-11-19T22:00:00-08:00",
+			"url": "https://www.seattledance.org/contra/lakecity/",
+			"price": "$10–20",
+			"source": "lake-city-contra",
+			"venueId": "seattle-latvian-center",
+			"category": "dance"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-19T19:30-the-weeknd-dawn-fm",
 			"title": "The Weeknd - Dawn FM",
 			"startsAt": "2026-11-19T19:30:00-08:00",
@@ -3973,6 +4427,15 @@
 			"source": "wayward",
 			"venueId": "chapel-performance-space",
 			"category": "live-music"
+		},
+		{
+			"id": "meany-2026-11-19T20:00-hung-dance",
+			"title": "Hung Dance",
+			"startsAt": "2026-11-19T20:00:00-08:00",
+			"url": "https://meanycenter.org/tickets/2026-11/production/hung-dance",
+			"category": "dance",
+			"source": "meany-center",
+			"venueId": "meany-hall"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-19T21:00-tame-impala-currents",
@@ -4155,6 +4618,15 @@
 			"source": "wayward",
 			"venueId": "chapel-performance-space",
 			"category": "live-music"
+		},
+		{
+			"id": "meany-2026-11-20T20:00-hung-dance",
+			"title": "Hung Dance",
+			"startsAt": "2026-11-20T20:00:00-08:00",
+			"url": "https://meanycenter.org/tickets/2026-11/production/hung-dance",
+			"category": "dance",
+			"source": "meany-center",
+			"venueId": "meany-hall"
 		},
 		{
 			"id": "mockingbird-comedy-2004029309612",
@@ -4372,6 +4844,15 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "meany-2026-11-21T20:00-hung-dance",
+			"title": "Hung Dance",
+			"startsAt": "2026-11-21T20:00:00-08:00",
+			"url": "https://meanycenter.org/tickets/2026-11/production/hung-dance",
+			"category": "dance",
+			"source": "meany-center",
+			"venueId": "meany-hall"
+		},
+		{
 			"id": "mr-bs-meadery-2026-11-22T04:00-live-music-by-mute-bard-and-scott-adams",
 			"title": "Live Music by Mute Bard and Scott Adams",
 			"startsAt": "2026-11-21T20:00:00-08:00",
@@ -4524,6 +5005,16 @@
 			"source": "west-of-lenin",
 			"venueId": "west-of-lenin",
 			"category": "theater"
+		},
+		{
+			"id": "uw-2026-11-22T15:00-baroque-ensemble",
+			"venueId": "jones-playhouse",
+			"title": "Baroque Ensemble",
+			"startsAt": "2026-11-22T15:00:00-08:00",
+			"endsAt": "2026-11-22T15:00:00-08:00",
+			"url": "https://music.washington.edu/events/2026-11-22/baroque-ensemble",
+			"category": "live-music",
+			"source": "uw-campus"
 		},
 		{
 			"id": "conor-byrne-200614",
@@ -4714,6 +5205,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "lovestruck-2003896862459",
+			"venueId": "lovestruck",
+			"title": "Blush & Lust Book Club | Bad Words",
+			"startsAt": "2026-11-24T18:30:00-08:00",
+			"endsAt": "2026-11-24T20:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/blush-lust-book-club-bad-words-tickets-2003896862459",
+			"price": "Sold out",
+			"category": "comedy",
+			"source": "lovestruck"
+		},
+		{
 			"id": "conor-byrne-194645",
 			"title": "Country Dance Night with Dave Harmonson",
 			"startsAt": "2026-11-24T20:00:00-08:00",
@@ -4822,6 +5324,17 @@
 			"url": "https://mrbsmeadery.com/events/open-mic-with-mr-b-july26-n5ysn-6crm5-8zf4w-w8fy6-w3b2n",
 			"source": "mr-bs-meadery",
 			"venueId": "mr-bs-meadery"
+		},
+		{
+			"id": "lake-city-contra-2026-11-25",
+			"title": "Contra dance",
+			"startsAt": "2026-11-25T19:30:00-08:00",
+			"endsAt": "2026-11-25T22:00:00-08:00",
+			"url": "https://www.seattledance.org/contra/lakecity/",
+			"price": "$10–20",
+			"source": "lake-city-contra",
+			"venueId": "seattle-latvian-center",
+			"category": "dance"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-25T19:30-pink-floyd-dark-side-of-the-moon",
@@ -5432,6 +5945,16 @@
 			"venueId": "the-pantry"
 		},
 		{
+			"id": "uw-2026-12-01T19:30-percussion-ensemble",
+			"venueId": "meany-hall",
+			"title": "Percussion Ensemble",
+			"startsAt": "2026-12-01T19:30:00-08:00",
+			"endsAt": "2026-12-01T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-01/percussion-ensemble",
+			"category": "live-music",
+			"source": "uw-campus"
+		},
+		{
 			"id": "conor-byrne-194620",
 			"title": "Country Dance Night with The Strix",
 			"startsAt": "2026-12-01T20:00:00-08:00",
@@ -5520,6 +6043,16 @@
 			"category": "class",
 			"source": "pantry",
 			"venueId": "the-pantry"
+		},
+		{
+			"id": "uw-2026-12-02T19:30-studio-jazz-ensemble-modern-band",
+			"venueId": "meany-hall",
+			"title": "Studio Jazz Ensemble, Modern Band",
+			"startsAt": "2026-12-02T19:30:00-08:00",
+			"endsAt": "2026-12-02T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-02/studio-jazz-ensemble-and-modern-band",
+			"category": "jazz",
+			"source": "uw-campus"
 		},
 		{
 			"id": "conor-byrne-154016",
@@ -5688,6 +6221,37 @@
 			"category": "theater"
 		},
 		{
+			"id": "uw-2026-12-03T19:30-brechemin-piano-series",
+			"venueId": "jones-playhouse",
+			"title": "Brechemin Piano Series",
+			"startsAt": "2026-12-03T19:30:00-08:00",
+			"endsAt": "2026-12-03T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-03/brechemin-piano-series",
+			"category": "live-music",
+			"source": "uw-campus"
+		},
+		{
+			"id": "uw-2026-12-03T19:30-campus-and-concert-bands",
+			"venueId": "meany-hall",
+			"title": "Campus and Concert Bands",
+			"startsAt": "2026-12-03T19:30:00-08:00",
+			"endsAt": "2026-12-03T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-03/campus-and-concert-bands-song-and-dance",
+			"category": "live-music",
+			"source": "uw-campus"
+		},
+		{
+			"id": "lake-city-contra-2026-12-03",
+			"title": "Contra dance with Beregovski’s All-Stars",
+			"startsAt": "2026-12-03T19:30:00-08:00",
+			"endsAt": "2026-12-03T22:00:00-08:00",
+			"url": "https://www.seattledance.org/contra/lakecity/",
+			"price": "$10–20",
+			"source": "lake-city-contra",
+			"venueId": "seattle-latvian-center",
+			"category": "dance"
+		},
+		{
 			"id": "substation-2002459212409",
 			"venueId": "substation",
 			"title": "1788-L",
@@ -5790,6 +6354,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "uw-2026-12-04T19:30-chamber-singers-and-university-chorale",
+			"venueId": "meany-hall",
+			"title": "Chamber Singers and University Chorale",
+			"startsAt": "2026-12-04T19:30:00-08:00",
+			"endsAt": "2026-12-04T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-04/chamber-singers-and-university-chorale",
+			"category": "live-music",
+			"source": "uw-campus"
+		},
+		{
 			"id": "substation-2003534267929",
 			"venueId": "substation",
 			"title": "AFTERLIFE AFTERPARTY: FROST CHILDREN (DJ)",
@@ -5855,6 +6429,16 @@
 			"venueId": "nordic-museum"
 		},
 		{
+			"id": "uw-botanic-gardens-2026-12-05-botanical-print-making-holiday-card-workshop",
+			"title": "Botanical Print-Making Holiday Card Workshop",
+			"startsAt": "2026-12-05T13:00:00-08:00",
+			"endsAt": "2026-12-05T15:00:00-08:00",
+			"url": "https://apps.ideal-logic.com/uwbg?key=2WSB-TGY2T_K9KH-5PTF_147b43b04766",
+			"category": "class",
+			"source": "uw-botanic-gardens",
+			"venueId": "center-for-urban-horticulture"
+		},
+		{
 			"id": "conor-byrne-194603",
 			"title": "Samantha Henson's Holiday Matinee with Your Jack + Jessie Thoreson + Anthony Jaeger",
 			"startsAt": "2026-12-05T16:30:00-08:00",
@@ -5903,6 +6487,16 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "uw-2026-12-05T19:30-modern-music-ensemble",
+			"venueId": "jones-playhouse",
+			"title": "Modern Music Ensemble",
+			"startsAt": "2026-12-05T19:30:00-08:00",
+			"endsAt": "2026-12-05T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-05/modern-music-ensemble",
+			"category": "live-music",
+			"source": "uw-campus"
 		},
 		{
 			"id": "conor-byrne-176024",
@@ -6068,6 +6662,16 @@
 			"source": "mato"
 		},
 		{
+			"id": "magnuson-park-gallery-1098-2026-12-06",
+			"venueId": "magnuson-park-gallery",
+			"title": "Building 30 West Open Art Studios",
+			"startsAt": "2026-12-06T20:00:00Z",
+			"endsAt": "2026-12-07T00:00:00Z",
+			"url": "https://www.magnusonparkgallery.org/event/building-30-west-open-art-studios-2/",
+			"category": "art",
+			"source": "magnuson-park-gallery"
+		},
+		{
 			"id": "woodland-park-zoo-22377-2026-12-06",
 			"venueId": "woodland-park-zoo",
 			"title": "A Brush With Nature: Emma Giles",
@@ -6192,6 +6796,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "uw-2026-12-07T19:30-uw-gospel-choir",
+			"venueId": "meany-hall",
+			"title": "UW Gospel Choir",
+			"startsAt": "2026-12-07T19:30:00-08:00",
+			"endsAt": "2026-12-07T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-07/uw-gospel-choir",
+			"category": "live-music",
+			"source": "uw-campus"
+		},
+		{
 			"id": "conor-byrne-193913",
 			"title": "Si Tu Savais (Django Jazz)",
 			"startsAt": "2026-12-07T20:00:00-08:00",
@@ -6242,6 +6856,16 @@
 			"endsAt": "2026-12-08T06:00:00Z",
 			"url": "https://sunsethillcommunity.org/event/waltz-etc/2026-12-07/",
 			"source": "sunset-hill-hall"
+		},
+		{
+			"id": "uw-2026-12-08T19:30-ethnomusicology-visiting-artist-concert-srivani-jade-hindust",
+			"venueId": "jones-playhouse",
+			"title": "Ethnomusicology Visiting Artist Concert: Srivani Jade, \"Hindustani Classical Music",
+			"startsAt": "2026-12-08T19:30:00-08:00",
+			"endsAt": "2026-12-08T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-08/ethnomusicology-visiting-artist-concert-srivani-jade-hindustani-classical-music",
+			"category": "live-music",
+			"source": "uw-campus"
 		},
 		{
 			"id": "conor-byrne-194639",
@@ -6325,6 +6949,16 @@
 			"source": "sunset-hill-hall"
 		},
 		{
+			"id": "mato-2026-12-09T18:30-rbc-jazz-nights-quartet-de-garde",
+			"title": "RBC Jazz Nights: Quartet De Garde",
+			"startsAt": "2026-12-09T18:30:00.000-08:00",
+			"endsAt": "2026-12-09T20:30:00.000-08:00",
+			"url": "https://ma.to/event/rbc-jazz-nights-quartet-de-garde-2026-12-09",
+			"venueId": "ravenna-brewing",
+			"category": "jazz",
+			"source": "mato"
+		},
+		{
 			"id": "substation-1999790296610",
 			"venueId": "substation",
 			"title": "Alison's Halo",
@@ -6334,6 +6968,26 @@
 			"price": "$28.29",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "uw-2026-12-09T19:30-chamber-music-showcase",
+			"venueId": "jones-playhouse",
+			"title": "Chamber Music Showcase",
+			"startsAt": "2026-12-09T19:30:00-08:00",
+			"endsAt": "2026-12-09T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-09/chamber-music-showcase",
+			"category": "live-music",
+			"source": "uw-campus"
+		},
+		{
+			"id": "uw-2026-12-09T19:30-uw-sings",
+			"venueId": "meany-hall",
+			"title": "UW Sings",
+			"startsAt": "2026-12-09T19:30:00-08:00",
+			"endsAt": "2026-12-09T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2027-05-27/uw-sings",
+			"category": "live-music",
+			"source": "uw-campus"
 		},
 		{
 			"id": "conor-byrne-199712",
@@ -6425,6 +7079,27 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "uw-2026-12-10T19:30-wind-ensemble-and-symphonic-band-rhythms-and-rhymes",
+			"venueId": "meany-hall",
+			"title": "Wind Ensemble and Symphonic Band: \"Rhythms and Rhymes\"",
+			"startsAt": "2026-12-10T19:30:00-08:00",
+			"endsAt": "2026-12-10T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-10/wind-ensemble-and-symphonic-band-rhythms-and-rhymes",
+			"category": "live-music",
+			"source": "uw-campus"
+		},
+		{
+			"id": "lake-city-contra-2026-12-10",
+			"title": "Contra dance with Engine Room",
+			"startsAt": "2026-12-10T19:30:00-08:00",
+			"endsAt": "2026-12-10T22:00:00-08:00",
+			"url": "https://www.seattledance.org/contra/lakecity/",
+			"price": "$10–20",
+			"source": "lake-city-contra",
+			"venueId": "seattle-latvian-center",
+			"category": "dance"
 		},
 		{
 			"id": "substation-2003375395738",
@@ -6556,6 +7231,26 @@
 			"category": "theater"
 		},
 		{
+			"id": "uw-2026-12-11T19:30-uw-symphony-rhine-journeys",
+			"venueId": "meany-hall",
+			"title": "UW Symphony: \"Rhine Journeys\"",
+			"startsAt": "2026-12-11T19:30:00-08:00",
+			"endsAt": "2026-12-11T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-11/uw-symphony-rhine-journey",
+			"category": "live-music",
+			"source": "uw-campus"
+		},
+		{
+			"id": "mato-2026-12-11T20:00-blu-egyptian-northern-exposure",
+			"title": "Blu Egyptian: Northern Exposure",
+			"startsAt": "2026-12-11T20:00:00.000-08:00",
+			"endsAt": "2026-12-11T23:00:00.000-08:00",
+			"url": "https://ma.to/event/blu-egyptian-northern-exposure-2026-12-11",
+			"venueId": "blue-moon-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
 			"id": "egans-2026-12-11-2100-guitarist-danny-godinez-website-details-to-follow",
 			"title": "Guitarist Danny Godinez [ Website ] (details to follow)",
 			"startsAt": "2026-12-11T21:00:00-08:00",
@@ -6629,6 +7324,26 @@
 			"category": "live-music"
 		},
 		{
+			"id": "uw-botanic-gardens-2026-12-12-pressed-flower-keepsakes-in-person",
+			"title": "Pressed Flower Keepsakes (in-person)",
+			"startsAt": "2026-12-12T10:00:00-08:00",
+			"endsAt": "2026-12-12T12:00:00-08:00",
+			"url": "https://apps.ideal-logic.com/uwbg?key=2WSB-TGY2T_K9KH-5PTF_6045a8d92b57",
+			"category": "class",
+			"source": "uw-botanic-gardens",
+			"venueId": "center-for-urban-horticulture"
+		},
+		{
+			"id": "uw-botanic-gardens-2026-12-12-closed-glass-terrarium-workshop",
+			"title": "Closed Glass Terrarium Workshop",
+			"startsAt": "2026-12-12T13:00:00-08:00",
+			"endsAt": "2026-12-12T14:00:00-08:00",
+			"url": "https://apps.ideal-logic.com/uwbg?key=2WSB-TGY2T_K9KH-5PTF_771a70ce1321",
+			"category": "class",
+			"source": "uw-botanic-gardens",
+			"venueId": "center-for-urban-horticulture"
+		},
+		{
 			"id": "spt-2026-12-12T22:00-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-12T14:00:00-08:00",
@@ -6676,6 +7391,16 @@
 			"category": "jazz",
 			"source": "egans",
 			"venueId": "egans-ballard-jam-house"
+		},
+		{
+			"id": "uw-2026-12-12T19:30-composition-studio",
+			"venueId": "jones-playhouse",
+			"title": "Composition Studio",
+			"startsAt": "2026-12-12T19:30:00-08:00",
+			"endsAt": "2026-12-12T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-12/composition-studio-concert",
+			"category": "live-music",
+			"source": "uw-campus"
 		},
 		{
 			"id": "visitballard-44658-2026-12-12",
@@ -6974,6 +7699,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "uw-2026-12-16T19:30-faculty-concert-craig-sheppard-and-rachel-lee-priday-beethov",
+			"venueId": "meany-hall",
+			"title": "Faculty Concert: Craig Sheppard and Rachel Lee Priday, Beethoven Sonatas, Part 1",
+			"startsAt": "2026-12-16T19:30:00-08:00",
+			"endsAt": "2026-12-16T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2026-12-16/faculty-recital-craig-sheppard-and-rachel-lee-priday-beethoven-sonatas-part-i",
+			"category": "live-music",
+			"source": "uw-campus"
+		},
+		{
 			"id": "conor-byrne-198592",
 			"title": "Loose Wing + Pilot Seat + The Hugs + David Coppin Lanegan",
 			"startsAt": "2026-12-16T20:00:00-08:00",
@@ -7086,6 +7821,17 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "lake-city-contra-2026-12-17",
+			"title": "Contra dance",
+			"startsAt": "2026-12-17T19:30:00-08:00",
+			"endsAt": "2026-12-17T22:00:00-08:00",
+			"url": "https://www.seattledance.org/contra/lakecity/",
+			"price": "$10–20",
+			"source": "lake-city-contra",
+			"venueId": "seattle-latvian-center",
+			"category": "dance"
 		},
 		{
 			"id": "substation-1988857617673",
@@ -7407,6 +8153,16 @@
 			"category": "live-music"
 		},
 		{
+			"id": "uw-botanic-gardens-2026-12-20-botanical-fiber-art-workshop-winter-botanical-embroidery-bas",
+			"title": "Botanical Fiber Art Workshop: Winter Botanical Embroidery Basics (in-person)",
+			"startsAt": "2026-12-20T13:00:00-08:00",
+			"endsAt": "2026-12-20T15:00:00-08:00",
+			"url": "https://apps.ideal-logic.com/uwbg?key=2WSB-TGY2T_K9KH-5PTF_043d8abb59a7",
+			"category": "class",
+			"source": "uw-botanic-gardens",
+			"venueId": "center-for-urban-horticulture"
+		},
+		{
 			"id": "spt-2026-12-20T23:00-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-20T15:00:00-08:00",
@@ -7648,6 +8404,17 @@
 			"url": "https://mrbsmeadery.com/events/open-mic-with-mr-b-july26-n5ysn-6crm5-8zf4w-w8fy6-w3b2n-tx7zj-4remp",
 			"source": "mr-bs-meadery",
 			"venueId": "mr-bs-meadery"
+		},
+		{
+			"id": "lake-city-contra-2026-12-23",
+			"title": "Contra dance",
+			"startsAt": "2026-12-23T19:30:00-08:00",
+			"endsAt": "2026-12-23T22:00:00-08:00",
+			"url": "https://www.seattledance.org/contra/lakecity/",
+			"price": "$10–20",
+			"source": "lake-city-contra",
+			"venueId": "seattle-latvian-center",
+			"category": "dance"
 		},
 		{
 			"id": "woodland-park-zoo-10001853-2026-12-24",
@@ -8153,6 +8920,17 @@
 			"venueId": "mr-bs-meadery"
 		},
 		{
+			"id": "lake-city-contra-2027-01-07",
+			"title": "Contra dance with Raccoon Carnival",
+			"startsAt": "2027-01-07T19:30:00-08:00",
+			"endsAt": "2027-01-07T22:00:00-08:00",
+			"url": "https://www.seattledance.org/contra/lakecity/",
+			"price": "$10–20",
+			"source": "lake-city-contra",
+			"venueId": "seattle-latvian-center",
+			"category": "dance"
+		},
+		{
 			"id": "woodland-park-zoo-10001868-2027-01-08",
 			"venueId": "woodland-park-zoo",
 			"title": "WildLanterns presented by Kaiser Permanente",
@@ -8311,6 +9089,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "mato-2027-01-13T18:30-rbc-jazz-nights-quartet-de-garde",
+			"title": "RBC Jazz Nights: Quartet De Garde",
+			"startsAt": "2027-01-13T18:30:00.000-08:00",
+			"endsAt": "2027-01-13T20:30:00.000-08:00",
+			"url": "https://ma.to/event/rbc-jazz-nights-quartet-de-garde-2027-01-13",
+			"venueId": "ravenna-brewing",
+			"category": "jazz",
+			"source": "mato"
+		},
+		{
 			"id": "visitballard-10005199-2027-01-14",
 			"venueId": "reubens-brews",
 			"title": "Trivia with Head in the Clouds",
@@ -8351,6 +9139,17 @@
 			"url": "https://ma.to/event/beer-and-curry-stoup-14-jan-2027",
 			"venueId": "stoup-ballard",
 			"source": "mato"
+		},
+		{
+			"id": "lake-city-contra-2027-01-14",
+			"title": "Contra dance with Odd Sock",
+			"startsAt": "2027-01-14T19:30:00-08:00",
+			"endsAt": "2027-01-14T22:00:00-08:00",
+			"url": "https://www.seattledance.org/contra/lakecity/",
+			"price": "$10–20",
+			"source": "lake-city-contra",
+			"venueId": "seattle-latvian-center",
+			"category": "dance"
 		},
 		{
 			"id": "woodland-park-zoo-10001875-2027-01-15",
@@ -8553,6 +9352,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "lake-city-contra-2027-01-21",
+			"title": "Contra dance with Old Reliables",
+			"startsAt": "2027-01-21T19:30:00-08:00",
+			"endsAt": "2027-01-21T22:00:00-08:00",
+			"url": "https://www.seattledance.org/contra/lakecity/",
+			"price": "$10–20",
+			"source": "lake-city-contra",
+			"venueId": "seattle-latvian-center",
+			"category": "dance"
+		},
+		{
 			"id": "substation-2003678179372",
 			"venueId": "substation",
 			"title": "Dillinja",
@@ -8593,6 +9403,16 @@
 			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240084507",
 			"category": "comedy",
 			"source": "dinodad-comedy"
+		},
+		{
+			"id": "uw-2027-01-22T19:30-faculty-concert-john-popham-cello",
+			"venueId": "meany-hall",
+			"title": "Faculty Concert: John Popham, cello",
+			"startsAt": "2027-01-22T19:30:00-08:00",
+			"endsAt": "2027-01-22T19:30:00-08:00",
+			"url": "https://music.washington.edu/events/2027-01-22/faculty-recital-john-popham-cello",
+			"category": "live-music",
+			"source": "uw-campus"
 		},
 		{
 			"id": "hidden-hall-2027-01-23-satsang-full-band-with-guest",

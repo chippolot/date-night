@@ -5,10 +5,12 @@ import { guessCategory } from "../scripts/scrape/source";
 import {
 	cleanAbbeyTitle,
 	matoEventSlugs,
+	parseContra,
 	parseEgans,
 	parseEventbrite,
 	parseEvey,
 	parseMatoEvents,
+	parseMeany,
 	parseNordic,
 	parseOctopus,
 	parsePantry,
@@ -17,6 +19,8 @@ import {
 	parseShibuyaEvent,
 	parseSquarespaceEvents,
 	parseTaprootShow,
+	parseUwCampus,
+	parseWatershed,
 	parseWayward,
 	parseWestOfLenin,
 	parseWoodland,
@@ -920,5 +924,168 @@ describe("book larder", () => {
 				"2026-10-29",
 			),
 		).toHaveLength(1);
+	});
+});
+
+describe("uw campus", () => {
+	test("keeps Meany Hall and Jones Playhouse; Drama's Meany shows go to the Studio Theatre", () => {
+		const vevent = (
+			summary: string,
+			start: string,
+			location: string,
+			url: string,
+		) =>
+			`BEGIN:VEVENT\r\nSUMMARY:${summary}\r\nDTSTART;TZID=America/Los_Angeles:${start}\r\nLOCATION:${location}\r\nURL:${url}\r\nEND:VEVENT`;
+		const ics = [
+			"BEGIN:VCALENDAR",
+			vevent(
+				"UW Symphony",
+				"20261030T193000",
+				"Meany Hall (MNY)",
+				"https://music.washington.edu/events/a",
+			),
+			vevent(
+				"Phèdre",
+				"20261105T193000",
+				"Meany Hall (MNY)",
+				"https://drama.washington.edu/events/b",
+			),
+			vevent(
+				"Jazz Innovations\\, Part I",
+				"20261118T193000",
+				"Floyd and Delores Jones Playhouse (PHT)",
+				"https://music.washington.edu/events/c",
+			),
+			vevent(
+				"Guest Pianist Master Class",
+				"20261104T163000",
+				"Floyd and Delores Jones Playhouse (PHT)",
+				"https://music.washington.edu/events/d",
+			),
+			vevent(
+				"Space Diplomacy Symposium",
+				"20261106T080000",
+				"Kane Hall (KNE)",
+				"https://x/e",
+			),
+			"END:VCALENDAR",
+		].join("\r\n");
+		expect(
+			parseUwCampus(ics).map((e) => [
+				e.title,
+				e.venueId,
+				e.category,
+				e.startsAt,
+			]),
+		).toEqual([
+			["UW Symphony", "meany-hall", "live-music", "2026-10-30T19:30:00-07:00"],
+			[
+				"Phèdre",
+				"meany-studio-theatre",
+				"theater",
+				"2026-11-05T19:30:00-08:00",
+			],
+			[
+				"Jazz Innovations, Part I",
+				"jones-playhouse",
+				"jazz",
+				"2026-11-18T19:30:00-08:00",
+			],
+		]);
+	});
+});
+
+describe("meany center", () => {
+	test("reads each performance from the month calendar's captions", () => {
+		const night = (
+			iso: string,
+			path: string,
+			title: string,
+		) => `<table class="views-table cols-0">
+      <caption><span class="date-display-single " property="dc:date" datatype="xsd:dateTime" content="${iso}">Nov 19, 2026  8:00 pm</span></caption>
+      <tbody>
+      <tr>
+              <td>
+          <a href="${path}">${title}</a>        </td>
+          </tr>
+    </tbody>
+</table>`;
+		const html =
+			night(
+				"2026-11-19T20:00:00-08:00",
+				"/tickets/2026-11/production/hung-dance",
+				"Hung Dance",
+			) +
+			night(
+				"2026-11-13T19:30:00-08:00",
+				"/tickets/2026-11/production/orpheus",
+				"Orpheus Chamber Orchestra &amp; Friends",
+			);
+		expect(parseMeany(html).map((e) => [e.title, e.startsAt, e.url])).toEqual([
+			[
+				"Hung Dance",
+				"2026-11-19T20:00:00-08:00",
+				"https://meanycenter.org/tickets/2026-11/production/hung-dance",
+			],
+			[
+				"Orpheus Chamber Orchestra & Friends",
+				"2026-11-13T19:30:00-08:00",
+				"https://meanycenter.org/tickets/2026-11/production/orpheus",
+			],
+		]);
+	});
+});
+
+describe("watershed pub", () => {
+	test("keeps dated events with a time; skips weekly nights, closures and ranges", () => {
+		const section = (title: string, when: string) =>
+			`<div class="section-col"><h2>${title}</h2><div class="blurb-date">${when}</div><div class="blurb"><p>x</p></div></div>`;
+		const html = [
+			section("Stump Trivia - Every Tuesday @ 7pm &amp; 8pm", ""),
+			section("Fresh Hop Frenzy", "Sep 1, 2026 - Oct 31, 2026"),
+			section("Bricks &amp; Brews", "Nov 2, 2026 @ 5:00 PM - 8:00 PM"),
+			section("Closed for Thanksgiving", "Nov 26, 2026"),
+			section("Pint Night", "Dec 3, 2026 @ 6:00 PM"),
+		].join("");
+		expect(
+			parseWatershed(html).map((e) => [e.title, e.startsAt, e.endsAt]),
+		).toEqual([
+			[
+				"Bricks & Brews",
+				"2026-11-02T17:00:00-08:00",
+				"2026-11-02T20:00:00-08:00",
+			],
+			["Pint Night", "2026-12-03T18:00:00-08:00", undefined],
+		]);
+	});
+});
+
+describe("lake city contra", () => {
+	test("one dance per schedule line, named for a quoted band; skips past and 'no dance' nights", () => {
+		const html = `<p>Thursday nights; dancing 7:30 till 10:00 pm</p>
+<p><strong>Schedule of UPCOMING musicians and callers</strong>:</p>
+<p>Oct 29- &#8220;Raven &amp; Goose&#8221; (fiddle &amp; piano); Morna Leonard caller</p>
+<p>Nov 5- Claude Ginsburg, Dave Bartley, &amp; Anita Anderson; Greg Frock caller</p>
+<p>WED Nov 25 &#8211; THANKSGIVING EVE contra &#8211; Irish open band; Elisabeth Monica caller</p>
+<p>Dec 31- NO dance tonight &#8211; Happy New Year!</p>
+<p>Jan 7, 2027- &#8220;Raccoon Carnival&#8221; (big band); Shell Stowell caller</p>`;
+		expect(
+			parseContra(html, "2026-10-30").map((e) => [e.title, e.startsAt]),
+		).toEqual([
+			["Contra dance", "2026-11-05T19:30:00-08:00"],
+			["Contra dance", "2026-11-25T19:30:00-08:00"],
+			["Contra dance with Raccoon Carnival", "2027-01-07T19:30:00-08:00"],
+		]);
+	});
+});
+
+describe("mato street address", () => {
+	test("a location pattern can match the venue's street address", () => {
+		const html = `<script type="application/ld+json">[{"@type":"Event","name":"Tuesday Tacos 'n Trivia","startDate":"2026-11-03T19:00:00.000-08:00","location":{"@type":"Place","name":"Elliott Bay Brewhouse & Pub","address":{"@type":"PostalAddress","streetAddress":"12537 Lake City Way NE, Seattle, WA"}}},{"@type":"Event","name":"Burien Trivia","startDate":"2026-11-03T19:00:00.000-08:00","location":{"@type":"Place","name":"Elliott Bay Brewhouse & Pub","address":{"@type":"PostalAddress","streetAddress":"255 SW 152nd St, Burien, WA"}}}]</script>`;
+		expect(
+			parseMatoEvents(html, "https://ma.to/venue/x", /Lake City Way/).map(
+				(e) => e.title,
+			),
+		).toEqual(["Tuesday Tacos 'n Trivia"]);
 	});
 });

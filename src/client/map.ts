@@ -30,7 +30,7 @@ const COLORS: Record<Category, string> = {
 
 async function main() {
 	const data = await loadSiteData();
-	const map = L.map("map").setView([47.668, -122.36], 13);
+	const map = L.map("map").setView([47.675, -122.33], 13);
 	// CARTO basemaps: Voyager, or Dark Matter in dark mode (Voyager has no dark variant).
 	const tiles = L.tileLayer("", {
 		maxZoom: 20,

@@ -47,6 +47,16 @@ import type { Night } from "../src/lib/types";
 //     which Thursday varies and only one 2025 flyer gave a time (7pm–late); no venue site
 //   Taproot Theatre: full show runs (Wed–Sat 7:30pm per past seasons) need the days confirmed in OvationTix;
 //     add them with recurrence `from`/`until` once confirmed. Named performances are scraped.
+//   Watershed Pub (NE): "Music Mondays" music-video nights 8pm (a weak date-night fit)
+//   Big Time Brewery (U District): Wednesday trivia, first-Monday Halo night (no times on its site)
+//   Blue Moon Tavern: Monday Dead tribute, Tuesday DJs, Wednesday open mic (no times; some arrive via Mato)
+//   Growler Guys Seattle NE: "Trivia Tuesdays, Live Music Wednesdays" (no times)
+//   Kona Kitchen (Maple Leaf): Friday backroom karaoke "open to 2AM" (no start time)
+//   Fiddler's Inn: live music every Thursday (no start time)
+//   Elliott Bay Lake City: Tuesday Tacos 'n Trivia 7pm (Mato only; the dated listings are scraped)
+//   Ravenna Brewing: RBC Jazz Nights 2nd Wednesday 6:30pm (Mato only; the dated listings are scraped)
+//   U District Art Walk: third Friday (no start time)
+//   College Inn Pub: Trivia Tuesdays (U District Partnership blurb; no time, site down)
 // Left out as unverifiable: Hound's Tooth pinball/trivia (site last updated 2024, no working https),
 //   ComedySportz (show calendar is a Crowdwork embed behind Cloudflare; FAQ gives times but not days).
 // Removed as closed or discontinued: Bastille, Ballard Annex, Pike Taproom Ballard, Babalu, Norm's,
@@ -2313,5 +2323,93 @@ export const nights: Night[] = [
 		sourceUrl: "https://www.theatlanticcrossing.com/",
 		lastVerified: "2026-10-30",
 		confidence: "confirmed",
+	},
+	// NE Seattle
+	{
+		id: "fiddlers-trivia",
+		venueId: "fiddlers-inn",
+		title: "Trivia",
+		category: "trivia",
+		recurrence: { kind: "weekly", days: ["TU"] },
+		start: "19:00",
+		description: "Tuesday trivia at Wedgwood's cozy neighborhood pub.",
+		vibe: ["lively"],
+		sourceUrl: "https://www.thefiddlersinn.com/",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
+	{
+		id: "watershed-stump-trivia",
+		venueId: "watershed-pub",
+		title: "Stump Trivia",
+		category: "trivia",
+		recurrence: { kind: "weekly", days: ["TU"] },
+		start: "19:00",
+		cost: "Free",
+		description:
+			"Two rounds of free Stump Trivia, at 7 and 8pm; reservations encouraged.",
+		vibe: ["lively"],
+		sourceUrl: "https://watershedpub.com/events",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
+	{
+		id: "drama-room-indieprov",
+		venueId: "drama-room",
+		title: "Indieprov",
+		category: "comedy",
+		recurrence: { kind: "monthly-nth", nth: [2], day: "FR" },
+		start: "19:30",
+		cost: "Pay what you can",
+		description:
+			"Four rotating independent improv teams at Jet City Improv's U District theater.",
+		vibe: ["lively"],
+		sourceUrl: "https://www.jetcityimprov.org/indieprov.html",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
+	{
+		id: "drama-room-dndprov",
+		venueId: "drama-room",
+		title: "DndProv",
+		category: "comedy",
+		recurrence: { kind: "monthly-nth", nth: [3], day: "FR" },
+		start: "19:30",
+		cost: "$15–20",
+		description: "An improvised Dungeons & Dragons adventure, dice and all.",
+		vibe: ["lively"],
+		sourceUrl: "https://www.jetcityimprov.org/dndprov.html",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
+	{
+		id: "burke-book-club",
+		venueId: "burke-museum",
+		title: "Burke Book Club",
+		category: "comedy",
+		recurrence: { kind: "monthly-nth", nth: [3], day: "TH" },
+		start: "18:30",
+		cost: "Free (register)",
+		description:
+			"An evening book club at the natural history museum, on a different science book each month. Doors at 6.",
+		vibe: ["low-key"],
+		sourceUrl: "https://www.burkemuseum.org/calendar",
+		lastVerified: "2026-10-30",
+		confidence: "likely",
+	},
+	{
+		id: "project-9-rna-trivia",
+		venueId: "project-9-brewing",
+		title: "Roosevelt neighborhood trivia",
+		category: "trivia",
+		recurrence: { kind: "monthly-nth", nth: [2], day: "MO" },
+		start: "19:00",
+		end: "21:00",
+		description:
+			"The Roosevelt Neighbors' Alliance's monthly trivia night at a small Roosevelt brewery.",
+		vibe: ["lively"],
+		sourceUrl: "https://rooseveltseattle.org/",
+		lastVerified: "2026-10-30",
+		confidence: "likely",
 	},
 ];

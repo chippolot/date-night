@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Static date-night site for Ballard (98107) and nearby north Seattle neighborhoods. Built with Bun and checked with Biome. See README.md for commands and layout.
+Static date-night site for north Seattle: Ballard (98107) and its neighbors west of I-5, and the U District to Lake City east of it. Built with Bun and checked with Biome. See README.md for commands and layout.
 
 ## Running servers
 

@@ -18,9 +18,9 @@ describe("curated data", () => {
 	test("venues are in the north Seattle area", () => {
 		for (const v of venues) {
 			expect(v.lat, v.id).toBeGreaterThan(47.64);
-			expect(v.lat, v.id).toBeLessThan(47.72);
+			expect(v.lat, v.id).toBeLessThan(47.74);
 			expect(v.lng, v.id).toBeGreaterThan(-122.42);
-			expect(v.lng, v.id).toBeLessThan(-122.3);
+			expect(v.lng, v.id).toBeLessThan(-122.25);
 		}
 	});
 

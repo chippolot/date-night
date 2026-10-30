@@ -217,6 +217,9 @@ const greenStage = tribeSource({
 		"wallingford playfield": "wallingford-playfield",
 		"salmon bay park": "salmon-bay-park",
 		"hattie's hat – ballard": "hatties-hat",
+		"cowen park": "cowen-park",
+		"view ridge playfield": "view-ridge-playfield",
+		"magnuson park amphitheater": "magnuson-park-amphitheater",
 	},
 	category: "theater",
 	// Readings pause between seasons
@@ -1459,6 +1462,8 @@ function eventbriteSource(opts: {
 	category?: Category;
 	mayBeEmpty?: boolean;
 	cleanTitle?: (title: string) => string;
+	/** Drop events whose title matches */
+	exclude?: RegExp;
 }): Source {
 	return {
 		id: opts.id,
@@ -1491,11 +1496,13 @@ function eventbriteSource(opts: {
 					venues: opts.venues,
 					category: opts.category,
 				});
-				const { cleanTitle } = opts;
+				const { cleanTitle, exclude } = opts;
 				out.push(
-					...(cleanTitle
-						? events.map((e) => ({ ...e, title: cleanTitle(e.title) }))
-						: events),
+					...events
+						.filter((e) => !exclude?.test(e.title))
+						.map((e) =>
+							cleanTitle ? { ...e, title: cleanTitle(e.title) } : e,
+						),
 				);
 				continuation = body.pagination.continuation;
 				if (!body.pagination.has_more_items || !continuation) break;
@@ -1513,12 +1520,16 @@ const substation = eventbriteSource({
 });
 
 // Mockingbird Comedy: weekly and one-off stand-up shows, mostly at breweries; only Old Stove's
-// Ballard garden is in our area.
+// Ballard garden and Elliott Bay's Lake City pub are in our area.
 const mockingbird = eventbriteSource({
 	id: "mockingbird-comedy",
 	organizerId: "109263369901",
-	venues: { "old stove brewing co - gardens": "old-stove-gardens" },
+	venues: {
+		"old stove brewing co - gardens": "old-stove-gardens",
+		"elliott bay brewing - lake city": "elliott-bay-lake-city",
+	},
 	category: "comedy",
+	exclude: /\bkids\b/i,
 });
 
 // Tango is About the Connection: occasional milongas at the Ballard Odd Fellows Hall.
@@ -1717,6 +1728,38 @@ const MATO_VENUES: {
 		venueId: "latona-pub",
 		location: /^(The )?Latona Pub$/,
 	},
+	// NE Seattle
+	{
+		slug: "bluemoonseattle",
+		venueId: "blue-moon-tavern",
+		location: /^Blue Moon( Tavern)?$/,
+		category: "live-music",
+	},
+	// STG's page also lists the Paramount and the Moore (downtown).
+	{
+		slug: "stgpresents",
+		venueId: "neptune-theatre",
+		location: /^(The )?Neptune( Theatre)?$/,
+		category: "live-music",
+	},
+	// Third Place's own site is behind Cloudflare. Its page covers three stores.
+	{
+		slug: "thirdplacebooks",
+		venueId: "third-place-ravenna",
+		location: /^Third Place Books.*Ravenna/,
+		category: "comedy",
+	},
+	{
+		slug: "ravennabrewing",
+		venueId: "ravenna-brewing",
+		location: /^Ravenna Brewing/,
+	},
+	// The chain's pubs share names, so match the Lake City street address.
+	{
+		slug: "elliottbaybrewingco",
+		venueId: "elliott-bay-lake-city",
+		location: /Lake City Way/,
+	},
 ];
 
 /**
@@ -1752,14 +1795,18 @@ export function matoEventSlugs(
 	});
 }
 
-/** Events on a Mato page (venue or event at `url`) held at the venue `location` names. */
+/** Events on a Mato page (venue or event at `url`) held at the venue whose name or street address `location` matches. */
 export function parseMatoEvents(
 	html: string,
 	url: string,
 	location: RegExp,
 ): ScrapedEvent[] {
 	return extractLdEvents(html)
-		.filter((e) => !e.cancelled && location.test(e.location ?? ""))
+		.filter(
+			(e) =>
+				!e.cancelled &&
+				(location.test(e.location ?? "") || location.test(e.address ?? "")),
+		)
 		.map((e) => ({
 			id: `mato-${e.startDate.slice(0, 16)}-${slug(e.name)}`,
 			title: e.name,
@@ -1775,6 +1822,8 @@ const mato: Source = {
 	async fetchEvents() {
 		const { from, to } = horizon();
 		const out: ScrapedEvent[] = [];
+		// Every venue page links the same site-wide events, so fetch each event page once per run.
+		const eventPages = new Map<string, string>();
 		for (const v of MATO_VENUES) {
 			const venueUrl = `${MATO}/venue/${v.slug}`;
 			const page = await get(venueUrl);
@@ -1783,8 +1832,13 @@ const mato: Source = {
 			for (const s of matoEventSlugs(page, from, to)) {
 				const url = `${MATO}/event/${s}`;
 				if (have.has(url)) continue;
-				await pause(1);
-				events.push(...parseMatoEvents(await get(url), url, v.location));
+				let html = eventPages.get(url);
+				if (html === undefined) {
+					await pause(1);
+					html = await get(url);
+					eventPages.set(url, html);
+				}
+				events.push(...parseMatoEvents(html, url, v.location));
 			}
 			out.push(
 				...events.map((e) => ({
@@ -1796,6 +1850,217 @@ const mato: Source = {
 			await pause(1);
 		}
 		return out;
+	},
+};
+
+// ---------------------------------------------------------------------------
+// NE Seattle (east of I-5)
+
+// Magnuson Park Gallery (Sand Point): opening receptions and open studios in Building 30. The
+// calendar also lists its daily gallery hours, which are left out.
+const magnusonGallery = tribeSource({
+	id: "magnuson-park-gallery",
+	origin: "https://www.magnusonparkgallery.org",
+	venues: { "magnuson park gallery": "magnuson-park-gallery" },
+	include: /\b(reception|open (art )?studios)\b/i,
+	category: "art",
+	mayBeEmpty: true,
+});
+
+// UW Botanic Gardens (Trumba iCal): weekend craft workshops at the Center for Urban Horticulture
+// in Laurelhurst. Arboretum walks (across the lake) and the library's all-day exhibits are left out.
+const uwBotanicGardens = icsSource({
+	id: "uw-botanic-gardens",
+	venueId: "center-for-urban-horticulture",
+	url: "https://www.trumba.com/calendars/uwbg.ics",
+	link: "https://botanicgardens.uw.edu/education/events/",
+	location: /Center for Urban Horticulture|Douglas Research Conservatory/,
+	category: "class",
+	mayBeEmpty: true,
+});
+
+// Lovestruck in Seattle (Wedgwood): romance bookstore's book clubs and author nights. One event
+// gives only the street address as its venue name.
+const lovestruck = eventbriteSource({
+	id: "lovestruck",
+	organizerId: "112498075441",
+	venues: {
+		"lovestruck in seattle": "lovestruck",
+		"8507 35th ave ne": "lovestruck",
+	},
+	category: "comedy",
+	mayBeEmpty: true,
+});
+
+// University of Washington campus calendar (Trumba iCal): School of Music concerts and School of
+// Drama shows at Meany Hall and the Jones Playhouse. Meany Center's touring shows aren't in it.
+// The feed calls every Meany room "Meany Hall"; Drama's shows there are in the Studio Theatre.
+const UW_HALLS: [RegExp, string][] = [
+	[/^Meany Hall\b/, "meany-hall"],
+	[/^Floyd and Delores Jones Playhouse\b/, "jones-playhouse"],
+];
+
+export function parseUwCampus(ics: string): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const e of parseIcs(ics)) {
+		const hall = UW_HALLS.find(([re]) => re.test(e.location ?? ""))?.[1];
+		if (!hall || e.allDay || e.cancelled) continue;
+		const drama = /^https:\/\/drama\.washington\.edu\//.test(e.url ?? "");
+		const venueId =
+			drama && hall === "meany-hall" ? "meany-studio-theatre" : hall;
+		if (/master ?class|orientation|info session/i.test(e.summary)) continue;
+		out.push({
+			id: `uw-${e.start.slice(0, 16)}-${slug(e.summary)}`,
+			venueId,
+			title: e.summary,
+			startsAt: e.start,
+			endsAt: e.end,
+			url: e.url ?? "https://www.washington.edu/calendar/",
+			category: drama ? "theater" : guessCategory(e.summary, "live-music"),
+		});
+	}
+	return out;
+}
+
+const uwCampus: Source = {
+	id: "uw-campus",
+	async fetchEvents() {
+		return parseUwCampus(
+			await get("https://www.trumba.com/calendars/sea_campus.ics"),
+		);
+	},
+};
+
+// Meany Center (UW): touring dance, chamber music and piano at Meany Hall. The month calendar
+// lists each performance with an ISO start; robots.txt asks for a 10s crawl delay.
+
+export function parseMeany(html: string): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const m of html.matchAll(
+		/content="([^"]+)">[^<]*<\/span><\/caption>\s*<tbody>\s*<tr>\s*<td>\s*<a href="([^"]+)">([^<]+)<\/a>/g,
+	)) {
+		const [, startsAt = "", path = "", name = ""] = m;
+		const title = decodeEntities(name).trim();
+		out.push({
+			id: `meany-${startsAt.slice(0, 16)}-${slug(title)}`,
+			title,
+			startsAt,
+			url: new URL(path, "https://meanycenter.org").href,
+			category: guessCategory(title, "live-music"),
+		});
+	}
+	return out;
+}
+
+const meanyCenter: Source = {
+	id: "meany-center",
+	venueId: "meany-hall",
+	async fetchEvents() {
+		const { from } = horizon();
+		const out: ScrapedEvent[] = [];
+		for (let i = 0; i < 3; i++) {
+			if (i > 0) await pause(10);
+			const d = new Date(`${from.slice(0, 7)}-15T12:00:00Z`);
+			d.setUTCMonth(d.getUTCMonth() + i);
+			out.push(
+				...parseMeany(
+					await get(
+						`https://meanycenter.org/tickets/events/calendar?date=${d.toISOString().slice(0, 7)}`,
+					),
+				).filter((e) => e.startsAt.slice(0, 10) >= from),
+			);
+		}
+		return out;
+	},
+};
+
+// Watershed Pub (Northgate/Maple Leaf): bevwerk site. Dated events have a "Nov 2, 2026 @ 5:00 PM -
+// 8:00 PM" line; weekly nights (trivia) have none and are curated in nights.ts.
+
+export function parseWatershed(html: string): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const [, h2 = "", when = ""] of html.matchAll(
+		/<h2>([\s\S]*?)<\/h2><div class="blurb-date">([\s\S]*?)<\/div>/g,
+	)) {
+		const m = stripTags(when).match(
+			/^([A-Za-z]{3})[a-z]* (\d{1,2}), (\d{4}) @ (\d{1,2}:\d{2} [AP]M)(?: - (\d{1,2}:\d{2} [AP]M))?$/,
+		);
+		const month = MONTHS.indexOf((m?.[1] ?? "").toLowerCase()) + 1;
+		const start = to24h(m?.[4] ?? "");
+		if (!m || !month || !start) continue;
+		const date = `${m[3]}-${String(month).padStart(2, "0")}-${m[2]?.padStart(2, "0")}`;
+		const startsAt = localIso(date, start);
+		if (!startsAt) continue;
+		const end = to24h(m[5] ?? "");
+		const title = stripTags(h2);
+		out.push({
+			id: `watershed-${date}-${slug(title)}`,
+			title,
+			startsAt,
+			endsAt: end && end > start ? localIso(date, end) : undefined,
+			url: "https://watershedpub.com/events",
+			category: guessCategory(title),
+		});
+	}
+	return out;
+}
+
+const watershed: Source = {
+	id: "watershed-pub",
+	venueId: "watershed-pub",
+	category: "food-drink-special",
+	mayBeEmpty: true,
+	async fetchEvents() {
+		return parseWatershed(await get("https://watershedpub.com/events"));
+	},
+};
+
+// Lake City Contra Dance (Seattle Latvian Center): a plain-text "Schedule of UPCOMING musicians and
+// callers" list, one line per Thursday ("Nov 5- band; caller", "WED Nov 25 – ..."). The page gives
+// the times for every dance: doors 7, lesson 7:15, dancing 7:30–10pm.
+
+export function parseContra(html: string, today: string): ScrapedEvent[] {
+	const text = stripTags(html);
+	const list = text.slice(text.search(/Schedule of UPCOMING/i));
+	const DATE =
+		/(?:\b(?:MON|TUE|WED|THU|FRI|SAT|SUN)\s+)?\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2})(?:,\s*(\d{4}))?\s*[-–]/g;
+	const hits = [...list.matchAll(DATE)];
+	const out: ScrapedEvent[] = [];
+	hits.forEach((m, i) => {
+		const details = list.slice(
+			(m.index ?? 0) + m[0].length,
+			hits[i + 1]?.index ?? list.length,
+		);
+		if (/\bno dance\b/i.test(details)) return;
+		const month = MONTHS.indexOf((m[1] ?? "").toLowerCase()) + 1;
+		const date = m[3]
+			? `${m[3]}-${String(month).padStart(2, "0")}-${m[2]?.padStart(2, "0")}`
+			: withYear(month, Number(m[2]), today);
+		if (date < today) return;
+		const startsAt = localIso(date, "19:30");
+		if (!startsAt) return;
+		const band = details.match(/[“"]([^”"]+)[”"]/)?.[1]?.trim();
+		out.push({
+			id: `lake-city-contra-${date}`,
+			title: band ? `Contra dance with ${band}` : "Contra dance",
+			startsAt,
+			endsAt: localIso(date, "22:00"),
+			url: "https://www.seattledance.org/contra/lakecity/",
+			price: "$10–20",
+		});
+	});
+	return out;
+}
+
+const lakeCityContra: Source = {
+	id: "lake-city-contra",
+	venueId: "seattle-latvian-center",
+	category: "dance",
+	async fetchEvents() {
+		return parseContra(
+			await get("https://www.seattledance.org/contra/lakecity/"),
+			horizon().from,
+		);
 	},
 };
 
@@ -1830,6 +2095,13 @@ export const sources: Source[] = [
 	greenStage,
 	salmonBayEagles,
 	bookLarder,
+	lovestruck,
+	uwCampus,
+	meanyCenter,
+	watershed,
+	lakeCityContra,
+	magnusonGallery,
+	uwBotanicGardens,
 	pantry,
 	shibuyaHifi,
 	seaMonster,

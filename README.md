@@ -1,6 +1,6 @@
 # Date Night North Seattle
 
-Date night ideas around Ballard (98107) and its neighbors: Fremont, Sunset Hill, Phinney Ridge, Greenwood, Crown Hill, Green Lake and Wallingford.
+Date night ideas across north Seattle. West of I-5: Ballard (98107), Fremont, Sunset Hill, Phinney Ridge, Greenwood, Crown Hill, Green Lake and Wallingford. East of I-5: the U District, Roosevelt, Ravenna, Maple Leaf, Wedgwood, Lake City, Laurelhurst and Sand Point.
 
 The site has two kinds of content:
 

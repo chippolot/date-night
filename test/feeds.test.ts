@@ -69,7 +69,7 @@ const data: SiteData = {
 describe("calendar feeds", () => {
 	test("one feed for everything, each category, each neighborhood, and each pair", () => {
 		const scopes = feedScopes();
-		expect(scopes).toHaveLength(1 + 12 + 8 * (1 + 12));
+		expect(scopes).toHaveLength(1 + 12 + 16 * (1 + 12));
 		expect(new Set(scopes.map(feedPath)).size).toBe(scopes.length);
 		expect(feedPath({ hood: "ballard", cat: "jazz" })).toBe(
 			"/feeds/hood/ballard/jazz.ics",

@@ -6,8 +6,7 @@ export const SITE = {
 	/** The header wordmark: the name, then the place in a lighter weight */
 	name: NAME,
 	place: PLACE,
-	tagline:
-		"Recurring nights and local events around Ballard, Fremont & friends",
+	tagline: "Recurring nights and local events from Ballard to Lake City",
 	/**
 	 * The Google Form that "Something changed?" links open, and the ids of the questions it
 	 * pre-fills (from the form's pre-filled link). Anyone can answer it, no account needed.
