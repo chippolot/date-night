@@ -35,6 +35,8 @@ bun run preview   # serve dist/ like a static host, http://localhost:4173
    - `lastVerified`: set to today whenever you re-check it.
 3. Run `bun test`. The data tests catch unknown venue IDs, duplicate IDs, bad times, and coordinates outside the area.
 
+To find leads in venues' Instagram posts, run `bun run ig-leads` (or `bun run ig-leads <venue-id>…`). It reads each venue's `instagram` account once through the Graph API and writes captions that look like recurring nights to `out/ig-leads.md`. Verify each lead by hand before adding it.
+
 Nights checked more than 90 days ago show a "May be outdated" badge. You can change that in `src/config.ts`.
 
 ## Adding an event source

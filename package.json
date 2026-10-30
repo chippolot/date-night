@@ -9,6 +9,7 @@
 		"preview": "bun src/preview.ts",
 		"scrape": "bun scripts/scrape/index.ts",
 		"meta-token": "bun scripts/meta-token.ts",
+		"ig-leads": "bun scripts/ig-leads.ts",
 		"test": "bun test",
 		"check": "biome check . && tsc --noEmit",
 		"fix": "biome check --write ."
