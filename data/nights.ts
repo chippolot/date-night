@@ -6,21 +6,27 @@ import type { Night } from "../src/lib/types";
 //     (neither is on Abbey Arts' Humanitix page)
 //   Aslan Brewing (Fremont): jazz 4th Tuesdays 7–9pm, from KNKX only; not on Aslan's own VenuePilot calendar
 //   Aslan Tangletown: "Girl Dinner" Mondays (no start time stated)
+//     (Aslan's Instagram weekly-deals post is for its Bellingham brewpub, not the Seattle taprooms)
 //   Add-a-Ball: "Live shows every Friday and Saturday night" (no start time stated)
 //   Ballard Clay: "Sip N Spin" BYOB one-time wheel class, $100 (dates and times only in its KilnFire
 //     booking app, which robots.txt disallows)
 //   Wet Clay Cafe: Friday and Saturday "social club" wheel nights, $125 (times load client-side only)
-//   Dreamland: Sunday drag shows "multiple times a month" (dates only on Resy)
+//   Dreamland: Sunday drag shows "multiple times a month" (dates only on Resy); its Instagram flyers
+//     give one-off dates (drag brunch noon, bingo 7pm, shows 7pm) but no regular pattern
 //   The Rebel (309 NE 45th): Monday trivia, Wednesday karaoke (Wallyhood, Feb 2026; no times, no venue site)
-//   Molly Maguire's (610 NW 65th): Sunday afternoon Irish session, 1–3pm only in old forum posts; no venue site
-//   Russells: "Mezcal Monday" and "Pie & Whiskey Wednesday" (no times; folded into the happy hour description)
+//   Molly Maguire's (610 NW 65th): Sunday afternoon Irish session, 1–3pm only in old forum posts; no venue site.
+//     Its Instagram (mollymaguiresballard) shows only one-off Saturday bands, no session
+//   Russells: "Mezcal Monday" and "Pie & Whiskey Wednesday" (no times on its site or Instagram; folded into
+//     the happy hour description)
 //   Baker's (Sunset Hill): Wednesday live music, Tuesday all-day happy hour (no times on its site)
 //   The Whit's End (Phinney): karaoke and open mic nights (no days or times on its site)
 //   Fremont Dock: karaoke Thursday to Saturday (no times; its one dated listing says 4:30–7:30pm)
 //   Meesha 127 (Fremont): Thursday sliders & game night, Monday industry night (no times)
+//   Triangle Spirits (Fremont): Wing Wednesday (Instagram only; no times or deal stated)
 //   El Sueñito (Fremont): themed trivia, book club, drag brunch (Wix events mixed with its Bellingham taproom)
 //   Cocoa Legato (Greenwood): weekend concerts (show list isn't in a readable format)
-//   The Tin Hat (512 NW 65th): listed as "live entertainment", but no schedule anywhere; no venue site
+//   The Tin Hat (512 NW 65th): monthly Thursday "Vinyl Nite" per its Instagram (thetinhatballard), but
+//     which Thursday varies and only one 2025 flyer gave a time (7pm–late); no venue site
 //   Taproot Theatre: full show runs (Wed–Sat 7:30pm per past seasons) need the days confirmed in OvationTix;
 //     add them with recurrence `from`/`until` once confirmed. Named performances are scraped.
 // Left out as unverifiable: Hound's Tooth pinball/trivia (site last updated 2024, no working https),
@@ -574,6 +580,52 @@ export const nights: Night[] = [
 		lastVerified: "2026-10-29",
 		confidence: "likely",
 	},
+	{
+		id: "good-grief-sunday-music",
+		venueId: "good-grief",
+		title: "Sunday afternoon live music",
+		category: "live-music",
+		recurrence: { kind: "weekly", days: ["SU"] },
+		start: "14:30",
+		end: "16:30",
+		description:
+			"A different local act each Sunday afternoon at a cocktail-and-hot-dog bar on Ballard Ave.",
+		vibe: ["lively"],
+		sourceUrl: "https://www.instagram.com/goodgriefbar/p/Dd4oLJayDtH/",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
+	{
+		id: "good-grief-happy-hour",
+		venueId: "good-grief",
+		title: "All-day happy hour",
+		category: "food-drink-special",
+		recurrence: { kind: "weekly", days: ["TU"] },
+		start: "16:00",
+		end: "00:00",
+		allDay: true,
+		description: "Discounted food and drink specials all day Tuesday.",
+		vibe: ["low-key"],
+		sourceUrl: "https://www.instagram.com/goodgriefbar/p/Dd4oLJayDtH/",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
+	{
+		id: "good-grief-wax-wednesday",
+		venueId: "good-grief",
+		title: "Wax Wednesday",
+		category: "live-music",
+		recurrence: { kind: "weekly", days: ["WE"] },
+		start: "16:00",
+		end: "00:00",
+		allDay: true,
+		description:
+			"Bring your own vinyl and they'll play it, with discounted wings. No hours are posted, so this assumes it runs all day.",
+		vibe: ["low-key"],
+		sourceUrl: "https://www.instagram.com/goodgriefbar/p/Dd4oLJayDtH/",
+		lastVerified: "2026-10-30",
+		confidence: "likely",
+	},
 	// Sunset Hill
 	{
 		id: "rays-cafe-happy-hour",
@@ -1099,6 +1151,24 @@ export const nights: Night[] = [
 		vibe: ["low-key"],
 		sourceUrl: "https://www.dreamlandfremont.com/",
 		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "triangle-happy-hour",
+		venueId: "triangle-spirits",
+		title: "Happy hour",
+		category: "food-drink-special",
+		recurrence: {
+			kind: "weekly",
+			days: ["SU", "MO", "TU", "WE", "TH", "FR", "SA"],
+		},
+		start: "15:00",
+		end: "17:00",
+		description:
+			"$7 classic cocktails, $5 house wine and fried chicken sliders at a fried-chicken-and-whiskey bar in the Fremont triangle. Dine-in only.",
+		vibe: ["low-key"],
+		sourceUrl: "https://www.trianglefremont.com/",
+		lastVerified: "2026-10-30",
 		confidence: "confirmed",
 	},
 
