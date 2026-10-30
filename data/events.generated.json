@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-30T15:56:13.720Z",
+	"generatedAt": "2026-10-30T16:12:14.194Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-30T15:56:13.717Z",
 		"artemis-coffee": "2026-10-30T15:56:13.717Z",
@@ -40,16 +40,6 @@
 		"yu-tang": "2026-10-30T15:56:13.717Z"
 	},
 	"events": [
-		{
-			"id": "mato-2026-10-29T21:00-vibez-n-bingo-halloween-edition",
-			"title": "Vibez N' Bingo: Halloween Edition",
-			"startsAt": "2026-10-29T21:00:00.000-07:00",
-			"endsAt": "2026-10-30T02:00:00.000-07:00",
-			"url": "https://ma.to/event/vibez-n-bingo-halloween-30-oct-2026",
-			"venueId": "ltd-bar-and-grill",
-			"category": "trivia",
-			"source": "mato"
-		},
 		{
 			"id": "mato-2026-10-30T15:00-happy-hour-specials",
 			"title": "Happy Hour Specials",
