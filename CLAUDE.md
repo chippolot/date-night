@@ -13,5 +13,6 @@ Static date-night site for Ballard (98107) and nearby north Seattle neighborhood
   - Never invent times, prices, or days. If a start time is unknown, leave the night out and note it in the comment at the top of `nights.ts`.
   - Set `confidence` honestly and update `lastVerified` when re-checking.
   - Facebook/Instagram posts may be used as `sourceUrl` for hand-verified nights. Link the post permalink, not the profile. Use `confirmed` only if the post is under 60 days old and states the day and start time; otherwise `likely`.
-- Scrapers live in `scripts/scrape/`. Don't bypass bot protection (Cloudflare, ModSecurity). Don't use API keys taken from third-party pages. Never scrape Facebook or Instagram.
+- Scrapers live in `scripts/scrape/`. Don't bypass bot protection (Cloudflare, ModSecurity). Don't use API keys taken from third-party pages. Never scrape Facebook or Instagram pages.
+- Instagram posts may be read only through the official Graph API (Business Discovery) with this project's own token (`META_ACCESS_TOKEN`, `INSTAGRAM_USER_ID` in `.env`; refresh with `bun run meta-token`). What it finds is a lead for hand verification: never write it into `nights.ts` automatically. The app shares a limit of about 200 calls per hour, so ask for each account once (profile and posts in one call) and stop on "Application request limit reached".
 - Date math uses plain `YYYY-MM-DD` strings in `src/lib/recurrence.ts`. Times are Seattle local (`America/Los_Angeles`).
