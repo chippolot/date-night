@@ -39,7 +39,7 @@ To find leads in venues' Instagram posts, run `bun run ig-leads` (or `bun run ig
 
 `.github/workflows/ig-leads.yml` runs `ig-leads --new` every Monday and posts new leads to an open "Instagram leads" issue. It needs the `META_ACCESS_TOKEN` and `INSTAGRAM_USER_ID` repo secrets. The token expires about every 60 days: when it does, the workflow opens an "Instagram token needs refreshing" issue, and `bun run meta-token <short-lived token> --github` updates both `.env` and the secret.
 
-Each card links to a pre-filled "Something changed" issue (`.github/ISSUE_TEMPLATE/listing-change.yml`), labeled `listing`.
+Each card's flag links to a "Something changed?" Google Form, pre-filled with the listing and its source (`SITE.reportForm` in `src/config.ts`). Responses land in the form's Responses tab. People with a GitHub account can also use the "Something changed" issue form (`.github/ISSUE_TEMPLATE/listing-change.yml`).
 
 Nights checked more than 90 days ago show a "May be outdated" badge. You can change that in `src/config.ts`.
 

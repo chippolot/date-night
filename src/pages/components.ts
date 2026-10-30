@@ -90,21 +90,20 @@ export function icsHref(o: Occurrence): string {
 	return href(`/ics/${o.kind}/${o.refId}.ics`);
 }
 
-/** A link to a pre-filled "Something changed" issue (.github/ISSUE_TEMPLATE/listing-change.yml). */
+/** A link to the "Something changed?" form, pre-filled with the listing and its source. */
 export function reportLink(o: Occurrence, venue: Venue | undefined): string {
-	if (!SITE.reportRepo) return "";
+	const form = SITE.reportForm;
+	if (!form.url) return "";
 	const when =
 		o.kind === "night"
 			? "recurring night"
 			: formatDate(o.date, { month: "short", day: "numeric" });
-	const listing = `${o.title}${venue ? ` @ ${venue.name}` : ""} (${when}, ${o.kind}:${o.refId})`;
 	const params = new URLSearchParams({
-		template: "listing-change.yml",
-		title: `Change: ${o.title}${venue ? ` @ ${venue.name}` : ""}`,
-		listing,
-		source: o.url,
+		usp: "pp_url",
+		[form.listing]: `${o.title}${venue ? ` @ ${venue.name}` : ""} (${when}, ${o.kind}:${o.refId})`,
+		[form.source]: o.url,
 	});
-	const url = `https://github.com/${SITE.reportRepo}/issues/new?${params}`;
+	const url = `${form.url}?${params}`;
 	return `<a class="icon-action" href="${esc(url)}" rel="noopener" target="_blank" title="Something changed? Tell us" aria-label="Report a change">${FLAG_ICON}</a>`;
 }
 

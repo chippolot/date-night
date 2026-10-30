@@ -8,8 +8,16 @@ export const SITE = {
 	place: PLACE,
 	tagline:
 		"Recurring nights and local events around Ballard, Fremont & friends",
-	/** GitHub repo ("owner/name") whose listing-change issue form "Something changed?" links open. Empty hides them. */
-	reportRepo: "chippolot/date-night",
+	/**
+	 * The Google Form that "Something changed?" links open, and the ids of the questions it
+	 * pre-fills (from the form's pre-filled link). Anyone can answer it, no account needed.
+	 * An empty url hides the links.
+	 */
+	reportForm: {
+		url: "https://docs.google.com/forms/d/e/1FAIpQLSfsXmnDG7StNUIcDZBJkK8v9FN_7puq_Ox53xyydFlcOs2nSw/viewform",
+		listing: "entry.1892429106",
+		source: "entry.2117411879",
+	},
 	/** Nights verified longer ago than this get a "may be outdated" badge. */
 	freshDays: 90,
 };
