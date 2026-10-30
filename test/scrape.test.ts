@@ -6,6 +6,7 @@ import {
 	cleanAbbeyTitle,
 	matoEventSlugs,
 	parseContra,
+	parseDelille,
 	parseEgans,
 	parseEventbrite,
 	parseEvey,
@@ -66,6 +67,13 @@ describe("ical", () => {
 			"2026-07-15T19:00:00-07:00",
 		);
 		expect(toIso("20261215T190000")).toBe("2026-12-15T19:00:00-08:00");
+	});
+
+	test("reads America/Vancouver times as Seattle time", () => {
+		// BC stopped changing clocks in 2026; a Seattle venue's 7pm is still 7pm Pacific.
+		expect(toIso("20261102T190000", "America/Vancouver")).toBe(
+			"2026-11-02T19:00:00-08:00",
+		);
 	});
 
 	test("flags all-day and cancelled events", () => {
@@ -150,6 +158,9 @@ describe("guessCategory", () => {
 		expect(guessCategory("Some Band", "live-music")).toBe("live-music");
 		expect(guessCategory("Magic: The Gathering Draft Night")).toBe("trivia");
 		expect(guessCategory("Magic Wand Circuit Craft", "class")).toBe("class");
+		expect(guessCategory("Geeks Who Drink")).toBe("trivia");
+		expect(guessCategory("Paint N' Sip with Laura Brewer")).toBe("class");
+		expect(guessCategory("Water-Color Holiday Cards")).toBe("class");
 	});
 });
 
@@ -529,6 +540,41 @@ describe("squarespace", () => {
 				startsAt: "2026-11-03T17:00:00-08:00",
 				endsAt: "2026-11-03T20:00:00-08:00",
 				url: "https://example.com/events/tarot-nov-3",
+			},
+		]);
+	});
+
+	test("reads 12hr-template times and keeps only events at the given address", () => {
+		const article = (href: string, title: string, address: string) =>
+			`<article class="eventlist-event eventlist-event--upcoming">
+<h1 class="eventlist-title"><a href="${href}" class="eventlist-title-link">${title}</a></h1>
+<span class="event-time-12hr"><time class="event-time-12hr-start" datetime="2026-11-01">5:00 PM</time>
+<time class="event-time-12hr-end" datetime="2026-11-01">7:00 PM</time></span>
+<span class="event-time-24hr"><time class="event-time-24hr-start" datetime="2026-11-01">17:00</time></span>
+<li class="eventlist-meta-address">Taproom <a href="http://maps.google.com?q=${address}" class="eventlist-meta-address-maplink">(map)</a></li>
+</article>`;
+		const html = [
+			article(
+				"/events/party",
+				"Anniversary Party",
+				"826 Northwest 49th Street Seattle, WA, 98107",
+			),
+			article("/events/yakima", "Yakima Night", "1 Main St Yakima, WA"),
+		].join("\n");
+		expect(
+			parseSquarespaceEvents(
+				html,
+				"https://example.com",
+				"ex",
+				/826 Northwest 49th/,
+			),
+		).toEqual([
+			{
+				id: "ex-2026-11-02T01:00-anniversary-party",
+				title: "Anniversary Party",
+				startsAt: "2026-11-01T17:00:00-08:00",
+				endsAt: "2026-11-01T19:00:00-08:00",
+				url: "https://example.com/events/party",
 			},
 		]);
 	});
@@ -1121,5 +1167,66 @@ describe("jet city improv", () => {
 		expect(
 			parseJetCityShow("<p>Coming soon</p>", "X", "https://x", "2026-10-30"),
 		).toEqual([]);
+	});
+});
+
+describe("delille en ville", () => {
+	test("keeps timed En Ville cards, with the range's am/pm on the start", () => {
+		const card = (
+			location: string,
+			month: string,
+			day: string,
+			title: string,
+			h5: string,
+			extra = "",
+		) =>
+			`<div class="upcoming-event d-none" data-location="${location}">
+<div class="event-date ${extra}"><h4 class="momth">${month}</h4><h2 class="day">${day}</h2></div>
+<div class="event-details">
+<h2>${title}</h2>
+<h5>${h5}<br></h5>
+<a class="button primary" href="https://delillecellars.com/events/${title.toLowerCase().replace(/\W+/g, "-")}/">Learn More</a>
+</div></div>`;
+		const html = [
+			card(
+				"En Ville",
+				"Nov",
+				"28th",
+				"Small Business Saturday Pop-Up",
+				"En Ville | 12:00 – 5:00 pm",
+			),
+			card(
+				"The Tasting Room",
+				"Nov",
+				"1st",
+				"Candle Pop-Up",
+				"The Tasting Room | 12:30 &#8211; 5:00 pm",
+			),
+			card(
+				"The Restaurant",
+				"Oct",
+				"18th",
+				"Restaurant Week",
+				"The Restaurant | All Day<br>DeLille En Ville",
+				"event-date-multiple",
+			),
+			card("En Ville", "Jan", "9th", "Winter Wine Dinner", "En Ville | 6pm"),
+		].join("\n");
+		expect(parseDelille(html, "2026-10-30")).toEqual([
+			{
+				id: "delille-en-ville-2026-11-28-small-business-saturday-pop-up",
+				title: "Small Business Saturday Pop-Up",
+				startsAt: "2026-11-28T12:00:00-08:00",
+				endsAt: "2026-11-28T17:00:00-08:00",
+				url: "https://delillecellars.com/events/small-business-saturday-pop-up/",
+			},
+			{
+				id: "delille-en-ville-2027-01-09-winter-wine-dinner",
+				title: "Winter Wine Dinner",
+				startsAt: "2027-01-09T18:00:00-08:00",
+				endsAt: undefined,
+				url: "https://delillecellars.com/events/winter-wine-dinner/",
+			},
+		]);
 	});
 });

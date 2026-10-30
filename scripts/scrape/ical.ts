@@ -43,7 +43,11 @@ export function toIso(value: string, tzid?: string): string | undefined {
 	const [, y, mo, d, h = "00", mi = "00", s = "00", z] = m;
 	const local = `${y}-${mo}-${d}T${h}:${mi}:${s}`;
 	if (z) return `${local}Z`;
-	const tz = tzid ?? "America/Los_Angeles";
+	// Some Seattle venues' Google Calendars are set to "Pacific Time - Vancouver". British Columbia
+	// stopped changing its clocks in 2026, so its winter offset no longer matches Seattle's; the wall
+	// time is what the venue means.
+	const tz =
+		!tzid || tzid === "America/Vancouver" ? "America/Los_Angeles" : tzid;
 	return `${local}${offsetFor(tz, new Date(`${local}Z`))}`;
 }
 

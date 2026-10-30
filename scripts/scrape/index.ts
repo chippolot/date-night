@@ -46,7 +46,7 @@ for (const s of named) {
 	}
 }
 // A source that hangs counts as failed (keeping its previous events) instead of stalling the run.
-const SOURCE_TIMEOUT_MS = 5 * 60_000;
+const SOURCE_TIMEOUT_MINUTES = 5;
 const seconds = (since: number) =>
 	`${((Date.now() - since) / 1000).toFixed(1)}s`;
 
@@ -61,14 +61,14 @@ const heartbeat = setInterval(() => {
 async function run(source: (typeof selected)[number]) {
 	const start = Date.now();
 	let timer: Timer | undefined;
+	const limit = (source.timeoutMinutes ?? SOURCE_TIMEOUT_MINUTES) * 60_000;
 	try {
 		const events = await Promise.race([
 			source.fetchEvents(),
 			new Promise<never>((_, reject) => {
 				timer = setTimeout(
-					() =>
-						reject(new Error(`timed out after ${SOURCE_TIMEOUT_MS / 1000}s`)),
-					SOURCE_TIMEOUT_MS,
+					() => reject(new Error(`timed out after ${limit / 1000}s`)),
+					limit,
 				);
 			}),
 		]);

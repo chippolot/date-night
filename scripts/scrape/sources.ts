@@ -416,11 +416,14 @@ const aslanFremont: Source = {
 // Squarespace events collections. robots.txt on Squarespace sites disallows `?format=json`, so this
 // reads the upcoming events from the rendered list page. Times there are in the site's time zone.
 
-/** One "localized" start or end time: `<time class="event-time-localized-start" datetime="2026-11-03">5:00 PM</time>` */
+/**
+ * One start or end time: `<time class="event-time-localized-start" datetime="2026-11-03">5:00 PM</time>`.
+ * Some templates (Eight Bells) say `event-time-12hr-start` instead.
+ */
 function squarespaceTime(article: string, which: "start" | "end") {
 	const m = article.match(
 		new RegExp(
-			`class="event-time-localized-${which}" datetime="(\\d{4}-\\d{2}-\\d{2})">([^<]+)<`,
+			`class="event-time-(?:localized|12hr)-${which}" datetime="(\\d{4}-\\d{2}-\\d{2})">([^<]+)<`,
 		),
 	);
 	const time = to24h(m?.[2] ?? "");
@@ -431,11 +434,17 @@ export function parseSquarespaceEvents(
 	html: string,
 	base: string,
 	idPrefix: string,
+	/** Keep only events whose map link address matches (for sites listing other taprooms too) */
+	address?: RegExp,
 ): ScrapedEvent[] {
 	const out: ScrapedEvent[] = [];
 	for (const [article] of html.matchAll(
 		/<article class="eventlist-event eventlist-event--upcoming[\s\S]*?<\/article>/g,
 	)) {
+		if (address) {
+			const where = article.match(/maps\.google\.com\?q=([^"]+)"/)?.[1];
+			if (!where || !address.test(decodeEntities(where))) continue;
+		}
 		const link = article.match(
 			/class="eventlist-title"><a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/,
 		);
@@ -460,26 +469,36 @@ async function squarespaceEvents(
 	base: string,
 	path: string,
 	idPrefix: string,
+	address?: RegExp,
 ): Promise<ScrapedEvent[]> {
-	return parseSquarespaceEvents(await get(`${base}${path}`), base, idPrefix);
+	return parseSquarespaceEvents(
+		await get(`${base}${path}`),
+		base,
+		idPrefix,
+		address,
+	);
 }
 
 // Bars and cafes whose Squarespace events pages list dated events.
 function squarespaceSource(opts: {
 	id: string;
+	/** Defaults to `id` */
+	venueId?: string;
 	base: string;
 	path: string;
 	category?: Category;
 	/** Titles to drop, e.g. closure notices */
 	skip?: RegExp;
+	/** Keep only events at this address (see parseSquarespaceEvents) */
+	address?: RegExp;
 }): Source {
 	return {
 		id: opts.id,
-		venueId: opts.id,
+		venueId: opts.venueId ?? opts.id,
 		category: opts.category,
 		mayBeEmpty: true,
 		fetchEvents: async () =>
-			(await squarespaceEvents(opts.base, opts.path, opts.id))
+			(await squarespaceEvents(opts.base, opts.path, opts.id, opts.address))
 				.filter((e) => !opts.skip?.test(e.title))
 				.map((e) => ({
 					...e,
@@ -1695,6 +1714,8 @@ const MATO_VENUES: {
 	venueId: string;
 	location: RegExp;
 	category?: Category;
+	/** Titles to drop, e.g. sports viewing parties no category fits */
+	skip?: RegExp;
 }[] = [
 	{
 		slug: "tractortavern",
@@ -1748,6 +1769,14 @@ const MATO_VENUES: {
 		slug: "oldstovebeer",
 		venueId: "old-stove-gardens",
 		location: /^Old Stove (Brewing )?Gardens/,
+	},
+	// Dirty Couch (in the old Wheelie Pop space) has no calendar of its own; My Ballard lists some
+	// of its events but with no venue.
+	{
+		slug: "dirtycouchbrewing",
+		venueId: "dirty-couch",
+		location: /^Dirty Couch/,
+		skip: /\b(F1|watch party|race viewing)\b/i,
 	},
 	{
 		slug: "urbanfamilybrewing",
@@ -1845,6 +1874,8 @@ export function parseMatoEvents(
 
 const mato: Source = {
 	id: "mato",
+	// About 20 venue pages plus their linked event pages, a second apart
+	timeoutMinutes: 10,
 	async fetchEvents() {
 		const { from, to } = horizon();
 		const out: ScrapedEvent[] = [];
@@ -1857,7 +1888,8 @@ const mato: Source = {
 			const have = new Set(events.map((e) => e.url));
 			for (const s of matoEventSlugs(page, from, to)) {
 				const url = `${MATO}/event/${s}`;
-				if (have.has(url)) continue;
+				// Slugs carry the title, so skipped events needn't be fetched.
+				if (have.has(url) || v.skip?.test(s.replaceAll("-", " "))) continue;
 				let html = eventPages.get(url);
 				if (html === undefined) {
 					await pause(1);
@@ -1867,11 +1899,13 @@ const mato: Source = {
 				events.push(...parseMatoEvents(html, url, v.location));
 			}
 			out.push(
-				...events.map((e) => ({
-					...e,
-					venueId: v.venueId,
-					category: guessCategory(e.title, v.category),
-				})),
+				...events
+					.filter((e) => !v.skip?.test(e.title))
+					.map((e) => ({
+						...e,
+						venueId: v.venueId,
+						category: guessCategory(e.title, v.category),
+					})),
 			);
 			await pause(1);
 		}
@@ -2149,13 +2183,131 @@ const lakeCityContra: Source = {
 	},
 };
 
+// ---------------------------------------------------------------------------
+// Breweries, cideries and wineries
+
+// Flying Bike (Greenwood): the co-op's public Google Calendar. Its weekly and monthly nights are
+// RRULEs, which parseIcs doesn't expand, so those are curated nights; this picks up one-offs.
+// Members' meetings and festivals elsewhere (some with no LOCATION, like PNA's beer tastes) are dropped.
+const flyingBike = icsSource({
+	id: "flying-bike",
+	venueId: "flying-bike",
+	url: "https://calendar.google.com/calendar/ical/flyingbike.coop_io1qblhhb2n2h367j0jf7itchk%40group.calendar.google.com/public/basic.ics",
+	link: "https://flyingbike.coop/calendar/",
+	atVenue: /flying bike/i,
+	skip: /\b(meeting|board|training|PNA|beer ?fest|brewers fest|competition)\b/i,
+	mayBeEmpty: true,
+});
+
+// Bale Breaker × Yonder Cider (Ballard): one taproom, read from Yonder's Squarespace events, which
+// include other cities. (Bale Breaker's own calendar refuses our user agent; see the end of the file.)
+const yonderCider = squarespaceSource({
+	id: "yonder-cider",
+	venueId: "bale-breaker-yonder",
+	base: "https://www.yondercider.com",
+	path: "/events",
+	address: /826 Northwest 49th/i,
+});
+
+// Lucky Envelope (Ballard): releases, runs and the odd art night, a few a month.
+const luckyEnvelope = squarespaceSource({
+	id: "lucky-envelope",
+	base: "https://www.luckyenvelopebrewing.com",
+	path: "/events",
+});
+
+// Eight Bells Winery (Lake City): parties, classes and markets. Wine club pick-ups are members only.
+const eightBells = squarespaceSource({
+	id: "eight-bells-winery",
+	base: "https://www.8bellswinery.com",
+	path: "/events",
+	skip: /\b(wine club|pick-?up)\b/i,
+	// Anniversary parties and library tastings
+	category: "food-drink-special",
+});
+
+// Jolly Roger Taproom (Ballard, run by Rooftop Brewing): JSON-LD on its events page. Releases and
+// release parties fall back to food & drink specials.
+const jollyRogerLd = jsonldSource({
+	id: "jolly-roger",
+	venueId: "jolly-roger-taproom",
+	urls: ["https://rooftopbrew.co/jollyroger/events"],
+	location: /jolly roger/i,
+});
+const jollyRoger: Source = {
+	...jollyRogerLd,
+	mayBeEmpty: true,
+	fetchEvents: async () =>
+		(await jollyRogerLd.fetchEvents())
+			// Closures and private events are listed too
+			.filter((e) => !/\b(clos(ed|ing)|private event)\b/i.test(e.title))
+			.map((e) => ({
+				...e,
+				category: guessCategory(e.title, "food-drink-special"),
+			})),
+};
+
+// DeLille En Ville (University Village): DeLille's events page covers its Woodinville tasting room
+// and restaurant too, so keep cards tagged En Ville. Cards give month, day and a time range such
+// as "En Ville | 12:00 – 5:00 pm" but no year; multi-day and all-day cards have no start time.
+export function parseDelille(html: string, today: string): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const card of html.split(/<div class="upcoming-event\b/).slice(1)) {
+		const where = card.match(/data-location="([^"]*)"/)?.[1] ?? "";
+		const details = stripTags(card.match(/<h5>([\s\S]*?)<\/h5>/)?.[1] ?? "");
+		if (!/en ville/i.test(where) && !/^en ville\b/i.test(details)) continue;
+		if (/event-date-multiple/.test(card)) continue;
+		const month = MONTHS.indexOf(
+			(card.match(/class="momth">([A-Za-z]{3})/)?.[1] ?? "").toLowerCase(),
+		);
+		const day = Number(card.match(/class="day">(\d{1,2})/)?.[1]);
+		const title = stripTags(
+			card.match(/class="event-details">\s*<h2>([\s\S]*?)<\/h2>/)?.[1] ?? "",
+		);
+		const url = card.match(/class="button primary" href="([^"]+)"/)?.[1];
+		// "12:00 – 5:00 pm": the start takes the range's am/pm when it has none of its own
+		const range = details.match(
+			/(\d{1,2}(?::\d{2})?\s*(?:am|pm)?)\s*[–-]\s*(\d{1,2}(?::\d{2})?\s*(am|pm))/i,
+		);
+		const single = details.match(/\b(\d{1,2}(?::\d{2})?\s*(am|pm))/i);
+		const meridiem = range?.[3] ?? single?.[2];
+		const start = clock(range?.[1] ?? single?.[1] ?? "", meridiem);
+		const end = range?.[2] ? clock(range[2]) : undefined;
+		if (month < 0 || !day || !title || !url || !start) continue;
+		const date = withYear(month + 1, day, today);
+		const startsAt = localIso(date, start);
+		if (!startsAt) continue;
+		out.push({
+			id: `delille-en-ville-${date}-${slug(title)}`,
+			title,
+			startsAt,
+			endsAt: end ? localIso(date, end) : undefined,
+			url,
+		});
+	}
+	return out;
+}
+
+const delilleEnVille: Source = {
+	id: "delille-en-ville",
+	venueId: "delille-en-ville",
+	mayBeEmpty: true,
+	async fetchEvents() {
+		return parseDelille(
+			await get("https://delillecellars.com/events/"),
+			horizon().from,
+		).map((e) => ({ ...e, category: guessCategory(e.title) }));
+	},
+};
+
 // Not scraped (see CLAUDE.md): Tractor Tavern's and Sunset Tavern's own calendars (ModSecurity; a
 // DICE widget that needs an API key, with dice.fm behind Cloudflare), so both come from Mato above.
 // Phinney Center (Cloudflare; some events arrive via My Ballard, PhinneyWood and SFS), Fremont Abbey (public calendar is
 // mostly rental placeholders), Mox Boarding House (Occasion calendar behind Cloudflare), U Wine Bar
 // (robots.txt disallows all but Google), Ballard Clay and Throw & Build (KilnFire booking pages
 // disallowed by robots.txt), Wet Clay Cafe (Wix Bookings sessions load client-side only), Waystone
-// Wargaming (scrapable, but daytime tournaments). TicketWeb (Tractor) and the Wizards event locator
+// Wargaming (scrapable, but daytime tournaments), Bale Breaker's Tribe calendar (drops requests
+// that name this scraper in the user agent). TicketWeb (Tractor) and the Wizards event locator
 // (Mox, U Wine Bar) are fetchable but their terms forbid scraping.
 export const sources: Source[] = [
 	visitBallard,
@@ -2206,6 +2358,12 @@ export const sources: Source[] = [
 	artemisCoffee,
 	mrBsMeadery,
 	ponoRanch,
+	flyingBike,
+	yonderCider,
+	luckyEnvelope,
+	eightBells,
+	jollyRoger,
+	delilleEnVille,
 	// Last: least reliable, so every other source wins a shared venue and start time.
 	mato,
 ];

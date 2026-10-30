@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-30T22:38:48.023Z",
+	"generatedAt": "2026-10-30T23:17:27.285Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-30T18:26:41.077Z",
 		"artemis-coffee": "2026-10-30T18:26:41.077Z",
@@ -8,19 +8,24 @@
 		"brimmer-and-heeltap": "2026-10-30T18:26:41.077Z",
 		"classpop": "2026-10-30T18:26:41.077Z",
 		"conor-byrne": "2026-10-30T18:26:41.076Z",
+		"delille-en-ville": "2026-10-30T23:01:23.731Z",
 		"dinodad-comedy": "2026-10-30T18:26:41.077Z",
 		"egans": "2026-10-30T18:26:41.077Z",
+		"eight-bells-winery": "2026-10-30T23:04:17.829Z",
 		"figurehead-stone-way": "2026-10-30T18:26:41.077Z",
+		"flying-bike": "2026-10-30T23:04:17.325Z",
 		"greenstage": "2026-10-30T21:40:42.123Z",
 		"halcyon": "2026-10-30T18:26:41.076Z",
 		"halfseas": "2026-10-30T18:26:41.076Z",
 		"hidden-hall": "2026-10-30T18:26:41.077Z",
 		"jet-city-improv": "2026-10-30T22:00:23.451Z",
+		"jolly-roger": "2026-10-30T23:04:17.469Z",
 		"kings-hardware": "2026-10-30T18:26:41.077Z",
 		"lake-city-contra": "2026-10-30T21:38:00.510Z",
 		"lovestruck": "2026-10-30T21:37:38.986Z",
+		"lucky-envelope": "2026-10-30T23:01:22.867Z",
 		"magnuson-park-gallery": "2026-10-30T21:40:45.854Z",
-		"mato": "2026-10-30T22:38:48.018Z",
+		"mato": "2026-10-30T23:17:27.278Z",
 		"meany-center": "2026-10-30T21:39:40.251Z",
 		"mockingbird-comedy": "2026-10-30T21:40:56.904Z",
 		"mr-bs-meadery": "2026-10-30T18:26:41.077Z",
@@ -49,6 +54,7 @@
 		"west-of-lenin": "2026-10-30T18:26:41.077Z",
 		"woodland-park-zoo": "2026-10-30T20:55:11.966Z",
 		"woodland-theater": "2026-10-30T18:26:41.077Z",
+		"yonder-cider": "2026-10-30T23:01:22.520Z",
 		"yu-tang": "2026-10-30T18:26:41.077Z"
 	},
 	"events": [
@@ -161,6 +167,15 @@
 			"category": "live-music",
 			"source": "woodland-theater",
 			"venueId": "woodland-theater"
+		},
+		{
+			"id": "jolly-roger-2026-10-30-new-release-tank-ride-imperial-stout",
+			"title": "New Release / Tank Ride Imperial Stout",
+			"startsAt": "2026-10-30T19:00:00.000Z",
+			"url": "https://rooftopbrew.co/jollyroger/events",
+			"category": "food-drink-special",
+			"source": "jolly-roger",
+			"venueId": "jolly-roger-taproom"
 		},
 		{
 			"id": "spt-2026-10-31T02:30-neel-neha-and-neel",
@@ -418,6 +433,15 @@
 			"source": "classpop"
 		},
 		{
+			"id": "yonder-cider-2026-10-31T22:00-howl-o-ween-dog-costume-contest",
+			"title": "Howl-O-Ween Dog Costume Contest",
+			"startsAt": "2026-10-31T15:00:00-07:00",
+			"endsAt": "2026-10-31T18:00:00-07:00",
+			"url": "https://www.yondercider.com/events/howl-o-ween-dog-costume-contest-3",
+			"source": "yonder-cider",
+			"venueId": "bale-breaker-yonder"
+		},
+		{
 			"id": "mato-2026-10-31T15:00-a-tribute-to-dr-ralph-stanley",
 			"title": "A Tribute to Dr. Ralph Stanley",
 			"startsAt": "2026-10-31T15:00:00.000-07:00",
@@ -445,6 +469,16 @@
 			"url": "https://ma.to/event/zine-crash-course-perzines-2026-10-31",
 			"venueId": "push-pull",
 			"category": "class",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-10-31T15:00-twin-peaks-halloween-movie-marathon",
+			"title": "Twin Peaks Halloween Movie Marathon",
+			"startsAt": "2026-10-31T15:00:00.000-07:00",
+			"endsAt": "2026-10-31T22:00:00.000-07:00",
+			"url": "https://ma.to/event/twin-peaks-halloween-movie-marathon-2026-10-31",
+			"venueId": "dirty-couch",
+			"category": "theater",
 			"source": "mato"
 		},
 		{
@@ -841,6 +875,16 @@
 			"venueId": "the-pantry"
 		},
 		{
+			"id": "eight-bells-winery-2026-11-02T01:00-1-year-anniversary-at-10k-best-of-pnw-celebration",
+			"title": "1 Year Anniversary at 10K / Best of PNW Celebration!",
+			"startsAt": "2026-11-01T17:00:00-08:00",
+			"endsAt": "2026-11-01T19:00:00-08:00",
+			"url": "https://www.8bellswinery.com/events/2026/10/15/1-year-anniversary-at-10k-best-of-pnw-celebration",
+			"category": "food-drink-special",
+			"source": "eight-bells-winery",
+			"venueId": "eight-bells-winery"
+		},
+		{
 			"id": "woodland-park-zoo-10002220-2026-11-01",
 			"venueId": "woodland-park-zoo",
 			"title": "Animal Ofrenda",
@@ -1115,6 +1159,16 @@
 			"category": "live-music",
 			"source": "sea-monster-lounge",
 			"venueId": "sea-monster-lounge"
+		},
+		{
+			"id": "flying-bike-2026-11-02-geeks-who-drink",
+			"title": "Geeks Who Drink",
+			"startsAt": "2026-11-02T19:00:00-08:00",
+			"endsAt": "2026-11-02T21:00:00-08:00",
+			"url": "https://flyingbike.coop/calendar/",
+			"category": "trivia",
+			"source": "flying-bike",
+			"venueId": "flying-bike"
 		},
 		{
 			"id": "mato-2026-11-02T19:00-what-the-sea-keeps-author-talk",
@@ -1758,6 +1812,16 @@
 			"venueId": "pono-ranch"
 		},
 		{
+			"id": "flying-bike-2026-11-05-bingo-at-the-bike",
+			"title": "Bingo at the Bike",
+			"startsAt": "2026-11-05T19:00:00-08:00",
+			"endsAt": "2026-11-05T21:00:00-08:00",
+			"url": "https://flyingbike.coop/calendar/",
+			"category": "trivia",
+			"source": "flying-bike",
+			"venueId": "flying-bike"
+		},
+		{
 			"id": "mato-2026-11-05T19:00-jodi-ann-burey-authentic",
 			"title": "Jodi-Ann Burey: Authentic",
 			"startsAt": "2026-11-05T19:00:00.000-08:00",
@@ -2152,6 +2216,15 @@
 			"price": "$25.87–$31.94",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "jolly-roger-2026-11-07-jolly-roger-kickoff-party",
+			"title": "Jolly Roger Kickoff Party",
+			"startsAt": "2026-11-07T01:00:00Z",
+			"url": "https://rooftopbrew.co/jollyroger/events",
+			"category": "food-drink-special",
+			"source": "jolly-roger",
+			"venueId": "jolly-roger-taproom"
 		},
 		{
 			"id": "hidden-hall-2026-11-07-deante-hitchcock-with-joe-the-poet-shane-diamanti-coaster",
@@ -2628,6 +2701,16 @@
 			"venueId": "the-pantry"
 		},
 		{
+			"id": "flying-bike-2026-11-08-magic-the-gathering-commander-night",
+			"title": "Magic: The Gathering Commander Night",
+			"startsAt": "2026-11-08T18:00:00-08:00",
+			"endsAt": "2026-11-08T20:00:00-08:00",
+			"url": "https://flyingbike.coop/calendar/",
+			"category": "trivia",
+			"source": "flying-bike",
+			"venueId": "flying-bike"
+		},
+		{
 			"id": "figurehead-stone-way-2026-11-08-mahjong-brunch",
 			"title": "Mahjong Brunch",
 			"startsAt": "2026-11-08T18:00:00Z",
@@ -2853,6 +2936,16 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "mato-2026-11-10T18:30-cribbage-night-at-dirty-couch",
+			"title": "Cribbage Night at Dirty Couch",
+			"startsAt": "2026-11-10T18:30:00.000-08:00",
+			"endsAt": "2026-11-10T21:00:00.000-08:00",
+			"url": "https://ma.to/event/cribbage-night-at-dirty-couch-2026-11-10",
+			"venueId": "dirty-couch",
+			"category": "trivia",
+			"source": "mato"
+		},
+		{
 			"id": "mato-2026-11-10T19:00-other-lives-usa-tour-2026",
 			"title": "Other Lives: USA Tour 2026",
 			"startsAt": "2026-11-10T19:00:00.000-08:00",
@@ -2910,6 +3003,15 @@
 			"url": "https://www.visitballard.com/event/trivia-night/2026-11-10/",
 			"category": "trivia",
 			"source": "visitballard"
+		},
+		{
+			"id": "flying-bike-2026-11-11-movember-at-the-bike",
+			"title": "Movember at the Bike",
+			"startsAt": "2026-11-11T02:00:00Z",
+			"endsAt": "2026-11-11T05:00:00Z",
+			"url": "https://flyingbike.coop/calendar/",
+			"source": "flying-bike",
+			"venueId": "flying-bike"
 		},
 		{
 			"id": "abbey-arts-2026-11-11T02:30-realization-process-family-constellation-workshop-faciliated",
@@ -3190,6 +3292,16 @@
 			"source": "classpop"
 		},
 		{
+			"id": "eight-bells-winery-2026-11-13T01:00-captain-s-table-tasting",
+			"title": "Captain's Table Tasting",
+			"startsAt": "2026-11-12T17:00:00-08:00",
+			"endsAt": "2026-11-12T20:00:00-08:00",
+			"url": "https://www.8bellswinery.com/events/2026/11/12/captains-table-tasting",
+			"category": "food-drink-special",
+			"source": "eight-bells-winery",
+			"venueId": "eight-bells-winery"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-12T18:00-david-bowie-the-rise-and-fall-of-ziggy-stardust-and-the-spid",
 			"title": "David Bowie - The Rise and Fall of Ziggy Stardust and the Spiders From Mars",
 			"startsAt": "2026-11-12T18:00:00-08:00",
@@ -3239,6 +3351,16 @@
 			"category": "live-music",
 			"source": "pono-ranch",
 			"venueId": "pono-ranch"
+		},
+		{
+			"id": "flying-bike-2026-11-12-silent-book-club",
+			"title": "Silent Book Club",
+			"startsAt": "2026-11-12T19:00:00-08:00",
+			"endsAt": "2026-11-12T21:00:00-08:00",
+			"url": "https://flyingbike.coop/calendar/",
+			"category": "comedy",
+			"source": "flying-bike",
+			"venueId": "flying-bike"
 		},
 		{
 			"id": "mato-2026-11-12T19:00-goldi-locke-s-anywhere-ep-release",
@@ -3475,6 +3597,16 @@
 			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240074477",
 			"category": "comedy",
 			"source": "dinodad-comedy"
+		},
+		{
+			"id": "flying-bike-2026-11-13-greenwood-art-walk",
+			"title": "Greenwood Art Walk",
+			"startsAt": "2026-11-13T19:00:00-08:00",
+			"endsAt": "2026-11-13T22:00:00-08:00",
+			"url": "https://flyingbike.coop/calendar/",
+			"category": "art",
+			"source": "flying-bike",
+			"venueId": "flying-bike"
 		},
 		{
 			"id": "uw-2026-11-13T19:30-phe-dre",
@@ -3991,6 +4123,15 @@
 			"venueId": "book-larder"
 		},
 		{
+			"id": "jolly-roger-2026-11-17-speed-puzzle-contest",
+			"title": "Speed Puzzle Contest",
+			"startsAt": "2026-11-17T02:30:00.000Z",
+			"url": "https://rooftopbrew.co/jollyroger/events",
+			"category": "trivia",
+			"source": "jolly-roger",
+			"venueId": "jolly-roger-taproom"
+		},
+		{
 			"id": "visitballard-10001820-2026-11-17",
 			"venueId": "ballard-beer-box",
 			"title": "Join Us for BINGO | Games – Prize – Party MONDAY",
@@ -4051,6 +4192,16 @@
 			"category": "class",
 			"source": "artemis-coffee",
 			"venueId": "artemis-coffee"
+		},
+		{
+			"id": "eight-bells-winery-2026-11-18T01:00-water-color-holiday-cards-with-laura-brewer",
+			"title": "Water-Color Holiday Cards with Laura Brewer",
+			"startsAt": "2026-11-17T17:00:00-08:00",
+			"endsAt": "2026-11-17T19:00:00-08:00",
+			"url": "https://www.8bellswinery.com/events/2026/11/15/water-color-holiday-cards-with-laura-brewer",
+			"category": "class",
+			"source": "eight-bells-winery",
+			"venueId": "eight-bells-winery"
 		},
 		{
 			"id": "halfseas-2026-11-18T02:00-old-world-comfort-traditional-table-wines-tasting-club-picku",
@@ -4575,6 +4726,16 @@
 			"url": "https://zoo.org/event/wildlanterns/2026-11-19/",
 			"category": "art",
 			"source": "woodland-park-zoo"
+		},
+		{
+			"id": "flying-bike-2026-11-20-beer-and-chocolate-pairing-class",
+			"title": "Beer and Chocolate Pairing Class",
+			"startsAt": "2026-11-20T02:00:00Z",
+			"endsAt": "2026-11-20T03:00:00Z",
+			"url": "https://flyingbike.coop/calendar/",
+			"category": "class",
+			"source": "flying-bike",
+			"venueId": "flying-bike"
 		},
 		{
 			"id": "book-larder-15259658092762",
@@ -5105,6 +5266,16 @@
 			"source": "salmon-bay-eagles"
 		},
 		{
+			"id": "eight-bells-winery-2026-11-22T20:00-8-bells-holiday-market",
+			"title": "8 Bells Holiday Market",
+			"startsAt": "2026-11-22T12:00:00-08:00",
+			"endsAt": "2026-11-22T17:00:00-08:00",
+			"url": "https://www.8bellswinery.com/events/2026/11/22/8-bells-holiday-market",
+			"category": "market",
+			"source": "eight-bells-winery",
+			"venueId": "eight-bells-winery"
+		},
+		{
 			"id": "mr-bs-meadery-2026-11-22T21:00-mr-b-s-mead-making-class",
 			"title": "Mr. B's Mead Making Class",
 			"startsAt": "2026-11-22T13:00:00-08:00",
@@ -5123,6 +5294,16 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "flying-bike-2026-11-22-silent-book-club",
+			"title": "Silent Book Club",
+			"startsAt": "2026-11-22T14:00:00-08:00",
+			"endsAt": "2026-11-22T16:00:00-08:00",
+			"url": "https://flyingbike.coop/calendar/",
+			"category": "comedy",
+			"source": "flying-bike",
+			"venueId": "flying-bike"
 		},
 		{
 			"id": "mato-2026-11-22T14:00-stamp-your-own-gear-workshop",
@@ -5747,6 +5928,15 @@
 			"url": "https://salmonbayeagles.com/event/salmon-dans-jam-25/",
 			"category": "live-music",
 			"source": "salmon-bay-eagles"
+		},
+		{
+			"id": "delille-en-ville-2026-11-28-small-business-saturday-pop-up",
+			"title": "Small Business Saturday Pop-Up",
+			"startsAt": "2026-11-28T12:00:00-08:00",
+			"endsAt": "2026-11-28T17:00:00-08:00",
+			"url": "https://delillecellars.com/events/small-business-saturday-pop-up/",
+			"source": "delille-en-ville",
+			"venueId": "delille-en-ville"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-28T12:30-tracy-chapman-tracy-chapman",
@@ -6716,6 +6906,15 @@
 			"category": "live-music"
 		},
 		{
+			"id": "jolly-roger-2026-12-06-the-shed-boys-live-music-no-cover",
+			"title": "The Shed Boys: Live Music, No Cover",
+			"startsAt": "2026-12-06T03:00:00.000Z",
+			"url": "https://rooftopbrew.co/jollyroger/events",
+			"category": "live-music",
+			"source": "jolly-roger",
+			"venueId": "jolly-roger-taproom"
+		},
+		{
 			"id": "hidden-hall-2026-12-06-the-jaws-of-brooklyn-with-heavy-bloom-mckenna-esteb",
 			"title": "THE JAWS OF BROOKLYN with Heavy Bloom, McKenna Esteb",
 			"startsAt": "2026-12-06T03:00:00+00:00",
@@ -6866,6 +7065,15 @@
 			"url": "https://zoo.org/event/wildlanterns/2026-12-06/",
 			"category": "art",
 			"source": "woodland-park-zoo"
+		},
+		{
+			"id": "jolly-roger-2026-12-07-the-ballard-social-club-live-music-no-cover",
+			"title": "The Ballard Social Club: Live Music, No Cover",
+			"startsAt": "2026-12-07T01:30:00.000Z",
+			"url": "https://rooftopbrew.co/jollyroger/events",
+			"category": "live-music",
+			"source": "jolly-roger",
+			"venueId": "jolly-roger-taproom"
 		},
 		{
 			"id": "visitballard-10008587-2026-12-07",
@@ -7112,6 +7320,16 @@
 			"url": "https://sunsethillcommunity.org/event/beginning-foxtrot-class-series/2026-12-08/",
 			"category": "class",
 			"source": "sunset-hill-hall"
+		},
+		{
+			"id": "eight-bells-winery-2026-12-10T01:00-paint-n-sip-with-laura-brewer",
+			"title": "Paint N' Sip with Laura Brewer",
+			"startsAt": "2026-12-09T17:00:00-08:00",
+			"endsAt": "2026-12-09T19:00:00-08:00",
+			"url": "https://www.8bellswinery.com/events/2026/12/9/paint-n-sip-with-laura-brewer",
+			"category": "class",
+			"source": "eight-bells-winery",
+			"venueId": "eight-bells-winery"
 		},
 		{
 			"id": "mato-2026-12-09T18:30-rbc-jazz-nights-quartet-de-garde",
@@ -7987,6 +8205,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "eight-bells-winery-2026-12-18T01:00-pictures-with-santa",
+			"title": "Pictures with Santa!",
+			"startsAt": "2026-12-17T17:00:00-08:00",
+			"endsAt": "2026-12-17T19:00:00-08:00",
+			"url": "https://www.8bellswinery.com/events/2026/12/17/pictures-with-santa",
+			"category": "food-drink-special",
+			"source": "eight-bells-winery",
+			"venueId": "eight-bells-winery"
+		},
+		{
 			"id": "egans-2026-12-17-1900-jo-s-jazz-vocal-jam-hosted-by-joanne-klein",
 			"title": "Jo's Jazz Vocal Jam hosted by Joanne Klein",
 			"startsAt": "2026-12-17T19:00:00-08:00",
@@ -8618,6 +8846,15 @@
 			"url": "https://zoo.org/event/wildlanterns/2026-12-23/",
 			"category": "art",
 			"source": "woodland-park-zoo"
+		},
+		{
+			"id": "jolly-roger-2026-12-24-ugly-christmas-sweater-gift-wrapping-night",
+			"title": "Ugly Christmas Sweater & Gift Wrapping Night",
+			"startsAt": "2026-12-24T02:00:00.000Z",
+			"url": "https://rooftopbrew.co/jollyroger/events",
+			"category": "food-drink-special",
+			"source": "jolly-roger",
+			"venueId": "jolly-roger-taproom"
 		},
 		{
 			"id": "visitballard-10005196-2026-12-24",

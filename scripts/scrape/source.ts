@@ -12,18 +12,20 @@ export type Source = {
 	category?: Category;
 	/** Zero events is normal (e.g. a page of occasional specials), not a sign the scraper broke */
 	mayBeEmpty?: boolean;
+	/** Longer than the default 5 for sources that pause between many pages */
+	timeoutMinutes?: number;
 	fetchEvents: () => Promise<ScrapedEvent[]>;
 };
 
 const CATEGORY_PATTERNS: [RegExp, Category][] = [
 	// Magic: The Gathering nights, not magic wands or magic shows
 	[
-		/\b(trivia|quiz|bingo|game night|commander|magic: the gathering|mtg)\b/i,
+		/\b(trivia|quiz|bingo|game night|cribbage|puzzle|geeks who drink|commander|magic: the gathering|mtg)\b/i,
 		"trivia",
 	],
 	[/\bkaraoke\b/i, "karaoke"],
 	[
-		/\b(class|workshop|lesson|painting|clay|embroidery|mending|foiling|craft)\b/i,
+		/\b(class|workshop|lesson|painting|paint n'? sip|water-?colou?r|clay|embroidery|mending|foiling|craft)\b/i,
 		"class",
 	],
 	[/\b(film|screening|movie|theater|theatre|play|cabaret)\b/i, "theater"],
@@ -150,29 +152,36 @@ export function icsSource(
 		link?: string;
 		/** Keep only events whose LOCATION matches (for calendars shared with sister venues) */
 		location?: RegExp;
+		/** Drop events whose LOCATION is set and doesn't match (for feeds that list off-site events too) */
+		atVenue?: RegExp;
+		/** Titles to drop, e.g. members' meetings */
+		skip?: RegExp;
 		cleanTitle?: (title: string) => string;
 	},
 ): Source {
+	const { url, link, location, atVenue, skip, cleanTitle, ...source } = opts;
 	return {
-		...opts,
+		...source,
 		async fetchEvents() {
-			return parseIcs(await get(opts.url))
+			return parseIcs(await get(url))
 				.filter(
 					(e) =>
 						// All-day entries have no start time to show.
 						!e.allDay &&
 						!e.cancelled &&
-						(!opts.location || opts.location.test(e.location ?? "")),
+						(!location || location.test(e.location ?? "")) &&
+						(!atVenue || !e.location || atVenue.test(e.location)) &&
+						!skip?.test(e.summary),
 				)
 				.map((e) => {
-					const title = opts.cleanTitle?.(e.summary) ?? e.summary;
+					const title = cleanTitle?.(e.summary) ?? e.summary;
 					return {
-						id: `${opts.id}-${e.start.slice(0, 10)}-${slug(title)}`,
+						id: `${source.id}-${e.start.slice(0, 10)}-${slug(title)}`,
 						title,
 						startsAt: e.start,
 						endsAt: e.end,
-						url: e.url ?? opts.link ?? opts.url,
-						category: guessCategory(title, opts.category),
+						url: e.url ?? link ?? url,
+						category: guessCategory(title, source.category),
 					};
 				});
 		},
