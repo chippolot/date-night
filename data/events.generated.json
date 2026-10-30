@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-30T02:14:04.306Z",
+	"generatedAt": "2026-10-30T02:47:44.365Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-30T02:14:04.303Z",
 		"aslan-fremont": "2026-10-30T02:14:04.303Z",
@@ -10,6 +10,7 @@
 		"halcyon": "2026-10-30T02:14:04.303Z",
 		"halfseas": "2026-10-30T02:14:04.303Z",
 		"hidden-hall": "2026-10-30T02:14:04.303Z",
+		"mato": "2026-10-30T02:47:44.363Z",
 		"mockingbird-comedy": "2026-10-30T02:14:04.304Z",
 		"myballard": "2026-10-30T02:14:04.303Z",
 		"nectar": "2026-10-30T02:14:04.304Z",
@@ -31,6 +32,26 @@
 		"yu-tang": "2026-10-30T02:14:04.304Z"
 	},
 	"events": [
+		{
+			"id": "mato-2026-10-29T15:00-happy-hour-specials",
+			"title": "Happy Hour Specials",
+			"startsAt": "2026-10-29T15:00:00.000-07:00",
+			"endsAt": "2026-10-29T18:00:00.000-07:00",
+			"url": "https://ma.to/event/happy-hour-specials-2026-10-29",
+			"venueId": "latona-pub",
+			"category": "food-drink-special",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-10-29T16:00-cicchetti-happy-hour",
+			"title": "Cicchetti Happy Hour",
+			"startsAt": "2026-10-29T16:00:00.000-07:00",
+			"endsAt": "2026-10-29T18:00:00.000-07:00",
+			"url": "https://ma.to/event/2026-10-29-cicchetti-happy-hour-thursday",
+			"venueId": "trailbend-taproom",
+			"category": "food-drink-special",
+			"source": "mato"
+		},
 		{
 			"id": "shibuya-hifi-2026-10-29T17:00-charles-mingus-mingus",
 			"title": "Charles Mingus - Mingus",
@@ -133,6 +154,26 @@
 			"category": "live-music"
 		},
 		{
+			"id": "mato-2026-10-29T20:00-olive-klug-with-frail-talk",
+			"title": "Olive Klug with Frail Talk",
+			"startsAt": "2026-10-29T20:00:00.000-07:00",
+			"endsAt": "2026-10-29T22:00:00.000-07:00",
+			"url": "https://ma.to/event/olive-klug-with-frail-talk-2026-10-29",
+			"venueId": "tractor-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-10-29T20:00-to-th-at-the-sunset",
+			"title": "TŌTH at The Sunset",
+			"startsAt": "2026-10-29T20:00:00.000-07:00",
+			"endsAt": "2026-10-29T23:00:00.000-07:00",
+			"url": "https://ma.to/event/toth-at-the-sunset-2026-10-29",
+			"venueId": "sunset-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
 			"id": "shibuya-hifi-2026-10-29T21:00-lana-del-rey-ultraviolence",
 			"title": "Lana Del Rey - Ultraviolence",
 			"startsAt": "2026-10-29T21:00:00-07:00",
@@ -152,6 +193,16 @@
 			"price": "$31.94–$50.14",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "mato-2026-10-29T21:00-vibez-n-bingo-halloween-edition",
+			"title": "Vibez N' Bingo: Halloween Edition",
+			"startsAt": "2026-10-29T21:00:00.000-07:00",
+			"endsAt": "2026-10-30T02:00:00.000-07:00",
+			"url": "https://ma.to/event/vibez-n-bingo-halloween-30-oct-2026",
+			"venueId": "ltd-bar-and-grill",
+			"category": "trivia",
+			"source": "mato"
 		},
 		{
 			"id": "hidden-hall-2026-10-30-frankie-j-with-viktoria-silk",
@@ -186,6 +237,26 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "mato-2026-10-30T15:00-happy-hour-specials",
+			"title": "Happy Hour Specials",
+			"startsAt": "2026-10-30T15:00:00.000-07:00",
+			"endsAt": "2026-10-30T18:00:00.000-07:00",
+			"url": "https://ma.to/event/happy-hour-specials-2026-10-30",
+			"venueId": "latona-pub",
+			"category": "food-drink-special",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-10-30T16:00-cicchetti-happy-hour",
+			"title": "Cicchetti Happy Hour",
+			"startsAt": "2026-10-30T16:00:00.000-07:00",
+			"endsAt": "2026-10-30T18:00:00.000-07:00",
+			"url": "https://ma.to/event/2026-10-30-cicchetti-happy-hour-friday",
+			"venueId": "trailbend-taproom",
+			"category": "food-drink-special",
+			"source": "mato"
+		},
+		{
 			"id": "shibuya-hifi-2026-10-30T17:00-dave-brubeck-quartet-time-out",
 			"title": "Dave Brubeck Quartet - Time Out",
 			"startsAt": "2026-10-30T17:00:00-07:00",
@@ -194,6 +265,16 @@
 			"category": "jazz",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-10-30T17:00-friday-night-jazz-with-phil-sparks",
+			"title": "Friday Night Jazz with Phil Sparks",
+			"startsAt": "2026-10-30T17:00:00.000-07:00",
+			"endsAt": "2026-10-30T19:00:00.000-07:00",
+			"url": "https://ma.to/event/friday-night-jazz-with-phil-sparks-2026-10-30",
+			"venueId": "latona-pub",
+			"category": "jazz",
+			"source": "mato"
 		},
 		{
 			"id": "shibuya-hifi-2026-10-30T18:00-frank-ocean-blonde",
@@ -273,6 +354,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-10-30T19:30-halloween-bash-iii-friday",
+			"title": "Halloween Bash III: Friday",
+			"startsAt": "2026-10-30T19:30:00.000-07:00",
+			"endsAt": "2026-10-31T00:30:00.000-07:00",
+			"url": "https://ma.to/event/halloween-bash-iii-friday-30-oct-2026",
+			"price": "$20",
+			"venueId": "sunset-tavern",
+			"category": "live-music",
+			"source": "mato"
 		},
 		{
 			"id": "octopus-2026-10-30-pretty-ugly-vol-13",
@@ -400,6 +492,26 @@
 			"source": "classpop"
 		},
 		{
+			"id": "mato-2026-10-31T15:00-a-tribute-to-dr-ralph-stanley",
+			"title": "A Tribute to Dr. Ralph Stanley",
+			"startsAt": "2026-10-31T15:00:00.000-07:00",
+			"endsAt": "2026-10-31T17:30:00.000-07:00",
+			"url": "https://ma.to/event/a-tribute-to-dr-ralph-stanley-2026-10-31",
+			"venueId": "tractor-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-10-31T15:00-happy-hour-specials",
+			"title": "Happy Hour Specials",
+			"startsAt": "2026-10-31T15:00:00.000-07:00",
+			"endsAt": "2026-10-31T18:00:00.000-07:00",
+			"url": "https://ma.to/event/happy-hour-specials-2026-10-31",
+			"venueId": "latona-pub",
+			"category": "food-drink-special",
+			"source": "mato"
+		},
+		{
 			"id": "shibuya-hifi-2026-10-31T15:30-the-cure-pornography",
 			"title": "The Cure - Pornography",
 			"startsAt": "2026-10-31T15:30:00-07:00",
@@ -469,6 +581,15 @@
 			"category": "theater"
 		},
 		{
+			"id": "mato-2026-10-31T19:00-good-luck-rabbits-live",
+			"title": "Good Luck Rabbits Live",
+			"startsAt": "2026-10-31T19:00:00.000-07:00",
+			"endsAt": "2026-10-31T21:00:00.000-07:00",
+			"url": "https://ma.to/event/good-luck-rabbits-live-2026-10-31",
+			"venueId": "latona-pub",
+			"source": "mato"
+		},
+		{
 			"id": "myballard-363135-2026-10-31",
 			"venueId": "ballard-beer-box",
 			"title": "Halloween: Dogs in Costume at Ballard Beer Box",
@@ -487,6 +608,37 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-10-31T19:30-den-tapes-halloween-bash-night-2",
+			"title": "Den Tapes Halloween Bash Night 2",
+			"startsAt": "2026-10-31T19:30:00.000-07:00",
+			"endsAt": "2026-11-01T01:00:00.000-07:00",
+			"url": "https://ma.to/event/den-tapes-halloween-bash-night-2-01-nov-2026",
+			"price": "$20",
+			"venueId": "sunset-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-10-31T20:00-dr-ralph-stanley-tribute-show",
+			"title": "Dr. Ralph Stanley Tribute Show",
+			"startsAt": "2026-10-31T20:00:00.000-07:00",
+			"endsAt": "2026-10-31T22:30:00.000-07:00",
+			"url": "https://ma.to/event/dr-ralph-stanley-tribute-show-2026-10-31",
+			"venueId": "tractor-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-10-31T20:00-obec-halloween-dance-party",
+			"title": "Obec Halloween Dance Party",
+			"startsAt": "2026-10-31T20:00:00.000-07:00",
+			"endsAt": "2026-11-01T00:30:00.000-07:00",
+			"url": "https://ma.to/event/obec-halloween-dance-party-01-nov-2026",
+			"venueId": "obec-brewing",
+			"category": "dance",
+			"source": "mato"
 		},
 		{
 			"id": "conor-byrne-188345",
@@ -537,6 +689,16 @@
 			"price": "$25.87–$31.94",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "mato-2026-10-31T22:00-lovers-friends-halloween",
+			"title": "Lovers & Friends Halloween",
+			"startsAt": "2026-10-31T22:00:00.000-07:00",
+			"endsAt": "2026-11-01T02:00:00.000-08:00",
+			"url": "https://ma.to/event/lovers-and-friends-halloween-01-nov-2026",
+			"price": "$10",
+			"venueId": "ltd-bar-and-grill",
+			"source": "mato"
 		},
 		{
 			"id": "myballard-354048-2026-10-31",
@@ -592,6 +754,26 @@
 			"category": "art",
 			"source": "nordic-museum",
 			"venueId": "nordic-museum"
+		},
+		{
+			"id": "mato-2026-11-01T12:00-cicchetti-happy-hour",
+			"title": "Cicchetti Happy Hour",
+			"startsAt": "2026-11-01T12:00:00.000-08:00",
+			"endsAt": "2026-11-01T21:00:00.000-08:00",
+			"url": "https://ma.to/event/2026-11-01-cicchetti-happy-hour-sunday",
+			"venueId": "trailbend-taproom",
+			"category": "food-drink-special",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-11-01T12:00-happy-hour-every-sunday",
+			"title": "Happy Hour Every Sunday",
+			"startsAt": "2026-11-01T12:00:00.000-08:00",
+			"endsAt": "2026-11-01T21:00:00.000-08:00",
+			"url": "https://ma.to/event/happy-hour-every-sunday-2026-11-01",
+			"venueId": "latona-pub",
+			"category": "food-drink-special",
+			"source": "mato"
 		},
 		{
 			"id": "conor-byrne-185018",
@@ -691,6 +873,26 @@
 			"category": "open-mic",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "mato-2026-11-01T20:00-patrick-wolf-with-hollow-eve",
+			"title": "Patrick Wolf with Hollow Eve",
+			"startsAt": "2026-11-01T20:00:00.000-08:00",
+			"endsAt": "2026-11-01T23:00:00.000-08:00",
+			"url": "https://ma.to/event/patrick-wolf-with-hollow-eve-2026-11-01",
+			"venueId": "tractor-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-11-01T20:00-great-lake-swimmers",
+			"title": "Great Lake Swimmers",
+			"startsAt": "2026-11-01T20:00:00.000-08:00",
+			"endsAt": "2026-11-01T23:00:00.000-08:00",
+			"url": "https://ma.to/event/great-lake-swimmers-2026-11-01",
+			"venueId": "sunset-tavern",
+			"category": "live-music",
+			"source": "mato"
 		},
 		{
 			"id": "visitballard-38607-2026-11-01",
@@ -797,6 +999,26 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "mato-2026-11-02T20:00-greg-freeman-at-tractor-tavern",
+			"title": "Greg Freeman at Tractor Tavern",
+			"startsAt": "2026-11-02T20:00:00.000-08:00",
+			"endsAt": "2026-11-02T23:00:00.000-08:00",
+			"url": "https://ma.to/event/greg-freeman-02-nov-2026",
+			"venueId": "tractor-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-11-02T20:00-georgia-parker-tasha-t",
+			"title": "Georgia Parker + Tasha T",
+			"startsAt": "2026-11-02T20:00:00.000-08:00",
+			"endsAt": "2026-11-02T23:30:00.000-08:00",
+			"url": "https://ma.to/event/georgia-parker-tasha-t-03-nov-2026",
+			"venueId": "sunset-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
 			"id": "visitballard-10005449-2026-11-03",
 			"venueId": "reubens-brews",
 			"title": "Magic Monday Casual Commander Night | Reuben’s Brews Ballard Taproom",
@@ -839,6 +1061,16 @@
 			"source": "sunset-hill-hall"
 		},
 		{
+			"id": "mato-2026-11-03T16:00-cicchetti-happy-hour",
+			"title": "Cicchetti Happy Hour",
+			"startsAt": "2026-11-03T16:00:00.000-08:00",
+			"endsAt": "2026-11-03T18:00:00.000-08:00",
+			"url": "https://ma.to/event/2026-11-03-cicchetti-happy-hour-tuesday",
+			"venueId": "trailbend-taproom",
+			"category": "food-drink-special",
+			"source": "mato"
+		},
+		{
 			"id": "pantry-142013-2026-11-03",
 			"title": "Flavors of the Arabian Gulf",
 			"startsAt": "2026-11-03T18:00:00-08:00",
@@ -856,6 +1088,16 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-11-03T19:00-trivia-at-trailbend-taproom",
+			"title": "Trivia at Trailbend Taproom",
+			"startsAt": "2026-11-03T19:00:00.000-08:00",
+			"endsAt": "2026-11-03T21:00:00.000-08:00",
+			"url": "https://ma.to/event/trivia-at-trailbend-taproom-2026-11-03",
+			"venueId": "trailbend-taproom",
+			"category": "trivia",
+			"source": "mato"
 		},
 		{
 			"id": "conor-byrne-194636",
@@ -886,6 +1128,16 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-11-03T20:00-sven-jackie-tulsa",
+			"title": "Sven + Jackie Tulsa",
+			"startsAt": "2026-11-03T20:00:00.000-08:00",
+			"endsAt": "2026-11-03T23:00:00.000-08:00",
+			"url": "https://ma.to/event/sven-jackie-tulsa-2026-11-03",
+			"venueId": "sunset-tavern",
+			"category": "live-music",
+			"source": "mato"
 		},
 		{
 			"id": "visitballard-10003700-2026-11-04",
@@ -937,6 +1189,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-11-04T20:00-tagua-tagua-and-orlas",
+			"title": "Tagua Tagua and ORLAS",
+			"startsAt": "2026-11-04T20:00:00.000-08:00",
+			"endsAt": "2026-11-04T23:30:00.000-08:00",
+			"url": "https://ma.to/event/tagua-tagua-and-orlas-05-nov-2026",
+			"price": "$17",
+			"venueId": "sunset-tavern",
+			"category": "live-music",
+			"source": "mato"
 		},
 		{
 			"id": "substation-1986264694169",
@@ -1037,6 +1300,15 @@
 			"venueId": "nordic-museum"
 		},
 		{
+			"id": "mato-2026-11-05T16:00-beer-and-curry-thursdays",
+			"title": "Beer and Curry Thursdays",
+			"startsAt": "2026-11-05T16:00:00.000-08:00",
+			"endsAt": "2026-11-05T20:00:00.000-08:00",
+			"url": "https://ma.to/event/beer-and-curry-stoup-05-nov-2026",
+			"venueId": "stoup-ballard",
+			"source": "mato"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-05T17:00-billie-holiday-body-and-soul",
 			"title": "Billie Holiday - Body and Soul",
 			"startsAt": "2026-11-05T17:00:00-08:00",
@@ -1135,6 +1407,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-11-05T19:30-claire-conway-album-release",
+			"title": "Claire Conway: Album Release",
+			"startsAt": "2026-11-05T19:30:00.000-08:00",
+			"endsAt": "2026-11-05T23:00:00.000-08:00",
+			"url": "https://ma.to/event/claire-conway-album-release-05-nov-2026",
+			"price": "$12",
+			"venueId": "sunset-tavern",
+			"category": "live-music",
+			"source": "mato"
 		},
 		{
 			"id": "conor-byrne-190062",
@@ -1329,6 +1612,16 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-11-06T20:00-blackheart-honeymoon",
+			"title": "Blackheart Honeymoon",
+			"startsAt": "2026-11-06T20:00:00.000-08:00",
+			"endsAt": "2026-11-06T23:59:00.000-08:00",
+			"url": "https://ma.to/event/blackheart-honeymoon-the-sunset-tavern-06-nov-2026",
+			"venueId": "sunset-tavern",
+			"category": "live-music",
+			"source": "mato"
 		},
 		{
 			"id": "myballard-363285-2026-11-06",
@@ -1766,6 +2059,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "mato-2026-11-09T20:00-jon-spencer",
+			"title": "Jon Spencer",
+			"startsAt": "2026-11-09T20:00:00.000-08:00",
+			"endsAt": "2026-11-09T23:00:00.000-08:00",
+			"url": "https://ma.to/event/jon-spencer-09-nov-2026",
+			"venueId": "sunset-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
 			"id": "visitballard-10005450-2026-11-10",
 			"venueId": "reubens-brews",
 			"title": "Magic Monday Casual Commander Night | Reuben’s Brews Ballard Taproom",
@@ -1835,6 +2138,16 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-11-10T19:00-other-lives-usa-tour-2026",
+			"title": "Other Lives: USA Tour 2026",
+			"startsAt": "2026-11-10T19:00:00.000-08:00",
+			"endsAt": "2026-11-10T23:00:00.000-08:00",
+			"url": "https://ma.to/event/other-lives-usa-tour-11-nov-2026",
+			"venueId": "tractor-tavern",
+			"category": "live-music",
+			"source": "mato"
 		},
 		{
 			"id": "conor-byrne-194638",
@@ -1999,6 +2312,16 @@
 			"price": "$19.80–$25.87",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "mato-2026-11-11T20:00-craig-finn-band-of-forgiveness",
+			"title": "Craig Finn & Band of Forgiveness",
+			"startsAt": "2026-11-11T20:00:00.000-08:00",
+			"endsAt": "2026-11-11T23:00:00.000-08:00",
+			"url": "https://ma.to/event/craig-finn-band-of-forgiveness-2026-11-11",
+			"venueId": "tractor-tavern",
+			"category": "live-music",
+			"source": "mato"
 		},
 		{
 			"id": "visitballard-10005190-2026-11-12",
@@ -2932,6 +3255,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "mato-2026-11-18T20:00-maximiano-with-wishing-well",
+			"title": "Maximiano with Wishing Well",
+			"startsAt": "2026-11-18T20:00:00.000-08:00",
+			"endsAt": "2026-11-18T22:30:00.000-08:00",
+			"url": "https://ma.to/event/maximiano-wishing-well-2026-11-18",
+			"price": "$15",
+			"venueId": "tractor-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
 			"id": "hidden-hall-2026-11-19-reel-rock-20",
 			"title": "REEL ROCK 20",
 			"startsAt": "2026-11-19T03:00:00+00:00",
@@ -3006,6 +3340,15 @@
 			"price": "Free",
 			"category": "trivia",
 			"source": "visitballard"
+		},
+		{
+			"id": "mato-2026-11-19T16:00-beer-and-curry-thursdays",
+			"title": "Beer and Curry Thursdays",
+			"startsAt": "2026-11-19T16:00:00.000-08:00",
+			"endsAt": "2026-11-19T20:00:00.000-08:00",
+			"url": "https://ma.to/event/beer-and-curry-stoup-19-nov-2026",
+			"venueId": "stoup-ballard",
+			"source": "mato"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-19T17:00-marvin-gaye-what-s-going-on",
@@ -3755,6 +4098,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "mato-2026-11-24T20:00-mike-frazier-friends",
+			"title": "Mike Frazier & Friends",
+			"startsAt": "2026-11-24T20:00:00.000-08:00",
+			"endsAt": "2026-11-25T00:00:00.000-08:00",
+			"url": "https://ma.to/event/mike-frazier-ballard-food-bank-benefit-24-nov-2026",
+			"price": "$25",
+			"venueId": "tractor-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
 			"id": "visitballard-10003703-2026-11-25",
 			"venueId": "ballard-beer-box",
 			"title": "TRIVIA NIGHT",
@@ -3950,6 +4304,15 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "mato-2026-11-27T16:00-heat-at-knicks-watch-party",
+			"title": "Heat at Knicks Watch Party",
+			"startsAt": "2026-11-27T16:00:00.000-08:00",
+			"endsAt": "2026-11-27T19:00:00.000-08:00",
+			"url": "https://ma.to/event/heat-at-knicks-watch-party-2026-11-27",
+			"venueId": "ltd-bar-and-grill",
+			"source": "mato"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-27T17:00-elvis-presley-blue-christmas",
 			"title": "Elvis Presley - Blue Christmas",
 			"startsAt": "2026-11-27T17:00:00-08:00",
@@ -3987,6 +4350,15 @@
 			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240076483",
 			"category": "comedy",
 			"source": "dinodad-comedy"
+		},
+		{
+			"id": "mato-2026-11-27T19:00-knicks-primetime-watch-party",
+			"title": "Knicks Primetime Watch Party",
+			"startsAt": "2026-11-27T19:00:00.000-08:00",
+			"endsAt": "2026-11-27T22:00:00.000-08:00",
+			"url": "https://ma.to/event/knicks-primetime-watch-party-2026-11-27",
+			"venueId": "ltd-bar-and-grill",
+			"source": "mato"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-27T19:30-the-cure-kiss-me-kiss-me",
@@ -4501,6 +4873,15 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "mato-2026-12-03T16:00-beer-and-curry-thursdays",
+			"title": "Beer and Curry Thursdays",
+			"startsAt": "2026-12-03T16:00:00.000-08:00",
+			"endsAt": "2026-12-03T20:00:00.000-08:00",
+			"url": "https://ma.to/event/beer-and-curry-stoup-03-dec-2026",
+			"venueId": "stoup-ballard",
+			"source": "mato"
+		},
+		{
 			"id": "nordic-museum-2026-12-03-introduction-to-needle-felting-nordic-tomte",
 			"title": "Introduction to Needle Felting: Nordic Tomte",
 			"startsAt": "2026-12-03T17:00:00-08:00",
@@ -4760,6 +5141,16 @@
 			"source": "substation"
 		},
 		{
+			"id": "mato-2026-12-05T20:00-sera-cahoone-record-release",
+			"title": "Sera Cahoone Record Release",
+			"startsAt": "2026-12-05T20:00:00.000-08:00",
+			"endsAt": "2026-12-05T23:00:00.000-08:00",
+			"url": "https://ma.to/event/sera-cahoone-record-release-2026-12-05",
+			"venueId": "tractor-tavern",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
 			"id": "nectar-2026-12-06-grapevine-groove-an-early-evening-motown-inspired-party",
 			"title": "GRAPEVINE GROOVE: AN EARLY EVENING MOTOWN-INSPIRED PARTY",
 			"startsAt": "2026-12-06T01:00:00+00:00",
@@ -4841,6 +5232,15 @@
 			"url": "https://www.eventbrite.com/e/the-rickshaw-jokes-in-progress-openmic-tickets-1986264437401",
 			"category": "comedy",
 			"source": "dinodad-comedy"
+		},
+		{
+			"id": "mato-2026-12-06T19:00-merry-little-prohibition",
+			"title": "Merry Little Prohibition",
+			"startsAt": "2026-12-06T19:00:00.000-08:00",
+			"endsAt": "2026-12-06T23:00:00.000-08:00",
+			"url": "https://ma.to/event/merry-little-prohibition-07-dec-2026",
+			"venueId": "obec-brewing",
+			"source": "mato"
 		},
 		{
 			"id": "conor-byrne-193025",
@@ -5693,6 +6093,15 @@
 			"price": "Free",
 			"category": "trivia",
 			"source": "visitballard"
+		},
+		{
+			"id": "mato-2026-12-17T16:00-beer-and-curry-thursdays",
+			"title": "Beer and Curry Thursdays",
+			"startsAt": "2026-12-17T16:00:00.000-08:00",
+			"endsAt": "2026-12-17T20:00:00.000-08:00",
+			"url": "https://ma.to/event/beer-and-curry-stoup-17-dec-2026",
+			"venueId": "stoup-ballard",
+			"source": "mato"
 		},
 		{
 			"id": "spt-2026-12-18T01:00-a-very-die-hard-christmas",
@@ -6743,6 +7152,15 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "mato-2027-01-14T16:00-beer-and-curry-thursdays",
+			"title": "Beer and Curry Thursdays",
+			"startsAt": "2027-01-14T16:00:00.000-08:00",
+			"endsAt": "2027-01-14T20:00:00.000-08:00",
+			"url": "https://ma.to/event/beer-and-curry-stoup-14-jan-2027",
+			"venueId": "stoup-ballard",
+			"source": "mato"
+		},
+		{
 			"id": "visitballard-10006314-2027-01-15",
 			"venueId": "hatties-hat",
 			"title": "Karaoke at Hattie’s Hat",
@@ -6826,6 +7244,16 @@
 			"price": "Free",
 			"category": "comedy",
 			"source": "visitballard"
+		},
+		{
+			"id": "mato-2027-01-18T14:00-timberwolves-at-knicks-watch-party",
+			"title": "Timberwolves at Knicks Watch Party",
+			"startsAt": "2027-01-18T14:00:00.000-08:00",
+			"endsAt": "2027-01-18T17:00:00.000-08:00",
+			"url": "https://ma.to/event/timberwolves-at-knicks-watch-party-2027-01-18",
+			"price": "Free",
+			"venueId": "ltd-bar-and-grill",
+			"source": "mato"
 		},
 		{
 			"id": "visitballard-10005460-2027-01-19",
