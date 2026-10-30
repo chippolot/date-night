@@ -35,7 +35,7 @@ import type { Night } from "../src/lib/types";
 //   Rickshaw: Thursday music bingo 7pm (host left in late August; not posted since)
 //   The Shanghai Room: drag shows every first Wednesday (no time)
 //   Draft Punk (Greenwood): Wednesday video game night (no time)
-//   Ballard Pizza Company: Wing Wednesday (no hours stated)
+//   Ballard Pizza Company: Wing Wednesday, "$1 wings and $6 drafts" (no hours stated)
 //   The Barking Dog Alehouse: half-off wine on Wednesdays (no hours stated)
 //   Urban Family Brewing: square dances (no regular pattern)
 //   Meesha 127 (Fremont): Thursday sliders & game night, Monday industry night (no times)
@@ -50,7 +50,7 @@ import type { Night } from "../src/lib/types";
 // Left out as unverifiable: Hound's Tooth pinball/trivia (site last updated 2024, no working https),
 //   ComedySportz (show calendar is a Crowdwork embed behind Cloudflare; FAQ gives times but not days).
 // Removed as closed or discontinued: Bastille, Ballard Annex, Pike Taproom Ballard, Babalu, Norm's,
-//   High Dive karaoke, Egan's Wednesday showcase, Abbey "Open Space", and "Green Lake Concerts in the Park"
+//   High Dive karaoke, Ballard Pizza Company Thursday trivia (its source post no longer mentions it), Egan's Wednesday showcase, Abbey "Open Space", and "Green Lake Concerts in the Park"
 //   (that listing was Green Lake, Wisconsin).
 export const nights: Night[] = [
 	// Ballard
@@ -243,16 +243,14 @@ export const nights: Night[] = [
 			nth: [4],
 			day: "MO",
 		},
-		start: "19:00",
-		end: "22:00",
-		cost: "$10",
+		start: "18:30",
 		description:
 			"Beginner-friendly square dance with a live string band and a caller who teaches each dance. No partner needed, 21+. Dates are mostly 4th Mondays but not always, so check the Tractor calendar.",
 		vibe: ["active", "lively", "romantic"],
 		sourceUrl:
-			"https://www.ticketweb.com/event/tractor-square-dance-wonderland-w-tractor-tickets/15014503",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+			"https://app.opendate.io/e/tractor-square-dance-wonderland-w-amy-carroll-calling-november-23-2026-761607",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "rough-and-tumble-trivia",
@@ -322,8 +320,8 @@ export const nights: Night[] = [
 			"Trivia in a Viking-themed beer hall; prizes for the top two teams.",
 		vibe: ["lively"],
 		sourceUrl:
-			"https://ma.to/event/wednesday-night-trivia-skal-beer-hall-29-jul-2026",
-		lastVerified: "2026-10-29",
+			"https://ma.to/event/wednesday-night-trivia-skal-beer-hall-09-sep-2026",
+		lastVerified: "2026-10-30",
 		confidence: "likely",
 	},
 	{
@@ -421,24 +419,6 @@ export const nights: Night[] = [
 		confidence: "confirmed",
 	},
 	{
-		id: "ballard-pizza-trivia",
-		venueId: "ballard-pizza-company",
-		title: "Thursday trivia",
-		category: "trivia",
-		recurrence: {
-			kind: "weekly",
-			days: ["TH"],
-		},
-		start: "18:00",
-		description:
-			"Trivia rounds at 6 and 7pm. The source is an old blog post, and the pizzeria's own site only lists Wing Wednesday.",
-		vibe: ["lively"],
-		sourceUrl:
-			"https://onehousehospitality.com/blog/trivia-nights-with-esr-and-friends",
-		lastVerified: "2026-10-29",
-		confidence: "stale",
-	},
-	{
 		id: "ballard-artwalk",
 		venueId: "ballard-artwalk",
 		title: "Ballard ArtWalk",
@@ -515,6 +495,24 @@ export const nights: Night[] = [
 		confidence: "confirmed",
 	},
 	{
+		id: "hatties-hat-happy-hour",
+		venueId: "hatties-hat",
+		title: "Happy hour",
+		category: "food-drink-special",
+		recurrence: {
+			kind: "weekly",
+			days: ["SU", "MO", "TU", "WE", "TH", "FR", "SA"],
+		},
+		start: "15:00",
+		end: "18:00",
+		description:
+			"Daily happy hour at a Ballard Ave bar and diner. Dinner runs 5–10pm.",
+		vibe: ["low-key"],
+		sourceUrl: "https://hatties-hat.com/",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
+	{
 		id: "slim-goody-trivia",
 		venueId: "slim-goody",
 		title: "Thursday night trivia",
@@ -525,11 +523,11 @@ export const nights: Night[] = [
 		},
 		start: "19:30",
 		description:
-			"Trivia with Gonzo: prizes and drink specials at a Ballard Ave sports bar. The bar's site says 7:30pm in one place and 7pm in another.",
+			"Trivia with Gonzo: prizes and drink specials at a Ballard Ave sports bar.",
 		vibe: ["lively"],
 		sourceUrl: "https://slimgoodyseattle.com/",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "percys-happy-hour",
@@ -563,8 +561,8 @@ export const nights: Night[] = [
 		description: "Euchre and bingo at an Aussie/Kiwi sports pub.",
 		vibe: ["lively", "low-key"],
 		sourceUrl: "https://kangarooandkiwi.com/",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "kangaroo-and-kiwi-trivia",
@@ -579,8 +577,8 @@ export const nights: Night[] = [
 		description: "Weekly trivia at an Aussie/Kiwi sports pub.",
 		vibe: ["lively"],
 		sourceUrl: "https://kangarooandkiwi.com/",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "kangaroo-and-kiwi-band-karaoke",
@@ -595,8 +593,8 @@ export const nights: Night[] = [
 		description: "Sing with a live backing band instead of a backing track.",
 		vibe: ["lively"],
 		sourceUrl: "https://kangarooandkiwi.com/",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "good-grief-sunday-music",
