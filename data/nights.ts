@@ -752,6 +752,20 @@ export const nights: Night[] = [
 
 	// Fremont
 	{
+		id: "shawn-odonnells-irish-music",
+		venueId: "shawn-odonnells-fremont",
+		title: "Live Irish music",
+		category: "live-music",
+		recurrence: { kind: "weekly", days: ["WE", "TH"] },
+		start: "19:30",
+		description:
+			"Traditional Irish music at an Irish pub and grill with over 50 Irish whiskeys, Guinness, Kilkenny and Magner's.",
+		vibe: ["lively", "low-key"],
+		sourceUrl: "https://www.shawnodonnells.com/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
 		id: "fremont-sunday-market-summer",
 		venueId: "fremont-sunday-market",
 		title: "Fremont Sunday Market",

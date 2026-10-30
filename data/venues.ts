@@ -608,6 +608,17 @@ export const venues: Venue[] = [
 
 	// Fremont
 	{
+		id: "shawn-odonnells-fremont",
+		name: "Shawn O'Donnell's",
+		neighborhood: "fremont",
+		address: "3601 Fremont Ave N, Seattle, WA 98103",
+		lat: 47.6516,
+		lng: -122.3502,
+		url: "https://www.shawnodonnells.com/",
+		priceLevel: 2,
+		tags: ["bar", "restaurant"],
+	},
+	{
 		id: "fremont-sunday-market",
 		name: "Fremont Sunday Market (summer)",
 		neighborhood: "fremont",
