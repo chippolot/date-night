@@ -20,6 +20,8 @@ export type Filters = {
 	price?: PriceLevel;
 	/** What it costs to get in; undefined means any */
 	cost?: CostFilter;
+	/** Rainy night: leave out anything held outdoors */
+	indoors?: boolean;
 	day: Weekday[];
 	/** Something matches if it's on during any of these slots */
 	time: TimeSlot[];
@@ -72,6 +74,14 @@ export function matchesCost(
 	return price === undefined || (price !== null && price <= 20);
 }
 
+/** Whether something is held outdoors: its own flag, else whether its venue is outdoors. */
+export function isOutdoor(
+	o: Pick<Occurrence, "outdoor">,
+	venue: Venue | undefined,
+): boolean {
+	return o.outdoor ?? !!venue?.tags.includes("outdoor");
+}
+
 export const EMPTY_FILTERS: Filters = {
 	hood: [],
 	cat: [],
@@ -101,6 +111,7 @@ export function parseFilters(params: URLSearchParams): Filters {
 		vibe: pick(params.getAll("vibe"), VIBES),
 		price: price === 1 || price === 2 || price === 3 ? price : undefined,
 		cost: cost && cost in COST_FILTERS ? (cost as CostFilter) : undefined,
+		indoors: params.get("indoors") === "1" || undefined,
 		day: pick(params.getAll("day"), WEEKDAYS),
 		time: pick(params.getAll("time"), Object.keys(TIME_SLOTS) as TimeSlot[]),
 		date: /^\d{4}-\d{2}-\d{2}$/.test(params.get("date") ?? "")
@@ -120,6 +131,7 @@ export function toQuery(f: Filters): string {
 	for (const v of f.vibe) params.append("vibe", v);
 	if (f.price) params.set("price", String(f.price));
 	if (f.cost) params.set("cost", f.cost);
+	if (f.indoors) params.set("indoors", "1");
 	for (const d of f.day) params.append("day", d);
 	for (const t of f.time) params.append("time", t);
 	const q = params.toString();
@@ -142,6 +154,7 @@ export function isEmpty(f: Filters): boolean {
 		!f.vibe.length &&
 		!f.price &&
 		!f.cost &&
+		!f.indoors &&
 		!f.day.length &&
 		!f.time.length &&
 		!f.q
@@ -232,6 +245,7 @@ export function applyFilters(
 		if (f.cat.length && !f.cat.includes(o.category)) return false;
 		if (f.hide.includes(o.category)) return false;
 		if (!matchesCost(o, f)) return false;
+		if (f.indoors && isOutdoor(o, venue)) return false;
 		if (f.vibe.length && !o.vibe.some((v) => f.vibe.includes(v))) return false;
 		if (!matchesDay(weekdayOf(o.date), f)) return false;
 		if (!matchesTime(o.start, o.end, f)) return false;

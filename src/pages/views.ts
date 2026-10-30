@@ -3,6 +3,7 @@ import type { SiteData } from "../lib/data";
 import {
 	applyFilters,
 	type Filters,
+	isOutdoor,
 	matchesCost,
 	matchesDay,
 	matchesText,
@@ -210,6 +211,7 @@ type Kind = {
 	category: Category;
 	vibe: Vibe[];
 	cost?: string;
+	outdoor?: boolean;
 	days: Weekday[];
 	start: string;
 	end?: string;
@@ -240,6 +242,7 @@ export function nightKind(n: Night): Kind {
 		category: n.category,
 		vibe: n.vibe,
 		cost: n.cost,
+		outdoor: n.outdoor,
 		days: r.kind === "weekly" ? r.days : [r.day],
 		start: n.start,
 		end: n.end,
@@ -273,6 +276,7 @@ export function mapVenues(data: SiteData, f: Filters): Venue[] {
 		f.hide.length ||
 		f.vibe.length ||
 		f.cost ||
+		f.indoors ||
 		f.day.length ||
 		f.time.length;
 	return data.venues.filter((v) => {
@@ -280,7 +284,9 @@ export function mapVenues(data: SiteData, f: Filters): Venue[] {
 		const own = kinds.get(v.id) ?? [];
 		if (!matchesSearch(v, own, f)) return false;
 		if (!whenOrWhat) return true;
-		return own.some((k) => matchesKind(k, f));
+		return own.some(
+			(k) => matchesKind(k, f) && !(f.indoors && isOutdoor(k, v)),
+		);
 	});
 }
 

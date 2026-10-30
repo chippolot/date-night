@@ -973,6 +973,11 @@ legend {
 	font-weight: 600;
 }
 
+/* Held outdoors: a quiet note, since it matters mostly on rainy nights */
+.outdoor {
+	color: var(--muted);
+}
+
 .badge {
 	color: var(--muted);
 }

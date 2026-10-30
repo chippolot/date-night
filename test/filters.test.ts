@@ -4,6 +4,7 @@ import {
 	EMPTY_FILTERS,
 	entryPrice,
 	type Filters,
+	isOutdoor,
 	matchesCost,
 	matchesTime,
 	parseFilters,
@@ -211,5 +212,28 @@ describe("cost filter", () => {
 		expect(
 			parseFilters(new URLSearchParams("cost=cheap")).cost,
 		).toBeUndefined();
+	});
+});
+
+describe("rainy night filter", () => {
+	const venue = (tags: string[]) => ({ tags }) as Venue;
+
+	test("a night's own flag wins over its venue's tag", () => {
+		expect(isOutdoor({}, venue(["outdoor", "market"]))).toBe(true);
+		expect(isOutdoor({}, venue(["bar", "patio"]))).toBe(false);
+		expect(isOutdoor({ outdoor: true }, venue(["community-center"]))).toBe(
+			true,
+		);
+		expect(isOutdoor({ outdoor: false }, venue(["outdoor"]))).toBe(false);
+		expect(isOutdoor({}, undefined)).toBe(false);
+	});
+
+	test("round-trips through the URL", () => {
+		const f = parseFilters(new URLSearchParams("indoors=1"));
+		expect(f.indoors).toBe(true);
+		expect(toQuery(f)).toBe("?indoors=1");
+		expect(parseFilters(new URLSearchParams("indoors=0")).indoors).toBe(
+			undefined,
+		);
 	});
 });

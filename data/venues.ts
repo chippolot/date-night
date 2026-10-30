@@ -1,6 +1,8 @@
 import type { Venue } from "../src/lib/types";
 
 // Coordinates are approximate (from street addresses). Price levels are estimates.
+// Tag "outdoor" only where the venue itself is outdoors (markets, art walks): its listings are left out
+// for rainy nights. Bars with outdoor seating get "patio" instead.
 export const venues: Venue[] = [
 	// Ballard
 	{
@@ -81,7 +83,7 @@ export const venues: Venue[] = [
 		url: "https://www.ponoranch.com/",
 		instagram: "ponoranch",
 		priceLevel: 2,
-		tags: ["bar", "music-venue", "outdoor"],
+		tags: ["bar", "music-venue", "patio"],
 	},
 	{
 		id: "ballard-farmers-market",
@@ -186,7 +188,7 @@ export const venues: Venue[] = [
 		url: "https://www.brimmerandheeltap.com/",
 		instagram: "brimmerandheeltap",
 		priceLevel: 3,
-		tags: ["restaurant", "wine-bar", "outdoor"],
+		tags: ["restaurant", "wine-bar", "patio"],
 	},
 	{
 		id: "ballard-pizza-company",
@@ -397,7 +399,7 @@ export const venues: Venue[] = [
 		url: "https://www.oldstove.com/gardens",
 		instagram: "oldstovebeer",
 		priceLevel: 1,
-		tags: ["brewery", "bar", "outdoor"],
+		tags: ["brewery", "bar", "patio"],
 	},
 	{
 		id: "obec-brewing",
@@ -540,7 +542,7 @@ export const venues: Venue[] = [
 		url: "http://www.bakersseattle.com/",
 		instagram: "bakers.seattle",
 		priceLevel: 2,
-		tags: ["bar", "restaurant", "outdoor"],
+		tags: ["bar", "restaurant", "patio"],
 	},
 	{
 		id: "rays-cafe",
@@ -551,7 +553,7 @@ export const venues: Venue[] = [
 		lng: -122.4089,
 		url: "https://www.rays.com/cafe",
 		priceLevel: 3,
-		tags: ["restaurant", "bar", "outdoor"],
+		tags: ["restaurant", "bar", "patio"],
 	},
 	{
 		id: "sunset-hill-community-hall",
@@ -624,7 +626,7 @@ export const venues: Venue[] = [
 		lng: -122.3547,
 		url: "https://www.phinneycenter.org",
 		priceLevel: 1,
-		tags: ["community-center", "outdoor"],
+		tags: ["community-center"],
 	},
 	{
 		id: "chez-phinney",
@@ -639,18 +641,6 @@ export const venues: Venue[] = [
 	},
 
 	// Greenwood
-	{
-		id: "art-up-phinneywood",
-		name: "Art Up PhinneyWood",
-		neighborhood: "greenwood",
-		address:
-			"Phinney Ave N & Greenwood Ave N, ~N 65th–87th St, Seattle, WA 98103",
-		lat: 47.685,
-		lng: -122.355,
-		url: "https://www.phinneycenter.org/artwalk",
-		priceLevel: 1,
-		tags: ["outdoor"],
-	},
 	{
 		id: "couth-buzzard",
 		name: "Couth Buzzard Books",

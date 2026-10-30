@@ -2,6 +2,7 @@ import { href, SITE } from "../config";
 import {
 	COST_FILTERS,
 	type Filters,
+	isOutdoor,
 	MAX_DAYS_AHEAD,
 	TIME_SLOTS,
 } from "../lib/filters";
@@ -161,6 +162,7 @@ export function card(
     <p class="card-meta">
       <span class="chip">${CATEGORIES[o.category]}</span>
       ${o.cost ? `<span class="cost">${esc(o.cost)}</span>` : ""}
+      ${isOutdoor(o, venue) ? `<span class="outdoor">Outdoors</span>` : ""}
       ${freshnessBadge(o, today)}
     </p>
     <p class="card-actions">
@@ -230,6 +232,11 @@ function specialsToggle(f: Filters): string {
 	return `<fieldset><legend>Happy hours &amp; specials</legend><div class="pills"><label class="pill"><input type="checkbox" name="hide" value="${SPECIALS}" data-hide-specials${f.hide.includes(SPECIALS) ? " checked" : ""}><span>Hide</span></label></div></fieldset>`;
 }
 
+/** Rainy night: leave out markets, art walks and anything else held outdoors. */
+function indoorsToggle(f: Filters): string {
+	return `<fieldset><legend>Rainy night?</legend><div class="pills"><label class="pill"><input type="checkbox" name="indoors" value="1"${f.indoors ? " checked" : ""}><span><span class="pill-icon" aria-hidden="true">☔</span>Indoors only</span></label></div></fieldset>`;
+}
+
 const SEARCH_ICON = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="4.75"/><path d="M10.5 10.5l3.75 3.75"/></svg>`;
 
 const CALENDAR_ICON = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.75" y="3" width="12.5" height="11.25" rx="1"/><path d="M1.75 6.5h12.5M5 1.5v3M11 1.5v3"/></svg>`;
@@ -297,6 +304,7 @@ export function filterBar(
 			f.time,
 		)}
     ${specialsToggle(f)}
+    ${indoorsToggle(f)}
     <button type="submit" class="js-hide">Apply</button>
   </div>
   <details${active ? " open" : ""}>

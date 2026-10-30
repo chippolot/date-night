@@ -954,6 +954,7 @@ export const nights: Night[] = [
 		venueId: "phinney-center",
 		title: "Phinney Farmers Market",
 		category: "market",
+		outdoor: true,
 		recurrence: {
 			kind: "weekly",
 			days: ["FR"],

@@ -95,6 +95,7 @@ export function nightOccurrences(
 				category: n.category,
 				vibe: n.vibe,
 				cost: n.cost,
+				outdoor: n.outdoor,
 				url: n.sourceUrl,
 				confidence: n.confidence,
 				lastVerified: n.lastVerified,

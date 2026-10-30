@@ -93,7 +93,7 @@ export type Venue = {
 	url: string;
 	instagram?: string;
 	priceLevel: PriceLevel;
-	/** e.g. "restaurant", "bar", "music-venue", "brewery", "outdoor" */
+	/** e.g. "restaurant", "bar", "music-venue", "brewery", "patio"; "outdoor" means the venue itself is outdoors */
 	tags: string[];
 };
 
@@ -126,6 +126,8 @@ export type Night = {
 	/** Runs the whole time the venue is open: shown as "All day", with start/end set to the open hours */
 	allDay?: boolean;
 	cost?: string;
+	/** Held outdoors, so it's left out for rainy nights. Defaults to whether the venue is tagged "outdoor". */
+	outdoor?: boolean;
 	description: string;
 	vibe: Vibe[];
 	sourceUrl: string;
@@ -161,6 +163,7 @@ export type Occurrence = {
 	category: Category;
 	vibe: Vibe[];
 	cost?: string;
+	outdoor?: boolean;
 	url: string;
 	confidence: Confidence;
 	lastVerified?: string;
