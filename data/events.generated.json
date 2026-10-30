@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-30T01:22:33.796Z",
+	"generatedAt": "2026-10-30T01:51:15.762Z",
 	"events": [
 		{
 			"id": "shibuya-hifi-2026-10-29T17:00-charles-mingus-mingus",
@@ -53,6 +53,17 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "mockingbird-comedy-1998043192976",
+			"venueId": "old-stove-gardens",
+			"title": "The Comedy Battle Royale",
+			"startsAt": "2026-10-29T19:00:00-07:00",
+			"endsAt": "2026-10-29T20:30:00-07:00",
+			"url": "https://www.eventbrite.com/e/the-comedy-battle-royale-tickets-1998043192976",
+			"price": "$7.18",
+			"category": "comedy",
+			"source": "mockingbird-comedy"
+		},
+		{
 			"id": "spt-2026-10-30T02:30-neel-neha-and-neel",
 			"title": "नेहा & NEEL (Neha and Neel नेहा और नील)",
 			"startsAt": "2026-10-29T19:30:00-07:00",
@@ -103,14 +114,14 @@
 		},
 		{
 			"id": "substation-1993352760767",
+			"venueId": "substation",
 			"title": "Mall Grab",
 			"startsAt": "2026-10-29T21:00:00-07:00",
 			"endsAt": "2026-10-30T02:00:00-07:00",
 			"url": "https://www.eventbrite.com/e/mall-grab-tickets-1993352760767",
 			"price": "$31.94–$50.14",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "hidden-hall-2026-10-30-frankie-j-with-viktoria-silk",
@@ -185,6 +196,16 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "dinodad-comedy-1984240072471",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2026-10-30T19:00:00-07:00",
+			"endsAt": "2026-10-30T21:00:00-07:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240072471",
+			"category": "comedy",
+			"source": "dinodad-comedy"
+		},
+		{
 			"id": "spt-2026-10-31T02:30-neel-neha-and-neel",
 			"title": "नेहा & NEEL (Neha and Neel नेहा और नील)",
 			"startsAt": "2026-10-30T19:30:00-07:00",
@@ -233,14 +254,25 @@
 		},
 		{
 			"id": "substation-1995508424415",
+			"venueId": "substation",
 			"title": "TR/ST (DJ Set) x Marie Davidson x Dark Chisme x MØAA",
 			"startsAt": "2026-10-30T20:00:00-07:00",
 			"endsAt": "2026-10-31T01:30:00-07:00",
 			"url": "https://www.eventbrite.com/e/trst-dj-set-x-marie-davidson-x-dark-chisme-x-maa-tickets-1995508424415",
 			"price": "$25.87–$44.08",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
+		},
+		{
+			"id": "tango-connection-1999736916950",
+			"venueId": "ballard-odd-fellows",
+			"title": "Milonga de Mis Amores w/ DJ Helene Eriksen",
+			"startsAt": "2026-10-30T20:00:00-07:00",
+			"endsAt": "2026-10-30T23:00:00-07:00",
+			"url": "https://www.eventbrite.com/e/milonga-de-mis-amores-w-dj-helene-eriksen-registration-1999736916950",
+			"price": "$28.52",
+			"category": "dance",
+			"source": "tango-connection"
 		},
 		{
 			"id": "shibuya-hifi-2026-10-30T21:00-frank-ocean-channel-orange",
@@ -325,6 +357,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "classpop-1996423251688",
+			"venueId": "channel-marker-cider",
+			"title": "Starry Nightmares - Paint and Sip",
+			"startsAt": "2026-10-31T14:00:00-07:00",
+			"endsAt": "2026-10-31T16:00:00-07:00",
+			"url": "https://www.eventbrite.com/e/starry-nightmares-paint-and-sip-in-seattle-classpoptm-tickets-1996423251688",
+			"price": "$53.93",
+			"category": "class",
+			"source": "classpop"
 		},
 		{
 			"id": "shibuya-hifi-2026-10-31T15:30-the-cure-pornography",
@@ -456,14 +499,14 @@
 		},
 		{
 			"id": "substation-2001083432414",
+			"venueId": "substation",
 			"title": "The Gaslamp Killer",
 			"startsAt": "2026-10-31T22:00:00-07:00",
 			"endsAt": "2026-11-01T02:00:00-07:00",
 			"url": "https://www.eventbrite.com/e/the-gaslamp-killer-tickets-2001083432414",
 			"price": "$25.87–$31.94",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "myballard-354048-2026-10-31",
@@ -600,6 +643,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "dinodad-comedy-1986264436398",
+			"venueId": "rickshaw",
+			"title": "Jokes in Progress Openmic",
+			"startsAt": "2026-11-01T19:00:00-08:00",
+			"endsAt": "2026-11-01T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-jokes-in-progress-openmic-tickets-1986264436398",
+			"category": "comedy",
+			"source": "dinodad-comedy"
+		},
+		{
 			"id": "conor-byrne-193020",
 			"title": "Conor Byrne Open Mic! Sign Ups @7:30",
 			"startsAt": "2026-11-01T20:00:00-08:00",
@@ -672,6 +725,17 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "classpop-1998799229301",
+			"venueId": "channel-marker-cider",
+			"title": "Handmade Gnocchi at a Ballard Cidery With Chef Jason - Pasta Making Cooking Class",
+			"startsAt": "2026-11-02T17:00:00-08:00",
+			"endsAt": "2026-11-02T19:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/handmade-gnocchi-at-a-ballard-cidery-with-chef-jason-pasta-making-cooking-class-in-seattle-tickets-1998799229301",
+			"price": "$72.81",
+			"category": "class",
+			"source": "classpop"
 		},
 		{
 			"id": "pantry-81408-2026-11-02",
@@ -846,14 +910,14 @@
 		},
 		{
 			"id": "substation-1986264694169",
+			"venueId": "substation",
 			"title": "Cut Copy (DJ Set)",
 			"startsAt": "2026-11-04T21:00:00-08:00",
 			"endsAt": "2026-11-05T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/cut-copy-dj-set-tickets-1986264694169",
 			"price": "$19.80–$38",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "visitballard-45340-2026-11-05",
@@ -952,6 +1016,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "classpop-1997208127272",
+			"venueId": "channel-marker-cider",
+			"title": "Make Dumplings With Chef Jane - Cooking Class",
+			"startsAt": "2026-11-05T17:00:00-08:00",
+			"endsAt": "2026-11-05T19:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/make-dumplings-with-chef-jane-cooking-class-in-seattle-classpoptm-tickets-1997208127272",
+			"price": "$72.81",
+			"category": "class",
+			"source": "classpop"
+		},
+		{
 			"id": "nordic-museum-2026-11-05-loki-pete-film-screening-and-discussion",
 			"title": "Loki Pete Film Screening and Discussion",
 			"startsAt": "2026-11-05T18:00:00-08:00",
@@ -999,6 +1074,17 @@
 			"source": "west-of-lenin",
 			"venueId": "west-of-lenin",
 			"category": "theater"
+		},
+		{
+			"id": "mockingbird-comedy-1998043193979",
+			"venueId": "old-stove-gardens",
+			"title": "The Comedy Battle Royale",
+			"startsAt": "2026-11-05T19:00:00-08:00",
+			"endsAt": "2026-11-05T20:30:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-comedy-battle-royale-tickets-1998043193979",
+			"price": "$7.18",
+			"category": "comedy",
+			"source": "mockingbird-comedy"
 		},
 		{
 			"id": "spt-2026-11-06T03:30-neel-neha-and-neel",
@@ -1052,14 +1138,14 @@
 		},
 		{
 			"id": "substation-1989611724226",
+			"venueId": "substation",
 			"title": "Izzy Vadim",
 			"startsAt": "2026-11-05T21:00:00-08:00",
 			"endsAt": "2026-11-06T01:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/izzy-vadim-tickets-1989611724226",
 			"price": "$19.80–$31.94",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "visitballard-44638-2026-11-06",
@@ -1175,6 +1261,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "dinodad-comedy-1984240073474",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2026-11-06T19:00:00-08:00",
+			"endsAt": "2026-11-06T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240073474",
+			"category": "comedy",
+			"source": "dinodad-comedy"
+		},
+		{
 			"id": "spt-2026-11-07T03:30-neel-neha-and-neel",
 			"title": "नेहा & NEEL (Neha and Neel नेहा और नील)",
 			"startsAt": "2026-11-06T19:30:00-08:00",
@@ -1225,14 +1321,14 @@
 		},
 		{
 			"id": "substation-1994518410256",
+			"venueId": "substation",
 			"title": "Riot Ten",
 			"startsAt": "2026-11-06T22:00:00-08:00",
 			"endsAt": "2026-11-07T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/riot-ten-tickets-1994518410256",
 			"price": "$25.87–$31.94",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "hidden-hall-2026-11-07-deante-hitchcock-with-joe-the-poet-shane-diamanti-coaster",
@@ -1347,13 +1443,13 @@
 		},
 		{
 			"id": "substation-1996895453055",
+			"venueId": "substation",
 			"title": "Lilyisthatyou - The Flowers Have Feelings Tour w/ James the Seventh",
 			"startsAt": "2026-11-07T17:00:00-08:00",
 			"endsAt": "2026-11-07T21:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/lilyisthatyou-the-flowers-have-feelings-tour-w-james-the-seventh-tickets-1996895453055",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-07T18:00-olivia-dean-the-art-of-loving",
@@ -1466,14 +1562,14 @@
 		},
 		{
 			"id": "substation-1986265943907",
+			"venueId": "substation",
 			"title": "Capochino",
 			"startsAt": "2026-11-07T22:00:00-08:00",
 			"endsAt": "2026-11-08T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/capochino-tickets-1986265943907",
 			"price": "$19.80–$31.94",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "phinneywood-19788-2026-11-07",
@@ -1567,14 +1663,14 @@
 		},
 		{
 			"id": "substation-1999431374063",
+			"venueId": "substation",
 			"title": "Big Freedia",
 			"startsAt": "2026-11-08T21:00:00-08:00",
 			"endsAt": "2026-11-09T01:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/big-freedia-tickets-1999431374063",
 			"price": "$65.32",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "sunset-hill-hall-2193-2026-11-08",
@@ -1822,6 +1918,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "mockingbird-comedy-2003441365054",
+			"venueId": "old-stove-gardens",
+			"title": "The Salute to Veterans Comedy Show",
+			"startsAt": "2026-11-11T19:00:00-08:00",
+			"endsAt": "2026-11-11T20:30:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-salute-to-veterans-comedy-show-tickets-2003441365054",
+			"price": "$17.85",
+			"category": "comedy",
+			"source": "mockingbird-comedy"
+		},
+		{
 			"id": "conor-byrne-194449",
 			"title": "Bryce Makela + The Grebes + Aimee Lefkowicz",
 			"startsAt": "2026-11-11T20:00:00-08:00",
@@ -1843,14 +1950,14 @@
 		},
 		{
 			"id": "substation-1987565799811",
+			"venueId": "substation",
 			"title": "Sassy 009",
 			"startsAt": "2026-11-11T20:00:00-08:00",
 			"endsAt": "2026-11-11T23:30:00-08:00",
 			"url": "https://www.eventbrite.com/e/sassy-009-tickets-1987565799811",
 			"price": "$19.80–$25.87",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "visitballard-10005190-2026-11-12",
@@ -1916,6 +2023,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "classpop-1998023735779",
+			"venueId": "channel-marker-cider",
+			"title": "Make Japanese Ramen With Chef Washington - Cooking Class",
+			"startsAt": "2026-11-12T17:00:00-08:00",
+			"endsAt": "2026-11-12T19:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/make-japanese-ramen-with-chef-washington-cooking-class-in-seattle-classpoptm-tickets-1998023735779",
+			"price": "$72.81",
+			"category": "class",
+			"source": "classpop"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-12T18:00-david-bowie-the-rise-and-fall-of-ziggy-stardust-and-the-spid",
 			"title": "David Bowie - The Rise and Fall of Ziggy Stardust and the Spiders From Mars",
 			"startsAt": "2026-11-12T18:00:00-08:00",
@@ -1946,14 +2064,25 @@
 		},
 		{
 			"id": "substation-1994275744436",
+			"venueId": "substation",
 			"title": "Triptides",
 			"startsAt": "2026-11-12T19:00:00-08:00",
 			"endsAt": "2026-11-12T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/triptides-tickets-1994275744436",
 			"price": "$25.87",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
+		},
+		{
+			"id": "mockingbird-comedy-1998043194982",
+			"venueId": "old-stove-gardens",
+			"title": "The Comedy Battle Royale",
+			"startsAt": "2026-11-12T19:00:00-08:00",
+			"endsAt": "2026-11-12T20:30:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-comedy-battle-royale-tickets-1998043194982",
+			"price": "$7.18",
+			"category": "comedy",
+			"source": "mockingbird-comedy"
 		},
 		{
 			"id": "conor-byrne-193754",
@@ -1997,14 +2126,14 @@
 		},
 		{
 			"id": "substation-1986266273894",
+			"venueId": "substation",
 			"title": "Whales - Dangerous Waters Tour",
 			"startsAt": "2026-11-12T21:00:00-08:00",
 			"endsAt": "2026-11-13T01:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/whales-dangerous-waters-tour-tickets-1986266273894",
 			"price": "$25.87",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "visitballard-45352-2026-11-13",
@@ -2110,14 +2239,24 @@
 		},
 		{
 			"id": "substation-1999723107646",
+			"venueId": "substation",
 			"title": "Peach Tree Rascals",
 			"startsAt": "2026-11-13T19:00:00-08:00",
 			"endsAt": "2026-11-13T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/peach-tree-rascals-tickets-1999723107646",
 			"price": "$38–$107.24",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
+		},
+		{
+			"id": "dinodad-comedy-1984240074477",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2026-11-13T19:00:00-08:00",
+			"endsAt": "2026-11-13T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240074477",
+			"category": "comedy",
+			"source": "dinodad-comedy"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-13T19:30-tyler-the-creator-igor",
@@ -2151,14 +2290,14 @@
 		},
 		{
 			"id": "substation-1999057877926",
+			"venueId": "substation",
 			"title": "Mild Minds (DJ Set)",
 			"startsAt": "2026-11-13T22:00:00-08:00",
 			"endsAt": "2026-11-14T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/mild-minds-dj-set-tickets-1999057877926",
 			"price": "$25.87–$31.94",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "abbey-arts-2026-11-14T03:00-bandit-theater-presents-dear-diary-7p-show-mad-science-8-30p",
@@ -2223,6 +2362,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "classpop-1998163303229",
+			"venueId": "channel-marker-cider",
+			"title": "Falling Leaves Lane - Paint and Sip",
+			"startsAt": "2026-11-14T14:00:00-08:00",
+			"endsAt": "2026-11-14T16:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/falling-leaves-lane-paint-and-sip-in-seattle-classpoptm-tickets-1998163303229",
+			"price": "$53.93",
+			"category": "class",
+			"source": "classpop"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-14T17:00-velvet-underground-loaded",
 			"title": "Velvet Underground - Loaded",
 			"startsAt": "2026-11-14T17:00:00-08:00",
@@ -2243,14 +2393,14 @@
 		},
 		{
 			"id": "substation-2001411643101",
+			"venueId": "substation",
 			"title": "Serial Hawk",
 			"startsAt": "2026-11-14T18:00:00-08:00",
 			"endsAt": "2026-11-14T21:30:00-08:00",
 			"url": "https://www.eventbrite.com/e/serial-hawk-tickets-2001411643101",
 			"price": "$19.80",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "visitballard-44642-2026-11-14",
@@ -2305,14 +2455,14 @@
 		},
 		{
 			"id": "substation-1986461116674",
+			"venueId": "substation",
 			"title": "AEREA",
 			"startsAt": "2026-11-14T22:00:00-08:00",
 			"endsAt": "2026-11-15T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/aerea-tickets-1986461116674",
 			"price": "$25.87–$31.94",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "visitballard-45357-2026-11-14",
@@ -2390,14 +2540,14 @@
 		},
 		{
 			"id": "substation-1995734004130",
+			"venueId": "substation",
 			"title": "Sofie Royer",
 			"startsAt": "2026-11-15T19:00:00-08:00",
 			"endsAt": "2026-11-15T22:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/sofie-royer-tickets-1995734004130",
 			"price": "$28.29",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "conor-byrne-193022",
@@ -2567,14 +2717,14 @@
 		},
 		{
 			"id": "substation-1992395887734",
+			"venueId": "substation",
 			"title": "Agriculture",
 			"startsAt": "2026-11-17T19:00:00-08:00",
 			"endsAt": "2026-11-17T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/agriculture-tickets-1992395887734",
 			"price": "$31.94",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "conor-byrne-194642",
@@ -2702,14 +2852,14 @@
 		},
 		{
 			"id": "substation-1996666754010",
+			"venueId": "substation",
 			"title": "socialHOUSE Presents: Julian Fijma",
 			"startsAt": "2026-11-18T19:00:00-08:00",
 			"endsAt": "2026-11-19T00:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/socialhouse-presents-julian-fijma-tickets-1996666754010",
 			"price": "$13.73–$19.80",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "west-of-lenin-2026-11-18-1930-good-people",
@@ -2827,6 +2977,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "classpop-1998618163729",
+			"venueId": "channel-marker-cider",
+			"title": "Make Epic Tacos With Chef Washington - Cooking Class",
+			"startsAt": "2026-11-19T17:00:00-08:00",
+			"endsAt": "2026-11-19T19:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/make-epic-tacos-with-chef-washington-cooking-class-in-seattle-classpoptm-tickets-1998618163729",
+			"price": "$72.81",
+			"category": "class",
+			"source": "classpop"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-19T18:00-lorde-melodrama",
 			"title": "Lorde - Melodrama",
 			"startsAt": "2026-11-19T18:00:00-08:00",
@@ -2845,6 +3006,17 @@
 			"category": "jazz",
 			"source": "egans",
 			"venueId": "egans-ballard-jam-house"
+		},
+		{
+			"id": "mockingbird-comedy-1998043195985",
+			"venueId": "old-stove-gardens",
+			"title": "The Comedy Battle Royale",
+			"startsAt": "2026-11-19T19:00:00-08:00",
+			"endsAt": "2026-11-19T20:30:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-comedy-battle-royale-tickets-1998043195985",
+			"price": "$7.18",
+			"category": "comedy",
+			"source": "mockingbird-comedy"
 		},
 		{
 			"id": "spt-2026-11-20T03:30-the-flight-before-xmas-preview",
@@ -2916,14 +3088,14 @@
 		},
 		{
 			"id": "substation-1984154265821",
+			"venueId": "substation",
 			"title": "Josh Baker",
 			"startsAt": "2026-11-19T21:00:00-08:00",
 			"endsAt": "2026-11-20T01:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/josh-baker-tickets-1984154265821",
 			"price": "Sold out",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "hidden-hall-2026-11-20-mister-blank-album-release-show-with-the-fabulous-downey-bro",
@@ -3007,6 +3179,16 @@
 			"venueId": "the-pantry"
 		},
 		{
+			"id": "dinodad-comedy-1984240075480",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2026-11-20T19:00:00-08:00",
+			"endsAt": "2026-11-20T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240075480",
+			"category": "comedy",
+			"source": "dinodad-comedy"
+		},
+		{
 			"id": "spt-2026-11-21T03:30-the-flight-before-xmas",
 			"title": "The Flight Before Xmas",
 			"startsAt": "2026-11-20T19:30:00-08:00",
@@ -3046,6 +3228,17 @@
 			"category": "live-music"
 		},
 		{
+			"id": "mockingbird-comedy-2004029309612",
+			"venueId": "old-stove-gardens",
+			"title": "Clocked!: A Very Transgender Stand-Up Comedy Show",
+			"startsAt": "2026-11-20T20:00:00-08:00",
+			"endsAt": "2026-11-20T21:30:00-08:00",
+			"url": "https://www.eventbrite.com/e/clocked-a-very-transgender-stand-up-comedy-show-tickets-2004029309612",
+			"price": "$17.85",
+			"category": "comedy",
+			"source": "mockingbird-comedy"
+		},
+		{
 			"id": "conor-byrne-192093",
 			"title": "Aage Birch, Scott Strickland, Shaun Crawford & The Reasons",
 			"startsAt": "2026-11-20T21:00:00-08:00",
@@ -3067,14 +3260,14 @@
 		},
 		{
 			"id": "substation-1991493549817",
+			"venueId": "substation",
 			"title": "Josh Baker - Night 2",
 			"startsAt": "2026-11-20T22:00:00-08:00",
 			"endsAt": "2026-11-21T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/josh-baker-night-2-tickets-1991493549817",
 			"price": "$44.08–$56.21",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "myballard-363116-2026-11-21",
@@ -3251,14 +3444,14 @@
 		},
 		{
 			"id": "substation-1995149991332",
+			"venueId": "substation",
 			"title": "Emancipator",
 			"startsAt": "2026-11-21T22:00:00-08:00",
 			"endsAt": "2026-11-22T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/emancipator-tickets-1995149991332",
 			"price": "$25.87–$38",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "myballard-356649-2026-11-21",
@@ -3376,14 +3569,14 @@
 		},
 		{
 			"id": "substation-1990826170668",
+			"venueId": "substation",
 			"title": "Buunshin",
 			"startsAt": "2026-11-22T20:00:00-08:00",
 			"endsAt": "2026-11-22T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/buunshin-tickets-1990826170668",
 			"price": "$19.80–$25.87",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "visitballard-35349-2026-11-22",
@@ -3612,14 +3805,14 @@
 		},
 		{
 			"id": "substation-1999719040481",
+			"venueId": "substation",
 			"title": "Skream (Open to Close)",
 			"startsAt": "2026-11-25T21:00:00-08:00",
 			"endsAt": "2026-11-26T01:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/skream-open-to-close-tickets-1999719040481",
 			"price": "$25.87–$38",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "visitballard-10005192-2026-11-26",
@@ -3745,6 +3938,16 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "dinodad-comedy-1984240076483",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2026-11-27T19:00:00-08:00",
+			"endsAt": "2026-11-27T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240076483",
+			"category": "comedy",
+			"source": "dinodad-comedy"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-27T19:30-the-cure-kiss-me-kiss-me",
 			"title": "The Cure - Kiss Me, Kiss Me",
 			"startsAt": "2026-11-27T19:30:00-08:00",
@@ -3766,14 +3969,14 @@
 		},
 		{
 			"id": "substation-1990146551910",
+			"venueId": "substation",
 			"title": "Feed Me",
 			"startsAt": "2026-11-27T22:00:00-08:00",
 			"endsAt": "2026-11-28T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/feed-me-tickets-1990146551910",
 			"price": "$25.87–$38",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "hidden-hall-2026-11-28-russian-blue-with-ghost-fetish-fruit-juice",
@@ -3989,14 +4192,14 @@
 		},
 		{
 			"id": "substation-2000486833972",
+			"venueId": "substation",
 			"title": "Ladrones",
 			"startsAt": "2026-11-29T19:00:00-08:00",
 			"endsAt": "2026-11-29T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/ladrones-tickets-2000486833972",
 			"price": "$34.37",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "conor-byrne-193024",
@@ -4278,6 +4481,17 @@
 			"venueId": "nordic-museum"
 		},
 		{
+			"id": "classpop-1999260035585",
+			"venueId": "channel-marker-cider",
+			"title": "Make Dumplings With Chef Jane - Cooking Class",
+			"startsAt": "2026-12-03T17:00:00-08:00",
+			"endsAt": "2026-12-03T19:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/make-dumplings-with-chef-jane-cooking-class-in-seattle-classpoptm-tickets-1999260035585",
+			"price": "$72.81",
+			"category": "class",
+			"source": "classpop"
+		},
+		{
 			"id": "egans-2026-12-03-1900-brazilian-global-jam-session",
 			"title": "Brazilian/Global Jam Session",
 			"startsAt": "2026-12-03T19:00:00-08:00",
@@ -4308,13 +4522,13 @@
 		},
 		{
 			"id": "substation-2002459212409",
+			"venueId": "substation",
 			"title": "1788-L",
 			"startsAt": "2026-12-03T21:00:00-08:00",
 			"endsAt": "2026-12-04T01:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/1788-l-tickets-2002459212409",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "hidden-hall-2026-12-04-hi-crime-with-sister-swimmer-clam-owie",
@@ -4369,6 +4583,16 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "dinodad-comedy-1984240077486",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2026-12-04T19:00:00-08:00",
+			"endsAt": "2026-12-04T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240077486",
+			"category": "comedy",
+			"source": "dinodad-comedy"
+		},
+		{
 			"id": "spt-2026-12-05T03:30-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-04T19:30:00-08:00",
@@ -4380,14 +4604,14 @@
 		},
 		{
 			"id": "substation-2003534267929",
+			"venueId": "substation",
 			"title": "AFTERLIFE AFTERPARTY: FROST CHILDREN (DJ)",
 			"startsAt": "2026-12-04T22:00:00-08:00",
 			"endsAt": "2026-12-05T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/afterlife-afterparty-frost-children-dj-tickets-2003534267929",
 			"price": "$25.87–$38",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "myballard-361962-2026-12-05",
@@ -4495,14 +4719,14 @@
 		},
 		{
 			"id": "substation-2003534312061",
+			"venueId": "substation",
 			"title": "Cr1tter",
 			"startsAt": "2026-12-05T20:00:00-08:00",
 			"endsAt": "2026-12-05T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/cr1tter-tickets-2003534312061",
 			"price": "$31.94",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "nectar-2026-12-06-grapevine-groove-an-early-evening-motown-inspired-party",
@@ -4576,6 +4800,16 @@
 			"source": "saltstone",
 			"venueId": "saltstone-ceramics",
 			"category": "class"
+		},
+		{
+			"id": "dinodad-comedy-1986264437401",
+			"venueId": "rickshaw",
+			"title": "Jokes in Progress Openmic",
+			"startsAt": "2026-12-06T19:00:00-08:00",
+			"endsAt": "2026-12-06T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-jokes-in-progress-openmic-tickets-1986264437401",
+			"category": "comedy",
+			"source": "dinodad-comedy"
 		},
 		{
 			"id": "conor-byrne-193025",
@@ -4785,14 +5019,14 @@
 		},
 		{
 			"id": "substation-1999790296610",
+			"venueId": "substation",
 			"title": "Alison's Halo",
 			"startsAt": "2026-12-09T19:00:00-08:00",
 			"endsAt": "2026-12-09T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/alisons-halo-tickets-1999790296610",
 			"price": "$28.29",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "conor-byrne-199712",
@@ -4877,13 +5111,13 @@
 		},
 		{
 			"id": "substation-2003375395738",
+			"venueId": "substation",
 			"title": "K?D Presents: Kill The K?D",
 			"startsAt": "2026-12-10T21:00:00-08:00",
 			"endsAt": "2026-12-11T01:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/kd-presents-kill-the-kd-tickets-2003375395738",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "visitballard-45385-2026-12-11",
@@ -4947,14 +5181,14 @@
 		},
 		{
 			"id": "substation-2002354895394",
+			"venueId": "substation",
 			"title": "ELEVATED MUSIC FEST 3",
 			"startsAt": "2026-12-11T18:00:00-08:00",
 			"endsAt": "2026-12-11T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/elevated-music-fest-3-tickets-2002354895394",
 			"price": "$19.80",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "egans-2026-12-11-1900-jeff-busch-group-details-to-follow",
@@ -4973,6 +5207,16 @@
 			"source": "taproot",
 			"venueId": "taproot-theatre",
 			"category": "theater"
+		},
+		{
+			"id": "dinodad-comedy-1984240078489",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2026-12-11T19:00:00-08:00",
+			"endsAt": "2026-12-11T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240078489",
+			"category": "comedy",
+			"source": "dinodad-comedy"
 		},
 		{
 			"id": "spt-2026-12-12T03:30-a-very-die-hard-christmas",
@@ -4995,14 +5239,14 @@
 		},
 		{
 			"id": "substation-2002575413971",
+			"venueId": "substation",
 			"title": "Jantsen",
 			"startsAt": "2026-12-11T22:00:00-08:00",
 			"endsAt": "2026-12-12T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/jantsen-tickets-2002575413971",
 			"price": "$19.80–$25.87",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "nectar-2026-12-12-that-1-guy",
@@ -5099,14 +5343,14 @@
 		},
 		{
 			"id": "substation-1987553851072",
+			"venueId": "substation",
 			"title": "NEO4IC TAKEOVER: [IVY]  x Blossom x Oliverse",
 			"startsAt": "2026-12-12T22:00:00-08:00",
 			"endsAt": "2026-12-13T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/neo4ic-takeover-ivy-x-blossom-x-oliverse-tickets-1987553851072",
 			"price": "$28.60–$35.31",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "hidden-hall-2026-12-13-gatsby-s-american-dream-with-the-divorce",
@@ -5440,14 +5684,14 @@
 		},
 		{
 			"id": "substation-1988857617673",
+			"venueId": "substation",
 			"title": "Austeria",
 			"startsAt": "2026-12-17T21:00:00-08:00",
 			"endsAt": "2026-12-18T01:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/austeria-tickets-1988857617673",
 			"price": "$19.80–$25.87",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "visitballard-38612-2026-12-18",
@@ -5543,6 +5787,16 @@
 			"venueId": "egans-ballard-jam-house"
 		},
 		{
+			"id": "dinodad-comedy-1984240079492",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2026-12-18T19:00:00-08:00",
+			"endsAt": "2026-12-18T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240079492",
+			"category": "comedy",
+			"source": "dinodad-comedy"
+		},
+		{
 			"id": "spt-2026-12-19T03:30-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-18T19:30:00-08:00",
@@ -5554,14 +5808,14 @@
 		},
 		{
 			"id": "substation-2003534416373",
+			"venueId": "substation",
 			"title": "Project Pat",
 			"startsAt": "2026-12-18T20:00:00-08:00",
 			"endsAt": "2026-12-18T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/project-pat-tickets-2003534416373",
 			"price": "$44.08–$62.28",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "conor-byrne-189877",
@@ -5646,14 +5900,14 @@
 		},
 		{
 			"id": "substation-2004085020244",
+			"venueId": "substation",
 			"title": "Project Pat: Night 2",
 			"startsAt": "2026-12-19T19:00:00-08:00",
 			"endsAt": "2026-12-19T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/project-pat-night-2-tickets-2004085020244",
 			"price": "$44.08–$62.28",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "spt-2026-12-20T03:30-a-very-die-hard-christmas",
@@ -5687,13 +5941,13 @@
 		},
 		{
 			"id": "substation-2003020506254",
+			"venueId": "substation",
 			"title": "Two Guys (Crawdad Sniper x Chez): Spy Dub Tour",
 			"startsAt": "2026-12-19T22:00:00-08:00",
 			"endsAt": "2026-12-20T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/two-guys-crawdad-sniper-x-chez-spy-dub-tour-tickets-2003020506254",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "hidden-hall-2026-12-20-cascadia-winter-solstice-weekender-ft-marques-wyatt-sabo-jam",
@@ -5790,6 +6044,17 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "classpop-1999259858054",
+			"venueId": "channel-marker-cider",
+			"title": "Craft Cavatelli at a Ballard Cidery With Chef Jason - Pasta Making Cooking Class",
+			"startsAt": "2026-12-21T17:00:00-08:00",
+			"endsAt": "2026-12-21T19:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/craft-cavatelli-at-a-ballard-cidery-with-chef-jason-pasta-making-cooking-class-in-seattle-classpoptm-tickets-1999259858054",
+			"price": "$72.81",
+			"category": "class",
+			"source": "classpop"
 		},
 		{
 			"id": "pantry-141925-2026-12-21",
@@ -5945,6 +6210,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "dinodad-comedy-1984240080495",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2026-12-25T19:00:00-08:00",
+			"endsAt": "2026-12-25T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240080495",
+			"category": "comedy",
+			"source": "dinodad-comedy"
+		},
+		{
 			"id": "spt-2026-12-26T22:00-the-flight-before-xmas",
 			"title": "The Flight Before Xmas",
 			"startsAt": "2026-12-26T14:00:00-08:00",
@@ -6094,14 +6369,14 @@
 		},
 		{
 			"id": "substation-1984823079260",
+			"venueId": "substation",
 			"title": "The Glitch Mob NYE with Sam Binga",
 			"startsAt": "2026-12-31T21:00:00-08:00",
 			"endsAt": "2027-01-01T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/the-glitch-mob-nye-with-sam-binga-tickets-1984823079260",
 			"price": "$38–$44.08",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "nectar-2027-01-01-back-to-the-80s-new-year-s-eve-party-featuring-nite-wave",
@@ -6125,15 +6400,25 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "dinodad-comedy-1984240081498",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2027-01-01T19:00:00-08:00",
+			"endsAt": "2027-01-01T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240081498",
+			"category": "comedy",
+			"source": "dinodad-comedy"
+		},
+		{
 			"id": "substation-2003028405882",
+			"venueId": "substation",
 			"title": "Lady Faith x LNY TNZ",
 			"startsAt": "2027-01-01T21:00:00-08:00",
 			"endsAt": "2027-01-02T02:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/lady-faith-x-lny-tnz-tickets-2003028405882",
 			"price": "$25.87",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "nordic-museum-2027-01-02-seattle-kraken-nordic-night",
@@ -6146,14 +6431,14 @@
 		},
 		{
 			"id": "substation-2003672736091",
+			"venueId": "substation",
 			"title": "Conjurer",
 			"startsAt": "2027-01-02T19:00:00-08:00",
 			"endsAt": "2027-01-02T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/conjurer-tickets-2003672736091",
 			"price": "$19.80",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "nectar-2027-01-03-queergxrl-launch-party-new-year-new-queer",
@@ -6165,6 +6450,16 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "dinodad-comedy-1986264438404",
+			"venueId": "rickshaw",
+			"title": "Jokes in Progress Openmic",
+			"startsAt": "2027-01-03T19:00:00-08:00",
+			"endsAt": "2027-01-03T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-jokes-in-progress-openmic-tickets-1986264438404",
+			"category": "comedy",
+			"source": "dinodad-comedy"
 		},
 		{
 			"id": "visitballard-10008591-2027-01-04",
@@ -6244,6 +6539,17 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "classpop-1999260028564",
+			"venueId": "channel-marker-cider",
+			"title": "Make Dumplings With Chef Jane - Cooking Class",
+			"startsAt": "2027-01-07T17:00:00-08:00",
+			"endsAt": "2027-01-07T19:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/make-dumplings-with-chef-jane-cooking-class-in-seattle-classpoptm-tickets-1999260028564",
+			"price": "$72.81",
+			"category": "class",
+			"source": "classpop"
+		},
+		{
 			"id": "hidden-hall-2027-01-08-azalee-schwartz-with-kingdow-witcher",
 			"title": "AZALEE SCHWARTZ with KingDow, Witcher",
 			"startsAt": "2027-01-08T03:00:00+00:00",
@@ -6263,6 +6569,16 @@
 			"url": "https://www.visitballard.com/event/karaoke-at-hatties-hat/2027-01-07/",
 			"category": "karaoke",
 			"source": "visitballard"
+		},
+		{
+			"id": "dinodad-comedy-1984240082501",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2027-01-08T19:00:00-08:00",
+			"endsAt": "2027-01-08T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240082501",
+			"category": "comedy",
+			"source": "dinodad-comedy"
 		},
 		{
 			"id": "nectar-2027-01-09-the-lovecats-tribute-to-the-cure-and-dark-wave-mixtape-tribu",
@@ -6384,6 +6700,16 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "dinodad-comedy-1984240083504",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2027-01-15T19:00:00-08:00",
+			"endsAt": "2027-01-15T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240083504",
+			"category": "comedy",
+			"source": "dinodad-comedy"
+		},
+		{
 			"id": "sunset-hill-hall-10009066-2027-01-16",
 			"venueId": "sunset-hill-community-hall",
 			"title": "SHCH Open Mic",
@@ -6406,14 +6732,14 @@
 		},
 		{
 			"id": "substation-2002485359616",
+			"venueId": "substation",
 			"title": "Holy Mountain Brewing Anniversary with True Widow",
 			"startsAt": "2027-01-16T18:00:00-08:00",
 			"endsAt": "2027-01-16T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/holy-mountain-brewing-anniversary-with-true-widow-tickets-2002485359616",
 			"price": "$55.43",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "nectar-2027-01-17-clinton-fearon-a-birthday-celebration-plus-dj-kid-hops-kexp-",
@@ -6516,14 +6842,14 @@
 		},
 		{
 			"id": "substation-2003678179372",
+			"venueId": "substation",
 			"title": "Dillinja",
 			"startsAt": "2027-01-21T21:00:00-08:00",
 			"endsAt": "2027-01-22T01:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/dillinja-tickets-2003678179372",
 			"price": "$19.80–$25.87",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
 		},
 		{
 			"id": "hidden-hall-2027-01-22-taper-s-choice-2-sets",
@@ -6538,13 +6864,23 @@
 		},
 		{
 			"id": "substation-2003523005242",
+			"venueId": "substation",
 			"title": "Come Back To Earth: Mac Miller Live Band Tribute",
 			"startsAt": "2027-01-22T19:00:00-08:00",
 			"endsAt": "2027-01-22T23:00:00-08:00",
 			"url": "https://www.eventbrite.com/e/come-back-to-earth-mac-miller-live-band-tribute-tickets-2003523005242",
 			"category": "live-music",
-			"source": "substation",
-			"venueId": "substation"
+			"source": "substation"
+		},
+		{
+			"id": "dinodad-comedy-1984240084507",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2027-01-22T19:00:00-08:00",
+			"endsAt": "2027-01-22T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240084507",
+			"category": "comedy",
+			"source": "dinodad-comedy"
 		},
 		{
 			"id": "hidden-hall-2027-01-23-satsang-full-band-with-guest",
