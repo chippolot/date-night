@@ -1309,9 +1309,143 @@ const dinoDad = eventbriteSource({
 	cleanTitle: (t) => t.replace(/^The Rickshaw /, ""),
 });
 
-// Not scraped (see CLAUDE.md): Tractor Tavern (ModSecurity blocks non-browser clients), Phinney
-// Center (Cloudflare; some events arrive via My Ballard, PhinneyWood and SFS), Sunset Tavern (DICE
-// widget needs an API key and dice.fm is behind Cloudflare), Fremont Abbey (public calendar is
+// ---------------------------------------------------------------------------
+// Mato (ma.to), a listings site with a page per venue, for venues we can't read directly: Tractor
+// (ModSecurity) and the Sunset (DICE), plus a few bars with no calendar of their own. robots.txt
+// allows crawlers (content signal search=yes) and the terms don't restrict it. Its listings look
+// machine-extracted and are sometimes wrong (it had Olive Klug at Tractor on 2026-10-29; the show
+// was the 27th), so this source goes last in `sources` and loses any shared slot. A venue page
+// embeds JSON-LD for only its next ~5 events but links more, so those event pages are fetched too.
+
+const MATO = "https://ma.to";
+
+/** Mato venue slug → our venue, and the JSON-LD location names that count as that venue */
+const MATO_VENUES: {
+	slug: string;
+	venueId: string;
+	location: RegExp;
+	category?: Category;
+}[] = [
+	{
+		slug: "tractortavern",
+		venueId: "tractor-tavern",
+		location: /^Tractor Tavern$/,
+		category: "live-music",
+	},
+	{
+		slug: "thesunsettavern",
+		venueId: "sunset-tavern",
+		location: /^(The )?Sunset( Tavern)?$/,
+		category: "live-music",
+	},
+	{
+		slug: "trailbendtaproom",
+		venueId: "trailbend-taproom",
+		location: /^Trailbend Taproom$/,
+	},
+	// Kottu's curry nights are at the Ballard taproom (Stoup's only one with events here).
+	{
+		slug: "stoupbrewing",
+		venueId: "stoup-ballard",
+		location: /^Stoup Brewing/,
+	},
+	{ slug: "obecbrewing", venueId: "obec-brewing", location: /^Obec Brewing/ },
+	// Also lists Knicks road trips to Portland, which the location check drops.
+	{
+		slug: "ltdbarandgrill",
+		venueId: "ltd-bar-and-grill",
+		location: /^LTD Bar & Grill$/,
+	},
+	{
+		slug: "thelatonapub",
+		venueId: "latona-pub",
+		location: /^(The )?Latona Pub$/,
+	},
+];
+
+/**
+ * Event slugs linked from a venue page whose date falls in [from, to]. Slugs end in a date, either
+ * "2026-10-29" or "29-oct-2026" (the latter seems to be the UTC date, so a day late for evenings).
+ */
+export function matoEventSlugs(
+	html: string,
+	from: string,
+	to: string,
+): string[] {
+	const slugs = new Set(
+		[
+			...html.matchAll(/href="\/event\/([a-z0-9-]+)"/g),
+			...html.matchAll(/\\"slug\\":\\"([a-z0-9-]+)\\"/g),
+		].map(([, s = ""]) => s),
+	);
+	return [...slugs].filter((s) => {
+		const iso = s.match(/\d{4}-\d{2}-\d{2}/)?.[0];
+		const dmy = s.match(/(\d{2})-([a-z]{3})-(\d{4})$/);
+		const month = MONTHS.indexOf(dmy?.[2] ?? "") + 1;
+		const date =
+			iso ??
+			(dmy && month
+				? `${dmy[3]}-${String(month).padStart(2, "0")}-${dmy[1]}`
+				: undefined);
+		// A day of slack on `from` for the UTC dates
+		return (
+			date !== undefined &&
+			date >= isoDate(new Date(Date.parse(`${from}T12:00:00Z`) - 86_400_000)) &&
+			date <= to
+		);
+	});
+}
+
+/** Events on a Mato page (venue or event at `url`) held at the venue `location` names. */
+export function parseMatoEvents(
+	html: string,
+	url: string,
+	location: RegExp,
+): ScrapedEvent[] {
+	return extractLdEvents(html)
+		.filter((e) => !e.cancelled && location.test(e.location ?? ""))
+		.map((e) => ({
+			id: `mato-${e.startDate.slice(0, 16)}-${slug(e.name)}`,
+			title: e.name,
+			startsAt: e.startDate,
+			endsAt: e.endDate,
+			url: e.url ?? url,
+			price: e.price,
+		}));
+}
+
+const mato: Source = {
+	id: "mato",
+	async fetchEvents() {
+		const { from, to } = horizon();
+		const out: ScrapedEvent[] = [];
+		for (const v of MATO_VENUES) {
+			const venueUrl = `${MATO}/venue/${v.slug}`;
+			const page = await get(venueUrl);
+			const events = parseMatoEvents(page, venueUrl, v.location);
+			const have = new Set(events.map((e) => e.url));
+			for (const s of matoEventSlugs(page, from, to)) {
+				const url = `${MATO}/event/${s}`;
+				if (have.has(url)) continue;
+				await pause(1);
+				events.push(...parseMatoEvents(await get(url), url, v.location));
+			}
+			out.push(
+				...events.map((e) => ({
+					...e,
+					venueId: v.venueId,
+					category: guessCategory(e.title, v.category),
+				})),
+			);
+			await pause(1);
+		}
+		return out;
+	},
+};
+
+// Not scraped (see CLAUDE.md): Tractor Tavern's and Sunset Tavern's own calendars (ModSecurity; a
+// DICE widget that needs an API key, with dice.fm behind Cloudflare), so both come from Mato above.
+// Phinney Center (Cloudflare; some events arrive via My Ballard, PhinneyWood and SFS), Fremont Abbey (public calendar is
 // mostly rental placeholders), Mox Boarding House (Occasion calendar behind Cloudflare), U Wine Bar
 // (robots.txt disallows all but Google), Ballard Clay and Throw & Build (KilnFire booking pages
 // disallowed by robots.txt), Wet Clay Cafe (Wix Bookings sessions load client-side only), Waystone
@@ -1346,4 +1480,6 @@ export const sources: Source[] = [
 	tangoConnection,
 	classpop,
 	dinoDad,
+	// Last: least reliable, so every other source wins a shared venue and start time.
+	mato,
 ];

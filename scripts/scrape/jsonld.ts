@@ -8,6 +8,8 @@ export type LdEvent = {
 	price?: string;
 	/** `location.name`, when given */
 	location?: string;
+	/** `eventStatus` is EventCancelled */
+	cancelled?: boolean;
 };
 
 const SCRIPT_RE =
@@ -83,6 +85,8 @@ export function extractLdEvents(html: string): LdEvent[] {
 				url: typeof obj.url === "string" ? obj.url : undefined,
 				price: priceOf(obj.offers),
 				location: locationOf(obj.location),
+				cancelled:
+					String(obj.eventStatus ?? "").endsWith("EventCancelled") || undefined,
 			});
 		}
 	}

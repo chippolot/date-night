@@ -38,6 +38,17 @@ export const venues: Venue[] = [
 		tags: ["bar", "music-venue"],
 	},
 	{
+		id: "sunset-tavern",
+		name: "Sunset Tavern",
+		neighborhood: "ballard",
+		address: "5433 Ballard Ave NW, Seattle, WA 98107",
+		lat: 47.6681,
+		lng: -122.386,
+		url: "https://sunsettavern.com/",
+		priceLevel: 2,
+		tags: ["bar", "music-venue"],
+	},
+	{
 		id: "rough-and-tumble-ballard",
 		name: "Rough & Tumble Pub",
 		neighborhood: "ballard",

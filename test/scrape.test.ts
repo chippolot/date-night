@@ -4,8 +4,10 @@ import { extractLdEvents } from "../scripts/scrape/jsonld";
 import { guessCategory } from "../scripts/scrape/source";
 import {
 	cleanAbbeyTitle,
+	matoEventSlugs,
 	parseEgans,
 	parseEventbrite,
+	parseMatoEvents,
 	parseNordic,
 	parseOctopus,
 	parsePantry,
@@ -737,5 +739,53 @@ describe("eventbrite", () => {
 				"trivia",
 			],
 		]);
+	});
+});
+
+describe("mato", () => {
+	test("finds dated event slugs in links and the page payload, within the horizon", () => {
+		const html = `
+<a href="/event/olive-klug-2026-10-27"></a>
+<a href="/event/juana-molina-29-oct-2026"></a>
+<a href="/event/2026-11-03-cicchetti-happy-hour-tuesday"></a>
+<a href="/event/no-date-here"></a>
+<script>self.__next_f.push([1,"{\\"slug\\":\\"craig-finn-2026-11-11\\"},{\\"slug\\":\\"seattle\\"},{\\"slug\\":\\"far-off-2027-06-01\\"}"])</script>`;
+		expect(matoEventSlugs(html, "2026-10-29", "2027-01-27")).toEqual([
+			"juana-molina-29-oct-2026",
+			"2026-11-03-cicchetti-happy-hour-tuesday",
+			"craig-finn-2026-11-11",
+		]);
+	});
+
+	test("keeps events at the venue's location names and skips cancelled ones", () => {
+		const ld = (name: string, place: string, status = "EventScheduled") =>
+			`<script type="application/ld+json">${JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "Event",
+				name,
+				startDate: "2026-10-28T20:00:00.000-07:00",
+				endDate: "2026-10-28T23:00:00.000-07:00",
+				eventStatus: `https://schema.org/${status}`,
+				location: { "@type": "Place", name: place },
+			})}</script>`;
+		const url = "https://ma.to/event/juana-molina-29-oct-2026";
+		const html = `${ld("Juana Molina", "Tractor Tavern")}${ld("Road Trip", "Portland, OR")}${ld("Off", "Tractor Tavern", "EventCancelled")}`;
+		expect(parseMatoEvents(html, url, /^Tractor Tavern$/)).toEqual([
+			{
+				id: "mato-2026-10-28T20:00-juana-molina",
+				title: "Juana Molina",
+				startsAt: "2026-10-28T20:00:00.000-07:00",
+				endsAt: "2026-10-28T23:00:00.000-07:00",
+				url,
+				price: undefined,
+			},
+		]);
+		expect(
+			parseMatoEvents(
+				ld("Off", "Tractor Tavern", "EventCancelled"),
+				url,
+				/^Tractor Tavern$/,
+			),
+		).toEqual([]);
 	});
 });
