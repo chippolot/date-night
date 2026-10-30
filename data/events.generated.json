@@ -1,12 +1,14 @@
 {
-	"generatedAt": "2026-10-30T03:19:13.485Z",
+	"generatedAt": "2026-10-30T03:42:39.849Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-30T02:14:04.303Z",
 		"aslan-fremont": "2026-10-30T02:14:04.303Z",
+		"brimmer-and-heeltap": "2026-10-30T03:42:39.847Z",
 		"classpop": "2026-10-30T02:14:04.304Z",
 		"conor-byrne": "2026-10-30T02:14:04.303Z",
 		"dinodad-comedy": "2026-10-30T02:14:04.304Z",
 		"egans": "2026-10-30T02:14:04.303Z",
+		"figurehead-stone-way": "2026-10-30T03:42:39.847Z",
 		"halcyon": "2026-10-30T02:14:04.303Z",
 		"halfseas": "2026-10-30T02:14:04.303Z",
 		"hidden-hall": "2026-10-30T02:14:04.303Z",
@@ -19,6 +21,7 @@
 		"pantry": "2026-10-30T02:14:04.304Z",
 		"phinneywood": "2026-10-30T02:14:04.304Z",
 		"saltstone": "2026-10-30T02:14:04.304Z",
+		"sea-monster-lounge": "2026-10-30T03:42:39.847Z",
 		"seafolklore": "2026-10-30T02:14:04.304Z",
 		"seattle-public-theater": "2026-10-30T02:14:04.303Z",
 		"shibuya-hifi": "2026-10-30T02:14:04.304Z",
@@ -135,6 +138,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "sea-monster-lounge-2026-10-29T19:30-manazma-sheen",
+			"title": "Manazma Sheen",
+			"startsAt": "2026-10-29T19:30:00-07:00",
+			"endsAt": "2026-10-29T21:00:00-07:00",
+			"url": "https://www.seamonsterlounge.com/event-info/manazma-sheen-2026-10-29-19-30",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "conor-byrne-183732",
 			"title": "The Rolling Thunder + Bigfoot Curious + Velvet Armada",
 			"startsAt": "2026-10-29T20:00:00-07:00",
@@ -204,6 +217,16 @@
 			"venueId": "ltd-bar-and-grill",
 			"category": "trivia",
 			"source": "mato"
+		},
+		{
+			"id": "sea-monster-lounge-2026-10-29T22:00-taytonic",
+			"title": "Taytonic",
+			"startsAt": "2026-10-29T22:00:00-07:00",
+			"endsAt": "2026-10-30T01:00:00-07:00",
+			"url": "https://www.seamonsterlounge.com/event-info/taytonic-4",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "hidden-hall-2026-10-30-frankie-j-with-viktoria-silk",
@@ -386,6 +409,17 @@
 			"venueId": "octopus-bar"
 		},
 		{
+			"id": "sea-monster-lounge-2026-10-30T20:00-extra-thick",
+			"title": "Extra Thick",
+			"startsAt": "2026-10-30T20:00:00-07:00",
+			"endsAt": "2026-10-30T21:15:00-07:00",
+			"url": "https://www.seamonsterlounge.com/event-info/extra-thick-6",
+			"price": "$12.00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "substation-1995508424415",
 			"venueId": "substation",
 			"title": "TR/ST (DJ Set) x Marie Davidson x Dark Chisme x MØAA",
@@ -416,6 +450,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "sea-monster-lounge-2026-10-30T22:00-funky-2-death",
+			"title": "Funky 2 Death",
+			"startsAt": "2026-10-30T22:00:00-07:00",
+			"endsAt": "2026-10-31T01:30:00-07:00",
+			"url": "https://www.seamonsterlounge.com/event-info/funky-2-death-2026-10-30-22-00",
+			"price": "$12.00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "nectar-2026-10-31-lindstrom-the-limit-with-waltzerr-early-show",
@@ -691,6 +736,17 @@
 			"source": "myballard"
 		},
 		{
+			"id": "sea-monster-lounge-2026-10-31T22:00-inhalen-cupcake",
+			"title": "InHalen & Cupcake",
+			"startsAt": "2026-10-31T22:00:00-07:00",
+			"endsAt": "2026-11-01T01:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/inhalen-cupcake",
+			"price": "$16.00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "substation-2001083432414",
 			"venueId": "substation",
 			"title": "The Gaslamp Killer",
@@ -845,6 +901,16 @@
 			"venueId": "the-pantry"
 		},
 		{
+			"id": "sea-monster-lounge-2026-11-01T18:00-randy-weeks-the-silent-treatment",
+			"title": "Randy Weeks & The Silent Treatment",
+			"startsAt": "2026-11-01T18:00:00-08:00",
+			"endsAt": "2026-11-01T20:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/randy-weeks-the-silent-treatment-2026-11-01-18-00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "saltstone-10319080685781",
 			"title": "Clay Curious",
 			"startsAt": "2026-11-01T18:30:00-08:00",
@@ -904,6 +970,16 @@
 			"venueId": "sunset-tavern",
 			"category": "live-music",
 			"source": "mato"
+		},
+		{
+			"id": "sea-monster-lounge-2026-11-01T21:00-ron-weinstein-trio",
+			"title": "Ron Weinstein Trio",
+			"startsAt": "2026-11-01T21:00:00-08:00",
+			"endsAt": "2026-11-02T00:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/ron-weinstein-trio-2026-11-01-21-00",
+			"category": "jazz",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "visitballard-38607-2026-11-01",
@@ -1000,6 +1076,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "sea-monster-lounge-2026-11-02T19:00-foleada",
+			"title": "Foleada",
+			"startsAt": "2026-11-02T19:00:00-08:00",
+			"endsAt": "2026-11-02T21:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/foleada-2026-11-02-19-00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "conor-byrne-193911",
 			"title": "Si Tu Savais (Django Jazz)",
 			"startsAt": "2026-11-02T20:00:00-08:00",
@@ -1028,6 +1114,16 @@
 			"venueId": "sunset-tavern",
 			"category": "live-music",
 			"source": "mato"
+		},
+		{
+			"id": "sea-monster-lounge-2026-11-02T22:00-la-luz",
+			"title": "La Luz",
+			"startsAt": "2026-11-02T22:00:00-08:00",
+			"endsAt": "2026-11-03T01:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/la-luz-2026-11-02-22-00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "visitballard-10005449-2026-11-03",
@@ -1072,6 +1168,15 @@
 			"source": "sunset-hill-hall"
 		},
 		{
+			"id": "figurehead-stone-way-2026-11-03-show-tell",
+			"title": "Show & Tell",
+			"startsAt": "2026-11-03T03:00:00Z",
+			"endsAt": "2026-11-03T05:00:00Z",
+			"url": "https://www.figureheadbrewingcompany.com/events",
+			"source": "figurehead-stone-way",
+			"venueId": "figurehead-stone-way"
+		},
+		{
 			"id": "mato-2026-11-03T16:00-cicchetti-happy-hour",
 			"title": "Cicchetti Happy Hour",
 			"startsAt": "2026-11-03T16:00:00.000-08:00",
@@ -1109,6 +1214,16 @@
 			"venueId": "trailbend-taproom",
 			"category": "trivia",
 			"source": "mato"
+		},
+		{
+			"id": "sea-monster-lounge-2026-11-03T19:30-the-350s",
+			"title": "The 350s",
+			"startsAt": "2026-11-03T19:30:00-08:00",
+			"endsAt": "2026-11-03T21:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/the-350s-2026-11-03-19-30",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "conor-byrne-194636",
@@ -1151,6 +1266,16 @@
 			"source": "mato"
 		},
 		{
+			"id": "sea-monster-lounge-2026-11-03T22:00-joe-doria-presents",
+			"title": "Joe Doria Presents",
+			"startsAt": "2026-11-03T22:00:00-08:00",
+			"endsAt": "2026-11-04T01:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/joe-doria-presents-2026-11-03-22-00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "visitballard-10003700-2026-11-04",
 			"venueId": "ballard-beer-box",
 			"title": "TRIVIA NIGHT",
@@ -1180,6 +1305,16 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "sea-monster-lounge-2026-11-04T19:30-the-automat",
+			"title": "The Automat",
+			"startsAt": "2026-11-04T19:30:00-08:00",
+			"endsAt": "2026-11-04T21:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/the-automat-8",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "conor-byrne-190772",
@@ -1222,6 +1357,16 @@
 			"price": "$19.80–$38",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "sea-monster-lounge-2026-11-04T22:00-weinstein-wednesday",
+			"title": "Weinstein Wednesday",
+			"startsAt": "2026-11-04T22:00:00-08:00",
+			"endsAt": "2026-11-05T01:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/weinstein-wednesday-2026-11-04-22-00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "visitballard-45340-2026-11-05",
@@ -1420,6 +1565,16 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "sea-monster-lounge-2026-11-05T19:30-celestial-navigation",
+			"title": "Celestial Navigation",
+			"startsAt": "2026-11-05T19:30:00-08:00",
+			"endsAt": "2026-11-05T21:30:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/celestial-navigation-2026-11-05-19-30",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "mato-2026-11-05T19:30-claire-conway-album-release",
 			"title": "Claire Conway: Album Release",
 			"startsAt": "2026-11-05T19:30:00.000-08:00",
@@ -1470,6 +1625,16 @@
 			"price": "$19.80–$31.94",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "sea-monster-lounge-2026-11-05T22:00-marmalade",
+			"title": "Marmalade",
+			"startsAt": "2026-11-05T22:00:00-08:00",
+			"endsAt": "2026-11-06T01:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/marmalade-2026-11-05-22-00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "visitballard-44638-2026-11-06",
@@ -1635,6 +1800,17 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "sea-monster-lounge-2026-11-06T19:30-ms-vee-a-badass-band",
+			"title": "Ms Vee & A Badass Band",
+			"startsAt": "2026-11-06T19:30:00-08:00",
+			"endsAt": "2026-11-06T21:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/ms-vee-a-badass-band",
+			"price": "$12.00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "mato-2026-11-06T20:00-blackheart-honeymoon",
 			"title": "Blackheart Honeymoon",
 			"startsAt": "2026-11-06T20:00:00.000-08:00",
@@ -1662,6 +1838,17 @@
 			"category": "live-music",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
+		},
+		{
+			"id": "sea-monster-lounge-2026-11-06T22:00-funky-2-death",
+			"title": "Funky 2 Death",
+			"startsAt": "2026-11-06T22:00:00-08:00",
+			"endsAt": "2026-11-07T01:30:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/funky-2-death-2026-11-06-22-00",
+			"price": "$12.00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "substation-1994518410256",
@@ -1845,6 +2032,17 @@
 			"category": "theater"
 		},
 		{
+			"id": "sea-monster-lounge-2026-11-07T19:00-kiki-valera-y-son-cuban",
+			"title": "Kiki Valera y Son Cuban",
+			"startsAt": "2026-11-07T19:00:00-08:00",
+			"endsAt": "2026-11-07T21:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/kiki-valera-y-son-cuban-2026-11-07-19-00",
+			"price": "$15.00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "spt-2026-11-08T03:30-neel-neha-and-neel",
 			"title": "नेहा & NEEL (Neha and Neel नेहा और नील)",
 			"startsAt": "2026-11-07T19:30:00-08:00",
@@ -1913,6 +2111,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "sea-monster-lounge-2026-11-07T22:00-black-dogs-with-special-guests",
+			"title": "Black Dogs with Special Guests",
+			"startsAt": "2026-11-07T22:00:00-08:00",
+			"endsAt": "2026-11-08T01:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/black-dogs-with-special-guests",
+			"price": "$15.00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "substation-1986265943907",
@@ -2014,6 +2223,15 @@
 			"category": "class",
 			"source": "pantry",
 			"venueId": "the-pantry"
+		},
+		{
+			"id": "figurehead-stone-way-2026-11-08-mahjong-brunch",
+			"title": "Mahjong Brunch",
+			"startsAt": "2026-11-08T18:00:00Z",
+			"endsAt": "2026-11-08T21:00:00Z",
+			"url": "https://www.figureheadbrewingcompany.com/events",
+			"source": "figurehead-stone-way",
+			"venueId": "figurehead-stone-way"
 		},
 		{
 			"id": "conor-byrne-193021",
@@ -6522,6 +6740,15 @@
 			"source": "saltstone",
 			"venueId": "saltstone-ceramics",
 			"category": "class"
+		},
+		{
+			"id": "figurehead-stone-way-2026-12-20-bonsai-bar",
+			"title": "Bonsai Bar",
+			"startsAt": "2026-12-20T19:30:00Z",
+			"endsAt": "2026-12-20T21:30:00Z",
+			"url": "https://www.figureheadbrewingcompany.com/events",
+			"source": "figurehead-stone-way",
+			"venueId": "figurehead-stone-way"
 		},
 		{
 			"id": "conor-byrne-193027",
