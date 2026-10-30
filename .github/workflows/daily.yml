@@ -69,10 +69,12 @@ jobs:
 
       - name: Commit refreshed events
         run: |
-          if ! git diff --quiet data/events.generated.json; then
+          # data/cache holds per-source page caches (e.g. Shibuya HiFi) that keep later runs fast.
+          git add data/events.generated.json data/cache
+          if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "chore: refresh scraped events" data/events.generated.json
+            git commit -m "chore: refresh scraped events"
             git push
           fi
 

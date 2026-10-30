@@ -18,6 +18,7 @@ import {
 	parseWestOfLenin,
 	parseYuTang,
 	shibuyaEventUrls,
+	shibuyaToFetch,
 	withYear,
 } from "../scripts/scrape/sources";
 
@@ -389,7 +390,10 @@ describe("shibuya hifi", () => {
 <url><loc>https://www.shibuyahifi.com/event-details/new</loc><lastmod>2026-10-21</lastmod><image:image></image:image></url>
 </urlset>`;
 		expect(shibuyaEventUrls(xml, "2026-08-30")).toEqual([
-			"https://www.shibuyahifi.com/event-details/new",
+			{
+				url: "https://www.shibuyahifi.com/event-details/new",
+				lastmod: "2026-10-21",
+			},
 		]);
 	});
 
@@ -427,6 +431,26 @@ describe("shibuya hifi", () => {
 		expect(parseShibuyaEvent(page("Thriller", "EventCancelled"), url)).toEqual(
 			[],
 		);
+	});
+
+	test("fetches new and changed pages, plus the stalest cached ones", () => {
+		const page = (n: number, lastmod = "2026-10-21") => ({
+			url: `https://www.shibuyahifi.com/event-details/${n}`,
+			lastmod,
+		});
+		const cached = (lastmod: string, fetched: string) => ({
+			lastmod,
+			fetched,
+			events: [],
+		});
+		const cache = {
+			[page(1).url]: cached("2026-10-21", "2026-10-28"), // fresh: reuse
+			[page(2).url]: cached("2026-10-01", "2026-10-28"), // lastmod changed
+			[page(3).url]: cached("2026-10-21", "2026-10-15"), // fetched 2 weeks ago
+		};
+		expect(
+			shibuyaToFetch([page(1), page(2), page(3), page(4)], cache, "2026-10-29"),
+		).toEqual([page(2).url, page(4).url, page(3).url]);
 	});
 });
 

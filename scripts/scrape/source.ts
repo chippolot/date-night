@@ -88,6 +88,29 @@ export function slug(s: string): string {
 		.slice(0, 60);
 }
 
+/**
+ * A small JSON cache committed next to the events (data/cache/<name>.json), for sources that would
+ * otherwise re-fetch hundreds of unchanged pages every run. Keys are written sorted so diffs stay
+ * small.
+ */
+export async function readCache<T>(name: string): Promise<Record<string, T>> {
+	const file = Bun.file(`data/cache/${name}.json`);
+	return (await file.exists()) ? file.json() : {};
+}
+
+export async function writeCache<T>(
+	name: string,
+	entries: Record<string, T>,
+): Promise<void> {
+	const sorted = Object.fromEntries(
+		Object.entries(entries).sort(([a], [b]) => a.localeCompare(b)),
+	);
+	await Bun.write(
+		`data/cache/${name}.json`,
+		`${JSON.stringify(sorted, null, "\t")}\n`,
+	);
+}
+
 /** Source backed by schema.org JSON-LD Event markup on one or more pages. */
 export function jsonldSource(
 	opts: Omit<Source, "fetchEvents"> & {

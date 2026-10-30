@@ -6,9 +6,11 @@ import {
 	get,
 	guessCategory,
 	jsonldSource,
+	readCache,
 	type ScrapedEvent,
 	type Source,
 	slug,
+	writeCache,
 } from "./source";
 
 const HORIZON_DAYS = 90;
@@ -848,17 +850,57 @@ const pantry: Source = {
 // Shibuya HiFi (listening bar): album listening sessions as Wix Events. The events page renders
 // client-side, but every event page carries JSON-LD and the event sitemap lists all of them
 // (1,000+, past included) with a lastmod. Each month's schedule is posted a few weeks ahead, so
-// only pages modified in the last 60 days are fetched.
+// only pages modified in the last 60 days are considered. Wix throttles (HTTP 429 on concurrent
+// requests, slow from CI), so parsed pages are cached by lastmod in data/cache/shibuya-hifi.json and
+// only new or changed pages are fetched, plus a few of the oldest entries per run as a backstop in
+// case a page changes without its lastmod.
 
 const SHIBUYA = "https://www.shibuyahifi.com";
 
-/** Event page URLs from the Wix event sitemap with a lastmod on or after `since` (YYYY-MM-DD). */
-export function shibuyaEventUrls(xml: string, since: string): string[] {
+type SitemapPage = { url: string; lastmod: string };
+
+/** Event pages from the Wix event sitemap with a lastmod on or after `since` (YYYY-MM-DD). */
+export function shibuyaEventUrls(xml: string, since: string): SitemapPage[] {
 	return [
 		...xml.matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>(\d{4}-\d{2}-\d{2})/g),
 	]
-		.filter(([, , mod = ""]) => mod >= since)
-		.map(([, loc = ""]) => loc);
+		.map(([, url = "", lastmod = ""]) => ({ url, lastmod }))
+		.filter((p) => p.lastmod >= since);
+}
+
+/** A parsed event page: its sitemap lastmod, when we fetched it, and its upcoming events. */
+export type CachedPage = {
+	lastmod: string;
+	fetched: string;
+	events: ScrapedEvent[];
+};
+
+/** Re-check cached pages fetched this many days ago, at most `SHIBUYA_RECHECKS` per run. */
+const SHIBUYA_RECHECK_DAYS = 7;
+const SHIBUYA_RECHECKS = 20;
+
+/** Which pages need fetching: new or changed ones, plus the stalest few cached ones. */
+export function shibuyaToFetch(
+	pages: SitemapPage[],
+	cache: Record<string, CachedPage>,
+	today: string,
+): string[] {
+	const recheckBefore = isoDate(
+		new Date(
+			Date.parse(`${today}T12:00:00Z`) - SHIBUYA_RECHECK_DAYS * 86_400_000,
+		),
+	);
+	const changed = pages.filter((p) => cache[p.url]?.lastmod !== p.lastmod);
+	const stale = pages
+		.filter((p) => {
+			const hit = cache[p.url];
+			return hit?.lastmod === p.lastmod && hit.fetched <= recheckBefore;
+		})
+		.sort((a, b) =>
+			(cache[a.url]?.fetched ?? "").localeCompare(cache[b.url]?.fetched ?? ""),
+		)
+		.slice(0, SHIBUYA_RECHECKS);
+	return [...changed, ...stale].map((p) => p.url);
 }
 
 export function parseShibuyaEvent(html: string, url: string): ScrapedEvent[] {
@@ -886,18 +928,32 @@ const shibuyaHifi: Source = {
 		const since = isoDate(
 			new Date(Date.parse(`${today}T12:00:00Z`) - 60 * 86_400_000),
 		);
-		const urls = shibuyaEventUrls(
+		const pages = shibuyaEventUrls(
 			await get(`${SHIBUYA}/event-pages-sitemap.xml`),
 			since,
 		);
-		// One page at a time: Wix answers concurrent requests with HTTP 429.
-		const out: ScrapedEvent[] = [];
-		for (const url of urls) {
+		const cache = await readCache<CachedPage>("shibuya-hifi");
+		const upcoming = (events: ScrapedEvent[]) =>
+			events.filter((e) => e.startsAt.slice(0, 10) >= today);
+		const toFetch = new Set(shibuyaToFetch(pages, cache, today));
+		// Pages that left the 60-day window drop out of the cache here.
+		const next: Record<string, CachedPage> = {};
+		for (const { url, lastmod } of pages) {
+			const hit = cache[url];
+			if (hit && !toFetch.has(url)) {
+				next[url] = { ...hit, events: upcoming(hit.events) };
+				continue;
+			}
+			// One page at a time: Wix answers concurrent requests with HTTP 429.
 			await pause(0.5);
-			const events = parseShibuyaEvent(await get(url), url);
-			out.push(...events.filter((e) => e.startsAt.slice(0, 10) >= today));
+			const events = upcoming(parseShibuyaEvent(await get(url), url));
+			next[url] = { lastmod, fetched: today, events };
 		}
-		return out;
+		await writeCache("shibuya-hifi", next);
+		console.log(
+			`  shibuya-hifi: fetched ${toFetch.size} of ${pages.length} pages`,
+		);
+		return Object.values(next).flatMap((p) => p.events);
 	},
 };
 
