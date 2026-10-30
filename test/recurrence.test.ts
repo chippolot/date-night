@@ -2,6 +2,7 @@ import { describe, expect, test } from "bun:test";
 import {
 	addDays,
 	dedupe,
+	eventOccurrences,
 	occursOn,
 	seattleParts,
 	todayInSeattle,
@@ -120,5 +121,26 @@ describe("dedupe", () => {
 			occ("n3", "night", "19:00", "other"),
 		];
 		expect(dedupe(list).map((o) => o.key)).toEqual(["e1", "n2", "n3"]);
+	});
+});
+
+describe("eventOccurrences", () => {
+	test("files events no pattern could place under Something else", () => {
+		const [o] = eventOccurrences(
+			[
+				{
+					id: "x",
+					title: "Halloween at the Brewery",
+					startsAt: "2026-10-31T17:00:00-07:00",
+					url: "https://example.com",
+					source: "test",
+				},
+			],
+			[],
+			"2026-10-31",
+			1,
+		);
+		expect(o?.category).toBe("misc");
+		expect(o?.vibe).toEqual(["low-key"]);
 	});
 });

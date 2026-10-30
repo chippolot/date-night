@@ -26,6 +26,7 @@ const COLORS: Record<Category, string> = {
 	"open-mic": "#a8652e",
 	class: "#7c9a3a",
 	theater: "#4c6ea8",
+	misc: "#7a7d85",
 };
 
 async function main() {
@@ -61,8 +62,7 @@ async function main() {
 						matchesKind(eventKind(e), f),
 				)
 				.slice(0, 3);
-			const color =
-				COLORS[ns[0]?.category ?? upcoming[0]?.category ?? "live-music"];
+			const color = COLORS[ns[0]?.category ?? upcoming[0]?.category ?? "misc"];
 			const nightItems = ns.map(
 				(n) =>
 					`<li><strong>${esc(n.title)}</strong><br><span>${describeRecurrence(n)} ${n.allDay ? "all day" : formatTime(n.start)} · ${CATEGORIES[n.category]}</span></li>`,

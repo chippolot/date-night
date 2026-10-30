@@ -76,7 +76,7 @@ export function feed(data: SiteData, today: string, scope: FeedScope): string {
 			),
 		);
 	const events = data.events
-		.filter((e) => inScope(e.venueId, e.category ?? "live-music"))
+		.filter((e) => inScope(e.venueId, e.category ?? "misc"))
 		.map((e) =>
 			eventVevent(e, e.venueId ? venueById.get(e.venueId) : undefined),
 		);

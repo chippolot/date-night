@@ -57,6 +57,8 @@ export const CATEGORIES = {
 	"open-mic": "Open mic",
 	class: "Classes & workshops",
 	theater: "Theater & film",
+	/** Scraped events no title pattern or source default could place */
+	misc: "Something else",
 } as const;
 export type Category = keyof typeof CATEGORIES;
 
@@ -73,6 +75,7 @@ export const CATEGORY_ICONS: Record<Category, string> = {
 	"open-mic": "🎶",
 	class: "🧶",
 	theater: "🎭",
+	misc: "✨",
 };
 
 export const VIBES = ["romantic", "lively", "low-key", "active"] as const;
@@ -92,6 +95,7 @@ export const CATEGORY_VIBES: Record<Category, Vibe[]> = {
 	"open-mic": ["low-key"],
 	class: ["romantic", "active"],
 	theater: ["romantic", "low-key"],
+	misc: ["low-key"],
 };
 
 export type Weekday = "SU" | "MO" | "TU" | "WE" | "TH" | "FR" | "SA";

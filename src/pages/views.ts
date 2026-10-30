@@ -283,7 +283,7 @@ export function venuesIndexView(data: SiteData): string {
 			...data.nights.filter((n) => n.venueId === id).map((n) => n.category),
 			...data.events
 				.filter((e) => e.venueId === id)
-				.map((e) => e.category ?? "live-music"),
+				.map((e) => e.category ?? "misc"),
 		]);
 	const hoods = Object.entries(NEIGHBORHOODS)
 		.map(([id, name]) => ({
@@ -364,7 +364,7 @@ export function nightKind(n: Night): Kind {
 }
 
 export function eventKind(e: DatedEvent): Kind {
-	const category = e.category ?? "live-music";
+	const category = e.category ?? "misc";
 	const { date, time } = seattleParts(e.startsAt);
 	return {
 		title: e.title,

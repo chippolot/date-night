@@ -116,7 +116,7 @@ export function eventOccurrences(
 	return events.flatMap((e) => {
 		const { date, time } = seattleParts(e.startsAt);
 		if (date < from || date >= until) return [];
-		const category = e.category ?? "live-music";
+		const category = e.category ?? "misc";
 		return [
 			{
 				key: `event:${e.id}`,
