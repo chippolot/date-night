@@ -717,6 +717,7 @@ export const venues: Venue[] = [
 		lat: 47.6795,
 		lng: -122.365,
 		url: "https://www.thebarkingdogalehouse.com/",
+		instagram: "barkingdogale",
 		priceLevel: 2,
 		tags: ["bar", "restaurant"],
 	},

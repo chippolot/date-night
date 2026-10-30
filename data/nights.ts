@@ -35,6 +35,9 @@ import type { Night } from "../src/lib/types";
 //   Rickshaw: Thursday music bingo 7pm (host left in late August; not posted since)
 //   The Shanghai Room: drag shows every first Wednesday (no time)
 //   Draft Punk (Greenwood): Wednesday video game night (no time)
+//   Ballard Pizza Company: Wing Wednesday (no hours stated)
+//   The Barking Dog Alehouse: half-off wine on Wednesdays (no hours stated)
+//   Urban Family Brewing: square dances (no regular pattern)
 //   Meesha 127 (Fremont): Thursday sliders & game night, Monday industry night (no times)
 //   Triangle Spirits (Fremont): Wing Wednesday (Instagram only; no times or deal stated)
 //   El Sueñito (Fremont): themed trivia, book club, drag brunch (Wix events mixed with its Bellingham taproom)
@@ -1115,11 +1118,29 @@ export const nights: Night[] = [
 		start: "19:00",
 		cost: "Free",
 		description:
-			"Free house trivia at a dog-friendly neighborhood alehouse. From trivia listings; not confirmed with the pub.",
+			"Free house trivia at a dog-friendly neighborhood alehouse. Sign up by 6:45pm.",
 		vibe: ["lively"],
-		sourceUrl: "https://seatoday.6amcity.com/weekly-trivia-nights-seattle-wa",
+		sourceUrl: "https://www.instagram.com/p/Dd-QRwAiMZ8/",
 		lastVerified: "2026-10-30",
-		confidence: "likely",
+		confidence: "confirmed",
+	},
+	{
+		id: "barking-dog-happy-hour",
+		venueId: "barking-dog-alehouse",
+		title: "Happy hour",
+		category: "food-drink-special",
+		recurrence: {
+			kind: "weekly",
+			days: ["SU", "MO", "TU", "WE", "TH", "FR", "SA"],
+		},
+		start: "15:00",
+		end: "18:00",
+		description:
+			"Happy hour drinks every day, with discounted food on weekdays.",
+		vibe: ["low-key"],
+		sourceUrl: "https://www.instagram.com/reel/DerameNxeIK/",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	// Fremont
 	{
