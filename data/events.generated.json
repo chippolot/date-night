@@ -1,34 +1,34 @@
 {
-	"generatedAt": "2026-10-30T02:12:53.306Z",
+	"generatedAt": "2026-10-30T02:14:04.306Z",
 	"scrapedAt": {
-		"abbey-arts": "2026-10-30T01:55:22.459Z",
-		"aslan-fremont": "2026-10-30T01:55:22.458Z",
-		"classpop": "2026-10-30T01:55:22.459Z",
-		"conor-byrne": "2026-10-30T01:55:22.458Z",
-		"dinodad-comedy": "2026-10-30T01:55:22.459Z",
-		"egans": "2026-10-30T01:55:22.459Z",
-		"halcyon": "2026-10-30T01:55:22.459Z",
-		"halfseas": "2026-10-30T01:55:22.459Z",
-		"hidden-hall": "2026-10-30T01:55:22.459Z",
-		"mockingbird-comedy": "2026-10-30T01:55:22.459Z",
-		"myballard": "2026-10-30T01:55:22.458Z",
-		"nectar": "2026-10-30T01:55:22.459Z",
-		"nordic-museum": "2026-10-30T01:55:22.458Z",
-		"octopus": "2026-10-30T01:55:22.459Z",
-		"pantry": "2026-10-30T01:55:22.459Z",
-		"phinneywood": "2026-10-30T01:55:22.459Z",
-		"saltstone": "2026-10-30T01:55:22.459Z",
-		"seafolklore": "2026-10-30T01:55:22.459Z",
-		"seattle-public-theater": "2026-10-30T01:55:22.459Z",
-		"shibuya-hifi": "2026-10-30T01:55:22.459Z",
-		"substation": "2026-10-30T01:55:22.459Z",
-		"sunset-hill-hall": "2026-10-30T01:55:22.459Z",
-		"tango-connection": "2026-10-30T01:55:22.459Z",
-		"taproot": "2026-10-30T01:55:22.459Z",
-		"visitballard": "2026-10-30T01:55:22.458Z",
-		"wayward": "2026-10-30T01:55:22.459Z",
-		"west-of-lenin": "2026-10-30T01:55:22.459Z",
-		"yu-tang": "2026-10-30T01:55:22.459Z"
+		"abbey-arts": "2026-10-30T02:14:04.303Z",
+		"aslan-fremont": "2026-10-30T02:14:04.303Z",
+		"classpop": "2026-10-30T02:14:04.304Z",
+		"conor-byrne": "2026-10-30T02:14:04.303Z",
+		"dinodad-comedy": "2026-10-30T02:14:04.304Z",
+		"egans": "2026-10-30T02:14:04.303Z",
+		"halcyon": "2026-10-30T02:14:04.303Z",
+		"halfseas": "2026-10-30T02:14:04.303Z",
+		"hidden-hall": "2026-10-30T02:14:04.303Z",
+		"mockingbird-comedy": "2026-10-30T02:14:04.304Z",
+		"myballard": "2026-10-30T02:14:04.303Z",
+		"nectar": "2026-10-30T02:14:04.304Z",
+		"nordic-museum": "2026-10-30T02:14:04.303Z",
+		"octopus": "2026-10-30T02:14:04.304Z",
+		"pantry": "2026-10-30T02:14:04.304Z",
+		"phinneywood": "2026-10-30T02:14:04.304Z",
+		"saltstone": "2026-10-30T02:14:04.304Z",
+		"seafolklore": "2026-10-30T02:14:04.304Z",
+		"seattle-public-theater": "2026-10-30T02:14:04.303Z",
+		"shibuya-hifi": "2026-10-30T02:14:04.304Z",
+		"substation": "2026-10-30T02:14:04.304Z",
+		"sunset-hill-hall": "2026-10-30T02:14:04.304Z",
+		"tango-connection": "2026-10-30T02:14:04.304Z",
+		"taproot": "2026-10-30T02:14:04.304Z",
+		"visitballard": "2026-10-30T02:14:04.303Z",
+		"wayward": "2026-10-30T02:14:04.304Z",
+		"west-of-lenin": "2026-10-30T02:14:04.304Z",
+		"yu-tang": "2026-10-30T02:14:04.304Z"
 	},
 	"events": [
 		{
@@ -1743,6 +1743,17 @@
 			"price": "Free",
 			"category": "comedy",
 			"source": "visitballard"
+		},
+		{
+			"id": "classpop-2001010467173",
+			"venueId": "channel-marker-cider",
+			"title": "Make Alfredo Pasta With Chef Jane - Pasta Making Cooking Class",
+			"startsAt": "2026-11-09T17:00:00-08:00",
+			"endsAt": "2026-11-09T19:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/make-alfredo-pasta-with-chef-jane-pasta-making-cooking-class-in-seattle-classpoptm-tickets-2001010467173",
+			"price": "$72.81",
+			"category": "class",
+			"source": "classpop"
 		},
 		{
 			"id": "conor-byrne-196410",
@@ -4080,16 +4091,6 @@
 			"category": "theater"
 		},
 		{
-			"id": "shibuya-hifi-2026-11-28T17:00-frank-ocean-blonde",
-			"title": "Frank Ocean - Blonde",
-			"startsAt": "2026-11-28T17:00:00-08:00",
-			"endsAt": "2026-11-28T18:30:00-08:00",
-			"url": "https://www.shibuyahifi.com/event-details/frank-ocean-blonde-10",
-			"category": "live-music",
-			"source": "shibuya-hifi",
-			"venueId": "shibuya-hifi"
-		},
-		{
 			"id": "pantry-142028-2026-11-28",
 			"title": "Scandinavian Holiday Bakes",
 			"startsAt": "2026-11-28T17:30:00-08:00",
@@ -4894,6 +4895,17 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "classpop-2001010791142",
+			"venueId": "channel-marker-cider",
+			"title": "Make Alfredo Pasta With Chef Jane - Pasta Making Cooking Class",
+			"startsAt": "2026-12-07T17:00:00-08:00",
+			"endsAt": "2026-12-07T19:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/make-alfredo-pasta-with-chef-jane-pasta-making-cooking-class-in-seattle-classpoptm-tickets-2001010791142",
+			"price": "$72.81",
+			"category": "class",
+			"source": "classpop"
 		},
 		{
 			"id": "pantry-142163-2026-12-07",
@@ -6599,6 +6611,17 @@
 			"url": "https://www.visitballard.com/event/karaoke-at-hatties-hat/2027-01-07/",
 			"category": "karaoke",
 			"source": "visitballard"
+		},
+		{
+			"id": "classpop-2001010556440",
+			"venueId": "channel-marker-cider",
+			"title": "Make Alfredo Pasta With Chef Jane - Pasta Making Cooking Class",
+			"startsAt": "2027-01-08T19:00:00-08:00",
+			"endsAt": "2027-01-08T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/make-alfredo-pasta-with-chef-jane-pasta-making-cooking-class-in-seattle-classpoptm-tickets-2001010556440",
+			"price": "$72.81",
+			"category": "class",
+			"source": "classpop"
 		},
 		{
 			"id": "dinodad-comedy-1984240082501",
