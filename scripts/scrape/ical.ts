@@ -7,6 +7,7 @@ export type IcsEvent = {
 	start: string;
 	end?: string;
 	url?: string;
+	location?: string;
 };
 
 function unfold(text: string): string[] {
@@ -59,6 +60,7 @@ export function parseIcs(text: string): IcsEvent[] {
 					start,
 					end: cur.DTEND ? toIso(cur.DTEND.value, cur.DTEND.tzid) : undefined,
 					url: cur.URL?.value,
+					location: cur.LOCATION && unescapeText(cur.LOCATION.value),
 				});
 			}
 			cur = null;

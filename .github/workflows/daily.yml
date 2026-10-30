@@ -35,6 +35,7 @@ jobs:
         continue-on-error: true
         env:
           SCRAPE_REPORT: ${{ runner.temp }}/scrape-report.md
+          EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
 
       - name: Report scraper failures
         # One open "Scraper failures" issue: opened or commented on when sources fail,

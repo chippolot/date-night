@@ -5,10 +5,12 @@ import { guessCategory } from "../scripts/scrape/source";
 import {
 	cleanAbbeyTitle,
 	parseEgans,
+	parseEventbrite,
 	parseNordic,
 	parseOctopus,
 	parsePantry,
 	parseSaltstone,
+	parseSeaFolklore,
 	parseShibuyaEvent,
 	parseSquarespaceEvents,
 	parseTaprootShow,
@@ -589,6 +591,107 @@ describe("yu tang", () => {
 				"2026-11-21T18:30:00-08:00",
 				"Sold out",
 				"https://www.yutangceramics.com/workshops/p/onetimewheel",
+			],
+		]);
+	});
+});
+
+describe("seattle folklore society", () => {
+	test("keeps mapped venues and cleans escaped titles", () => {
+		const ics = [
+			"BEGIN:VCALENDAR",
+			"BEGIN:VEVENT",
+			"DTSTART;TZID=America/Los_Angeles:20261121T193000",
+			"DTEND;TZID=America/Los_Angeles:20261121T220000",
+			"URL:https://www.seafolklore.org/events/hildaland",
+			"SUMMARY:Hildaland (Ethan Setiawan\\, Louise Bichan) In Concert\\; Sat\\, Nov 2",
+			" 1",
+			"LOCATION:Phinney Center Concert Hall\\, Brick Building\\, 6532 Phinney Ave N",
+			"END:VEVENT",
+			"BEGIN:VEVENT",
+			"DTSTART;TZID=America/Los_Angeles:20261219T193000",
+			"SUMMARY:Pint &amp\\; Dale",
+			"LOCATION:Fremont Abbey\\, 4272 Fremont Ave N",
+			"END:VEVENT",
+			"BEGIN:VEVENT",
+			"DTSTART;TZID=America/Los_Angeles:20261205T193000",
+			"SUMMARY:Elsewhere",
+			"LOCATION:Somewhere Else\\, Tacoma",
+			"END:VEVENT",
+			"END:VCALENDAR",
+		].join("\r\n");
+		expect(
+			parseSeaFolklore(ics).map((e) => [
+				e.venueId,
+				e.title,
+				e.startsAt,
+				e.endsAt,
+			]),
+		).toEqual([
+			[
+				"phinney-center",
+				"Hildaland (Ethan Setiawan, Louise Bichan) In Concert",
+				"2026-11-21T19:30:00-08:00",
+				"2026-11-21T22:00:00-08:00",
+			],
+			["fremont-abbey", "Pint & Dale", "2026-12-19T19:30:00-08:00", undefined],
+		]);
+	});
+});
+
+describe("eventbrite", () => {
+	test("maps API events with local times and prices", () => {
+		const event = (id: string, name: string, local: string, extra = {}) => ({
+			id,
+			name: { text: name },
+			url: `https://www.eventbrite.com/e/${id}`,
+			start: { local, timezone: "America/Los_Angeles" },
+			...extra,
+		});
+		const events = parseEventbrite(
+			[
+				event("1", "Cut Copy (DJ Set)", "2026-11-04T21:00:00", {
+					end: {
+						local: "2026-11-05T02:00:00",
+						timezone: "America/Los_Angeles",
+					},
+					ticket_availability: {
+						minimum_ticket_price: { major_value: "25.00" },
+						maximum_ticket_price: { major_value: "38.50" },
+					},
+				}),
+				event("2", "Sold Out Show", "2026-11-06T20:00:00", {
+					ticket_availability: { is_sold_out: true },
+				}),
+				event("3", "Free Trivia Night", "2026-11-07T19:00:00", {
+					is_free: true,
+				}),
+			],
+			"substation",
+		);
+		expect(
+			events.map((e) => [e.id, e.startsAt, e.endsAt, e.price, e.category]),
+		).toEqual([
+			[
+				"substation-1",
+				"2026-11-04T21:00:00-08:00",
+				"2026-11-05T02:00:00-08:00",
+				"$25–$38.50",
+				"live-music",
+			],
+			[
+				"substation-2",
+				"2026-11-06T20:00:00-08:00",
+				undefined,
+				"Sold out",
+				"live-music",
+			],
+			[
+				"substation-3",
+				"2026-11-07T19:00:00-08:00",
+				undefined,
+				"Free",
+				"trivia",
 			],
 		]);
 	});

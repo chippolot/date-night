@@ -13,7 +13,7 @@ It's a static site built with Bun, with no runtime server. Pages are pre-rendere
 
 ```sh
 bun install
-cp .env.example .env   # then add a localhost CARTO key for the map tiles
+cp .env.example .env   # then add a localhost CARTO key (map tiles) and an Eventbrite token (Substation)
 bun run dev       # http://localhost:3000, hot reload, re-renders on every request
 bun run web       # alias for dev (PORT=… to change the port)
 bun test
@@ -59,6 +59,7 @@ When a scraped event matches a curated night (same venue, same day, within an ho
 ## Deploying
 
 `.github/workflows/daily.yml` checks, tests, scrapes, commits the refreshed events, builds, and deploys to GitHub Pages. It runs on every push to `main` and daily at 6am Pacific. To turn it on, go to the repo's Settings → Pages → Source and choose "GitHub Actions". The base path for a project site is set automatically. The map's CARTO key comes from the `CARTO_KEY` repo secret (restricted to chippolot.github.io in the CARTO dashboard).
+The Substation scraper reads an Eventbrite private token from the `EVENTBRITE_TOKEN` repo secret.
 
 ## Layout
 

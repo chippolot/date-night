@@ -1,6 +1,6 @@
 import { todayInSeattle } from "../../src/lib/recurrence";
 import type { Category } from "../../src/lib/types";
-import { toIso } from "./ical";
+import { parseIcs, toIso } from "./ical";
 import { decodeEntities, extractLdEvents } from "./jsonld";
 import {
 	get,
@@ -1030,10 +1030,158 @@ const yuTang: Source = {
 	},
 };
 
+// ---------------------------------------------------------------------------
+// Seattle Folklore Society: iCal feed (WordPress Events Manager) of the folk concerts it presents,
+// mostly in the Phinney Center Concert Hall, whose own site is behind Cloudflare. Text fields
+// arrive HTML-escaped, and some titles repeat the date after a semicolon.
+
+const SEAFOLKLORE_VENUES: [RegExp, string][] = [
+	[/^phinney center/i, "phinney-center"],
+	[/^fremont abbey/i, "fremont-abbey"],
+];
+
+export function parseSeaFolklore(ics: string): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const e of parseIcs(ics)) {
+		const venueId = SEAFOLKLORE_VENUES.find(([re]) =>
+			re.test(e.location ?? ""),
+		)?.[1];
+		if (!venueId) continue;
+		// "Hildaland (…) In Concert; Sat, Nov 21" → "Hildaland (…) In Concert"
+		const title = decodeEntities(e.summary)
+			.replace(/;\s*(mon|tue|wed|thu|fri|sat|sun)[a-z]*,.*$/i, "")
+			.trim();
+		out.push({
+			id: `seafolklore-${e.start.slice(0, 16)}-${slug(title)}`,
+			venueId,
+			title,
+			startsAt: e.start,
+			endsAt: e.end,
+			url: e.url ?? "https://www.seafolklore.org/events/",
+		});
+	}
+	return out;
+}
+
+const seaFolklore: Source = {
+	id: "seafolklore",
+	category: "live-music",
+	async fetchEvents() {
+		return parseSeaFolklore(
+			await get("https://www.seafolklore.org/events.ics"),
+		);
+	},
+};
+
+// ---------------------------------------------------------------------------
+// Substation: Eventbrite's public API (its site terms forbid scraping the pages). Needs a personal
+// OAuth token from the repo owner's own Eventbrite account in EVENTBRITE_TOKEN (.env locally, a repo
+// secret in CI).
+
+const SUBSTATION_ORGANIZER = "18831550522";
+
+type EventbriteEvent = {
+	id: string;
+	name: { text: string };
+	url: string;
+	start: { local: string; timezone: string };
+	end?: { local: string; timezone: string };
+	is_free?: boolean;
+	ticket_availability?: {
+		is_sold_out?: boolean;
+		minimum_ticket_price?: { major_value: string } | null;
+		maximum_ticket_price?: { major_value: string } | null;
+	};
+};
+
+/** "2026-11-04T21:00:00" in `timeZone` → ISO with offset */
+function eventbriteIso(local: string, timeZone: string): string | undefined {
+	return toIso(local.replace(/[-:]/g, ""), timeZone);
+}
+
+/** "19.80" → "$19.80", "25.00" → "$25" */
+function dollars(value: string): string {
+	const n = Number(value);
+	return `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
+}
+
+export function parseEventbrite(
+	events: EventbriteEvent[],
+	idPrefix: string,
+): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const e of events) {
+		const startsAt = eventbriteIso(e.start.local, e.start.timezone);
+		if (!startsAt) continue;
+		const t = e.ticket_availability;
+		const low = t?.minimum_ticket_price?.major_value;
+		const high = t?.maximum_ticket_price?.major_value;
+		const title = e.name.text.trim();
+		out.push({
+			id: `${idPrefix}-${e.id}`,
+			title,
+			startsAt,
+			endsAt: e.end ? eventbriteIso(e.end.local, e.end.timezone) : undefined,
+			url: e.url,
+			price: t?.is_sold_out
+				? "Sold out"
+				: e.is_free
+					? "Free"
+					: low
+						? high && high !== low
+							? `${dollars(low)}–${dollars(high)}`
+							: dollars(low)
+						: undefined,
+			category: guessCategory(title, "live-music"),
+		});
+	}
+	return out;
+}
+
+async function eventbriteOrganizerEvents(
+	organizerId: string,
+	idPrefix: string,
+): Promise<ScrapedEvent[]> {
+	const token = process.env.EVENTBRITE_TOKEN;
+	if (!token) throw new Error("EVENTBRITE_TOKEN is not set");
+	const out: ScrapedEvent[] = [];
+	let continuation: string | undefined;
+	for (let page = 0; page < 10; page++) {
+		const url = new URL(
+			`https://www.eventbriteapi.com/v3/organizers/${organizerId}/events/`,
+		);
+		url.searchParams.set("status", "live");
+		url.searchParams.set("order_by", "start_asc");
+		url.searchParams.set("expand", "ticket_availability");
+		if (continuation) url.searchParams.set("continuation", continuation);
+		const res = await fetch(url, {
+			headers: { authorization: `Bearer ${token}` },
+			signal: AbortSignal.timeout(20_000),
+		});
+		if (!res.ok) throw new Error(`Eventbrite → HTTP ${res.status}`);
+		const body = (await res.json()) as {
+			events: EventbriteEvent[];
+			pagination: { has_more_items: boolean; continuation?: string };
+		};
+		out.push(...parseEventbrite(body.events, idPrefix));
+		continuation = body.pagination.continuation;
+		if (!body.pagination.has_more_items || !continuation) break;
+	}
+	return out;
+}
+
+const substation: Source = {
+	id: "substation",
+	venueId: "substation",
+	category: "live-music",
+	fetchEvents: () =>
+		eventbriteOrganizerEvents(SUBSTATION_ORGANIZER, "substation"),
+};
+
 // Not scraped (see CLAUDE.md): Tractor Tavern (ModSecurity blocks non-browser clients),
-// Phinney Center (Cloudflare; some events arrive via My Ballard), Sunset Tavern (DICE widget
+// Phinney Center (Cloudflare; some events arrive via My Ballard, PhinneyWood and SFS), Sunset Tavern (DICE widget
 // needs an API key and dice.fm is behind Cloudflare), Fremont Abbey (public calendar is mostly
-// rental placeholders), Substation (Eventbrite page has no event markup), Mox Boarding House
+// rental placeholders), Mox Boarding House
 // (Occasion calendar behind Cloudflare), U Wine Bar (robots.txt disallows all but Google), Ballard
 // Clay and Throw & Build (KilnFire booking pages disallowed by robots.txt), Wet Clay Cafe (Wix
 // Bookings sessions load client-side only), Waystone Wargaming (scrapable, but daytime tournaments).
@@ -1060,4 +1208,6 @@ export const sources: Source[] = [
 	shibuyaHifi,
 	saltstone,
 	yuTang,
+	seaFolklore,
+	substation,
 ];

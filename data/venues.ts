@@ -367,6 +367,18 @@ export const venues: Venue[] = [
 		tags: ["studio", "glassblowing"],
 	},
 
+	{
+		id: "substation",
+		name: "Substation",
+		neighborhood: "ballard",
+		address: "645 NW 45th St, Seattle, WA 98107",
+		lat: 47.6614,
+		lng: -122.3654,
+		url: "https://substationseattle.com/",
+		priceLevel: 2,
+		tags: ["bar", "music-venue"],
+	},
+
 	// Crown Hill
 	{
 		id: "arc-dance",
