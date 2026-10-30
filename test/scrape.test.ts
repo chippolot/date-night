@@ -148,6 +148,8 @@ describe("guessCategory", () => {
 		);
 		expect(guessCategory("Film Screening: The Lighthouse")).toBe("theater");
 		expect(guessCategory("Some Band", "live-music")).toBe("live-music");
+		expect(guessCategory("Magic: The Gathering Draft Night")).toBe("trivia");
+		expect(guessCategory("Magic Wand Circuit Craft", "class")).toBe("class");
 	});
 });
 

@@ -16,7 +16,11 @@ export type Source = {
 };
 
 const CATEGORY_PATTERNS: [RegExp, Category][] = [
-	[/\b(trivia|quiz|bingo|game night|commander|magic)\b/i, "trivia"],
+	// Magic: The Gathering nights, not magic wands or magic shows
+	[
+		/\b(trivia|quiz|bingo|game night|commander|magic: the gathering|mtg)\b/i,
+		"trivia",
+	],
 	[/\bkaraoke\b/i, "karaoke"],
 	[
 		/\b(class|workshop|lesson|painting|clay|embroidery|mending|foiling|craft)\b/i,

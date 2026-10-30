@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-30T22:25:06.322Z",
+	"generatedAt": "2026-10-30T22:38:48.023Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-30T18:26:41.077Z",
 		"artemis-coffee": "2026-10-30T18:26:41.077Z",
@@ -20,7 +20,7 @@
 		"lake-city-contra": "2026-10-30T21:38:00.510Z",
 		"lovestruck": "2026-10-30T21:37:38.986Z",
 		"magnuson-park-gallery": "2026-10-30T21:40:45.854Z",
-		"mato": "2026-10-30T21:50:30.841Z",
+		"mato": "2026-10-30T22:38:48.018Z",
 		"meany-center": "2026-10-30T21:39:40.251Z",
 		"mockingbird-comedy": "2026-10-30T21:40:56.904Z",
 		"mr-bs-meadery": "2026-10-30T18:26:41.077Z",
@@ -121,6 +121,16 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-10-30T18:00-qu-art-queer-artists-meetup",
+			"title": "QU-ART: Queer Artists Meetup",
+			"startsAt": "2026-10-30T18:00:00.000-07:00",
+			"endsAt": "2026-10-30T20:00:00.000-07:00",
+			"url": "https://ma.to/event/qu-art-queer-artists-meetup-2026-10-30",
+			"venueId": "push-pull",
+			"category": "class",
+			"source": "mato"
 		},
 		{
 			"id": "conor-byrne-173642",
@@ -337,6 +347,16 @@
 			"category": "live-music"
 		},
 		{
+			"id": "mato-2026-10-31T10:00-diy-screen-printing",
+			"title": "DIY Screen Printing",
+			"startsAt": "2026-10-31T10:00:00.000-07:00",
+			"endsAt": "2026-10-31T14:00:00.000-07:00",
+			"url": "https://ma.to/event/diy-screen-printing-2026-10-31",
+			"venueId": "push-pull",
+			"category": "class",
+			"source": "mato"
+		},
+		{
 			"id": "nordic-museum-2026-10-31-culture-class-nordic-metal-and-musical-cultures",
 			"title": "Culture Class: Nordic Metal and Musical Cultures",
 			"startsAt": "2026-10-31T11:00:00-07:00",
@@ -418,6 +438,16 @@
 			"source": "mato"
 		},
 		{
+			"id": "mato-2026-10-31T15:00-zine-crash-course-perzines",
+			"title": "Zine Crash Course: Perzines",
+			"startsAt": "2026-10-31T15:00:00.000-07:00",
+			"endsAt": "2026-10-31T17:00:00.000-07:00",
+			"url": "https://ma.to/event/zine-crash-course-perzines-2026-10-31",
+			"venueId": "push-pull",
+			"category": "class",
+			"source": "mato"
+		},
+		{
 			"id": "shibuya-hifi-2026-10-31T15:30-the-cure-pornography",
 			"title": "The Cure - Pornography",
 			"startsAt": "2026-10-31T15:30:00-07:00",
@@ -475,6 +505,15 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-10-31T17:00-halloween-at-the-brewery",
+			"title": "Halloween at the Brewery",
+			"startsAt": "2026-10-31T17:00:00.000-07:00",
+			"endsAt": "2026-10-31T21:00:00.000-07:00",
+			"url": "https://ma.to/event/halloween-oct-31-2026",
+			"venueId": "urban-family-brewing",
+			"source": "mato"
 		},
 		{
 			"id": "shibuya-hifi-2026-10-31T18:00-leonard-cohen-you-want-it-darker",
@@ -773,6 +812,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "mato-2026-11-01T14:00-intro-to-polymer-clay-sculpture",
+			"title": "Intro to Polymer Clay Sculpture",
+			"startsAt": "2026-11-01T14:00:00.000-08:00",
+			"endsAt": "2026-11-01T16:00:00.000-08:00",
+			"url": "https://ma.to/event/intro-to-polymer-clay-sculpture-2026-11-01",
+			"venueId": "push-pull",
+			"category": "class",
+			"source": "mato"
+		},
+		{
 			"id": "west-of-lenin-2026-11-01-1630-women",
 			"title": "Women+",
 			"startsAt": "2026-11-01T16:30:00-08:00",
@@ -870,6 +919,17 @@
 			"url": "https://ma.to/event/sunday-karaoke-at-blue-moon-02-nov-2026",
 			"venueId": "blue-moon-tavern",
 			"category": "karaoke",
+			"source": "mato"
+		},
+		{
+			"id": "mato-2026-11-01T19:15-riff-raff-league",
+			"title": "Riff Raff League",
+			"startsAt": "2026-11-01T19:15:00.000-08:00",
+			"endsAt": "2026-11-01T21:15:00.000-08:00",
+			"url": "https://ma.to/event/riff-raff-league-2026-11-01",
+			"price": "Free",
+			"venueId": "push-pull",
+			"category": "class",
 			"source": "mato"
 		},
 		{
@@ -1025,6 +1085,16 @@
 			"category": "open-mic",
 			"source": "artemis-coffee",
 			"venueId": "artemis-coffee"
+		},
+		{
+			"id": "mato-2026-11-02T18:00-cut-the-crap-collage-session",
+			"title": "Cut the Crap Collage Session",
+			"startsAt": "2026-11-02T18:00:00.000-08:00",
+			"endsAt": "2026-11-02T20:00:00.000-08:00",
+			"url": "https://ma.to/event/cut-the-crap-collage-session-2026-11-02",
+			"venueId": "push-pull",
+			"category": "class",
+			"source": "mato"
 		},
 		{
 			"id": "conor-byrne-201011",
@@ -1208,6 +1278,15 @@
 			"source": "mato"
 		},
 		{
+			"id": "mato-2026-11-03T19:00-giving-in-the-gardens",
+			"title": "Giving in the Gardens",
+			"startsAt": "2026-11-03T19:00:00.000-08:00",
+			"endsAt": "2026-11-03T21:00:00.000-08:00",
+			"url": "https://ma.to/event/giving-in-the-gardens-04-nov-2026",
+			"venueId": "old-stove-gardens",
+			"source": "mato"
+		},
+		{
 			"id": "mato-2026-11-03T19:00-tuesday-tacos-n-trivia",
 			"title": "Tuesday Tacos ‘n Trivia",
 			"startsAt": "2026-11-03T19:00:00.000-08:00",
@@ -1358,6 +1437,16 @@
 			"price": "$7.18",
 			"category": "comedy",
 			"source": "mockingbird-comedy"
+		},
+		{
+			"id": "mato-2026-11-04T19:00-weekly-trivia-at-old-stove-gardens",
+			"title": "Weekly Trivia at Old Stove Gardens",
+			"startsAt": "2026-11-04T19:00:00.000-08:00",
+			"endsAt": "2026-11-04T21:00:00.000-08:00",
+			"url": "https://ma.to/event/weekly-trivia-old-stove-gardens-2026-11-04",
+			"venueId": "old-stove-gardens",
+			"category": "trivia",
+			"source": "mato"
 		},
 		{
 			"id": "mato-2026-11-04T19:00-donna-miscolta-ofelia-norma",
@@ -1883,6 +1972,15 @@
 			"category": "jazz",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-11-06T17:00-first-friday-flash",
+			"title": "First Friday Flash",
+			"startsAt": "2026-11-06T17:00:00.000-08:00",
+			"endsAt": "2026-11-06T22:00:00.000-08:00",
+			"url": "https://ma.to/event/first-friday-flash-07-nov-2026",
+			"venueId": "old-stove-gardens",
+			"source": "mato"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-06T18:00-fela-kuti-open-and-close",
@@ -4650,6 +4748,16 @@
 			"source": "mockingbird-comedy"
 		},
 		{
+			"id": "mato-2026-11-20T20:00-third-friday-figure-drawing",
+			"title": "Third Friday Figure Drawing",
+			"startsAt": "2026-11-20T20:00:00.000-08:00",
+			"endsAt": "2026-11-20T22:00:00.000-08:00",
+			"url": "https://ma.to/event/third-friday-figure-drawing-2026-11-20",
+			"venueId": "push-pull",
+			"category": "class",
+			"source": "mato"
+		},
+		{
 			"id": "conor-byrne-192093",
 			"title": "Aage Birch, Scott Strickland, Shaun Crawford & The Reasons",
 			"startsAt": "2026-11-20T21:00:00-08:00",
@@ -5015,6 +5123,17 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "mato-2026-11-22T14:00-stamp-your-own-gear-workshop",
+			"title": "Stamp Your Own Gear Workshop",
+			"startsAt": "2026-11-22T14:00:00.000-08:00",
+			"endsAt": "2026-11-22T15:30:00.000-08:00",
+			"url": "https://ma.to/event/stamp-your-own-gear-workshop-2026-11-22",
+			"price": "$60",
+			"venueId": "urban-family-brewing",
+			"category": "class",
+			"source": "mato"
 		},
 		{
 			"id": "west-of-lenin-2026-11-22-1500-good-people",
@@ -7239,6 +7358,15 @@
 			"source": "substation"
 		},
 		{
+			"id": "mato-2026-12-11T18:00-mozart-mutts-holiday-classical",
+			"title": "Mozart & Mutts Holiday Classical",
+			"startsAt": "2026-12-11T18:00:00.000-08:00",
+			"endsAt": "2026-12-11T20:00:00.000-08:00",
+			"url": "https://ma.to/event/mozart-mutts-holiday-classical-2026-12-11",
+			"venueId": "old-stove-gardens",
+			"source": "mato"
+		},
+		{
 			"id": "egans-2026-12-11-1900-jeff-busch-group-details-to-follow",
 			"title": "Jeff Busch Group (details to follow)",
 			"startsAt": "2026-12-11T19:00:00-08:00",
@@ -7501,6 +7629,16 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "mato-2026-12-13T13:00-old-stove-gardens-holiday-market",
+			"title": "Old Stove Gardens Holiday Market",
+			"startsAt": "2026-12-13T13:00:00.000-08:00",
+			"endsAt": "2026-12-13T18:00:00.000-08:00",
+			"url": "https://ma.to/event/holiday-market-13-dec-2027",
+			"venueId": "old-stove-gardens",
+			"category": "market",
+			"source": "mato"
 		},
 		{
 			"id": "spt-2026-12-13T23:00-a-very-die-hard-christmas",
@@ -9548,6 +9686,16 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "mato-2027-01-24T11:00-bookish-bazaar",
+			"title": "Bookish Bazaar",
+			"startsAt": "2027-01-24T11:00:00.000-08:00",
+			"endsAt": "2027-01-24T16:00:00.000-08:00",
+			"url": "https://ma.to/event/bookish-bazaar-2027-01-24",
+			"venueId": "old-stove-gardens",
+			"category": "market",
+			"source": "mato"
 		},
 		{
 			"id": "mr-bs-meadery-2027-01-24T21:00-mr-b-s-mead-making-class",

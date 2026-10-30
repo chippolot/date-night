@@ -517,6 +517,18 @@ export const venues: Venue[] = [
 		priceLevel: 1,
 		tags: ["dance", "community-center"],
 	},
+	{
+		id: "push-pull",
+		name: "Push/Pull",
+		neighborhood: "ballard",
+		address: "2000 NW Market St, Seattle, WA 98107",
+		lat: 47.6687,
+		lng: -122.3825,
+		url: "https://www.pushpullseattle.com/",
+		instagram: "pushpullseattle",
+		priceLevel: 1,
+		tags: ["gallery", "studio"],
+	},
 
 	// Crown Hill
 	{

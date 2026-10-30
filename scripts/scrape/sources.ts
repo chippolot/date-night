@@ -1678,7 +1678,10 @@ const figurehead = icsSource({
 
 // ---------------------------------------------------------------------------
 // Mato (ma.to), a listings site with a page per venue, for venues we can't read directly: Tractor
-// (ModSecurity) and the Sunset (DICE), plus a few bars with no calendar of their own. robots.txt
+// (ModSecurity), the Sunset (DICE) and Push/Pull (robots.txt), plus bars and breweries with no
+// calendar of their own. Ballard Beer Box, Fremont Dock and Rough & Tumble are left out: their
+// Mato pages repeat our curated nights, and a scraped event would replace the curated night in the
+// same slot with a less reliable copy. Its robots.txt
 // allows crawlers (content signal search=yes) and the terms don't restrict it. Its listings look
 // machine-extracted and are sometimes wrong (it had Olive Klug at Tractor on 2026-10-29; the show
 // was the 27th), so this source goes last in `sources` and loses any shared slot. A venue page
@@ -1727,6 +1730,29 @@ const MATO_VENUES: {
 		slug: "thelatonapub",
 		venueId: "latona-pub",
 		location: /^(The )?Latona Pub$/,
+	},
+	// Push/Pull's own calendar and class pages are hidden from crawlers in its robots.txt.
+	{
+		slug: "pushpullseattle",
+		venueId: "push-pull",
+		location: /^Push\/?Pull$/i,
+		category: "class",
+	},
+	// Old Stove has two pages: the gardens' events, and the brewery's (which lists some of the same).
+	{
+		slug: "oldstovegardens",
+		venueId: "old-stove-gardens",
+		location: /^Old Stove (Brewing )?Gardens/,
+	},
+	{
+		slug: "oldstovebeer",
+		venueId: "old-stove-gardens",
+		location: /^Old Stove (Brewing )?Gardens/,
+	},
+	{
+		slug: "urbanfamilybrewing",
+		venueId: "urban-family-brewing",
+		location: /^Urban Family Brewing/,
 	},
 	// NE Seattle
 	{
