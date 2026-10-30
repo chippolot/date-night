@@ -760,6 +760,22 @@ legend {
 	text-decoration-color: var(--lingon);
 }
 
+.subscribe {
+	display: flex;
+	gap: 0.5rem;
+	align-items: flex-start;
+	margin: 1.5rem 0 0;
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
+.subscribe svg {
+	flex: none;
+	width: 1rem;
+	height: 1rem;
+	margin-top: 0.15rem;
+}
+
 .empty-message {
 	margin: 0;
 }

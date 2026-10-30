@@ -1,4 +1,5 @@
 import { href, SITE } from "../config";
+import { feedHref, feedName, matchingFeeds } from "../lib/feeds";
 import {
 	COST_FILTERS,
 	type Filters,
@@ -172,6 +173,23 @@ export function card(
     </p>
   </div>
 </article>`;
+}
+
+/**
+ * Calendar feeds for the picked categories and neighborhoods. Links are https; the client turns
+ * them into webcal:// (data-webcal) so a tap subscribes instead of downloading.
+ */
+export function subscribeLinks(f: Filters): string {
+	const feeds = matchingFeeds(f.hood, f.cat);
+	if (!feeds)
+		return `<p class="subscribe muted">To subscribe in your calendar app, pick a few kinds of thing and neighborhoods.</p>`;
+	const links = feeds
+		.map(
+			(s) =>
+				`<a href="${esc(feedHref(s))}" data-webcal>${esc(feedName(s))}</a>`,
+		)
+		.join(", ");
+	return `<p class="subscribe">${CALENDAR_ICON}<span>Subscribe in your calendar app: ${links}. Feeds update daily and cover every day, time and price.</span></p>`;
 }
 
 export function cardList(

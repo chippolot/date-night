@@ -21,6 +21,7 @@ function render(data: SiteData, f: Filters) {
 		page === "week"
 			? weekView(data, day, f, today)
 			: tonightView(data, day, f, today);
+	webcalLinks();
 	if (h1) {
 		h1.textContent =
 			day === today
@@ -32,6 +33,16 @@ function render(data: SiteData, f: Filters) {
 							month: "short",
 							day: "numeric",
 						});
+	}
+}
+
+/** Calendar feed links subscribe (webcal://) rather than download once JS is running. */
+function webcalLinks() {
+	for (const a of document.querySelectorAll<HTMLAnchorElement>(
+		"a[data-webcal]",
+	)) {
+		const url = new URL(a.getAttribute("href") ?? "", location.href);
+		a.href = `webcal://${url.host}${url.pathname}`;
 	}
 }
 

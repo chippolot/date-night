@@ -43,6 +43,7 @@ import {
 	describeRecurrence,
 	esc,
 	formatDate,
+	subscribeLinks,
 } from "./components";
 
 export function venueMap(data: SiteData): Map<string, Venue> {
@@ -178,7 +179,8 @@ export function tonightView(
 		after: addDays(day, 1),
 	});
 	return `<p class="date-heading"><span class="date-num">${formatDate(day, { day: "2-digit" })}</span><span class="date-words"><span class="date-weekday">${formatDate(day, { weekday: "long" })}</span><span class="date-month">${formatDate(day, { month: "long", year: "numeric" })}</span></span></p>
-${sections || empty}`;
+${sections || empty}
+${subscribeLinks(f)}`;
 }
 
 /** Seven days from `start` (today unless a date is picked). */
@@ -192,11 +194,11 @@ export function weekView(
 	const all = occurrences(data, start, 7);
 	const list = applyFilters(all, venueById, f);
 	if (!list.length)
-		return emptyState(data, f, {
+		return `${emptyState(data, f, {
 			message: "Nothing this week with these filters.",
 			list: all,
 			after: addDays(start, 7),
-		});
+		})}${subscribeLinks(f)}`;
 	const days = Array.from({ length: 7 }, (_, i) => addDays(start, i));
 	return `<div class="week">${days
 		.map((date) => {
@@ -208,7 +210,8 @@ export function weekView(
 			const day = formatDate(date, { day: "numeric" });
 			return `<section class="day"><h2 class="day-heading"><span class="cal" aria-hidden="true"><span class="cal-m">${month}</span><span class="cal-d">${day}</span></span><span>${label}</span><span class="part-count">${items.length}</span></h2>${cardList(items, venueById, today, "Nothing listed.")}</section>`;
 		})
-		.join("")}</div>`;
+		.join("")}</div>
+${subscribeLinks(f)}`;
 }
 
 /** `upcoming` is the next ~60 days of occurrences for all venues, computed once by the caller. */
@@ -384,5 +387,5 @@ export function mapVenues(data: SiteData, f: Filters): Venue[] {
 
 export const footer = `<footer>
   <p>Recurring nights are hand-curated and change often. Each card shows when it was last checked, so confirm with the venue before you go.</p>
-  <p><a href="${href("/calendar.ics")}">Subscribe to every recurring night</a> · ${esc(SITE.title)}</p>
+  <p><a href="${href("/feeds/all.ics")}" data-webcal>Subscribe to everything in your calendar app</a> · ${esc(SITE.title)}</p>
 </footer>`;

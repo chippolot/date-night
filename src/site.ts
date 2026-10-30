@@ -1,5 +1,6 @@
 import { SITE } from "./config";
 import type { SiteData } from "./lib/data";
+import { feed, feedPath, feedScopes } from "./lib/feeds";
 import { EMPTY_FILTERS } from "./lib/filters";
 import { calendar, eventVevent, nightVevent } from "./lib/ics";
 import { filterBar } from "./pages/components";
@@ -123,6 +124,10 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 			),
 			type: ICS,
 		});
+	}
+
+	for (const scope of feedScopes()) {
+		out.set(feedPath(scope), { body: feed(data, today, scope), type: ICS });
 	}
 
 	out.set("/data.json", { body: JSON.stringify(data), type: JSON_TYPE });

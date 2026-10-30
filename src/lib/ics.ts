@@ -111,6 +111,8 @@ export function nightVevent(
 	venue: Venue | undefined,
 	from: string,
 	now = new Date(),
+	/** YYYY-MM-DD dates to leave out, e.g. when a scraped event replaces the night that day */
+	skip: string[] = [],
 ): string[] {
 	const first = firstOccurrence(night.recurrence, from);
 	const desc = [
@@ -128,6 +130,11 @@ export function nightVevent(
 		`DTSTART;TZID=${TZ}:${local(first, night.start)}`,
 		`DTEND;TZID=${TZ}:${endFor(first, night.start, night.end)}`,
 		rrule(night.recurrence),
+		...(skip.length
+			? [
+					`EXDATE;TZID=${TZ}:${skip.map((d) => local(d, night.start)).join(",")}`,
+				]
+			: []),
 		`SUMMARY:${escapeText(venue ? `${night.title} @ ${venue.name}` : night.title)}`,
 		`DESCRIPTION:${escapeText(desc)}`,
 		`URL:${night.sourceUrl}`,
