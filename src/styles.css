@@ -760,6 +760,20 @@ legend {
 	text-decoration-color: var(--lingon);
 }
 
+.empty-message {
+	margin: 0;
+}
+
+.empty-ideas {
+	margin: 0.75rem 0 0;
+	font-family: var(--sans);
+	font-size: 0.95rem;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	gap: 0.5rem;
+}
+
 .filter-actions {
 	display: flex;
 	gap: 1rem;

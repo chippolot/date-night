@@ -4,11 +4,13 @@ import {
 	applyFilters,
 	type Filters,
 	isOutdoor,
+	MAX_DAYS_AHEAD,
 	matchesCost,
 	matchesDay,
 	matchesText,
 	matchesTime,
 	matchesVenue,
+	toQuery,
 	venueText,
 } from "../lib/filters";
 import {
@@ -74,6 +76,84 @@ const PARTS: {
 	{ id: "late", label: "Late", test: (s) => s >= "21:00" },
 ];
 
+/** One filter to loosen when nothing matches, and how many listings that would bring back. */
+type Relaxation = { label: string; f: Filters; count: number };
+
+/**
+ * When nothing matches: try dropping each active filter on its own, and keep the ones that
+ * bring something back. Hidden kinds aren't offered, since hiding is a remembered preference.
+ */
+function relaxations(
+	list: Occurrence[],
+	venueById: Map<string, Venue>,
+	f: Filters,
+): Relaxation[] {
+	const names = (xs: string[], all: Record<string, string>) =>
+		xs.map((x) => all[x] ?? x).join(", ");
+	const options: [boolean, string, Partial<Filters>][] = [
+		[!!f.q, `Clear the search “${f.q}”`, { q: undefined }],
+		[
+			f.hood.length > 0,
+			`Any neighborhood, not just ${names(f.hood, NEIGHBORHOODS)}`,
+			{ hood: [] },
+		],
+		[
+			f.cat.length > 0,
+			`Anything, not just ${names(f.cat, CATEGORIES)}`,
+			{ cat: [] },
+		],
+		[f.vibe.length > 0, "Any vibe", { vibe: [] }],
+		[f.time.length > 0, "Any time of day", { time: [] }],
+		[f.day.length > 0, "Any day", { day: [] }],
+		[!!f.cost, "Any cost", { cost: undefined }],
+		[!!f.price, "Any food & drink prices", { price: undefined }],
+		[!!f.indoors, "Include outdoor plans", { indoors: undefined }],
+	];
+	return options
+		.filter(([active]) => active)
+		.map(([, label, change]) => {
+			const loosened = { ...f, ...change };
+			return {
+				label,
+				f: loosened,
+				count: applyFilters(list, venueById, loosened).length,
+			};
+		})
+		.filter((r) => r.count > 0)
+		.sort((a, b) => b.count - a.count)
+		.slice(0, 3);
+}
+
+/** The "nothing matches" message: a way forward in time, and filters worth loosening. */
+function emptyState(
+	data: SiteData,
+	f: Filters,
+	{
+		message,
+		list,
+		after,
+	}: { message: string; list: Occurrence[]; after: string },
+): string {
+	const venueById = venueMap(data);
+	const next = applyFilters(
+		occurrences(data, after, MAX_DAYS_AHEAD),
+		venueById,
+		{ ...f, day: [] },
+	).find((o) => matchesDay(weekdayOf(o.date), f));
+	const ideas = [
+		...(next
+			? [
+					`<a href="${esc(toQuery({ ...f, date: next.date }) || "?")}">Next match: ${formatDate(next.date, { weekday: "short", month: "short", day: "numeric" })} →</a>`,
+				]
+			: []),
+		...relaxations(list, venueById, f).map(
+			(r) =>
+				`<a href="${esc(toQuery(r.f) || "?")}">${esc(r.label)}</a> <span class="part-count">${r.count}</span>`,
+		),
+	];
+	return `<div class="empty"><p class="empty-message">${message}</p>${ideas.length ? `<ul class="empty-ideas">${ideas.map((i) => `<li>${i}</li>`).join("")}</ul>` : ""}</div>`;
+}
+
 /** One day's listings: tonight, or `day` when a date is picked. */
 export function tonightView(
 	data: SiteData,
@@ -82,18 +162,23 @@ export function tonightView(
 	today = day,
 ): string {
 	const venueById = venueMap(data);
-	const list = applyFilters(occurrences(data, day, 1), venueById, f);
+	const all = occurrences(data, day, 1);
+	const list = applyFilters(all, venueById, f);
 	const sections = PARTS.map(({ id, label, test }) => {
 		const items = list.filter((o) => test(o.start));
 		if (!items.length) return "";
 		return `<section class="part"><h2 class="part-heading"><span class="part-mark part-${id}" aria-hidden="true"></span>${label} <span class="part-count">${items.length}</span></h2>${cardList(items, venueById, today)}</section>`;
 	}).join("");
-	const empty =
-		day === today
-			? `Nothing on tonight with these filters. <a href="${href("/week/")}">See what's coming up →</a>`
-			: `Nothing on this day with these filters. <a href="${href(`/week/?date=${day}`)}">Check that week →</a>`;
+	const empty = emptyState(data, f, {
+		message:
+			day === today
+				? "Nothing on tonight with these filters."
+				: "Nothing on this day with these filters.",
+		list: all,
+		after: addDays(day, 1),
+	});
 	return `<p class="date-heading"><span class="date-num">${formatDate(day, { day: "2-digit" })}</span><span class="date-words"><span class="date-weekday">${formatDate(day, { weekday: "long" })}</span><span class="date-month">${formatDate(day, { month: "long", year: "numeric" })}</span></span></p>
-${sections || `<p class="empty">${empty}</p>`}`;
+${sections || empty}`;
 }
 
 /** Seven days from `start` (today unless a date is picked). */
@@ -104,7 +189,14 @@ export function weekView(
 	today = start,
 ): string {
 	const venueById = venueMap(data);
-	const list = applyFilters(occurrences(data, start, 7), venueById, f);
+	const all = occurrences(data, start, 7);
+	const list = applyFilters(all, venueById, f);
+	if (!list.length)
+		return emptyState(data, f, {
+			message: "Nothing this week with these filters.",
+			list: all,
+			after: addDays(start, 7),
+		});
 	const days = Array.from({ length: 7 }, (_, i) => addDays(start, i));
 	return `<div class="week">${days
 		.map((date) => {
