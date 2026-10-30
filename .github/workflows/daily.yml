@@ -38,7 +38,7 @@ jobs:
         env:
           SCRAPE_REPORT: ${{ runner.temp }}/scrape-report.md
           EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
-          # Pushes skip sources scraped in the last 20 hours; the daily and manual runs refresh all.
+          # Pushes skip sources scraped in the last 6 hours; the daily and manual runs refresh all.
           SCRAPE_FORCE: ${{ github.event_name != 'push' }}
 
       - name: Report scraper failures

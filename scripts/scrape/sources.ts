@@ -1150,11 +1150,14 @@ export function parseEventbrite(
 function eventbriteSource(opts: {
 	id: string;
 	organizerId: string;
+	/**
+	 * List one of the organizer's Eventbrite venue records instead of all its events (for national
+	 * organizers with thousands of events; the id is `venue_id` on any of its events there)
+	 */
+	eventbriteVenueId?: string;
 	venues: Record<string, string>;
 	category?: Category;
 	mayBeEmpty?: boolean;
-	/** Pages of 50, soonest first; national organizers need more to reach our horizon */
-	maxPages?: number;
 	cleanTitle?: (title: string) => string;
 }): Source {
 	return {
@@ -1165,10 +1168,11 @@ function eventbriteSource(opts: {
 			if (!token) throw new Error("EVENTBRITE_TOKEN is not set");
 			const out: ScrapedEvent[] = [];
 			let continuation: string | undefined;
-			for (let page = 0; page < (opts.maxPages ?? 10); page++) {
-				const url = new URL(
-					`https://www.eventbriteapi.com/v3/organizers/${opts.organizerId}/events/`,
-				);
+			const path = opts.eventbriteVenueId
+				? `venues/${opts.eventbriteVenueId}`
+				: `organizers/${opts.organizerId}`;
+			for (let page = 0; page < 10; page++) {
+				const url = new URL(`https://www.eventbriteapi.com/v3/${path}/events/`);
 				url.searchParams.set("status", "live");
 				url.searchParams.set("order_by", "start_asc");
 				url.searchParams.set("expand", "venue,ticket_availability");
@@ -1226,15 +1230,15 @@ const tangoConnection = eventbriteSource({
 	mayBeEmpty: true,
 });
 
-// Classpop!: a national class marketplace (paint-and-sips, cooking classes) with thousands of events,
-// a few at Channel Marker Cider. Its first 1,000 events reach about two months ahead.
+// Classpop!: a national class marketplace (paint-and-sips, cooking classes) with 5,000+ events, so
+// this lists only its Channel Marker Cider venue record (one request instead of ~80 pages).
 const classpop = eventbriteSource({
 	id: "classpop",
 	organizerId: "25190855215",
+	eventbriteVenueId: "296185731",
 	venues: { "channel marker cider": "channel-marker-cider" },
 	category: "class",
 	mayBeEmpty: true,
-	maxPages: 20,
 	// "Falling Leaves Lane - Paint and Sip in Seattle | Classpop!™" → "Falling Leaves Lane - Paint and Sip"
 	cleanTitle: (t) =>
 		t.replace(/\s*\|\s*Classpop!™?$/i, "").replace(/ in Seattle$/i, ""),

@@ -12,7 +12,7 @@ import { sources } from "./sources";
 const OUT = "data/events.generated.json";
 const HORIZON_DAYS = 90;
 
-const FRESH_HOURS = 20;
+const FRESH_HOURS = 6;
 
 type EventsFile = {
 	generatedAt: string | null;
