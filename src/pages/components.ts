@@ -26,6 +26,24 @@ export function esc(s: string): string {
 		.replace(/'/g, "&#39;");
 }
 
+const icon = (paths: string) =>
+	`<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+
+const SEARCH_ICON = icon(
+	`<circle cx="7" cy="7" r="4.75"/><path d="M10.5 10.5l3.75 3.75"/>`,
+);
+export const CALENDAR_ICON = icon(
+	`<rect x="1.75" y="3" width="12.5" height="11.25" rx="1"/><path d="M1.75 6.5h12.5M5 1.5v3M11 1.5v3"/>`,
+);
+const SLIDERS_ICON = icon(
+	`<path d="M2 4h7M12 4h2M2 12h2M7 12h7"/><circle cx="10.5" cy="4" r="1.5"/><circle cx="5.5" cy="12" r="1.5"/>`,
+);
+
+const EXTERNAL_ICON = icon(
+	`<path d="M9 2.5h4.5V7M13.5 2.5 7 9M11.5 9.5v3.25a.75.75 0 0 1-.75.75h-7.5a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 0 1 .75-.75H6.5"/>`,
+);
+const FLAG_ICON = icon(`<path d="M3 14.5V2M3 2.5h8.5l-1.75 3 1.75 3H3"/>`);
+
 /** "19:00" → "7pm", "19:30" → "7:30pm" */
 export function formatTime(hhmm: string): string {
 	const [h = 0, m = 0] = hhmm.split(":").map(Number);
@@ -87,7 +105,7 @@ export function reportLink(o: Occurrence, venue: Venue | undefined): string {
 		source: o.url,
 	});
 	const url = `https://github.com/${SITE.reportRepo}/issues/new?${params}`;
-	return `<a class="action muted" href="${esc(url)}" rel="noopener" target="_blank">Something changed?</a>`;
+	return `<a class="icon-action" href="${esc(url)}" rel="noopener" target="_blank" title="Something changed? Tell us" aria-label="Report a change">${FLAG_ICON}</a>`;
 }
 
 const DAY_NAMES: Record<Weekday, string> = {
@@ -167,8 +185,8 @@ export function card(
       ${freshnessBadge(o, today)}
     </p>
     <p class="card-actions">
-      <a class="action" href="${icsHref(o)}" download>Add to calendar</a>
-      <a class="action" href="${esc(o.url)}" rel="noopener" target="_blank">Source <span aria-hidden="true">↗</span></a>
+      <a class="icon-action" href="${icsHref(o)}" download title="Add to calendar" aria-label="Add to calendar">${CALENDAR_ICON}</a>
+      <a class="icon-action" href="${esc(o.url)}" rel="noopener" target="_blank" title="Source" aria-label="Source (opens in a new tab)">${EXTERNAL_ICON}</a>
       ${reportLink(o, venue)}
     </p>
   </div>
@@ -206,22 +224,38 @@ export function cardList(
 		.join("\n");
 }
 
-function checkboxGroup(
+/** A labeled row of pills: the label sits in a left column on wide screens, above on narrow ones. */
+function row(legend: string, pills: string, hint = ""): string {
+	return `<fieldset class="filter-row"><legend>${legend}${hint ? `<span class="legend-hint">${hint}</span>` : ""}</legend><div class="pills">${pills}</div></fieldset>`;
+}
+
+function pill(
+	type: "checkbox" | "radio",
 	name: string,
+	value: string,
 	label: string,
+	checked: boolean,
+	attrs = "",
+): string {
+	return `<label class="pill"><input type="${type}" name="${name}" value="${value}"${attrs}${checked ? " checked" : ""}><span>${label}</span></label>`;
+}
+
+function checkboxes(
+	name: string,
 	options: [string, string][],
 	selected: string[],
-	className = "pills",
 ): string {
-	const boxes = options
-		.map(
-			([value, text]) =>
-				`<label class="pill"><input type="checkbox" name="${name}" value="${value}"${
-					selected.includes(value) ? " checked" : ""
-				}><span>${esc(text)}</span></label>`,
+	return options
+		.map(([value, label]) =>
+			pill("checkbox", name, value, label, selected.includes(value)),
 		)
 		.join("");
-	return `<fieldset><legend>${label}</legend><div class="${className}">${boxes}</div></fieldset>`;
+}
+
+function radios(name: string, options: [string, string][], value = ""): string {
+	return options
+		.map(([v, label]) => pill("radio", name, v, esc(label), value === v))
+		.join("");
 }
 
 /**
@@ -229,35 +263,41 @@ function checkboxGroup(
  * (`hide`) → off. Each pill holds both checkboxes, so the URL format and filtering are unchanged;
  * without JS the label toggles only the first one (pick).
  */
-function whatGroup(f: Filters): string {
-	const pills = (Object.entries(CATEGORIES) as [Category, string][])
+function whatPills(f: Filters): string {
+	return (Object.entries(CATEGORIES) as [Category, string][])
 		.map(([value, text]) => {
 			const checked = (on: boolean) => (on ? " checked" : "");
 			return `<label class="pill tri"><input type="checkbox" name="cat" value="${value}"${checked(f.cat.includes(value))}><input type="checkbox" name="hide" value="${value}" tabindex="-1" aria-label="Hide ${esc(text)}"${checked(f.hide.includes(value))}><span><span class="pill-icon" aria-hidden="true">${CATEGORY_ICONS[value]}</span>${esc(text)}</span></label>`;
 		})
 		.join("");
-	return `<fieldset><legend>What <span class="legend-hint">tap to pick, again to hide</span></legend><div class="pills">${pills}</div></fieldset>`;
 }
 
 /** Happy hours and food & drink deals, common enough to get their own on/off switch. */
 export const SPECIALS: Category = "food-drink-special";
 
 /**
- * A shortcut for hiding SPECIALS, shown beside date and time. It submits the same `hide` value as
- * the panel's "What" pill, and the client keeps the two in step.
+ * One-tap switches beside day and time. "No happy hours" submits the same `hide` value as the
+ * panel's "What" pill, and the client keeps the two in step. "Indoors only" is for rainy nights.
  */
-function specialsToggle(f: Filters): string {
-	return `<fieldset><legend>Happy hours &amp; specials</legend><div class="pills"><label class="pill"><input type="checkbox" name="hide" value="${SPECIALS}" data-hide-specials${f.hide.includes(SPECIALS) ? " checked" : ""}><span>Hide</span></label></div></fieldset>`;
+function quickPills(f: Filters): string {
+	return [
+		pill(
+			"checkbox",
+			"indoors",
+			"1",
+			`<span class="pill-icon" aria-hidden="true">☔</span>Indoors only`,
+			!!f.indoors,
+		),
+		pill(
+			"checkbox",
+			"hide",
+			SPECIALS,
+			"No happy hours",
+			f.hide.includes(SPECIALS),
+			" data-hide-specials",
+		),
+	].join("");
 }
-
-/** Rainy night: leave out markets, art walks and anything else held outdoors. */
-function indoorsToggle(f: Filters): string {
-	return `<fieldset><legend>Rainy night?</legend><div class="pills"><label class="pill"><input type="checkbox" name="indoors" value="1"${f.indoors ? " checked" : ""}><span><span class="pill-icon" aria-hidden="true">☔</span>Indoors only</span></label></div></fieldset>`;
-}
-
-const SEARCH_ICON = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="4.75"/><path d="M10.5 10.5l3.75 3.75"/></svg>`;
-
-const CALENDAR_ICON = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.75" y="3" width="12.5" height="11.25" rx="1"/><path d="M1.75 6.5h12.5M5 1.5v3M11 1.5v3"/></svg>`;
 
 const DAY_PILLS: [Weekday, string][] = [
 	["MO", "Mon"],
@@ -269,77 +309,76 @@ const DAY_PILLS: [Weekday, string][] = [
 	["SU", "Sun"],
 ];
 
+/** How many filters are set inside the "More filters" panel, for its badge. */
+export function panelCount(f: Filters): number {
+	return (
+		f.hood.length +
+		f.cat.length +
+		f.hide.filter((c) => c !== SPECIALS).length +
+		f.vibe.length +
+		(f.price ? 1 : 0) +
+		(f.cost ? 1 : 0)
+	);
+}
+
+const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
 /**
  * A plain GET form, so filtering works without JS; the client upgrades it to live updates.
- * Date, day and time sit above the collapsible panel. Pass `days: false` where the page covers a
- * single day, and `date: false` where a starting date doesn't apply (the map).
+ * Search, date, day, time and the quick switches stay in view; where, what, vibe and cost sit in
+ * the collapsible panel. Pass `days: false` where the page covers a single day, and `date: false`
+ * where a starting date doesn't apply (the map).
  */
 export function filterBar(
 	f: Filters,
 	today: string,
 	{ days = true, date = true } = {},
 ): string {
-	const radios = (name: string, options: [string, string][], value = "") =>
-		options
-			.map(
-				([v, text]) =>
-					`<label class="pill"><input type="radio" name="${name}" value="${v}"${
-						value === v ? " checked" : ""
-					}><span>${esc(text)}</span></label>`,
-			)
-			.join("");
-	const costRadios = radios(
-		"cost",
-		[["", "Any"], ...Object.entries(COST_FILTERS)],
-		f.cost,
-	);
-	// Venue price levels are our estimates of what food and drinks cost there.
-	const priceRadios = radios(
-		"price",
-		[
-			["", "Any"],
-			["1", "Budget"],
-			["2", "Mid-range or less"],
-		],
-		f.price ? String(f.price) : "",
-	);
-	const active =
-		f.hood.length +
-		f.cat.length +
-		f.hide.filter((c) => c !== SPECIALS).length +
-		f.vibe.length +
-		(f.price ? 1 : 0) +
-		(f.cost ? 1 : 0);
+	const active = panelCount(f);
+	const times = Object.entries(TIME_SLOTS).map(([k, t]): [string, string] => [
+		k,
+		`${t.label}<span class="pill-hint">${t.hours}</span>`,
+	]);
 	return `<form class="filters" method="get" data-filters>
-  <div class="when">
-    <fieldset class="search-pick"><legend>Search</legend><label class="search-field">${SEARCH_ICON}<input type="search" name="q" value="${esc(f.q ?? "")}" placeholder="jazz, trivia, Substation…" aria-label="Search events and venues" autocomplete="off" enterkeyhint="search"></label></fieldset>
-    ${date ? `<fieldset class="date-pick"><legend>${days ? "Starting" : "Date"}</legend><label class="date-field">${CALENDAR_ICON}<input type="date" name="date" value="${f.date ?? ""}" min="${today}" max="${addDays(today, MAX_DAYS_AHEAD)}" aria-label="${days ? "Show the week starting on" : "Show events on"}"></label></fieldset>` : ""}
-    ${days ? checkboxGroup("day", "Day", DAY_PILLS, f.day) : ""}
-    ${checkboxGroup(
-			"time",
-			"Time",
-			Object.entries(TIME_SLOTS).map(([k, t]) => [k, `${t.label} ${t.hours}`]),
-			f.time,
-		)}
-    ${specialsToggle(f)}
-    ${indoorsToggle(f)}
+  <div class="filter-top">
+    <label class="search-field">${SEARCH_ICON}<input type="search" name="q" value="${esc(f.q ?? "")}" placeholder="Search: jazz, trivia, Substation…" aria-label="Search events and venues" autocomplete="off" enterkeyhint="search"></label>
+    ${date ? `<label class="date-field" title="${days ? "Show the week starting on" : "Show another day"}">${CALENDAR_ICON}<input type="date" name="date" value="${f.date ?? ""}" min="${today}" max="${addDays(today, MAX_DAYS_AHEAD)}" aria-label="${days ? "Show the week starting on" : "Show events on"}"></label>` : ""}
     <button type="submit" class="js-hide">Apply</button>
   </div>
+  ${days ? row("Day", checkboxes("day", DAY_PILLS, f.day)) : ""}
+  ${row("Time", checkboxes("time", times, f.time))}
+  ${row("Quick", quickPills(f))}
   <details${active ? " open" : ""}>
-    <summary><span>Filter by neighborhood, vibe &amp; more</span>${active ? ` <span class="count">${active}</span>` : ""}</summary>
-    ${checkboxGroup("hood", "Neighborhood", Object.entries(NEIGHBORHOODS), f.hood)}
-    ${whatGroup(f)}
-    ${checkboxGroup(
-			"vibe",
-			"Vibe",
-			VIBES.map((v) => [v, v]),
-			f.vibe,
-		)}
-    <fieldset><legend>Cost to get in <span class="legend-hint">"up to $20" includes nights with no cover listed</span></legend><div class="pills">${costRadios}</div></fieldset>
-    <fieldset><legend>Food &amp; drink prices</legend><div class="pills">${priceRadios}</div></fieldset>
-    <div class="filter-actions">
-      <button type="submit" class="js-hide">Apply</button>
-      <a href="?" data-clear>Clear all</a>
+    <summary><span class="summary-icon">${SLIDERS_ICON}</span><span>More filters</span><span class="summary-hint">Neighborhood, what, vibe &amp; cost</span><span class="count" data-panel-count${active ? "" : " hidden"}>${active}</span></summary>
+    <div class="filter-panel">
+      ${row("Where", checkboxes("hood", Object.entries(NEIGHBORHOODS), f.hood))}
+      ${row("What", whatPills(f), "Tap to pick, again to hide")}
+      ${row(
+				"Vibe",
+				checkboxes(
+					"vibe",
+					VIBES.map((v) => [v, capitalize(v)]),
+					f.vibe,
+				),
+			)}
+      ${row("Cost", radios("cost", [["", "Any"], ...Object.entries(COST_FILTERS)], f.cost), "Includes no-cover nights")}
+      ${row(
+				"Food &amp; drink",
+				radios(
+					"price",
+					[
+						["", "Any"],
+						["1", "Budget"],
+						["2", "Mid-range or less"],
+					],
+					f.price ? String(f.price) : "",
+				),
+				"Our estimate",
+			)}
+      <div class="filter-actions">
+        <button type="submit" class="js-hide">Apply</button>
+        <a href="?" data-clear>Clear all</a>
+      </div>
     </div>
   </details>
 </form>`;

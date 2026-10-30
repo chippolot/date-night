@@ -7,7 +7,7 @@ import {
 	toQuery,
 } from "../lib/filters";
 import { addDays, todayInSeattle } from "../lib/recurrence";
-import { SPECIALS } from "../pages/components";
+import { panelCount, SPECIALS } from "../pages/components";
 
 export async function loadSiteData(): Promise<SiteData> {
 	const res = await fetch(href("/data.json"));
@@ -67,15 +67,15 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 				? values.length === 0
 				: values.includes(input.value);
 	}
-	// Day and time sit outside the panel, so only open it for the filters inside.
-	if (
-		initial.hood.length ||
-		initial.cat.length ||
-		initial.hide.some((c) => c !== SPECIALS) ||
-		initial.vibe.length ||
-		initial.price ||
-		initial.cost
-	)
+	// Day, time and the quick switches sit outside the panel, so only open it for the filters inside.
+	const count = form.querySelector<HTMLElement>("[data-panel-count]");
+	const showCount = (f: Filters) => {
+		if (!count) return;
+		count.textContent = String(panelCount(f));
+		count.hidden = !panelCount(f);
+	};
+	showCount(initial);
+	if (panelCount(initial))
 		form.querySelector("details")?.setAttribute("open", "");
 
 	const read = () =>
@@ -118,6 +118,7 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 		}
 		const f = read();
 		storeHide(f.hide);
+		showCount(f);
 		history.replaceState(null, "", `${location.pathname}${toQuery(f)}`);
 		onChange(f);
 	});
