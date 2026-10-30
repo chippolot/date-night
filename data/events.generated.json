@@ -1,7 +1,8 @@
 {
-	"generatedAt": "2026-10-30T03:52:31.984Z",
+	"generatedAt": "2026-10-30T04:12:09.046Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-30T02:14:04.303Z",
+		"artemis-coffee": "2026-10-30T04:12:09.043Z",
 		"aslan-fremont": "2026-10-30T02:14:04.303Z",
 		"brimmer-and-heeltap": "2026-10-30T03:42:39.847Z",
 		"classpop": "2026-10-30T02:14:04.304Z",
@@ -12,14 +13,17 @@
 		"halcyon": "2026-10-30T02:14:04.303Z",
 		"halfseas": "2026-10-30T02:14:04.303Z",
 		"hidden-hall": "2026-10-30T02:14:04.303Z",
+		"kings-hardware": "2026-10-30T04:12:09.043Z",
 		"mato": "2026-10-30T02:47:44.363Z",
 		"mockingbird-comedy": "2026-10-30T02:14:04.304Z",
+		"mr-bs-meadery": "2026-10-30T04:12:09.043Z",
 		"myballard": "2026-10-30T02:14:04.303Z",
 		"nectar": "2026-10-30T02:14:04.304Z",
 		"nordic-museum": "2026-10-30T02:14:04.303Z",
 		"octopus": "2026-10-30T02:14:04.304Z",
 		"pantry": "2026-10-30T02:14:04.304Z",
 		"phinneywood": "2026-10-30T02:14:04.304Z",
+		"pono-ranch": "2026-10-30T04:12:09.043Z",
 		"saltstone": "2026-10-30T02:14:04.304Z",
 		"sea-monster-lounge": "2026-10-30T03:42:39.847Z",
 		"seafolklore": "2026-10-30T02:14:04.304Z",
@@ -117,6 +121,16 @@
 			"price": "Sold out",
 			"category": "comedy",
 			"source": "mockingbird-comedy"
+		},
+		{
+			"id": "kings-hardware-2026-10-30T02:00-trivia",
+			"title": "TRIVIA",
+			"startsAt": "2026-10-29T19:00:00-07:00",
+			"endsAt": "2026-10-29T20:00:00-07:00",
+			"url": "https://www.kingsballard.com/events-1-1-1/trivia",
+			"category": "trivia",
+			"source": "kings-hardware",
+			"venueId": "kings-hardware"
 		},
 		{
 			"id": "spt-2026-10-30T02:30-neel-neha-and-neel",
@@ -452,6 +466,16 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "pono-ranch-2026-10-31T04:00-dilly-disco-groove-plug-alterlatina-present-wicked-wavelengt",
+			"title": "Dilly Disco, Groove Plug & Alterlatina Present: Wicked Wavelengths Halloween Bar Crawl",
+			"startsAt": "2026-10-30T21:00:00-07:00",
+			"endsAt": "2026-10-30T23:59:00-07:00",
+			"url": "https://www.ponoranch.com/live-music/dilly-disco-groove-plug-alterlatina-present-wicked-wavelengths-halloween-bar-crawl",
+			"category": "live-music",
+			"source": "pono-ranch",
+			"venueId": "pono-ranch"
+		},
+		{
 			"id": "sea-monster-lounge-2026-10-30T22:00-funky-2-death",
 			"title": "Funky 2 Death",
 			"startsAt": "2026-10-30T22:00:00-07:00",
@@ -586,6 +610,15 @@
 			"category": "art",
 			"source": "nordic-museum",
 			"venueId": "nordic-museum"
+		},
+		{
+			"id": "artemis-coffee-2026-10-31T23:00-trick-or-treat-in-ballard-halloween-night",
+			"title": "Trick or Treat in Ballard: Halloween Night",
+			"startsAt": "2026-10-31T16:00:00-07:00",
+			"endsAt": "2026-10-31T18:00:00-07:00",
+			"url": "https://www.artemis.cafe/events/trick-or-treat-in-ballard-halloween-night",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
 		},
 		{
 			"id": "conor-byrne-188698",
@@ -724,6 +757,16 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "pono-ranch-2026-11-01T04:00-owltober-halloween-party",
+			"title": "OWLTOBER Halloween Party",
+			"startsAt": "2026-10-31T21:00:00-07:00",
+			"endsAt": "2026-10-31T23:59:00-07:00",
+			"url": "https://www.ponoranch.com/live-music/owltober-halloween-party",
+			"category": "live-music",
+			"source": "pono-ranch",
+			"venueId": "pono-ranch"
 		},
 		{
 			"id": "myballard-360217-2026-10-31",
@@ -1066,6 +1109,16 @@
 			"venueId": "the-pantry"
 		},
 		{
+			"id": "artemis-coffee-2026-11-03T02:00-open-mic-night",
+			"title": "Open Mic Night",
+			"startsAt": "2026-11-02T18:00:00-08:00",
+			"endsAt": "2026-11-02T19:00:00-08:00",
+			"url": "https://www.artemis.cafe/events/november-2026-open-mic-night",
+			"category": "open-mic",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
+		},
+		{
 			"id": "conor-byrne-201011",
 			"title": "Bal-Swing Dance Lessons",
 			"startsAt": "2026-11-02T19:00:00-08:00",
@@ -1187,6 +1240,16 @@
 			"source": "mato"
 		},
 		{
+			"id": "artemis-coffee-2026-11-04T01:00-byoc-bring-your-own-craft",
+			"title": "BYOC: Bring Your Own Craft",
+			"startsAt": "2026-11-03T17:00:00-08:00",
+			"endsAt": "2026-11-03T19:00:00-08:00",
+			"url": "https://www.artemis.cafe/events/byoc-bring-your-own-craft-tuesdays-craft-night-b8wry-4ehx9-h3bzg",
+			"category": "class",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
+		},
+		{
 			"id": "pantry-142013-2026-11-03",
 			"title": "Flavors of the Arabian Gulf",
 			"startsAt": "2026-11-03T18:00:00-08:00",
@@ -1295,6 +1358,25 @@
 			"price": "Free",
 			"category": "trivia",
 			"source": "myballard"
+		},
+		{
+			"id": "artemis-coffee-2026-11-05T01:00-cozy-gaming-nights",
+			"title": "Cozy Gaming Nights",
+			"startsAt": "2026-11-04T17:00:00-08:00",
+			"endsAt": "2026-11-04T19:00:00-08:00",
+			"url": "https://www.artemis.cafe/events/cozy-gaming-night-wednesdays-4peg2-r6453",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
+		},
+		{
+			"id": "mr-bs-meadery-2026-11-05T01:30-happy-hour-for-sad-people",
+			"title": "Happy Hour for Sad People",
+			"startsAt": "2026-11-04T17:30:00-08:00",
+			"endsAt": "2026-11-04T19:30:00-08:00",
+			"url": "https://mrbsmeadery.com/events/happy-hour-for-sad-people-a74yf-d3w3h-k4x9b-9a25w",
+			"category": "food-drink-special",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-04T18:00-deep-listening-steve-reich-drumming",
@@ -1543,6 +1625,26 @@
 			"price": "$7.18",
 			"category": "comedy",
 			"source": "mockingbird-comedy"
+		},
+		{
+			"id": "mr-bs-meadery-2026-11-06T03:00-silent-reading-happy-hour",
+			"title": "Silent Reading Happy Hour",
+			"startsAt": "2026-11-05T19:00:00-08:00",
+			"endsAt": "2026-11-05T21:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/silent-reading-happy-hour-jan-2026-6amce-5zrkm",
+			"category": "comedy",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
+		},
+		{
+			"id": "pono-ranch-2026-11-06T03:00-pono-ranch-presents-denim-genie-llamahuasca-a-long-driveway",
+			"title": "Pono Ranch Presents Denim Genie Llamahuasca A Long Driveway",
+			"startsAt": "2026-11-05T19:00:00-08:00",
+			"endsAt": "2026-11-05T22:00:00-08:00",
+			"url": "https://www.ponoranch.com/live-music/pono-ranch-presents-denim-genie-llamahuasca-a-long-driveway",
+			"category": "live-music",
+			"source": "pono-ranch",
+			"venueId": "pono-ranch"
 		},
 		{
 			"id": "spt-2026-11-06T03:30-neel-neha-and-neel",
@@ -2083,6 +2185,16 @@
 			"category": "live-music"
 		},
 		{
+			"id": "mr-bs-meadery-2026-11-08T04:00-live-music-by-divaria-glide-and-the-slurps",
+			"title": "Live Music by Divaria, Glide, and The Slurps",
+			"startsAt": "2026-11-07T20:00:00-08:00",
+			"endsAt": "2026-11-07T22:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/live-music-by-divaria-glide-and-the-slurps",
+			"category": "live-music",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
+		},
+		{
 			"id": "conor-byrne-179348",
 			"title": "The Sweet Lillies with Serafima & The Shakedowns",
 			"startsAt": "2026-11-07T21:00:00-08:00",
@@ -2176,6 +2288,16 @@
 			"category": "live-music"
 		},
 		{
+			"id": "kings-hardware-2026-11-08T21:00-drag-bingo",
+			"title": "DRAG BINGO",
+			"startsAt": "2026-11-08T13:00:00-08:00",
+			"endsAt": "2026-11-08T14:00:00-08:00",
+			"url": "https://www.kingsballard.com/events-1-1-1/event-one-rg2bh-mx2wm-3ea3j-zexaf-5dzj3",
+			"category": "trivia",
+			"source": "kings-hardware",
+			"venueId": "kings-hardware"
+		},
+		{
 			"id": "spt-2026-11-08T22:00-neel-neha-and-neel",
 			"title": "नेहा & NEEL (Neha and Neel नेहा और नील)",
 			"startsAt": "2026-11-08T14:00:00-08:00",
@@ -2194,6 +2316,15 @@
 			"category": "live-music",
 			"source": "woodland-theater",
 			"venueId": "woodland-theater"
+		},
+		{
+			"id": "mr-bs-meadery-2026-11-09T01:00-musicians-seeking-musicians",
+			"title": "Musicians Seeking Musicians",
+			"startsAt": "2026-11-08T17:00:00-08:00",
+			"endsAt": "2026-11-08T20:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/open-mic-with-mr-b-july26-n5ysn-6crm5-8zf4w-w8fy6",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
 		},
 		{
 			"id": "conor-byrne-201818",
@@ -2380,6 +2511,16 @@
 			"source": "abbey-arts"
 		},
 		{
+			"id": "artemis-coffee-2026-11-11T01:00-byoc-bring-your-own-craft",
+			"title": "BYOC: Bring Your Own Craft",
+			"startsAt": "2026-11-10T17:00:00-08:00",
+			"endsAt": "2026-11-10T19:00:00-08:00",
+			"url": "https://www.artemis.cafe/events/byoc-bring-your-own-craft-tuesdays-craft-night-2026",
+			"category": "class",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
+		},
+		{
 			"id": "pantry-141968-2026-11-10",
 			"title": "Tex-Mex Classics",
 			"startsAt": "2026-11-10T18:00:00-08:00",
@@ -2519,6 +2660,15 @@
 			"category": "class",
 			"source": "nordic-museum",
 			"venueId": "nordic-museum"
+		},
+		{
+			"id": "artemis-coffee-2026-11-12T01:00-cozy-gaming-nights",
+			"title": "Cozy Gaming Nights",
+			"startsAt": "2026-11-11T17:00:00-08:00",
+			"endsAt": "2026-11-11T19:00:00-08:00",
+			"url": "https://www.artemis.cafe/events/cozy-gaming-night-wednesdays-4peg2-r6453-rl7f9-8hkpf-a89xr-z44ca-4cd2f",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-11T18:00-deep-listening-menahan-street-band-illusions",
@@ -2706,6 +2856,16 @@
 			"price": "$7.18",
 			"category": "comedy",
 			"source": "mockingbird-comedy"
+		},
+		{
+			"id": "pono-ranch-2026-11-13T03:00-pono-ranch-presents-ok-tiger-elevator-operator-oly-zahanna-z",
+			"title": "Pono Ranch Presents: OK TIGER ELEVATOR OPERATOR (OLY) ZAHANNA ZKRY",
+			"startsAt": "2026-11-12T19:00:00-08:00",
+			"endsAt": "2026-11-12T22:00:00-08:00",
+			"url": "https://www.ponoranch.com/live-music/pono-ranch-presents-ok-tiger-elevator-operator-oly-zahanna-zkry",
+			"category": "live-music",
+			"source": "pono-ranch",
+			"venueId": "pono-ranch"
 		},
 		{
 			"id": "conor-byrne-193754",
@@ -3026,6 +3186,16 @@
 			"source": "substation"
 		},
 		{
+			"id": "artemis-coffee-2026-11-15T02:00-ballard-artwalk-november-2026",
+			"title": "Ballard ArtWalk - November 2026",
+			"startsAt": "2026-11-14T18:00:00-08:00",
+			"endsAt": "2026-11-14T21:00:00-08:00",
+			"url": "https://www.artemis.cafe/events/ballard-artwalk-november-2026",
+			"category": "art",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
+		},
+		{
 			"id": "visitballard-44642-2026-11-14",
 			"venueId": "swoon-city",
 			"title": "Mending Class: Sashiko Style Visible Mending",
@@ -3160,6 +3330,16 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "artemis-coffee-2026-11-15T23:00-photo-video-film-meetup-ballard-film-club",
+			"title": "Photo, Video & Film meetup: Ballard Film Club",
+			"startsAt": "2026-11-15T15:00:00-08:00",
+			"endsAt": "2026-11-15T18:00:00-08:00",
+			"url": "https://www.artemis.cafe/events/photo-video-film-meetup-ballard-seattle-november-2026",
+			"category": "theater",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
 		},
 		{
 			"id": "conor-byrne-201819",
@@ -3338,6 +3518,16 @@
 			"category": "food-drink-special"
 		},
 		{
+			"id": "artemis-coffee-2026-11-18T01:00-byoc-bring-your-own-craft",
+			"title": "BYOC: Bring Your Own Craft",
+			"startsAt": "2026-11-17T17:00:00-08:00",
+			"endsAt": "2026-11-17T19:00:00-08:00",
+			"url": "https://www.artemis.cafe/events/byoc-bring-your-own-craft-tuesdays-craft-night-b8wry-4ehx9-7sedm-h94ae-xgmkk",
+			"category": "class",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
+		},
+		{
 			"id": "halfseas-2026-11-18T02:00-old-world-comfort-traditional-table-wines-tasting-club-picku",
 			"title": "Old World Comfort: Traditional Table Wines (Tasting + Club Pickup)",
 			"startsAt": "2026-11-17T18:00:00-08:00",
@@ -3461,6 +3651,15 @@
 			"url": "https://sunsethillcommunity.org/event/beginning-foxtrot-class-series/2026-11-17/",
 			"category": "class",
 			"source": "sunset-hill-hall"
+		},
+		{
+			"id": "artemis-coffee-2026-11-19T01:00-cozy-gaming-nights",
+			"title": "Cozy Gaming Nights",
+			"startsAt": "2026-11-18T17:00:00-08:00",
+			"endsAt": "2026-11-18T19:00:00-08:00",
+			"url": "https://www.artemis.cafe/events/cozy-gaming-night-wednesdays-4peg2-r6453-rl7f9-8hkpf-a89xr-z44ca-kea2f",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-18T18:00-deep-listening-the-national-boxer",
@@ -4085,6 +4284,16 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "mr-bs-meadery-2026-11-22T04:00-live-music-by-mute-bard-and-scott-adams",
+			"title": "Live Music by Mute Bard and Scott Adams",
+			"startsAt": "2026-11-21T20:00:00-08:00",
+			"endsAt": "2026-11-21T22:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/live-music-by-mute-bard-and-scott-adams",
+			"category": "live-music",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
+		},
+		{
 			"id": "conor-byrne-184857",
 			"title": "Orchard Ladder (Album Release) + Wiseacre + Bellflower",
 			"startsAt": "2026-11-21T21:00:00-08:00",
@@ -4178,6 +4387,16 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "mr-bs-meadery-2026-11-22T21:00-mr-b-s-mead-making-class",
+			"title": "Mr. B's Mead Making Class",
+			"startsAt": "2026-11-22T13:00:00-08:00",
+			"endsAt": "2026-11-22T16:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/mr-bs-mead-making-class-nov26",
+			"category": "class",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
 		},
 		{
 			"id": "spt-2026-11-22T22:00-the-flight-before-xmas",
@@ -4455,6 +4674,15 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mr-bs-meadery-2026-11-26T02:00-musicians-seeking-musicians",
+			"title": "Musicians Seeking Musicians",
+			"startsAt": "2026-11-25T18:00:00-08:00",
+			"endsAt": "2026-11-25T21:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/open-mic-with-mr-b-july26-n5ysn-6crm5-8zf4w-w8fy6-w3b2n",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-25T19:30-pink-floyd-dark-side-of-the-moon",
@@ -5066,6 +5294,16 @@
 			"source": "sunset-hill-hall"
 		},
 		{
+			"id": "mr-bs-meadery-2026-12-03T01:30-happy-hour-for-sad-people",
+			"title": "Happy Hour for Sad People",
+			"startsAt": "2026-12-02T17:30:00-08:00",
+			"endsAt": "2026-12-02T19:30:00-08:00",
+			"url": "https://mrbsmeadery.com/events/happy-hour-for-sad-people-a74yf-d3w3h-k4x9b-wthpj",
+			"category": "food-drink-special",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
+		},
+		{
 			"id": "pantry-10558-2026-12-02",
 			"title": "Palestinian Holiday Feast",
 			"startsAt": "2026-12-02T18:00:00-08:00",
@@ -5211,6 +5449,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "mr-bs-meadery-2026-12-04T03:00-silent-reading-happy-hour",
+			"title": "Silent Reading Happy Hour",
+			"startsAt": "2026-12-03T19:00:00-08:00",
+			"endsAt": "2026-12-03T21:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/silent-reading-happy-hour-jan-2026-6amce-5zrkm-zfrwm",
+			"category": "comedy",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
+		},
+		{
 			"id": "spt-2026-12-04T03:30-a-very-die-hard-christmas-preview",
 			"title": "A Very Die Hard Christmas(Preview)",
 			"startsAt": "2026-12-03T19:30:00-08:00",
@@ -5291,6 +5539,16 @@
 			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240077486",
 			"category": "comedy",
 			"source": "dinodad-comedy"
+		},
+		{
+			"id": "mr-bs-meadery-2026-12-05T03:00-across-35th-live-music",
+			"title": "Across 35th Live Music",
+			"startsAt": "2026-12-04T19:00:00-08:00",
+			"endsAt": "2026-12-04T22:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/across-35th-live-music",
+			"category": "live-music",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
 		},
 		{
 			"id": "spt-2026-12-05T03:30-a-very-die-hard-christmas",
@@ -5491,6 +5749,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "artemis-coffee-2026-12-06T23:00-photo-video-film-meetup-ballard-film-club",
+			"title": "Photo, Video & Film meetup: Ballard Film Club",
+			"startsAt": "2026-12-06T15:00:00-08:00",
+			"endsAt": "2026-12-06T18:00:00-08:00",
+			"url": "https://www.artemis.cafe/events/photo-video-film-meetup-ballard-seattle-december-2026",
+			"category": "theater",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
+		},
+		{
 			"id": "spt-2026-12-07T01:30-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-06T17:30:00-08:00",
@@ -5603,6 +5871,16 @@
 			"category": "class",
 			"source": "pantry",
 			"venueId": "the-pantry"
+		},
+		{
+			"id": "artemis-coffee-2026-12-08T02:00-open-mic-night",
+			"title": "Open Mic Night",
+			"startsAt": "2026-12-07T18:00:00-08:00",
+			"endsAt": "2026-12-07T19:00:00-08:00",
+			"url": "https://www.artemis.cafe/events/december-2026-open-mic-night-hrcbw",
+			"category": "open-mic",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
 		},
 		{
 			"id": "conor-byrne-201013",
@@ -6052,6 +6330,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "artemis-coffee-2026-12-13T02:00-ballard-artwalk-december",
+			"title": "Ballard ArtWalk - December",
+			"startsAt": "2026-12-12T18:00:00-08:00",
+			"endsAt": "2026-12-12T21:00:00-08:00",
+			"url": "https://www.artemis.cafe/events/ballard-artwalk-december-2026",
+			"category": "art",
+			"source": "artemis-coffee",
+			"venueId": "artemis-coffee"
+		},
+		{
 			"id": "egans-2026-12-12-1900-a-very-whateverly-christmas-with-the-whateverly-brothers-fac",
 			"title": "\"A Very Whateverly Christmas\" with The Whateverly Brothers [ Facebook Page ]",
 			"startsAt": "2026-12-12T19:00:00-08:00",
@@ -6113,6 +6401,15 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "mr-bs-meadery-2026-12-14T01:00-musicians-seeking-musicians",
+			"title": "Musicians Seeking Musicians",
+			"startsAt": "2026-12-13T17:00:00-08:00",
+			"endsAt": "2026-12-13T20:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/open-mic-with-mr-b-july26-n5ysn-6crm5-8zf4w-w8fy6-w3b2n-tx7zj",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
 		},
 		{
 			"id": "spt-2026-12-14T01:30-a-very-die-hard-christmas",
@@ -6721,6 +7018,16 @@
 			"category": "theater"
 		},
 		{
+			"id": "mr-bs-meadery-2026-12-21T00:00-winter-solstice-night-market",
+			"title": "Winter Solstice Night Market",
+			"startsAt": "2026-12-20T16:00:00-08:00",
+			"endsAt": "2026-12-20T20:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/dntuig5xfsou3kthkfw1x888vimtq6",
+			"category": "market",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
+		},
+		{
 			"id": "spt-2026-12-21T01:30-a-very-die-hard-christmas",
 			"title": "A Very Die Hard Christmas",
 			"startsAt": "2026-12-20T17:30:00-08:00",
@@ -6903,6 +7210,15 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "mr-bs-meadery-2026-12-24T02:00-musicians-seeking-musicians",
+			"title": "Musicians Seeking Musicians",
+			"startsAt": "2026-12-23T18:00:00-08:00",
+			"endsAt": "2026-12-23T21:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/open-mic-with-mr-b-july26-n5ysn-6crm5-8zf4w-w8fy6-w3b2n-tx7zj-4remp",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
 		},
 		{
 			"id": "visitballard-10005196-2026-12-24",
@@ -7296,6 +7612,16 @@
 			"price": "$72.81",
 			"category": "class",
 			"source": "classpop"
+		},
+		{
+			"id": "mr-bs-meadery-2027-01-08T03:00-silent-reading-happy-hour",
+			"title": "Silent Reading Happy Hour",
+			"startsAt": "2027-01-07T19:00:00-08:00",
+			"endsAt": "2027-01-07T21:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/silent-reading-happy-hour-jan-2026-6amce-5zrkm-zfrwm-rjwzd",
+			"category": "comedy",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
 		},
 		{
 			"id": "hidden-hall-2027-01-08-azalee-schwartz-with-kingdow-witcher",
@@ -7703,6 +8029,16 @@
 			"source": "hidden-hall",
 			"venueId": "hidden-hall",
 			"category": "live-music"
+		},
+		{
+			"id": "mr-bs-meadery-2027-01-24T21:00-mr-b-s-mead-making-class",
+			"title": "Mr. B's Mead Making Class",
+			"startsAt": "2027-01-24T13:00:00-08:00",
+			"endsAt": "2027-01-24T16:00:00-08:00",
+			"url": "https://mrbsmeadery.com/events/mr-bs-mead-making-class-jan27",
+			"category": "class",
+			"source": "mr-bs-meadery",
+			"venueId": "mr-bs-meadery"
 		},
 		{
 			"id": "visitballard-10008594-2027-01-25",
