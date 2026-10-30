@@ -1310,6 +1310,103 @@ const dinoDad = eventbriteSource({
 });
 
 // ---------------------------------------------------------------------------
+// Woodland Theater (608 NW 65th): its site is a React app that reads shows from a Google Sheet
+// published as CSV. The sheet also lists the collective's past shows at other venues (The
+// Josephine, 608 Club, ...), so only rows at Woodland Theater, or with no venue, are kept.
+
+const WOODLAND_SHEET =
+	"https://docs.google.com/spreadsheets/d/e/2PACX-1vSWQbKtIQjWKpMQKaIJh1iFxtNuXJJ1hMMipRHPL2PEcIxx4DUbU5eBDRycy-4Cl02jvkt-djVI-K2X/pub?output=csv";
+
+const WOODLAND_CATEGORIES: Record<string, Category> = {
+	music: "live-music",
+	comedy: "comedy",
+	improv: "comedy",
+	"musical improv": "comedy",
+	market: "market",
+	workshop: "class",
+	"dance night": "dance",
+};
+
+/** RFC 4180 CSV: quoted fields may hold commas, newlines and doubled quotes. */
+export function parseCsv(text: string): string[][] {
+	const rows: string[][] = [];
+	let row: string[] = [];
+	let field = "";
+	let quoted = false;
+	for (let i = 0; i < text.length; i++) {
+		const ch = text[i];
+		if (quoted) {
+			if (ch === '"' && text[i + 1] === '"') {
+				field += '"';
+				i++;
+			} else if (ch === '"') quoted = false;
+			else field += ch;
+		} else if (ch === '"') quoted = true;
+		else if (ch === ",") {
+			row.push(field);
+			field = "";
+		} else if (ch === "\n" || ch === "\r") {
+			if (ch === "\r" && text[i + 1] === "\n") i++;
+			row.push(field);
+			rows.push(row);
+			row = [];
+			field = "";
+		} else field += ch;
+	}
+	if (field || row.length) rows.push([...row, field]);
+	return rows;
+}
+
+export function parseWoodland(csv: string, today: string): ScrapedEvent[] {
+	const [header = [], ...rows] = parseCsv(csv);
+	const col = (name: string) => header.indexOf(name);
+	const [date, time, title, price, category, venue, link] = [
+		"Show Date",
+		"Time",
+		"Show Title / Lineup",
+		"Sugg. $",
+		"Category",
+		"Venue Name",
+		"Event Link",
+	].map(col);
+	const out: ScrapedEvent[] = [];
+	for (const r of rows) {
+		const at = (i = -1) => (r[i] ?? "").trim();
+		const day = at(date);
+		const name = at(title);
+		if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || day < today || !name) continue;
+		if (at(venue) && !/^Woodland Theater$/i.test(at(venue))) continue;
+		// "7:00 PM" or "5:00 PM - 9:00 PM"; rows without a clock time are skipped.
+		const [startText = "", endText] = at(time).split(/\s*[-–]\s*/);
+		const start = /\d:\d\d/.test(startText) ? to24h(startText) : undefined;
+		const startsAt = start && localIso(day, start);
+		if (!startsAt) continue;
+		const end = endText && /\d:\d\d/.test(endText) ? to24h(endText) : undefined;
+		const cost = at(price);
+		out.push({
+			id: `woodland-theater-${day}-${slug(name)}`,
+			title: name,
+			startsAt,
+			endsAt: end ? localIso(day, end) : undefined,
+			url: at(link) || "https://www.woodlandtheater.org/events",
+			price: /^\d+$/.test(cost) ? `$${cost}` : cost || undefined,
+			category:
+				WOODLAND_CATEGORIES[at(category).toLowerCase()] ??
+				guessCategory(name, "live-music"),
+		});
+	}
+	return out;
+}
+
+const woodlandTheater: Source = {
+	id: "woodland-theater",
+	venueId: "woodland-theater",
+	async fetchEvents() {
+		return parseWoodland(await get(WOODLAND_SHEET), horizon().from);
+	},
+};
+
+// ---------------------------------------------------------------------------
 // Mato (ma.to), a listings site with a page per venue, for venues we can't read directly: Tractor
 // (ModSecurity) and the Sunset (DICE), plus a few bars with no calendar of their own. robots.txt
 // allows crawlers (content signal search=yes) and the terms don't restrict it. Its listings look
@@ -1480,6 +1577,7 @@ export const sources: Source[] = [
 	tangoConnection,
 	classpop,
 	dinoDad,
+	woodlandTheater,
 	// Last: least reliable, so every other source wins a shared venue and start time.
 	mato,
 ];

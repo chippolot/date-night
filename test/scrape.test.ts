@@ -18,6 +18,7 @@ import {
 	parseTaprootShow,
 	parseWayward,
 	parseWestOfLenin,
+	parseWoodland,
 	parseYuTang,
 	shibuyaEventUrls,
 	shibuyaToFetch,
@@ -787,5 +788,48 @@ describe("mato", () => {
 				/^Tractor Tavern$/,
 			),
 		).toEqual([]);
+	});
+});
+
+describe("woodland theater", () => {
+	test("keeps upcoming shows at Woodland with a clock time, mapping categories and prices", () => {
+		const csv = [
+			"Host,Show Date,Time,Show Title / Lineup,Show Title,Sugg. $,Poster?,Category,Venue Name,Source,Event Link",
+			"A,2026-11-14,7:00 PM,Not Clickbait Improv,,$10,FALSE,improv,Woodland Theater,,,",
+			'B,2026-11-15,7:00 PM,"Small Sanctuary, Tamarack",,15,FALSE,,,,https://x.test/e',
+			"C,2026-11-07,5:00 PM - 9:00 PM,Woodlandstock,,Free,FALSE,music,,,",
+			"D,2026-11-20,7–9pm,No clock time,,,FALSE,music,,,",
+			"E,2026-11-21,7:00 PM,Elsewhere,,,FALSE,music,The Josephine,,",
+			"F,2026-10-01,7:00 PM,Already happened,,,FALSE,music,,,",
+		].join("\r\n");
+		expect(parseWoodland(csv, "2026-10-29")).toEqual([
+			{
+				id: "woodland-theater-2026-11-14-not-clickbait-improv",
+				title: "Not Clickbait Improv",
+				startsAt: "2026-11-14T19:00:00-08:00",
+				endsAt: undefined,
+				url: "https://www.woodlandtheater.org/events",
+				price: "$10",
+				category: "comedy",
+			},
+			{
+				id: "woodland-theater-2026-11-15-small-sanctuary-tamarack",
+				title: "Small Sanctuary, Tamarack",
+				startsAt: "2026-11-15T19:00:00-08:00",
+				endsAt: undefined,
+				url: "https://x.test/e",
+				price: "$15",
+				category: "live-music",
+			},
+			{
+				id: "woodland-theater-2026-11-07-woodlandstock",
+				title: "Woodlandstock",
+				startsAt: "2026-11-07T17:00:00-08:00",
+				endsAt: "2026-11-07T21:00:00-08:00",
+				url: "https://www.woodlandtheater.org/events",
+				price: "Free",
+				category: "live-music",
+			},
+		]);
 	});
 });

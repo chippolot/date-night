@@ -12,6 +12,8 @@ import type { Night } from "../src/lib/types";
 //   Wet Clay Cafe: Friday and Saturday "social club" wheel nights, $125 (times load client-side only)
 //   Dreamland: Sunday drag shows "multiple times a month" (dates only on Resy)
 //   The Rebel (309 NE 45th): Monday trivia, Wednesday karaoke (Wallyhood, Feb 2026; no times, no venue site)
+//   Molly Maguire's (610 NW 65th): Sunday afternoon Irish session, 1–3pm only in old forum posts; no venue site
+//   The Tin Hat (512 NW 65th): listed as "live entertainment", but no schedule anywhere; no venue site
 //   Taproot Theatre: full show runs (Wed–Sat 7:30pm per past seasons) need the days confirmed in OvationTix;
 //     add them with recurrence `from`/`until` once confirmed. Named performances are scraped.
 // Left out as unverifiable: Hound's Tooth pinball/trivia (site last updated 2024, no working https),
@@ -499,6 +501,35 @@ export const nights: Night[] = [
 		confidence: "confirmed",
 	},
 	// Phinney Ridge / Greenwood
+	{
+		id: "the-dray-trivia",
+		venueId: "the-dray",
+		title: "Trivia Tuesdays",
+		category: "trivia",
+		recurrence: { kind: "weekly", days: ["TU"] },
+		start: "19:30",
+		description:
+			"Pub trivia hosted by Head in the Clouds at a small craft beer bar with 12 rotating taps.",
+		vibe: ["lively", "low-key"],
+		sourceUrl: "https://thedray.com/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "the-blue-glass-happy-hour",
+		venueId: "the-blue-glass",
+		title: "Happy hour",
+		category: "food-drink-special",
+		recurrence: { kind: "weekly", days: ["TU", "WE", "TH", "FR", "SA"] },
+		start: "16:00",
+		end: "18:00",
+		description:
+			"Neighborhood bistro with globally inspired comfort food and cocktails. Dinner runs to 9pm after happy hour.",
+		vibe: ["romantic", "low-key"],
+		sourceUrl: "https://www.theblueglass.org/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
 	{
 		id: "halfseas-cavi-hour",
 		venueId: "halfseas",
