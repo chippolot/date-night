@@ -8,6 +8,10 @@ export type IcsEvent = {
 	end?: string;
 	url?: string;
 	location?: string;
+	/** DTSTART is a date with no time */
+	allDay?: boolean;
+	/** STATUS:CANCELLED */
+	cancelled?: boolean;
 };
 
 function unfold(text: string): string[] {
@@ -61,6 +65,8 @@ export function parseIcs(text: string): IcsEvent[] {
 					end: cur.DTEND ? toIso(cur.DTEND.value, cur.DTEND.tzid) : undefined,
 					url: cur.URL?.value,
 					location: cur.LOCATION && unescapeText(cur.LOCATION.value),
+					allDay: /^\d{8}$/.test(cur.DTSTART?.value ?? "") || undefined,
+					cancelled: cur.STATUS?.value === "CANCELLED" || undefined,
 				});
 			}
 			cur = null;

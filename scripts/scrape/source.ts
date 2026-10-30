@@ -140,18 +140,36 @@ export function jsonldSource(
 
 /** Source backed by an iCalendar feed. */
 export function icsSource(
-	opts: Omit<Source, "fetchEvents"> & { url: string; link?: string },
+	opts: Omit<Source, "fetchEvents"> & {
+		url: string;
+		link?: string;
+		/** Keep only events whose LOCATION matches (for calendars shared with sister venues) */
+		location?: RegExp;
+		cleanTitle?: (title: string) => string;
+	},
 ): Source {
 	return {
 		...opts,
 		async fetchEvents() {
-			return parseIcs(await get(opts.url)).map((e) => ({
-				id: `${opts.id}-${e.start.slice(0, 10)}-${slug(e.summary)}`,
-				title: e.summary,
-				startsAt: e.start,
-				endsAt: e.end,
-				url: e.url ?? opts.link ?? opts.url,
-			}));
+			return parseIcs(await get(opts.url))
+				.filter(
+					(e) =>
+						// All-day entries have no start time to show.
+						!e.allDay &&
+						!e.cancelled &&
+						(!opts.location || opts.location.test(e.location ?? "")),
+				)
+				.map((e) => {
+					const title = opts.cleanTitle?.(e.summary) ?? e.summary;
+					return {
+						id: `${opts.id}-${e.start.slice(0, 10)}-${slug(title)}`,
+						title,
+						startsAt: e.start,
+						endsAt: e.end,
+						url: e.url ?? opts.link ?? opts.url,
+						category: guessCategory(title, opts.category),
+					};
+				});
 		},
 	};
 }

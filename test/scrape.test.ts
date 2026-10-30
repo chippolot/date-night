@@ -20,6 +20,7 @@ import {
 	parseWestOfLenin,
 	parseWoodland,
 	parseYuTang,
+	seaMonsterEventUrls,
 	shibuyaEventUrls,
 	shibuyaToFetch,
 	withYear,
@@ -59,6 +60,24 @@ describe("ical", () => {
 			"2026-07-15T19:00:00-07:00",
 		);
 		expect(toIso("20261215T190000")).toBe("2026-12-15T19:00:00-08:00");
+	});
+
+	test("flags all-day and cancelled events", () => {
+		const ics = [
+			"BEGIN:VEVENT",
+			"DTSTART;VALUE=DATE:20261128",
+			"SUMMARY:Makers Market",
+			"END:VEVENT",
+			"BEGIN:VEVENT",
+			"DTSTART:20261103T030000Z",
+			"STATUS:CANCELLED",
+			"SUMMARY:Show & Tell",
+			"END:VEVENT",
+		].join("\r\n");
+		expect(parseIcs(ics).map((e) => [e.allDay, e.cancelled])).toEqual([
+			[true, undefined],
+			[undefined, true],
+		]);
 	});
 
 	test("parses folded VEVENTs", () => {
@@ -830,6 +849,19 @@ describe("woodland theater", () => {
 				price: "Free",
 				category: "live-music",
 			},
+		]);
+	});
+});
+
+describe("sea monster lounge", () => {
+	test("collects unique event-info links", () => {
+		const html = `<a href="https://www.seamonsterlounge.com/event-info/funky-2-death-2026-10-30-22-00">RSVP</a>
+<a href="https://www.seamonsterlounge.com/event-info/funky-2-death-2026-10-30-22-00">Share</a>
+<a href="https://www.seamonsterlounge.com/event-info/extra-thick-6">RSVP</a>
+<a href="https://www.seamonsterlounge.com/buy-tickets-in-advance">Tickets</a>`;
+		expect(seaMonsterEventUrls(html)).toEqual([
+			"https://www.seamonsterlounge.com/event-info/funky-2-death-2026-10-30-22-00",
+			"https://www.seamonsterlounge.com/event-info/extra-thick-6",
 		]);
 	});
 });

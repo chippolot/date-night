@@ -13,6 +13,7 @@ import type { Night } from "../src/lib/types";
 //   Dreamland: Sunday drag shows "multiple times a month" (dates only on Resy)
 //   The Rebel (309 NE 45th): Monday trivia, Wednesday karaoke (Wallyhood, Feb 2026; no times, no venue site)
 //   Molly Maguire's (610 NW 65th): Sunday afternoon Irish session, 1–3pm only in old forum posts; no venue site
+//   Russells: "Mezcal Monday" and "Pie & Whiskey Wednesday" (no times; folded into the happy hour description)
 //   The Tin Hat (512 NW 65th): listed as "live entertainment", but no schedule anywhere; no venue site
 //   Taproot Theatre: full show runs (Wed–Sat 7:30pm per past seasons) need the days confirmed in OvationTix;
 //     add them with recurrence `from`/`until` once confirmed. Named performances are scraped.
@@ -969,6 +970,152 @@ export const nights: Night[] = [
 	},
 
 	// Wallingford
+	{
+		id: "balandra-happy-hour",
+		venueId: "balandra",
+		title: "Happy hour",
+		category: "food-drink-special",
+		recurrence: {
+			kind: "weekly",
+			days: ["MO", "TU", "WE", "TH", "FR", "SA"],
+		},
+		start: "16:00",
+		end: "17:00",
+		description:
+			"Intimate tapas and wine bar on Stone Way: $9 wine, $10 house cocktail, $3 oysters and a $17 cheese board. On Sundays happy hour runs all night.",
+		vibe: ["romantic", "low-key"],
+		sourceUrl: "https://www.balandratapas.com/happy-hour",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "balandra-sunday-happy-hour",
+		venueId: "balandra",
+		title: "All-night Sunday happy hour",
+		category: "food-drink-special",
+		recurrence: { kind: "weekly", days: ["SU"] },
+		start: "16:00",
+		end: "21:00",
+		description:
+			"Happy hour prices from open to close: $9 wine, $10 house cocktail, $3 oysters and a $17 cheese board.",
+		vibe: ["romantic", "low-key"],
+		sourceUrl: "https://www.balandratapas.com/happy-hour",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "figurehead-trivia",
+		venueId: "figurehead-stone-way",
+		title: "Head in the Clouds Trivia",
+		category: "trivia",
+		recurrence: { kind: "weekly", days: ["TU"] },
+		start: "19:00",
+		end: "20:30",
+		description: "Weekly pub trivia at Figurehead's Stone Way taproom.",
+		vibe: ["lively"],
+		sourceUrl:
+			"https://calendar.google.com/calendar/embed?src=75656364e64f50121223c0a4752349e5de2b0cd64159267415934530264e9936%40group.calendar.google.com",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "figurehead-takoyaki-wednesday",
+		venueId: "figurehead-stone-way",
+		title: "Free Beer & Takoyaki Wednesday",
+		category: "food-drink-special",
+		recurrence: { kind: "weekly", days: ["WE"], from: "2026-10-28" },
+		start: "15:00",
+		end: "22:00",
+		description:
+			"A free 5oz beer with any pint, and free takoyaki with ramen from Midnite Ramen next door.",
+		vibe: ["low-key"],
+		sourceUrl:
+			"https://calendar.google.com/calendar/embed?src=75656364e64f50121223c0a4752349e5de2b0cd64159267415934530264e9936%40group.calendar.google.com",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "figurehead-book-club",
+		venueId: "figurehead-stone-way",
+		title: "Seattle Book Club",
+		category: "comedy",
+		recurrence: { kind: "monthly-nth", nth: [3], day: "WE" },
+		start: "19:30",
+		end: "21:00",
+		description:
+			"Monthly book club at the Stone Way taproom. It sometimes moves (October 2026's was on the 14th), so check the calendar.",
+		vibe: ["low-key"],
+		sourceUrl:
+			"https://calendar.google.com/calendar/embed?src=75656364e64f50121223c0a4752349e5de2b0cd64159267415934530264e9936%40group.calendar.google.com",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "figurehead-junk-journal-jam",
+		venueId: "figurehead-stone-way",
+		title: "Junk Journal Jam",
+		category: "class",
+		recurrence: { kind: "monthly-nth", nth: [-1], day: "MO" },
+		start: "19:00",
+		end: "21:00",
+		description:
+			"Supplies are provided to collage your own junk journal over a beer.",
+		vibe: ["low-key", "romantic"],
+		sourceUrl:
+			"https://calendar.google.com/calendar/embed?src=75656364e64f50121223c0a4752349e5de2b0cd64159267415934530264e9936%40group.calendar.google.com",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "figurehead-bob-ross",
+		venueId: "figurehead-stone-way",
+		title: "Bob Ross Challenge",
+		category: "class",
+		recurrence: { kind: "monthly-nth", nth: [3], day: "MO" },
+		start: "19:00",
+		end: "20:00",
+		description:
+			"Paint along with a Bob Ross episode. The series is still on Figurehead's calendar but hasn't been updated since 2025.",
+		vibe: ["lively", "low-key"],
+		sourceUrl:
+			"https://calendar.google.com/calendar/embed?src=75656364e64f50121223c0a4752349e5de2b0cd64159267415934530264e9936%40group.calendar.google.com",
+		lastVerified: "2026-10-29",
+		confidence: "likely",
+	},
+	{
+		id: "russells-happy-hour",
+		venueId: "russells",
+		title: "Happy hour",
+		category: "food-drink-special",
+		recurrence: {
+			kind: "weekly",
+			days: ["SU", "MO", "TU", "WE", "TH", "FR", "SA"],
+		},
+		start: "16:00",
+		end: "18:00",
+		description:
+			"Stone Way bar, 21+. Mondays add mezcal deals and street tacos; Wednesdays add whiskey and house-made pies.",
+		vibe: ["lively", "low-key"],
+		sourceUrl: "https://www.russellsseattle.com/",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "city-cellars-friday-tasting",
+		venueId: "city-cellars",
+		title: "Friday evening wine tasting",
+		category: "food-drink-special",
+		recurrence: { kind: "weekly", days: ["FR"] },
+		start: "17:00",
+		end: "19:00",
+		cost: "$3–$5",
+		description:
+			"Informal tasting of up to three wines at a neighborhood wine shop. The fee comes back with a wine purchase.",
+		vibe: ["low-key", "romantic"],
+		sourceUrl: "https://www.citycellar.com/wine_tastings",
+		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
 	{
 		id: "murphys-trivia",
 		venueId: "murphys-pub",

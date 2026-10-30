@@ -5,6 +5,7 @@ import { decodeEntities, extractLdEvents } from "./jsonld";
 import {
 	get,
 	guessCategory,
+	icsSource,
 	jsonldSource,
 	readCache,
 	type ScrapedEvent,
@@ -409,6 +410,20 @@ async function squarespaceEvents(
 ): Promise<ScrapedEvent[]> {
 	return parseSquarespaceEvents(await get(`${base}${path}`), base, idPrefix);
 }
+
+// Brimmer & Heeltap (Ballard): occasional ticketed workshops on its Squarespace events page.
+const brimmerAndHeeltap: Source = {
+	id: "brimmer-and-heeltap",
+	venueId: "brimmer-and-heeltap",
+	category: "class",
+	mayBeEmpty: true,
+	fetchEvents: () =>
+		squarespaceEvents(
+			"https://www.brimmerandheeltap.com",
+			"/events",
+			"brimmer-and-heeltap",
+		),
+};
 
 // Seattle Public Theater (Green Lake Bathhouse).
 const seattlePublicTheater: Source = {
@@ -958,6 +973,54 @@ const shibuyaHifi: Source = {
 };
 
 // ---------------------------------------------------------------------------
+// Sea Monster Lounge (Wallingford): Wix Events. There's no event sitemap, but the homepage and the
+// tickets page list the next ~10 days of shows with links to /event-info/ pages carrying JSON-LD.
+// (Its Boom calendar widget loads through Boom's API, so it isn't used.)
+
+const SEA_MONSTER = "https://www.seamonsterlounge.com";
+
+/** Event page URLs linked from a Sea Monster page. */
+export function seaMonsterEventUrls(html: string): string[] {
+	return [
+		...new Set(
+			[
+				...html.matchAll(/seamonsterlounge\.com\/event-info\/([a-z0-9-]+)/g),
+			].map(([, s]) => `${SEA_MONSTER}/event-info/${s}`),
+		),
+	];
+}
+
+const seaMonster: Source = {
+	id: "sea-monster-lounge",
+	venueId: "sea-monster-lounge",
+	async fetchEvents() {
+		const today = horizon().from;
+		const urls = new Set<string>();
+		for (const path of ["/", "/buy-tickets-in-advance"]) {
+			for (const u of seaMonsterEventUrls(await get(`${SEA_MONSTER}${path}`)))
+				urls.add(u);
+		}
+		const out: ScrapedEvent[] = [];
+		for (const url of urls) {
+			await pause(1);
+			for (const e of extractLdEvents(await get(url))) {
+				if (e.cancelled || e.startDate.slice(0, 10) < today) continue;
+				out.push({
+					id: `sea-monster-lounge-${e.startDate.slice(0, 16)}-${slug(e.name)}`,
+					title: e.name,
+					startsAt: e.startDate,
+					endsAt: e.endDate,
+					url,
+					price: e.price,
+					category: guessCategory(e.name, "live-music"),
+				});
+			}
+		}
+		return out;
+	},
+};
+
+// ---------------------------------------------------------------------------
 // Pottery studios selling one-night wheel classes as store products, one product or option per date.
 
 /** "6pm" or "6:30 pm" → "18:00", with the meridiem taken from `fallback` when missing ("6:30-8:30pm") */
@@ -1407,6 +1470,21 @@ const woodlandTheater: Source = {
 };
 
 // ---------------------------------------------------------------------------
+// Figurehead Brewing's public Google Calendar, shared by its Stone Way and Magnolia taprooms; only
+// Stone Way is in the area. parseIcs doesn't expand RRULEs, so the weekly and monthly series (trivia,
+// book club, ...) are curated nights instead; one-offs and moved instances come through here.
+
+const figurehead = icsSource({
+	id: "figurehead-stone-way",
+	venueId: "figurehead-stone-way",
+	url: "https://calendar.google.com/calendar/ical/75656364e64f50121223c0a4752349e5de2b0cd64159267415934530264e9936%40group.calendar.google.com/public/basic.ics",
+	link: "https://www.figureheadbrewingcompany.com/events",
+	location: /stone ?way/i,
+	cleanTitle: (t) => t.replace(/\s*-\s*Stone ?Way$/i, ""),
+	mayBeEmpty: true,
+});
+
+// ---------------------------------------------------------------------------
 // Mato (ma.to), a listings site with a page per venue, for venues we can't read directly: Tractor
 // (ModSecurity) and the Sunset (DICE), plus a few bars with no calendar of their own. robots.txt
 // allows crawlers (content signal search=yes) and the terms don't restrict it. Its listings look
@@ -1569,6 +1647,7 @@ export const sources: Source[] = [
 	sunsetHill,
 	pantry,
 	shibuyaHifi,
+	seaMonster,
 	saltstone,
 	yuTang,
 	seaFolklore,
@@ -1578,6 +1657,8 @@ export const sources: Source[] = [
 	classpop,
 	dinoDad,
 	woodlandTheater,
+	figurehead,
+	brimmerAndHeeltap,
 	// Last: least reliable, so every other source wins a shared venue and start time.
 	mato,
 ];
