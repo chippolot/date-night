@@ -146,16 +146,7 @@
 	"https://www.shibuyahifi.com/event-details/charles-mingus-mingus": {
 		"lastmod": "2026-09-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-29T17:00-charles-mingus-mingus",
-				"title": "Charles Mingus - Mingus",
-				"startsAt": "2026-10-29T17:00:00-07:00",
-				"endsAt": "2026-10-29T19:00:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/charles-mingus-mingus",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/childish-gambino-awaken-my-love-3": {
 		"lastmod": "2026-10-21",
@@ -889,16 +880,7 @@
 	"https://www.shibuyahifi.com/event-details/lana-del-rey-ultraviolence-3": {
 		"lastmod": "2026-09-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-29T21:00-lana-del-rey-ultraviolence",
-				"title": "Lana Del Rey - Ultraviolence",
-				"startsAt": "2026-10-29T21:00:00-07:00",
-				"endsAt": "2026-10-29T22:30:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/lana-del-rey-ultraviolence-3",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/lana-del-rey-ultraviolence-4": {
 		"lastmod": "2026-10-21",
@@ -1380,16 +1362,7 @@
 	"https://www.shibuyahifi.com/event-details/rufus-du-sol-bloom-8": {
 		"lastmod": "2026-10-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-29T18:00-rufus-du-sol-bloom",
-				"title": "Rufus du Sol - Bloom",
-				"startsAt": "2026-10-29T18:00:00-07:00",
-				"endsAt": "2026-10-29T19:30:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/rufus-du-sol-bloom-8",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/rush-moving-pictures-2": {
 		"lastmod": "2026-09-13",
