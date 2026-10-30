@@ -46,7 +46,8 @@ export const EMPTY_FILTERS: Filters = {
 };
 
 function pick<T extends string>(values: string[], allowed: readonly T[]): T[] {
-	return values.filter((v): v is T =>
+	// Deduped: the specials switch and its "What" pill can both send hide=food-drink-special.
+	return [...new Set(values)].filter((v): v is T =>
 		(allowed as readonly string[]).includes(v),
 	);
 }

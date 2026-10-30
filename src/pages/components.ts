@@ -202,6 +202,17 @@ function whatGroup(f: Filters): string {
 	return `<fieldset><legend>What <span class="legend-hint">tap to pick, again to hide</span></legend><div class="pills">${pills}</div></fieldset>`;
 }
 
+/** Happy hours and food & drink deals, common enough to get their own on/off switch. */
+export const SPECIALS: Category = "food-drink-special";
+
+/**
+ * A shortcut for hiding SPECIALS, shown beside date and time. It submits the same `hide` value as
+ * the panel's "What" pill, and the client keeps the two in step.
+ */
+function specialsToggle(f: Filters): string {
+	return `<fieldset><legend>Happy hours &amp; specials</legend><div class="pills"><label class="pill"><input type="checkbox" name="hide" value="${SPECIALS}" data-hide-specials${f.hide.includes(SPECIALS) ? " checked" : ""}><span>Hide</span></label></div></fieldset>`;
+}
+
 const SEARCH_ICON = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="4.75"/><path d="M10.5 10.5l3.75 3.75"/></svg>`;
 
 const CALENDAR_ICON = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.75" y="3" width="12.5" height="11.25" rx="1"/><path d="M1.75 6.5h12.5M5 1.5v3M11 1.5v3"/></svg>`;
@@ -242,7 +253,7 @@ export function filterBar(
 	const active =
 		f.hood.length +
 		f.cat.length +
-		f.hide.length +
+		f.hide.filter((c) => c !== SPECIALS).length +
 		f.vibe.length +
 		(f.price ? 1 : 0);
 	return `<form class="filters" method="get" data-filters>
@@ -256,6 +267,7 @@ export function filterBar(
 			Object.entries(TIME_SLOTS).map(([k, t]) => [k, `${t.label} ${t.hours}`]),
 			f.time,
 		)}
+    ${specialsToggle(f)}
     <button type="submit" class="js-hide">Apply</button>
   </div>
   <details${active ? " open" : ""}>

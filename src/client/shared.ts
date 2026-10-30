@@ -7,6 +7,7 @@ import {
 	toQuery,
 } from "../lib/filters";
 import { addDays, todayInSeattle } from "../lib/recurrence";
+import { SPECIALS } from "../pages/components";
 
 export async function loadSiteData(): Promise<SiteData> {
 	const res = await fetch(href("/data.json"));
@@ -70,7 +71,7 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 	if (
 		initial.hood.length ||
 		initial.cat.length ||
-		initial.hide.length ||
+		initial.hide.some((c) => c !== SPECIALS) ||
 		initial.vibe.length ||
 		initial.price
 	)
@@ -100,7 +101,20 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 		if (direct) setTimeout(cycle);
 		else cycle();
 	});
-	form.addEventListener("change", () => {
+	// The specials switch and the specials "What" pill set the same filter; keep them in step.
+	const toggle = form.querySelector<HTMLInputElement>("[data-hide-specials]");
+	const [specialsPick, specialsHide] =
+		form
+			.querySelector(`.tri input[value="${SPECIALS}"]`)
+			?.closest(".tri")
+			?.querySelectorAll("input") ?? [];
+	form.addEventListener("change", (e) => {
+		if (toggle && specialsHide) {
+			if (e.target === toggle) {
+				specialsHide.checked = toggle.checked;
+				if (toggle.checked && specialsPick) specialsPick.checked = false;
+			} else toggle.checked = specialsHide.checked;
+		}
 		const f = read();
 		storeHide(f.hide);
 		history.replaceState(null, "", `${location.pathname}${toQuery(f)}`);
