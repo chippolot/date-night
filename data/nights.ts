@@ -2,9 +2,10 @@ import type { Night } from "../src/lib/types";
 
 // Last verified 2026-10-29 against venue sites and 2026 listings.
 // Known but left out until a start time is confirmed:
-//   Fremont Abbey: Argentine tango 1st & 3rd Mondays; Open Arts Mic 1st & 3rd Tuesdays
+//   Fremont Abbey: Argentine tango 1st & 3rd Mondays and improv 3rd Tuesdays (no times on its site)
 //     (neither is on Abbey Arts' Humanitix page)
-//   Aslan Brewing (Fremont): jazz 4th Tuesdays 7–9pm, from KNKX only; not on Aslan's own VenuePilot calendar
+//   Aslan Brewing (Fremont): jazz 4th Tuesdays 7–9pm, from KNKX only; Aslan's VenuePilot calendar has one jazz jam (Oct 27, 9pm).
+//     Its Sunday all-day happy hour isn't a night of its own (no hours)
 //   Aslan Tangletown: "Girl Dinner" Mondays, fries, caesar and two cocktails for $40 (no start time stated)
 //     (Aslan's Instagram weekly-deals post is for its Bellingham brewpub, not the Seattle taprooms)
 //   Add-a-Ball: "Live shows every Friday and Saturday night" (no start time stated)
@@ -20,13 +21,12 @@ import type { Night } from "../src/lib/types";
 //     the happy hour description)
 //   Baker's (Sunset Hill): Tuesday all-day happy hour and Sunday supper (open days conflict between its site and posts)
 //   The Whit's End (Phinney): karaoke and open mic nights (no days or times on its site)
-//   Fremont Dock: Thursday and Friday karaoke (no times; only Saturday karaoke has a time, 8pm)
 //   The Fremont Social: Wednesday bingo at 6pm most weeks, but not every week and the host changes
 //   LZ's Tavern (Fremont): Karaoke Wednesdays 8:30pm from a May 2026 flyer, not posted since; a listing says Wednesday trivia
 //   Murphy's Pub: live music Friday nights (Instagram reel, Jul 2026; no start time)
 //   Changes (Wallingford): noon–7pm happy hour on its Tuesday and Friday flyers, not stated as daily
 //   Latona Pub: all-day Sunday happy hour "during football season" (from Sep 13; no end date)
-//   The Octopus Bar: daily 4–6pm happy hour (Instagram bio only)
+//   The Octopus Bar: Super Smash Bros. Tuesdays 6:30pm (The Octagon) — a lead, not yet added
 //   Little Red Hen: site fails TLS and is behind ModSecurity. Still open: the eviction case was dismissed (news, Sep 27 2026)
 //   Lockspot Cafe (Ballard Locks): Monday trivia (The Infatuation; no time, nothing on its Instagram)
 //   Fish Ladder Lounge (Ballard): Thursday trivia (Intentionalist; no time, site down)
@@ -50,7 +50,8 @@ import type { Night } from "../src/lib/types";
 // Left out as unverifiable: Hound's Tooth pinball/trivia (site last updated 2024, no working https),
 //   ComedySportz (show calendar is a Crowdwork embed behind Cloudflare; FAQ gives times but not days).
 // Removed as closed or discontinued: Bastille, Ballard Annex, Pike Taproom Ballard, Babalu, Norm's,
-//   High Dive karaoke, Ballard Pizza Company Thursday trivia (its source post no longer mentions it), Egan's Wednesday showcase, Abbey "Open Space", and "Green Lake Concerts in the Park"
+//   High Dive karaoke, Ballard Pizza Company Thursday trivia (its source post no longer mentions it), Egan's Wednesday showcase, Abbey "Open Space", Murphy's comedy (ended 2018), George & Dragon's quiz (the pub's license lapsed in May 2026;
+//   private parties only), the Fremont First Friday art walk (no source since 2021, its site is parked), and "Green Lake Concerts in the Park"
 //   (that listing was Green Lake, Wisconsin), and the monthly Art Up PhinneyWood walk (now one weekend each August).
 export const nights: Night[] = [
 	// Ballard
@@ -1205,6 +1206,21 @@ export const nights: Night[] = [
 		confidence: "confirmed",
 	},
 	{
+		id: "fremont-dock-weeknight-karaoke",
+		venueId: "fremont-dock",
+		title: "Karaoke Thursdays & Fridays",
+		category: "karaoke",
+		recurrence: { kind: "weekly", days: ["TH", "FR"] },
+		start: "20:00",
+		description:
+			"Karaoke at a Fremont sports bar near the canal. The bar says the start time can vary, and its event listings show 8:30pm Thursdays and 9pm Fridays.",
+		vibe: ["lively"],
+		sourceUrl:
+			"https://fremontdock.com/seattle-fremont-the-dock-sport-bar-and-grill-events",
+		lastVerified: "2026-10-30",
+		confidence: "likely",
+	},
+	{
 		id: "fremont-dock-happy-hour-wed",
 		venueId: "fremont-dock",
 		title: "Happy hour",
@@ -1217,7 +1233,7 @@ export const nights: Night[] = [
 		vibe: ["low-key"],
 		sourceUrl: "https://fremontdock.com/",
 		lastVerified: "2026-10-30",
-		confidence: "likely",
+		confidence: "confirmed",
 	},
 	{
 		id: "fremont-dock-happy-hour",
@@ -1232,7 +1248,7 @@ export const nights: Night[] = [
 		vibe: ["low-key"],
 		sourceUrl: "https://fremontdock.com/",
 		lastVerified: "2026-10-30",
-		confidence: "likely",
+		confidence: "confirmed",
 	},
 	{
 		id: "shawn-odonnells-irish-music",
@@ -1288,6 +1304,36 @@ export const nights: Night[] = [
 		confidence: "confirmed",
 	},
 	{
+		id: "fremont-abbey-open-arts-mic",
+		venueId: "fremont-abbey",
+		title: "Open Arts Mic",
+		category: "open-mic",
+		recurrence: { kind: "monthly-nth", nth: [1, 3], day: "TU" },
+		start: "20:00",
+		cost: "Free",
+		description:
+			"Unplugged, all-ages open mic for music, poetry, dance and more in the Abbey Great Hall. Sign-ups at 7:30pm.",
+		vibe: ["low-key", "romantic"],
+		sourceUrl: "https://www.fremontabbey.org/openartsmic/",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
+	{
+		id: "aslan-fremont-happy-hour",
+		venueId: "aslan-fremont",
+		title: "Happy hour",
+		category: "food-drink-special",
+		recurrence: { kind: "weekly", days: ["TU", "WE", "TH", "FR", "SA"] },
+		start: "16:00",
+		end: "18:00",
+		description:
+			"Happy hour at Aslan's Fremont taproom; all day on Sundays (closed Mondays).",
+		vibe: ["low-key"],
+		sourceUrl: "https://www.aslanbrewing.com/seattle-fremont",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
+	},
+	{
 		id: "hidden-hall-western-wednesdays",
 		venueId: "hidden-hall",
 		title: "Western Wednesdays country dance",
@@ -1300,30 +1346,11 @@ export const nights: Night[] = [
 		start: "19:00",
 		cost: "Ticketed",
 		description:
-			"21+ country dance night with HOOT&HOLLER. The 1st/3rd Wednesday pattern is inferred from listed dates (Nov 4, Dec 2, Dec 16).",
+			"21+ country dance night with HOOT&HOLLER on most 1st and 3rd Wednesdays (listed Nov 4, Dec 2, Dec 16; Nov 18 is skipped), so check the calendar.",
 		vibe: ["lively", "active"],
 		sourceUrl: "https://hiddenhall.com/calendar",
-		lastVerified: "2026-10-29",
+		lastVerified: "2026-10-30",
 		confidence: "likely",
-	},
-	{
-		id: "george-and-dragon-quiz",
-		venueId: "george-and-dragon",
-		title: "Pub quiz",
-		category: "trivia",
-		recurrence: {
-			kind: "weekly",
-			days: ["TU"],
-		},
-		start: "20:00",
-		cost: "$2 buy-in (2019)",
-		description:
-			"English pub quiz. The new owners announced Thursday trivia in 2021, so the day is uncertain.",
-		vibe: ["lively"],
-		sourceUrl:
-			"https://fremocentrist.com/grand-reopening-of-the-george-dragon-pub-on-march-27th/",
-		lastVerified: "2026-10-29",
-		confidence: "stale",
 	},
 	{
 		id: "moth-storyslam",
@@ -1346,26 +1373,6 @@ export const nights: Night[] = [
 		confidence: "confirmed",
 	},
 	{
-		id: "fremont-first-friday",
-		venueId: "fremont-first-friday",
-		title: "First Friday art walk",
-		category: "art",
-		recurrence: {
-			kind: "monthly-nth",
-			nth: [1],
-			day: "FR",
-		},
-		start: "18:00",
-		end: "21:00",
-		cost: "Free",
-		description:
-			"Storefronts show local art, often with the artists there. The newest dated source is from Dec 2021.",
-		vibe: ["low-key", "romantic"],
-		sourceUrl: "https://www.seattle.gov/arts/experience/art-walks",
-		lastVerified: "2026-10-29",
-		confidence: "stale",
-	},
-	{
 		id: "ltd-bingo",
 		venueId: "ltd-bar-and-grill",
 		title: "Wednesday bingo",
@@ -1378,8 +1385,8 @@ export const nights: Night[] = [
 		description: "Bingo, with half-off wings and 20% off whiskey all day.",
 		vibe: ["lively"],
 		sourceUrl: "https://www.ltdbarandgrill.com/",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "ltd-karaoke",
@@ -1394,8 +1401,8 @@ export const nights: Night[] = [
 		description: "Karaoke hosted by Olus.",
 		vibe: ["lively"],
 		sourceUrl: "https://www.ltdbarandgrill.com/",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "ltd-dj",
@@ -1409,7 +1416,7 @@ export const nights: Night[] = [
 		vibe: ["lively"],
 		sourceUrl: "https://www.ltdbarandgrill.com/",
 		lastVerified: "2026-10-30",
-		confidence: "likely",
+		confidence: "confirmed",
 	},
 	{
 		id: "ltd-happy-hour",
@@ -1424,7 +1431,7 @@ export const nights: Night[] = [
 		vibe: ["low-key"],
 		sourceUrl: "https://www.ltdbarandgrill.com/",
 		lastVerified: "2026-10-30",
-		confidence: "likely",
+		confidence: "confirmed",
 	},
 	{
 		id: "add-a-ball-tournament",
@@ -1439,8 +1446,8 @@ export const nights: Night[] = [
 		description: "Weekly tournament at a 21+ pinball bar.",
 		vibe: ["lively", "active"],
 		sourceUrl: "https://add-a-ball.com/",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "add-a-ball-women-lgbtq-tournament",
@@ -1456,8 +1463,8 @@ export const nights: Night[] = [
 		description: "First-Thursday tournament at a 21+ pinball bar.",
 		vibe: ["lively", "active"],
 		sourceUrl: "https://add-a-ball.com/",
-		lastVerified: "2026-10-29",
-		confidence: "likely",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "dreamland-drag-brunch",
@@ -1761,22 +1768,6 @@ export const nights: Night[] = [
 		confidence: "likely",
 	},
 	{
-		id: "murphys-comedy",
-		venueId: "murphys-pub",
-		title: "Sunday comedy night",
-		category: "comedy",
-		recurrence: {
-			kind: "weekly",
-			days: ["SU"],
-		},
-		start: "20:00",
-		description: "Stand-up open mic. Only 2011 sources were found.",
-		vibe: ["lively"],
-		sourceUrl: "https://wallyhood.org/2011/07/open-mic-comedy-murphys",
-		lastVerified: "2026-10-29",
-		confidence: "stale",
-	},
-	{
 		id: "sea-monster-funky-2-death",
 		venueId: "sea-monster-lounge",
 		title: "Funky 2 Death",
@@ -1863,10 +1854,27 @@ export const nights: Night[] = [
 		description:
 			"Early set from a live Cuban/salsa band. The venue doesn't confirm it's weekly.",
 		vibe: ["lively", "active", "romantic"],
-		sourceUrl:
-			"https://www.salsavida.com/de/event/washington/seattle/live-salsa-music-at-sea-monster-lounge/",
-		lastVerified: "2026-10-29",
+		sourceUrl: "https://www.seamonsterlounge.com",
+		lastVerified: "2026-10-30",
 		confidence: "likely",
+	},
+	{
+		id: "octopus-happy-hour",
+		venueId: "octopus-bar",
+		title: "Happy hour",
+		category: "food-drink-special",
+		recurrence: {
+			kind: "weekly",
+			days: ["SU", "MO", "TU", "WE", "TH", "FR", "SA"],
+		},
+		start: "16:00",
+		end: "18:00",
+		cost: "$6 pints · $20 pitchers",
+		description: "Daily happy hour in Wallingford.",
+		vibe: ["low-key"],
+		sourceUrl: "https://theoctopusbar.com/menus/drinks",
+		lastVerified: "2026-10-30",
+		confidence: "confirmed",
 	},
 	{
 		id: "octopus-trivia",
