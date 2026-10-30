@@ -196,7 +196,7 @@ function whatGroup(f: Filters): string {
 	const pills = (Object.entries(CATEGORIES) as [Category, string][])
 		.map(([value, text]) => {
 			const checked = (on: boolean) => (on ? " checked" : "");
-			return `<label class="pill tri"><input type="checkbox" name="cat" value="${value}"${checked(f.cat.includes(value))}><input type="checkbox" name="hide" value="${value}" tabindex="-1" aria-label="Hide ${esc(text)}"${checked(f.hide.includes(value))}><span>${CATEGORY_ICONS[value]} ${esc(text)}</span></label>`;
+			return `<label class="pill tri"><input type="checkbox" name="cat" value="${value}"${checked(f.cat.includes(value))}><input type="checkbox" name="hide" value="${value}" tabindex="-1" aria-label="Hide ${esc(text)}"${checked(f.hide.includes(value))}><span><span class="pill-icon" aria-hidden="true">${CATEGORY_ICONS[value]}</span>${esc(text)}</span></label>`;
 		})
 		.join("");
 	return `<fieldset><legend>What <span class="legend-hint">tap to pick, again to hide</span></legend><div class="pills">${pills}</div></fieldset>`;

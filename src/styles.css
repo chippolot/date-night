@@ -694,7 +694,7 @@ legend {
 	pointer-events: none;
 }
 
-.pill span {
+.pill > span {
 	display: inline-block;
 	padding: 0.4rem 0.6rem;
 	border: 1.5px solid var(--border);
@@ -708,8 +708,13 @@ legend {
 		color 0.15s;
 }
 
+/* Inline, not inline-block, so a hidden pill's line-through still runs under the emoji. */
+.pill-icon {
+	margin-inline-end: 0.4em;
+}
+
 @media (hover: hover) {
-	.pill span:hover {
+	.pill > span:hover {
 		border-color: var(--text);
 	}
 }
@@ -734,18 +739,18 @@ legend {
 }
 
 /* "What" tri-state pills: picked fills like any pill; hidden is struck through in lingon. */
-.tri:has(input:focus-visible) span {
+.tri:has(input:focus-visible) > span {
 	outline: 2px solid var(--lingon);
 	outline-offset: 2px;
 }
 
-.tri:has(input[name="cat"]:checked) span {
+.tri:has(input[name="cat"]:checked) > span {
 	background: var(--fjord);
 	border-color: var(--fjord);
 	color: var(--paper);
 }
 
-.tri:has(input[name="hide"]:checked) span {
+.tri:has(input[name="hide"]:checked) > span {
 	/* The base `.pill input:checked + span` fill would otherwise apply: the hide box sits last. */
 	background: transparent;
 	border-color: var(--lingon);
@@ -1336,7 +1341,7 @@ legend {
 	.venue-list {
 		columns: 2;
 	}
-	.pill span {
+	.pill > span {
 		padding-inline: 0.8rem;
 		font-size: 0.9rem;
 	}
