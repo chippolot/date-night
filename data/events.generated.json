@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-31T03:34:00.818Z",
+	"generatedAt": "2026-10-31T04:44:47.378Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-31T03:34:00.814Z",
 		"artemis-coffee": "2026-10-31T03:34:00.814Z",
@@ -90,16 +90,6 @@
 			"venueId": "trailbend-taproom",
 			"category": "food-drink-special",
 			"source": "mato"
-		},
-		{
-			"id": "woodland-park-zoo-10002218-2026-10-30",
-			"venueId": "woodland-park-zoo",
-			"title": "Animal Ofrenda",
-			"startsAt": "2026-10-30T16:30:00Z",
-			"endsAt": "2026-10-30T23:00:00Z",
-			"url": "https://zoo.org/event/animal-ofrenda/2026-10-30/",
-			"category": "art",
-			"source": "woodland-park-zoo"
 		},
 		{
 			"id": "shibuya-hifi-2026-10-30T17:00-dave-brubeck-quartet-time-out",
