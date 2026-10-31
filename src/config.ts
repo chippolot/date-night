@@ -23,9 +23,9 @@ export const SITE = {
 	 * verification, never written into nights.ts automatically. An empty url hides the links.
 	 */
 	missingForm: {
-		url: "",
-		venue: "",
-		when: "",
+		url: "https://docs.google.com/forms/d/e/1FAIpQLSdMoqoY8vDnQZr3U2TnVSM4sJ-MNij4JwC7eDOC75vlqijw1A/viewform",
+		venue: "entry.1354463914",
+		when: "entry.550920479",
 	},
 	/** Nights verified longer ago than this get a "may be outdated" badge. */
 	freshDays: 90,
