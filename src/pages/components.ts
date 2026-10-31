@@ -391,7 +391,7 @@ export function filterBar(
   <div class="filter-top">
     <label class="search-field">${SEARCH_ICON}<input type="search" name="q" value="${esc(f.q ?? "")}" placeholder="Search: jazz, trivia, Substation…" aria-label="Search events and venues" autocomplete="off" enterkeyhint="search"></label>
     ${date ? `<label class="date-field" title="${days ? "Show the week starting on" : "Show another day"}">${CALENDAR_ICON}<input type="date" name="date" value="${f.date ?? ""}" min="${today}" max="${addDays(today, MAX_DAYS_AHEAD)}" aria-label="${days ? "Show the week starting on" : "Show events on"}"></label>` : ""}
-    <button type="submit" class="js-hide">Apply</button>
+    <noscript><button type="submit">Apply</button></noscript>
   </div>
   ${days ? row("Day", checkboxes("day", DAY_PILLS, f.day)) : ""}
   ${row("Time", checkboxes("time", times, f.time))}
@@ -424,7 +424,7 @@ export function filterBar(
 				"Our estimate",
 			)}
       <div class="filter-actions">
-        <button type="submit" class="js-hide">Apply</button>
+        <noscript><button type="submit">Apply</button></noscript>
         <a href="?" data-clear>Clear all</a>
       </div>
     </div>

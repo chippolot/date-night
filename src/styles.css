@@ -561,6 +561,12 @@ button:active {
 	flex: 1 1 12rem;
 }
 
+/* Keeps its width beside the search box; min-width: 0 lets it shrink instead of overflowing. */
+.date-field {
+	flex: 0 1 11rem;
+	min-width: 0;
+}
+
 .search-field svg,
 .date-field svg {
 	position: absolute;
@@ -584,9 +590,18 @@ button:active {
 	font-size: 0.9rem;
 }
 
+/* iOS Safari sizes a native date input by its own rules, ignoring width and pushing it past the
+   screen edge; dropping the native appearance makes it follow the box like the search field. */
 .date-field input {
-	min-width: 9.75rem;
+	display: block;
+	min-width: 0;
+	-webkit-appearance: none;
+	appearance: none;
 	color-scheme: light dark;
+}
+
+.date-field input::-webkit-date-and-time-value {
+	text-align: left;
 }
 
 /* Chrome's own picker icon: invisible but covering the field, so a click anywhere opens the calendar. */
@@ -879,10 +894,6 @@ legend {
 	.filter-actions {
 		padding-left: 0;
 	}
-}
-
-.filters.js .js-hide {
-	display: none;
 }
 
 /* ---------- Section headings ---------- */
