@@ -1,63 +1,63 @@
 {
-	"generatedAt": "2026-10-31T03:29:11.557Z",
+	"generatedAt": "2026-10-31T03:34:00.818Z",
 	"scrapedAt": {
-		"abbey-arts": "2026-10-31T02:32:01.601Z",
-		"artemis-coffee": "2026-10-31T02:32:01.601Z",
-		"aslan-fremont": "2026-10-31T02:32:01.600Z",
-		"book-larder": "2026-10-31T03:24:17.679Z",
-		"brimmer-and-heeltap": "2026-10-31T02:32:01.601Z",
-		"classpop": "2026-10-31T02:32:01.601Z",
-		"conor-byrne": "2026-10-31T02:32:01.600Z",
-		"delille-en-ville": "2026-10-30T23:01:23.731Z",
-		"dinodad-comedy": "2026-10-31T02:32:01.601Z",
-		"egans": "2026-10-31T02:32:01.601Z",
-		"eight-bells-winery": "2026-10-30T23:04:17.829Z",
-		"figurehead-stone-way": "2026-10-31T02:32:01.601Z",
-		"flying-bike": "2026-10-30T23:04:17.325Z",
-		"greenstage": "2026-10-30T21:40:42.123Z",
-		"halcyon": "2026-10-31T02:32:01.601Z",
-		"halfseas": "2026-10-31T02:32:01.601Z",
-		"hidden-hall": "2026-10-31T02:32:01.601Z",
-		"instagram": "2026-10-31T03:23:48.154Z",
-		"jet-city-improv": "2026-10-30T22:00:23.451Z",
-		"jolly-roger": "2026-10-30T23:04:17.469Z",
-		"kings-hardware": "2026-10-31T02:32:01.601Z",
-		"lake-city-contra": "2026-10-30T21:38:00.510Z",
-		"lovestruck": "2026-10-30T21:37:38.986Z",
-		"lucky-envelope": "2026-10-30T23:01:22.867Z",
-		"magnuson-park-gallery": "2026-10-30T21:40:45.854Z",
-		"mato": "2026-10-30T23:17:27.278Z",
-		"meany-center": "2026-10-30T21:39:40.251Z",
-		"mockingbird-comedy": "2026-10-30T21:40:56.904Z",
-		"mr-bs-meadery": "2026-10-31T02:32:01.601Z",
-		"myballard": "2026-10-31T02:32:01.600Z",
-		"nectar": "2026-10-31T02:32:01.601Z",
-		"nordic-museum": "2026-10-31T02:32:01.600Z",
-		"octopus": "2026-10-31T02:32:01.601Z",
-		"pantry": "2026-10-31T02:32:01.601Z",
-		"phinneywood": "2026-10-31T02:32:01.601Z",
-		"pono-ranch": "2026-10-31T02:32:01.601Z",
+		"abbey-arts": "2026-10-31T03:34:00.814Z",
+		"artemis-coffee": "2026-10-31T03:34:00.814Z",
+		"aslan-fremont": "2026-10-31T03:34:00.814Z",
+		"book-larder": "2026-10-31T03:34:00.814Z",
+		"brimmer-and-heeltap": "2026-10-31T03:34:00.814Z",
+		"classpop": "2026-10-31T03:34:00.814Z",
+		"conor-byrne": "2026-10-31T03:34:00.814Z",
+		"delille-en-ville": "2026-10-31T03:34:00.814Z",
+		"dinodad-comedy": "2026-10-31T03:34:00.814Z",
+		"egans": "2026-10-31T03:34:00.814Z",
+		"eight-bells-winery": "2026-10-31T03:34:00.814Z",
+		"figurehead-stone-way": "2026-10-31T03:34:00.814Z",
+		"flying-bike": "2026-10-31T03:34:00.814Z",
+		"greenstage": "2026-10-31T03:34:00.814Z",
+		"halcyon": "2026-10-31T03:34:00.814Z",
+		"halfseas": "2026-10-31T03:34:00.814Z",
+		"hidden-hall": "2026-10-31T03:34:00.814Z",
+		"instagram": "2026-10-31T03:34:00.814Z",
+		"jet-city-improv": "2026-10-31T03:34:00.814Z",
+		"jolly-roger": "2026-10-31T03:34:00.814Z",
+		"kings-hardware": "2026-10-31T03:34:00.814Z",
+		"lake-city-contra": "2026-10-31T03:34:00.814Z",
+		"lovestruck": "2026-10-31T03:34:00.814Z",
+		"lucky-envelope": "2026-10-31T03:34:00.814Z",
+		"magnuson-park-gallery": "2026-10-31T03:34:00.814Z",
+		"mato": "2026-10-31T03:34:00.814Z",
+		"meany-center": "2026-10-31T03:34:00.814Z",
+		"mockingbird-comedy": "2026-10-31T03:34:00.814Z",
+		"mr-bs-meadery": "2026-10-31T03:34:00.814Z",
+		"myballard": "2026-10-31T03:34:00.814Z",
+		"nectar": "2026-10-31T03:34:00.814Z",
+		"nordic-museum": "2026-10-31T03:34:00.814Z",
+		"octopus": "2026-10-31T03:34:00.814Z",
+		"pantry": "2026-10-31T03:34:00.814Z",
+		"phinneywood": "2026-10-31T03:34:00.814Z",
+		"pono-ranch": "2026-10-31T03:34:00.814Z",
 		"posh": "2026-10-31T03:23:29.497Z",
-		"salmon-bay-eagles": "2026-10-31T03:24:17.679Z",
-		"saltstone": "2026-10-31T02:32:01.601Z",
-		"sea-monster-lounge": "2026-10-31T02:32:01.601Z",
-		"seafolklore": "2026-10-31T02:32:01.601Z",
-		"seattle-public-theater": "2026-10-31T02:32:01.601Z",
-		"shibuya-hifi": "2026-10-31T02:32:01.601Z",
-		"substation": "2026-10-31T02:32:01.601Z",
-		"sunset-hill-hall": "2026-10-31T02:32:01.601Z",
-		"tango-connection": "2026-10-31T02:32:01.601Z",
-		"taproot": "2026-10-31T02:32:01.601Z",
-		"uw-botanic-gardens": "2026-10-30T21:48:37.245Z",
-		"uw-campus": "2026-10-30T21:39:20.086Z",
-		"visitballard": "2026-10-31T02:32:01.600Z",
-		"watershed-pub": "2026-10-30T21:38:00.231Z",
-		"wayward": "2026-10-31T02:32:01.601Z",
-		"west-of-lenin": "2026-10-31T02:32:01.601Z",
-		"woodland-park-zoo": "2026-10-31T03:24:17.679Z",
-		"woodland-theater": "2026-10-31T02:32:01.601Z",
-		"yonder-cider": "2026-10-30T23:01:22.520Z",
-		"yu-tang": "2026-10-31T02:32:01.601Z"
+		"salmon-bay-eagles": "2026-10-31T03:34:00.814Z",
+		"saltstone": "2026-10-31T03:34:00.814Z",
+		"sea-monster-lounge": "2026-10-31T03:34:00.814Z",
+		"seafolklore": "2026-10-31T03:34:00.814Z",
+		"seattle-public-theater": "2026-10-31T03:34:00.814Z",
+		"shibuya-hifi": "2026-10-31T03:34:00.814Z",
+		"substation": "2026-10-31T03:34:00.814Z",
+		"sunset-hill-hall": "2026-10-31T03:34:00.814Z",
+		"tango-connection": "2026-10-31T03:34:00.814Z",
+		"taproot": "2026-10-31T03:34:00.814Z",
+		"uw-botanic-gardens": "2026-10-31T03:34:00.814Z",
+		"uw-campus": "2026-10-31T03:34:00.814Z",
+		"visitballard": "2026-10-31T03:34:00.814Z",
+		"watershed-pub": "2026-10-31T03:34:00.814Z",
+		"wayward": "2026-10-31T03:34:00.814Z",
+		"west-of-lenin": "2026-10-31T03:34:00.814Z",
+		"woodland-park-zoo": "2026-10-31T03:34:00.814Z",
+		"woodland-theater": "2026-10-31T03:34:00.814Z",
+		"yonder-cider": "2026-10-31T03:34:00.814Z",
+		"yu-tang": "2026-10-31T03:34:00.814Z"
 	},
 	"events": [
 		{
@@ -191,15 +191,6 @@
 			"source": "instagram"
 		},
 		{
-			"id": "jolly-roger-2026-10-30-new-release-tank-ride-imperial-stout",
-			"title": "New Release / Tank Ride Imperial Stout",
-			"startsAt": "2026-10-30T19:00:00.000Z",
-			"url": "https://rooftopbrew.co/jollyroger/events",
-			"category": "food-drink-special",
-			"source": "jolly-roger",
-			"venueId": "jolly-roger-taproom"
-		},
-		{
 			"id": "spt-2026-10-31T02:30-neel-neha-and-neel",
 			"title": "नेहा & NEEL (Neha and Neel नेहा और नील)",
 			"startsAt": "2026-10-30T19:30:00-07:00",
@@ -227,16 +218,6 @@
 			"source": "west-of-lenin",
 			"venueId": "west-of-lenin",
 			"category": "theater"
-		},
-		{
-			"id": "uw-2026-10-30T19:30-uw-symphony-with-pala-garcia-violin",
-			"venueId": "meany-hall",
-			"title": "UW Symphony with Pala Garcia, violin",
-			"startsAt": "2026-10-30T19:30:00-07:00",
-			"endsAt": "2026-10-30T19:30:00-07:00",
-			"url": "https://music.washington.edu/events/2026-10-30/uw-symphony-pala-garcia",
-			"category": "live-music",
-			"source": "uw-campus"
 		},
 		{
 			"id": "shibuya-hifi-2026-10-30T19:30-frank-ocean-channel-orange",
@@ -1289,6 +1270,16 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
+			"id": "sea-monster-lounge-2026-11-02T19:00-foleada",
+			"title": "Foleada",
+			"startsAt": "2026-11-02T19:00:00-08:00",
+			"endsAt": "2026-11-02T21:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/foleada-2026-11-02-19-00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "flying-bike-2026-11-02-geeks-who-drink",
 			"title": "Geeks Who Drink",
 			"startsAt": "2026-11-02T19:00:00-08:00",
@@ -1618,6 +1609,15 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "watershed-2026-11-04-speed-dating-by-pre-dating",
+			"title": "Speed Dating by Pre-Dating",
+			"startsAt": "2026-11-04T18:30:00-08:00",
+			"url": "https://watershedpub.com/events",
+			"category": "food-drink-special",
+			"source": "watershed-pub",
+			"venueId": "watershed-pub"
 		},
 		{
 			"id": "mockingbird-comedy-1998044201994",
@@ -3075,6 +3075,16 @@
 			"venueId": "artemis-coffee"
 		},
 		{
+			"id": "watershed-2026-11-10-happy-hour-for-sad-people-support-group",
+			"title": "\"Happy Hour For Sad People\" Support Group",
+			"startsAt": "2026-11-10T17:30:00-08:00",
+			"endsAt": "2026-11-10T18:30:00-08:00",
+			"url": "https://watershedpub.com/events",
+			"category": "food-drink-special",
+			"source": "watershed-pub",
+			"venueId": "watershed-pub"
+		},
+		{
 			"id": "pantry-141968-2026-11-10",
 			"title": "Tex-Mex Classics",
 			"startsAt": "2026-11-10T18:00:00-08:00",
@@ -3365,16 +3375,6 @@
 			"source": "woodland-park-zoo"
 		},
 		{
-			"id": "sea-monster-lounge-2026-11-11T22:00-hurricane-dreamz",
-			"title": "Hurricane Dreamz",
-			"startsAt": "2026-11-11T22:00:00-08:00",
-			"endsAt": "2026-11-12T01:00:00-08:00",
-			"url": "https://www.seamonsterlounge.com/event-info/hurricane-dreamz-2026-11-11-22-00",
-			"category": "live-music",
-			"source": "sea-monster-lounge",
-			"venueId": "sea-monster-lounge"
-		},
-		{
 			"id": "book-larder-10302682955994",
 			"title": "Author Talk: Katie Button, Spanish Accent",
 			"startsAt": "2026-11-12T02:30:00.000Z",
@@ -3580,16 +3580,6 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
-		},
-		{
-			"id": "sea-monster-lounge-2026-11-12T19:30-dylan-hughes-yin-band",
-			"title": "Dylan Hughes Yin Band",
-			"startsAt": "2026-11-12T19:30:00-08:00",
-			"endsAt": "2026-11-12T21:00:00-08:00",
-			"url": "https://www.seamonsterlounge.com/event-info/dylan-hughes-yin-band-2",
-			"category": "live-music",
-			"source": "sea-monster-lounge",
-			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "wayward-2026-11-12-nat-evans-what-are-days-for",
@@ -3909,6 +3899,16 @@
 			"venueId": "nordic-museum"
 		},
 		{
+			"id": "watershed-2026-11-14-live-at-the-shed-beasley",
+			"title": "Live at the Shed: Beasley",
+			"startsAt": "2026-11-14T12:00:00-08:00",
+			"endsAt": "2026-11-14T14:00:00-08:00",
+			"url": "https://watershedpub.com/events",
+			"category": "food-drink-special",
+			"source": "watershed-pub",
+			"venueId": "watershed-pub"
+		},
+		{
 			"id": "posh-2026-11-14T12:00-runway-drag-brunch",
 			"venueId": "roam",
 			"title": "Runway Drag Brunch",
@@ -4029,6 +4029,16 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "watershed-2026-11-14-live-at-the-shed-golden-hart",
+			"title": "Live at the Shed: Golden Hart",
+			"startsAt": "2026-11-14T20:00:00-08:00",
+			"endsAt": "2026-11-14T22:00:00-08:00",
+			"url": "https://watershedpub.com/events",
+			"category": "food-drink-special",
+			"source": "watershed-pub",
+			"venueId": "watershed-pub"
 		},
 		{
 			"id": "conor-byrne-188819",
@@ -4156,6 +4166,16 @@
 			"source": "uw-campus"
 		},
 		{
+			"id": "watershed-2026-11-15-maple-leaf-silent-book-club",
+			"title": "Maple Leaf Silent Book Club",
+			"startsAt": "2026-11-15T15:00:00-08:00",
+			"endsAt": "2026-11-15T17:00:00-08:00",
+			"url": "https://watershedpub.com/events",
+			"category": "comedy",
+			"source": "watershed-pub",
+			"venueId": "watershed-pub"
+		},
+		{
 			"id": "artemis-coffee-2026-11-15T23:00-photo-video-film-meetup-ballard-film-club",
 			"title": "Photo, Video & Film meetup: Ballard Film Club",
 			"startsAt": "2026-11-15T15:00:00-08:00",
@@ -4164,6 +4184,16 @@
 			"category": "theater",
 			"source": "artemis-coffee",
 			"venueId": "artemis-coffee"
+		},
+		{
+			"id": "watershed-2026-11-15-cider-tasting-sundays-november-26",
+			"title": "Cider Tasting Sundays: November '26",
+			"startsAt": "2026-11-15T16:00:00-08:00",
+			"endsAt": "2026-11-15T20:00:00-08:00",
+			"url": "https://watershedpub.com/events",
+			"category": "food-drink-special",
+			"source": "watershed-pub",
+			"venueId": "watershed-pub"
 		},
 		{
 			"id": "conor-byrne-201819",
@@ -4534,6 +4564,16 @@
 			"url": "https://www.artemis.cafe/events/cozy-gaming-night-wednesdays-4peg2-r6453-rl7f9-8hkpf-a89xr-z44ca-kea2f",
 			"source": "artemis-coffee",
 			"venueId": "artemis-coffee"
+		},
+		{
+			"id": "watershed-2026-11-18-convergence-131-heater-allen-brewing-gold-dot-beer-north-sea",
+			"title": "Convergence #131: Heater Allen Brewing + Gold Dot Beer + North Seattle Food Connection",
+			"startsAt": "2026-11-18T18:00:00-08:00",
+			"endsAt": "2026-11-18T20:00:00-08:00",
+			"url": "https://watershedpub.com/events",
+			"category": "food-drink-special",
+			"source": "watershed-pub",
+			"venueId": "watershed-pub"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-18T18:00-deep-listening-the-national-boxer",
@@ -6324,6 +6364,16 @@
 			"source": "seattle-public-theater",
 			"venueId": "seattle-public-theater",
 			"category": "theater"
+		},
+		{
+			"id": "watershed-2026-11-29-a-decade-in-full-bloom-build-your-own-bouquet-party",
+			"title": "A Decade in Full Bloom: Build Your Own Bouquet Party",
+			"startsAt": "2026-11-29T14:00:00-08:00",
+			"endsAt": "2026-11-29T16:00:00-08:00",
+			"url": "https://watershedpub.com/events",
+			"category": "food-drink-special",
+			"source": "watershed-pub",
+			"venueId": "watershed-pub"
 		},
 		{
 			"id": "conor-byrne-198781",
@@ -10238,6 +10288,26 @@
 			"price": "Free",
 			"category": "trivia",
 			"source": "visitballard"
+		},
+		{
+			"id": "flying-bike-2027-01-28-brewer-s-table",
+			"title": "Brewer's Table",
+			"startsAt": "2027-01-28T19:00:00-08:00",
+			"endsAt": "2027-01-28T20:30:00-08:00",
+			"url": "https://flyingbike.coop/calendar/",
+			"source": "flying-bike",
+			"venueId": "flying-bike"
+		},
+		{
+			"id": "lake-city-contra-2027-01-28",
+			"title": "Contra dance with Starshine",
+			"startsAt": "2027-01-28T19:30:00-08:00",
+			"endsAt": "2027-01-28T22:00:00-08:00",
+			"url": "https://www.seattledance.org/contra/lakecity/",
+			"price": "$10–20",
+			"source": "lake-city-contra",
+			"venueId": "seattle-latvian-center",
+			"category": "dance"
 		}
 	]
 }
