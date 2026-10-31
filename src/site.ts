@@ -39,7 +39,7 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 			heading: "Tonight",
 			intro: `<p>Happy hours, live music and little adventures across north Seattle, from Ballard to Lake City.</p>`,
 			action: `<button type="button" class="surprise" data-surprise><svg class="surprise-star" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C8.6 4.6 11.4 7.4 16 8 11.4 8.6 8.6 11.4 8 16 7.4 11.4 4.6 8.6 0 8 4.6 7.4 7.4 4.6 8 0Z"/></svg>Surprise me</button>`,
-			body: `<div data-surprise-result></div>${filterBar(EMPTY_FILTERS, today, { days: false })}<div data-view>${tonightView(data, today, EMPTY_FILTERS)}</div>${footer}`,
+			body: `<div data-surprise-result></div><div data-shared></div>${filterBar(EMPTY_FILTERS, today, { days: false })}<div data-view>${tonightView(data, today, EMPTY_FILTERS)}</div>${footer({ subscribe: false })}`,
 			scripts: ["/app.js"],
 		}),
 	);
@@ -52,7 +52,7 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 			heading: "Coming up",
 			intro:
 				"See what's happening over the next week, or choose a date to plan something further out.",
-			body: `${filterBar(EMPTY_FILTERS, today)}<div data-view>${weekView(data, today, EMPTY_FILTERS)}</div>${footer}`,
+			body: `${filterBar(EMPTY_FILTERS, today)}<div data-view>${weekView(data, today, EMPTY_FILTERS)}</div>${footer({ subscribe: false })}`,
 			scripts: ["/app.js"],
 		}),
 	);
@@ -65,7 +65,7 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 			heading: "Map",
 			intro:
 				"All the bars, venues and spots we follow around north Seattle, with what's coming up at each one.",
-			body: `${filterBar(EMPTY_FILTERS, today, { date: false })}<div id="map" class="map" role="region" aria-label="Map of venues"></div>${footer}`,
+			body: `${filterBar(EMPTY_FILTERS, today, { date: false })}<div id="map" class="map" role="region" aria-label="Map of venues"></div>${footer()}`,
 			scripts: ["/map.js"],
 			styles: ["/leaflet.css"],
 		}),
@@ -79,7 +79,7 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 			heading: "Venues",
 			intro:
 				"Every bar, music venue and gathering spot we follow, grouped by neighborhood.",
-			body: `${venuesIndexView(data)}${footer}`,
+			body: `${venuesIndexView(data)}${footer()}`,
 		}),
 	);
 
@@ -91,7 +91,9 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 				page: "venue",
 				title: `${venue.name} · ${SITE.title}`,
 				heading: venue.name,
-				body: `${venueView(data, venue, today, upcoming)}${footer}`,
+				body: `${venueView(data, venue, today, upcoming)}${footer()}`,
+				scripts: ["/venue.js"],
+				noData: true,
 			}),
 		);
 	}

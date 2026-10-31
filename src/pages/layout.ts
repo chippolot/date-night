@@ -35,6 +35,8 @@ export function layout(opts: {
 	action?: string;
 	scripts?: string[];
 	styles?: string[];
+	/** The page's scripts don't read data.json, so don't preload it (venue pages) */
+	noData?: boolean;
 }): string {
 	const nav = NAV.map(
 		([id, label, path]) =>
@@ -60,7 +62,7 @@ export function layout(opts: {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=Spectral:ital,wght@0,400;1,400&display=swap">
   ${styles}
-  ${opts.scripts?.length ? `<link rel="preload" href="${href("/data.json")}" as="fetch" crossorigin>` : ""}
+  ${opts.scripts?.length && !opts.noData ? `<link rel="preload" href="${href("/data.json")}" as="fetch" crossorigin>` : ""}
 </head>
 <body data-page="${opts.page}" data-base="${esc(href(""))}">
   <header class="site-header">

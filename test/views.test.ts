@@ -1,8 +1,9 @@
 import { describe, expect, test } from "bun:test";
 import type { SiteData } from "../src/lib/data";
 import { EMPTY_FILTERS } from "../src/lib/filters";
-import type { Night, Venue } from "../src/lib/types";
-import { tonightView, weekView } from "../src/pages/views";
+import type { Night, Occurrence, Venue } from "../src/lib/types";
+import { sharePath, shareText } from "../src/pages/components";
+import { footer, tonightView, weekView } from "../src/pages/views";
 
 const venue = (id: string, neighborhood: Venue["neighborhood"]): Venue => ({
 	id,
@@ -140,5 +141,40 @@ describe("happy hour shelf", () => {
 		const html = weekView(withHH, "2026-10-30", EMPTY_FILTERS);
 		expect(html.match(/<details class="specials"/g)?.length).toBe(7);
 		expect(html).toContain('data-specials="2026-11-05"');
+	});
+});
+
+describe("sharing", () => {
+	const occurrence = (o: Partial<Occurrence> = {}): Occurrence => ({
+		key: "event:halloween",
+		kind: "event",
+		refId: "halloween",
+		date: "2026-10-31",
+		start: "21:00",
+		title: "Halloween",
+		venueId: "roam",
+		category: "dance",
+		vibe: ["lively"],
+		url: "https://example.com/",
+		confidence: "confirmed",
+		...o,
+	});
+
+	test("describes the listing and links to its day with it pinned", () => {
+		const roam = { ...venue("roam", "ballard"), name: "Roam" };
+		expect(shareText(occurrence(), roam)).toBe(
+			"Halloween at Roam, Sat, Oct 31 at 9pm",
+		);
+		expect(shareText(occurrence({ allDay: true }), undefined)).toBe(
+			"Halloween, Sat, Oct 31, all day",
+		);
+		expect(sharePath(occurrence())).toBe(
+			"/?date=2026-10-31&show=event%3Ahalloween",
+		);
+	});
+
+	test("offers the everything feed once, in the page's own subscribe line", () => {
+		expect(footer()).toContain("Subscribe to everything");
+		expect(footer({ subscribe: false })).not.toContain("Subscribe");
 	});
 });

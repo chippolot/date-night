@@ -6,7 +6,11 @@ export async function clientAssets(
 	minify: boolean,
 ): Promise<Map<string, Asset>> {
 	const result = await Bun.build({
-		entrypoints: ["src/client/app.ts", "src/client/map.ts"],
+		entrypoints: [
+			"src/client/app.ts",
+			"src/client/map.ts",
+			"src/client/venue.ts",
+		],
 		target: "browser",
 		minify,
 		sourcemap: minify ? "none" : "inline",

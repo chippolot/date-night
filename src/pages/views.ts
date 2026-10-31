@@ -404,7 +404,16 @@ export function mapVenues(data: SiteData, f: Filters): Venue[] {
 	});
 }
 
-export const footer = `<footer>
+/**
+ * Pass `subscribe: false` on pages that end with their own subscribe line (Tonight, Coming up),
+ * so the feed isn't offered twice.
+ */
+export function footer({ subscribe = true } = {}): string {
+	const link = subscribe
+		? `<a href="${href("/feeds/all.ics")}" data-webcal>Subscribe to everything in your calendar app</a> · `
+		: "";
+	return `<footer>
   <p>Recurring nights are hand-curated and change often. Each card shows when it was last checked, so confirm with the venue before you go.</p>
-  <p><a href="${href("/feeds/all.ics")}" data-webcal>Subscribe to everything in your calendar app</a> · ${esc(SITE.title)}</p>
+  <p>${link}${esc(SITE.title)}</p>
 </footer>`;
+}

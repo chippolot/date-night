@@ -43,6 +43,9 @@ const EXTERNAL_ICON = icon(
 	`<path d="M9 2.5h4.5V7M13.5 2.5 7 9M11.5 9.5v3.25a.75.75 0 0 1-.75.75h-7.5a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 0 1 .75-.75H6.5"/>`,
 );
 const FLAG_ICON = icon(`<path d="M3 14.5V2M3 2.5h8.5l-1.75 3 1.75 3H3"/>`);
+const SHARE_ICON = icon(
+	`<path d="M8 1.75v8M5 4.75l3-3 3 3"/><path d="M5.5 7H4a.75.75 0 0 0-.75.75v5.5c0 .41.34.75.75.75h8a.75.75 0 0 0 .75-.75v-5.5A.75.75 0 0 0 12 7h-1.5"/>`,
+);
 
 /** "19:00" → "7pm", "19:30" → "7:30pm" */
 export function formatTime(hhmm: string): string {
@@ -88,6 +91,30 @@ export function freshnessBadge(o: Occurrence, today: string): string {
 
 export function icsHref(o: Occurrence): string {
 	return href(`/ics/${o.kind}/${o.refId}.ics`);
+}
+
+/** What a shared listing says: "Jazz Night at Conor Byrne Pub, Fri, Oct 31 at 8pm" */
+export function shareText(o: Occurrence, venue: Venue | undefined): string {
+	const day = formatDate(o.date, {
+		weekday: "short",
+		month: "short",
+		day: "numeric",
+	});
+	const when = o.allDay
+		? `${day}, all day`
+		: `${day} at ${formatTime(o.start)}`;
+	return `${o.title}${venue ? ` at ${venue.name}` : ""}, ${when}`;
+}
+
+/** Tonight's page for the listing's day, with the listing pinned at the top. */
+export function sharePath(o: Occurrence): string {
+	const params = new URLSearchParams({ date: o.date, show: o.key });
+	return `${href("/")}?${params}`;
+}
+
+/** Shares through the phone's share sheet, or copies the link; the client unhides it. */
+function shareButton(o: Occurrence, venue: Venue | undefined): string {
+	return `<button type="button" class="icon-action" data-share="${esc(sharePath(o))}" data-share-text="${esc(shareText(o, venue))}" title="Share" aria-label="Share" hidden>${SHARE_ICON}</button>`;
 }
 
 /** A link to the "Something changed?" form, pre-filled with the listing and its source. */
@@ -185,6 +212,7 @@ export function card(
     </p>
     <p class="card-actions">
       <a class="icon-action" href="${icsHref(o)}" download title="Add to calendar" aria-label="Add to calendar">${CALENDAR_ICON}</a>
+      ${shareButton(o, venue)}
       <a class="icon-action" href="${esc(o.url)}" rel="noopener" target="_blank" title="Source" aria-label="Source (opens in a new tab)">${EXTERNAL_ICON}</a>
       ${reportLink(o, venue)}
     </p>

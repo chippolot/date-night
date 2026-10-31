@@ -6,6 +6,7 @@ import { surprise } from "../lib/surprise";
 import { NEIGHBORHOODS, PRICE_LEVELS } from "../lib/types";
 import { card, esc, formatDate } from "../pages/components";
 import { occurrences, tonightView, venueMap, weekView } from "../pages/views";
+import { enableShare, wireShare } from "./share";
 import { loadSiteData, wireFilters } from "./shared";
 
 const page = document.body.dataset.page;
@@ -43,6 +44,7 @@ function render(data: SiteData, f: Filters) {
 		if (openSpecials.has(shelf.dataset.specials ?? "")) shelf.open = true;
 	}
 	webcalLinks();
+	enableShare(view);
 	if (h1) {
 		h1.textContent =
 			day === today
@@ -65,6 +67,40 @@ function webcalLinks() {
 		const url = new URL(a.getAttribute("href") ?? "", location.href);
 		a.href = `webcal://${url.host}${url.pathname}`;
 	}
+}
+
+/** A listing opened from a shared link, pinned above the filters so they can't hide it. */
+function renderShared(data: SiteData) {
+	const out = document.querySelector<HTMLElement>("[data-shared]");
+	const params = new URLSearchParams(location.search);
+	const key = params.get("show");
+	const date = params.get("date");
+	if (!out || !key || !date) return;
+	const today = todayInSeattle();
+	const venueById = venueMap(data);
+	const found =
+		date >= today
+			? occurrences(data, date, 1).find((o) => o.key === key)
+			: undefined;
+	const when = formatDate(date, {
+		weekday: "long",
+		month: "short",
+		day: "numeric",
+	});
+	out.innerHTML = found
+		? `<div class="ticket"><div class="ticket-head">${CLOSE_BUTTON}<span class="ticket-eyebrow">Shared with you · ${esc(when)}</span></div><div class="ticket-part">${card(found, found.venueId ? venueById.get(found.venueId) : undefined, today)}</div></div>`
+		: `<div class="ticket"><div class="ticket-part ticket-empty">${CLOSE_BUTTON}<p>${date < today ? `That was on ${esc(when)}, so it's over.` : "That listing isn't on our calendar any more."} Here's what's on instead.</p></div></div>`;
+	enableShare(out);
+	out.querySelector("[data-close]")?.addEventListener("click", () => {
+		out.innerHTML = "";
+		params.delete("show");
+		const rest = params.toString();
+		history.replaceState(
+			null,
+			"",
+			`${location.pathname}${rest ? `?${rest}` : ""}`,
+		);
+	});
 }
 
 const CLOSE_BUTTON = `<button type="button" class="ticket-close" data-close aria-label="Close">×</button>`;
@@ -124,6 +160,7 @@ function renderSurprise(data: SiteData, f: Filters) {
 		.querySelector("[data-reroll]")
 		?.addEventListener("click", () => renderSurprise(data, f));
 	wireClose(out);
+	enableShare(out);
 }
 
 /** Tonight covers a single day, so it has no day picker and ignores any `day` in the URL. */
@@ -141,6 +178,8 @@ async function main() {
 	);
 	// Always re-render: the static HTML was built for the build date, not today.
 	render(data, filters);
+	renderShared(data);
+	wireShare();
 	document
 		.querySelector("[data-surprise]")
 		?.addEventListener("click", () => renderSurprise(data, filters));
