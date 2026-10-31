@@ -170,6 +170,22 @@ export const nights: Night[] = [
 		confidence: "confirmed",
 	},
 	{
+		id: "twist-of-fate-trivia",
+		venueId: "twist-of-fate",
+		title: "Tuesday trivia",
+		category: "trivia",
+		recurrence: { kind: "weekly", days: ["TU"], until: "2027-08-04" },
+		start: "19:30",
+		cost: "Free",
+		description:
+			'Free weekly trivia at Fremont\'s "modern medieval" dive bar, which has a big patio. 21+.',
+		vibe: ["lively"],
+		sourceUrl:
+			"https://everout.com/seattle/events/tuesday-night-trivia-twist-of-fate/e251455/",
+		lastVerified: "2026-10-30",
+		confidence: "likely",
+	},
+	{
 		id: "urban-family-trivia",
 		venueId: "urban-family-brewing",
 		title: "First Tuesday Trivia",
