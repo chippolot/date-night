@@ -1256,7 +1256,9 @@ export function parsePoshEvent(
 	});
 }
 
-const posh: Source = {
+// Not in `sources` for now: posh.vip answers GitHub Actions runners with HTTP 403 (it works from
+// home connections), so it failed every CI run. Add it back if that changes.
+export const posh: Source = {
 	id: "posh",
 	// Weeks can pass with no Posh event at our venues.
 	mayBeEmpty: true,
@@ -2786,7 +2788,6 @@ export const sources: Source[] = [
 	eightBells,
 	jollyRoger,
 	delilleEnVille,
-	posh,
 	instagram,
 	// Last: least reliable, so every other source wins a shared venue and start time.
 	mato,
