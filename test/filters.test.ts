@@ -8,6 +8,7 @@ import {
 	matchesCost,
 	matchesTime,
 	parseFilters,
+	slotOf,
 	type TimeSlot,
 	toQuery,
 	viewDate,
@@ -61,6 +62,18 @@ describe("matchesTime", () => {
 		const f = slots("evening", "night"); // 5–11pm
 		expect(matchesTime("21:30", undefined, f)).toBe(true);
 		expect(matchesTime("13:00", undefined, f)).toBe(false);
+	});
+});
+
+describe("slotOf", () => {
+	test("groups by start time, with small hours counted as late", () => {
+		expect(slotOf("09:30")).toBe("morning");
+		expect(slotOf("12:00")).toBe("afternoon");
+		expect(slotOf("17:00")).toBe("evening");
+		expect(slotOf("21:00")).toBe("night");
+		expect(slotOf("23:30")).toBe("late");
+		expect(slotOf("01:00")).toBe("late");
+		expect(slotOf("05:00")).toBe("morning");
 	});
 });
 

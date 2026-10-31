@@ -914,11 +914,17 @@ legend {
 	font-weight: 600;
 }
 
-/* One shape per part of the day: sun, sunset, night */
+/* One shape per part of the day: sunrise, sun, sunset, moon, night */
 .part-mark {
 	flex: none;
 	width: 1rem;
 	height: 1rem;
+}
+
+.part-morning {
+	height: 0.5rem;
+	border-radius: 1rem 1rem 0 0;
+	background: var(--saffron);
 }
 
 .part-afternoon {
@@ -930,6 +936,11 @@ legend {
 	height: 0.5rem;
 	border-radius: 1rem 1rem 0 0;
 	background: var(--lingon);
+}
+
+.part-night {
+	border-radius: 50%;
+	box-shadow: inset -0.3rem -0.15rem 0 0 var(--fjord);
 }
 
 .part-late {
@@ -945,16 +956,17 @@ legend {
 	border-radius: 50%;
 }
 
-.specials-summary {
+/* Sections that fold: the time-of-day groups and the happy hour shelf */
+.fold-summary {
 	cursor: pointer;
 	list-style: none;
 }
 
-.specials-summary::-webkit-details-marker {
+.fold-summary::-webkit-details-marker {
 	display: none;
 }
 
-.specials-heading::after {
+.fold-heading::after {
 	content: "";
 	flex: none;
 	width: 0.5rem;
@@ -966,12 +978,12 @@ legend {
 	transition: transform 0.2s;
 }
 
-.specials[open] .specials-heading::after {
+details[open] > .fold-summary .fold-heading::after {
 	margin-bottom: -0.25rem;
 	transform: rotate(-135deg);
 }
 
-.specials-summary:focus-visible {
+.fold-summary:focus-visible {
 	outline: 2px solid var(--lingon);
 	outline-offset: 2px;
 }

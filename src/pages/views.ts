@@ -10,6 +10,9 @@ import {
 	matchesText,
 	matchesTime,
 	matchesVenue,
+	slotOf,
+	TIME_SLOTS,
+	type TimeSlot,
 	toQuery,
 	venueText,
 } from "../lib/filters";
@@ -65,20 +68,6 @@ export function occurrences(
 		]),
 	);
 }
-
-const PARTS: {
-	id: string;
-	label: string;
-	test: (start: string) => boolean;
-}[] = [
-	{
-		id: "afternoon",
-		label: "Afternoon",
-		test: (s) => s < "17:00",
-	},
-	{ id: "evening", label: "Evening", test: (s) => s >= "17:00" && s < "21:00" },
-	{ id: "late", label: "Late", test: (s) => s >= "21:00" },
-];
 
 /**
  * Split happy hours out for their own shelf, unless they're all that was asked for: then
@@ -189,11 +178,13 @@ export function tonightView(
 	const venueById = venueMap(data);
 	const all = occurrences(data, day, 1);
 	const { main, specials } = splitSpecials(applyFilters(all, venueById, f), f);
-	const sections = PARTS.map(({ id, label, test }) => {
-		const items = main.filter((o) => test(o.start));
-		if (!items.length) return "";
-		return `<section class="part"><h2 class="part-heading"><span class="part-mark part-${id}" aria-hidden="true"></span>${label} <span class="part-count">${items.length}</span></h2>${cardList(items, venueById, today)}</section>`;
-	}).join("");
+	const sections = (Object.keys(TIME_SLOTS) as TimeSlot[])
+		.map((id) => {
+			const items = main.filter((o) => slotOf(o.start) === id);
+			if (!items.length) return "";
+			return `<details class="part" data-part="${id}" open><summary class="fold-summary"><h2 class="part-heading fold-heading"><span class="part-mark part-${id}" aria-hidden="true"></span>${TIME_SLOTS[id].label} <span class="part-count">${items.length}</span></h2></summary>${cardList(items, venueById, today)}</details>`;
+		})
+		.join("");
 	const empty = emptyState(data, f, {
 		message:
 			day === today

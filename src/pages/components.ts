@@ -279,7 +279,7 @@ export function specialsShelf(
 	const rows = list
 		.map((o) => specialRow(o, o.venueId ? venueById.get(o.venueId) : undefined))
 		.join("\n");
-	return `<details class="specials" data-specials="${list[0]?.date ?? ""}"><summary class="specials-summary"><h2 class="part-heading specials-heading"><span class="part-mark part-specials" aria-hidden="true"></span>Happy hours <span class="part-count">${list.length}</span></h2></summary><ul class="special-list">${rows}</ul></details>`;
+	return `<details class="specials" data-specials="${list[0]?.date ?? ""}"><summary class="fold-summary"><h2 class="part-heading fold-heading specials-heading"><span class="part-mark part-specials" aria-hidden="true"></span>Happy hours <span class="part-count">${list.length}</span></h2></summary><ul class="special-list">${rows}</ul></details>`;
 }
 
 /**

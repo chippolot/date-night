@@ -33,10 +33,11 @@ export type Filters = {
 
 /** Time-of-day slots as whole hours; `to` below `from` wraps past midnight. */
 export const TIME_SLOTS = {
+	morning: { label: "Morning", hours: "5am–noon", from: 5, to: 12 },
 	afternoon: { label: "Afternoon", hours: "12–5pm", from: 12, to: 17 },
 	evening: { label: "Evening", hours: "5–8pm", from: 17, to: 20 },
 	night: { label: "Night", hours: "8–11pm", from: 20, to: 23 },
-	late: { label: "Late", hours: "11pm+", from: 23, to: 4 },
+	late: { label: "Late", hours: "11pm+", from: 23, to: 5 },
 } as const;
 export type TimeSlot = keyof typeof TIME_SLOTS;
 
@@ -208,6 +209,16 @@ function inWindow(
 	let e = minutes(end);
 	if (e <= s) e += 24 * 60; // ends after midnight
 	return s < hi && e > lo;
+}
+
+/** The slot something starting at `start` falls in, for grouping a day's listings. */
+export function slotOf(start: string): TimeSlot {
+	const slots = Object.keys(TIME_SLOTS) as TimeSlot[];
+	return (
+		slots.find((t) =>
+			inWindow(start, undefined, TIME_SLOTS[t].from, TIME_SLOTS[t].to),
+		) ?? "late"
+	);
 }
 
 export function matchesTime(

@@ -17,16 +17,23 @@ const defaultHeading = h1?.textContent ?? "";
 
 // Dates whose happy hour shelf is open, so a filter change doesn't snap it shut.
 const openSpecials = new Set<string>();
+// Times of day someone folded away, which stay folded the same way.
+const closedParts = new Set<string>();
 // `toggle` doesn't bubble, so listen while capturing.
 view?.addEventListener(
 	"toggle",
 	(e) => {
 		const shelf = e.target;
 		if (!(shelf instanceof HTMLDetailsElement)) return;
-		const date = shelf.dataset.specials;
-		if (date === undefined) return;
-		if (shelf.open) openSpecials.add(date);
-		else openSpecials.delete(date);
+		const { specials: date, part } = shelf.dataset;
+		if (date !== undefined) {
+			if (shelf.open) openSpecials.add(date);
+			else openSpecials.delete(date);
+		}
+		if (part !== undefined) {
+			if (shelf.open) closedParts.delete(part);
+			else closedParts.add(part);
+		}
 	},
 	true,
 );
@@ -43,6 +50,11 @@ function render(data: SiteData, f: Filters) {
 		"details[data-specials]",
 	)) {
 		if (openSpecials.has(shelf.dataset.specials ?? "")) shelf.open = true;
+	}
+	for (const part of view.querySelectorAll<HTMLDetailsElement>(
+		"details[data-part]",
+	)) {
+		if (closedParts.has(part.dataset.part ?? "")) part.open = false;
 	}
 	webcalLinks();
 	enableShare(view);
