@@ -91,6 +91,11 @@ jobs:
         with:
           path: dist
 
+      - name: Summarize new venues and events
+        # Compares the scraped events with the commit this run checked out, on the run's summary page.
+        if: ${{ !cancelled() }}
+        run: bun scripts/scrape-summary.ts ${{ github.sha }}
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
