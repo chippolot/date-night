@@ -81,6 +81,10 @@ const MYBALLARD_VENUES: Record<string, string> = {
 	"arc dance space": "arc-dance",
 	"phinney center": "phinney-center",
 	"phinney community center": "phinney-center",
+	"cairo restaurant & lounge": "cairo-ballard",
+	"5465 leary ave nw, seattle wa 98107": "cairo-ballard",
+	hazlewood: "hazlewood",
+	atria: "atria-ballard",
 };
 
 const PHINNEYWOOD_VENUES: Record<string, string> = {
@@ -2311,6 +2315,48 @@ const uwCampus: Source = {
 	},
 };
 
+// Seattle Department of Neighborhoods calendar (Trumba iCal): citywide community events, mostly
+// meetings and out of area. Only events at the venues below are kept, matched on LOCATION (the
+// feed gives a name, an address, or both). It's a permitted way to read the Phinney Center, whose
+// own site is behind Cloudflare.
+const DON_VENUES: [RegExp, string][] = [
+	[/\b6532 Phinney Ave/i, "phinney-center"],
+	[/\bMountaineering Club\b|\b4507 Brooklyn Ave NE\b/i, "mountaineering-club"],
+];
+
+export function parseNeighborhoods(ics: string): ScrapedEvent[] {
+	const out: ScrapedEvent[] = [];
+	for (const e of parseIcs(ics)) {
+		const venueId = DON_VENUES.find(([re]) => re.test(e.location ?? ""))?.[1];
+		if (!venueId || e.allDay || e.cancelled) continue;
+		const title = decodeEntities(e.summary).replace(/\s+/g, " ").trim();
+		if (/\b(meeting|trick or treat)\b/i.test(title)) continue;
+		out.push({
+			id: `don-${e.start.slice(0, 10)}-${slug(title)}`,
+			venueId,
+			title,
+			startsAt: e.start,
+			endsAt: e.end,
+			// Facebook's click ids make links long and unique per share
+			url: e.url?.startsWith("http")
+				? e.url.replace(/[?&]fbclid=.*$/, "")
+				: "https://www.seattle.gov/neighborhoods/event-calendar",
+			category: guessCategory(title),
+		});
+	}
+	return out;
+}
+
+const neighborhoods: Source = {
+	id: "seattle-neighborhoods",
+	mayBeEmpty: true,
+	async fetchEvents() {
+		return parseNeighborhoods(
+			await get("https://www.trumba.com/calendars/neighborhoods.ics"),
+		);
+	},
+};
+
 // Meany Center (UW): touring dance, chamber music and piano at Meany Hall. The month calendar
 // lists each performance with an ISO start; robots.txt asks for a 10s crawl delay.
 
@@ -2746,6 +2792,7 @@ export const sources: Source[] = [
 	taproot,
 	phinneyWood,
 	sunsetHill,
+	neighborhoods,
 	woodlandParkZoo,
 	greenStage,
 	salmonBayEagles,

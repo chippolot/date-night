@@ -17,6 +17,7 @@ import {
 	parseJetCityShow,
 	parseMatoEvents,
 	parseMeany,
+	parseNeighborhoods,
 	parseNordic,
 	parseOctopus,
 	parsePantry,
@@ -1119,6 +1120,66 @@ describe("book larder", () => {
 				"2026-10-29",
 			),
 		).toHaveLength(1);
+	});
+});
+
+describe("seattle neighborhoods", () => {
+	test("keeps known venues, drops meetings and trick-or-treats, cleans titles and links", () => {
+		const vevent = (
+			summary: string,
+			start: string,
+			location: string,
+			url: string,
+		) =>
+			`BEGIN:VEVENT\r\nSUMMARY:${summary}\r\nDTSTART;TZID=America/Los_Angeles:${start}\r\nLOCATION:${location}\r\nURL:${url}\r\nEND:VEVENT`;
+		const ics = [
+			"BEGIN:VCALENDAR",
+			vevent(
+				"Brewerama: PNA&#8217\\; Annual Winter Beer Taste",
+				"20261114T190000",
+				"Phinney Center Blue Building\\, 6532 Phinney Ave. N.",
+				"https://www.phinneycenter.org/events/beer-taste-winter/",
+			),
+			vevent(
+				"Halloween at The Mountaineering Club",
+				"20261031T210000",
+				"The Mountaineering Club<br>4507 Brooklyn Ave NE\\, Seattle",
+				"https://resy.com/x/events/y?fbclid=abc",
+			),
+			vevent(
+				"Hunger Goblin Trick or Treat",
+				"20261031T120000",
+				"PhinneyWood Business District<br>6532 Phinney Ave N",
+				"https://x/a",
+			),
+			vevent(
+				"Emergency Hub Monthly Meeting",
+				"20261102T190000",
+				"6532 Phinney Ave N",
+				"https://x/b",
+			),
+			vevent(
+				"Dracula",
+				"20261025T190000",
+				"1308 5th Ave\\, Seattle",
+				"https://x/c",
+			),
+			"END:VCALENDAR",
+		].join("\r\n");
+		expect(
+			parseNeighborhoods(ics).map((e) => [e.title, e.venueId, e.url]),
+		).toEqual([
+			[
+				"Brewerama: PNA’ Annual Winter Beer Taste",
+				"phinney-center",
+				"https://www.phinneycenter.org/events/beer-taste-winter/",
+			],
+			[
+				"Halloween at The Mountaineering Club",
+				"mountaineering-club",
+				"https://resy.com/x/events/y",
+			],
+		]);
 	});
 });
 

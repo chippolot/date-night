@@ -58,7 +58,7 @@ Add an entry to `scripts/scrape/sources.ts`:
 
 A source that fails keeps its previous events, so one broken site doesn't empty the calendar. A source that throws, or returns no events without setting `mayBeEmpty`, counts as failed: `bun run scrape` lists it and exits 1, and the daily workflow opens (or comments on) a "Scraper failures" GitHub issue, which it closes once every source succeeds again.
 
-Sources are listed in `sources` at the bottom of `scripts/scrape/sources.ts`, with a comment above each on how it works. Neighborhood calendars (visitballard.com, myballard.com, PhinneyWood, Sunset Hill Community Hall) keep only events at venues mapped in their venue tables. Earlier sources win when two list the same venue and start time. Respect each site's robots.txt crawl delay (`crawlDelay` / `pause`).
+Sources are listed in `sources` at the bottom of `scripts/scrape/sources.ts`, with a comment above each on how it works. Neighborhood calendars (visitballard.com, myballard.com, PhinneyWood, Sunset Hill Community Hall, the Department of Neighborhoods) keep only events at venues mapped in their venue tables. Earlier sources win when two list the same venue and start time. Respect each site's robots.txt crawl delay (`crawlDelay` / `pause`).
 
 `docs/source-backlog.md` lists venues that aren't scraped yet and why: those that need a workaround, those the site's rules put off limits, and those ruled out.
 

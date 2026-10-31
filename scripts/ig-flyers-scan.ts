@@ -54,6 +54,7 @@ export const FLYER_VENUES = [
 	"atlantic-crossing",
 	"dreamland",
 	"chucks-hop-shop-greenwood",
+	"cairo-ballard",
 ];
 
 const GRAPH = "https://graph.facebook.com/v23.0";

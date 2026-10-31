@@ -95,6 +95,22 @@ export const nights: Night[] = [
 		confidence: "confirmed",
 	},
 	{
+		id: "hazlewood-craft-night",
+		venueId: "hazlewood",
+		title: "Drinkers with Knitting Problems",
+		category: "class",
+		recurrence: { kind: "weekly", days: ["WE"] },
+		start: "20:00",
+		end: "23:00",
+		description:
+			"Bring your knitting, crochet or embroidery to a Market Street cocktail bar for happy-hour prices (N/A too); DJs on the first Wednesday.",
+		vibe: ["low-key"],
+		sourceUrl:
+			"https://www.myballard.com/event/drinkers-with-knitting-problems-craft-night-2/",
+		lastVerified: "2026-10-31",
+		confidence: "confirmed",
+	},
+	{
 		id: "veras-karaoke",
 		venueId: "veras-ballard",
 		title: "Karaoke",

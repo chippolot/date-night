@@ -5,6 +5,12 @@
 		"posted": "2026-09-10",
 		"read": "2026-10-31"
 	},
+	"17865086919692297": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/p/DfF92AIEo4W/",
+		"posted": "2026-10-29",
+		"read": "2026-10-31"
+	},
 	"17866942632660495": {
 		"venueId": "russells",
 		"permalink": "https://www.instagram.com/p/DdpdiYHj6Oq/",
@@ -608,6 +614,12 @@
 			}
 		]
 	},
+	"17914995681278444": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/p/DewLzCntEGt/",
+		"posted": "2026-10-21",
+		"read": "2026-10-31"
+	},
 	"17915101353460691": {
 		"venueId": "fremont-social",
 		"permalink": "https://www.instagram.com/p/DeLJW-aTwZ-/",
@@ -757,6 +769,21 @@
 		"permalink": "https://www.instagram.com/reel/Ddo5vOoG8Ox/",
 		"posted": "2026-09-23",
 		"read": "2026-10-31"
+	},
+	"17935287519142131": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/reel/DfGNjmkuvxx/",
+		"posted": "2026-10-29",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "Cairo After Dark Halloween",
+				"date": "2026-10-31",
+				"start": "22:00",
+				"end": null,
+				"price": null
+			}
+		]
 	},
 	"17937712677402023": {
 		"venueId": "aslan-tangletown",
@@ -1992,6 +2019,21 @@
 			}
 		]
 	},
+	"18061709048799614": {
+		"venueId": "kochendorfers",
+		"permalink": "https://www.instagram.com/p/DfKjNKLmyYy/",
+		"posted": "2026-10-31",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "Formula 1 Grand Prix of Mexico",
+				"date": "2026-11-01",
+				"start": "12:00",
+				"end": null,
+				"price": null
+			}
+		]
+	},
 	"18063332879547282": {
 		"venueId": "barking-dog-alehouse",
 		"permalink": "https://www.instagram.com/reel/DefANs3vzL3/",
@@ -2334,6 +2376,12 @@
 		"venueId": "the-dray",
 		"permalink": "https://www.instagram.com/p/Der0fhshXX6/",
 		"posted": "2026-10-19",
+		"read": "2026-10-31"
+	},
+	"18079694285546207": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/p/DfDjcsIhhyf/",
+		"posted": "2026-10-28",
 		"read": "2026-10-31"
 	},
 	"18080005955400475": {
@@ -2740,6 +2788,12 @@
 		"posted": "2026-09-28",
 		"read": "2026-10-31"
 	},
+	"18098364686109856": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/p/DfGW1nyO1jo/",
+		"posted": "2026-10-29",
+		"read": "2026-10-31"
+	},
 	"18098827856386767": {
 		"venueId": "aslan-tangletown",
 		"permalink": "https://www.instagram.com/reel/De950OJu6Fy/",
@@ -2966,6 +3020,12 @@
 		"posted": "2026-10-21",
 		"read": "2026-10-31"
 	},
+	"18104758034633378": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/p/DfAr55hS77G/",
+		"posted": "2026-10-27",
+		"read": "2026-10-31"
+	},
 	"18104954849371620": {
 		"venueId": "rough-and-tumble-ballard",
 		"permalink": "https://www.instagram.com/p/De-ETP2SNL0/",
@@ -3017,6 +3077,21 @@
 		"posted": "2026-10-05",
 		"read": "2026-10-31"
 	},
+	"18106264411994544": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/reel/Dez3DH3Symt/",
+		"posted": "2026-10-22",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "Cairo After Dark: Jomana Live Belly Dance",
+				"date": "2026-10-23",
+				"start": "19:30",
+				"end": null,
+				"price": null
+			}
+		]
+	},
 	"18106315820205846": {
 		"venueId": "triangle-spirits",
 		"permalink": "https://www.instagram.com/p/Dek4uIVG_19/",
@@ -3063,6 +3138,12 @@
 		"venueId": "burke-museum",
 		"permalink": "https://www.instagram.com/p/DeSNzpDEuSv/",
 		"posted": "2026-10-09",
+		"read": "2026-10-31"
+	},
+	"18107675807257217": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/p/DenVRovmTG9/",
+		"posted": "2026-10-17",
 		"read": "2026-10-31"
 	},
 	"18108082112600131": {
@@ -3124,6 +3205,12 @@
 				"price": "$25 GA, $35 Reserved"
 			}
 		]
+	},
+	"18108872708219279": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/p/De-Qyqryrg4/",
+		"posted": "2026-10-26",
+		"read": "2026-10-31"
 	},
 	"18109074626076812": {
 		"venueId": "mansion-creek-cellars",
@@ -4206,6 +4293,12 @@
 		"posted": "2026-09-23",
 		"read": "2026-10-31"
 	},
+	"18127524395311743": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/reel/DeyPoE6B0UN/",
+		"posted": "2026-10-21",
+		"read": "2026-10-31"
+	},
 	"18127554796662233": {
 		"venueId": "sabine-cafe",
 		"permalink": "https://www.instagram.com/p/DcEIZAPKU3X/",
@@ -5088,6 +5181,21 @@
 			}
 		]
 	},
+	"18196112710394341": {
+		"venueId": "rough-and-tumble-ballard",
+		"permalink": "https://www.instagram.com/p/DfKjAgetI3T/",
+		"posted": "2026-10-31",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "Brunch",
+				"date": "2026-10-31",
+				"start": "09:00",
+				"end": null,
+				"price": null
+			}
+		]
+	},
 	"18197449504346751": {
 		"venueId": "burke-gilman-brewing",
 		"permalink": "https://www.instagram.com/reel/DdXITp7SXcm/",
@@ -5833,6 +5941,12 @@
 			}
 		]
 	},
+	"18483607513118950": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/p/DeuyDTWBf3-/",
+		"posted": "2026-10-20",
+		"read": "2026-10-31"
+	},
 	"18489783670110468": {
 		"venueId": "changes-in-wallingford",
 		"permalink": "https://www.instagram.com/reel/DekLhogh3bN/",
@@ -5993,6 +6107,12 @@
 				"end": null
 			}
 		]
+	},
+	"18643424941000369": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/p/DetyijGhy0k/",
+		"posted": "2026-10-20",
+		"read": "2026-10-31"
 	},
 	"18662520865032739": {
 		"venueId": "wildwood-spirits",
