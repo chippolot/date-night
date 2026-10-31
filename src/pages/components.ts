@@ -93,23 +93,38 @@ export function icsHref(o: Occurrence): string {
 	return href(`/ics/${o.kind}/${o.refId}.ics`);
 }
 
-/** What a shared listing says: "Jazz Night at Conor Byrne Pub, Fri, Oct 31 at 8pm" */
-export function shareText(o: Occurrence, venue: Venue | undefined): string {
+/** "Fri, Oct 31 at 8pm" or "Fri, Oct 31, all day" */
+export function whenText(o: Occurrence): string {
 	const day = formatDate(o.date, {
 		weekday: "short",
 		month: "short",
 		day: "numeric",
 	});
-	const when = o.allDay
-		? `${day}, all day`
-		: `${day} at ${formatTime(o.start)}`;
-	return `${o.title}${venue ? ` at ${venue.name}` : ""}, ${when}`;
+	return o.allDay ? `${day}, all day` : `${day} at ${formatTime(o.start)}`;
 }
 
-/** Tonight's page for the listing's day, with the listing pinned at the top. */
+/** "Jazz Night at Conor Byrne Pub", but just "Halloween at Roam" when the title names the venue */
+export function titleAt(o: Occurrence, venue: Venue | undefined): string {
+	const named =
+		!venue || o.title.toLowerCase().includes(venue.name.toLowerCase());
+	return named ? o.title : `${o.title} at ${venue.name}`;
+}
+
+/** What a shared listing says: "Jazz Night at Conor Byrne Pub, Fri, Oct 31 at 8pm" */
+export function shareText(o: Occurrence, venue: Venue | undefined): string {
+	return `${titleAt(o, venue)}, ${whenText(o)}`;
+}
+
+/**
+ * The listing's own page, which share links point to: /e/<event id>/ or /n/<night id>/. Ids are
+ * made URL-safe (scraped event ids carry times like "T21:00").
+ */
+export function listingPath(kind: Occurrence["kind"], id: string): string {
+	return `/${kind === "event" ? "e" : "n"}/${id.replace(/[^A-Za-z0-9._-]/g, "-")}/`;
+}
+
 export function sharePath(o: Occurrence): string {
-	const params = new URLSearchParams({ date: o.date, show: o.key });
-	return `${href("/")}?${params}`;
+	return href(listingPath(o.kind, o.refId));
 }
 
 /** Shares through the phone's share sheet, or copies the link; the client unhides it. */

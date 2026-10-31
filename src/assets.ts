@@ -9,7 +9,7 @@ export async function clientAssets(
 		entrypoints: [
 			"src/client/app.ts",
 			"src/client/map.ts",
-			"src/client/venue.ts",
+			"src/client/static.ts",
 		],
 		target: "browser",
 		minify,

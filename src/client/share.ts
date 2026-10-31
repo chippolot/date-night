@@ -1,5 +1,5 @@
 // Share buttons on cards: the phone's share sheet where there is one, otherwise copy the link.
-// Used by the Tonight and Coming up pages (app.ts) and venue pages (venue.ts).
+// Used by the Tonight and Coming up pages (app.ts) and the static pages (static.ts).
 
 /** Share buttons need JS, so the pre-rendered HTML keeps them hidden. */
 export function enableShare(root: ParentNode) {

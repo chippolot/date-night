@@ -16,7 +16,13 @@ const MARK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 36">\
 
 const FAVICON = `data:image/svg+xml,${encodeURIComponent(MARK)}`;
 
-export type PageId = "tonight" | "week" | "map" | "venues" | "venue";
+export type PageId =
+	| "tonight"
+	| "week"
+	| "map"
+	| "venues"
+	| "venue"
+	| "listing";
 
 const NAV: [PageId, string, string][] = [
 	["tonight", "Tonight", "/"],
@@ -37,7 +43,16 @@ export function layout(opts: {
 	styles?: string[];
 	/** The page's scripts don't read data.json, so don't preload it (venue pages) */
 	noData?: boolean;
+	/**
+	 * What a shared link's preview shows (iMessage and others read these tags, not the page's
+	 * JavaScript). Defaults to the page title and the site tagline.
+	 */
+	preview?: { title: string; description: string };
 }): string {
+	const preview = opts.preview ?? {
+		title: opts.title,
+		description: SITE.tagline,
+	};
 	const nav = NAV.map(
 		([id, label, path]) =>
 			`<a href="${href(path)}"${id === opts.page || (opts.page === "venue" && id === "venues") ? ' aria-current="page"' : ""}>${label}</a>`,
@@ -56,7 +71,11 @@ export function layout(opts: {
   <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0e1120" media="(prefers-color-scheme: dark)">
   <title>${esc(opts.title)}</title>
-  <meta name="description" content="${esc(SITE.tagline)}">
+  <meta name="description" content="${esc(preview.description)}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="${esc(SITE.title)}">
+  <meta property="og:title" content="${esc(preview.title)}">
+  <meta property="og:description" content="${esc(preview.description)}">
   <link rel="icon" href="${FAVICON}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

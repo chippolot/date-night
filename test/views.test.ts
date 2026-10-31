@@ -2,8 +2,13 @@ import { describe, expect, test } from "bun:test";
 import type { SiteData } from "../src/lib/data";
 import { EMPTY_FILTERS } from "../src/lib/filters";
 import type { Night, Occurrence, Venue } from "../src/lib/types";
-import { sharePath, shareText } from "../src/pages/components";
-import { footer, tonightView, weekView } from "../src/pages/views";
+import { listingPath, sharePath, shareText } from "../src/pages/components";
+import {
+	footer,
+	listingSummary,
+	tonightView,
+	weekView,
+} from "../src/pages/views";
 
 const venue = (id: string, neighborhood: Venue["neighborhood"]): Venue => ({
 	id,
@@ -165,11 +170,21 @@ describe("sharing", () => {
 		expect(shareText(occurrence(), roam)).toBe(
 			"Halloween at Roam, Sat, Oct 31 at 9pm",
 		);
+		expect(shareText(occurrence({ title: "Halloween at Roam" }), roam)).toBe(
+			"Halloween at Roam, Sat, Oct 31 at 9pm",
+		);
 		expect(shareText(occurrence({ allDay: true }), undefined)).toBe(
 			"Halloween, Sat, Oct 31, all day",
 		);
-		expect(sharePath(occurrence())).toBe(
-			"/?date=2026-10-31&show=event%3Ahalloween",
+		expect(sharePath(occurrence())).toBe("/e/halloween/");
+		expect(
+			listingPath("event", "instagram-2026-10-31T21:00-halloween-at-roam"),
+		).toBe("/e/instagram-2026-10-31T21-00-halloween-at-roam/");
+		expect(listingPath("night", "kochendorfers-trivia")).toBe(
+			"/n/kochendorfers-trivia/",
+		);
+		expect(listingSummary(occurrence(), roam, "Sat, Oct 31 at 9pm")).toBe(
+			"Sat, Oct 31 at 9pm · Roam, Ballard · Dancing",
 		);
 	});
 

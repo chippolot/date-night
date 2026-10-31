@@ -3,10 +3,27 @@ import type { SiteData } from "./lib/data";
 import { feed, feedPath, feedScopes } from "./lib/feeds";
 import { EMPTY_FILTERS } from "./lib/filters";
 import { calendar, eventVevent, nightVevent } from "./lib/ics";
-import { filterBar } from "./pages/components";
+import {
+	eventOccurrences,
+	nightOccurrences,
+	seattleParts,
+} from "./lib/recurrence";
+import type { Occurrence, Venue } from "./lib/types";
+import {
+	describeRecurrence,
+	filterBar,
+	formatDate,
+	formatTime,
+	listingPath,
+	shareText,
+	titleAt,
+	whenText,
+} from "./pages/components";
 import { layout } from "./pages/layout";
 import {
 	footer,
+	listingSummary,
+	listingView,
 	occurrences,
 	tonightView,
 	venueMap,
@@ -39,7 +56,7 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 			heading: "Tonight",
 			intro: `<p>Happy hours, live music and little adventures across north Seattle, from Ballard to Lake City.</p>`,
 			action: `<button type="button" class="surprise" data-surprise><svg class="surprise-star" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C8.6 4.6 11.4 7.4 16 8 11.4 8.6 8.6 11.4 8 16 7.4 11.4 4.6 8.6 0 8 4.6 7.4 7.4 4.6 8 0Z"/></svg>Surprise me</button>`,
-			body: `<div data-surprise-result></div><div data-shared></div>${filterBar(EMPTY_FILTERS, today, { days: false })}<div data-view>${tonightView(data, today, EMPTY_FILTERS)}</div>${footer({ subscribe: false })}`,
+			body: `<div data-surprise-result></div>${filterBar(EMPTY_FILTERS, today, { days: false })}<div data-view>${tonightView(data, today, EMPTY_FILTERS)}</div>${footer({ subscribe: false })}`,
 			scripts: ["/app.js"],
 		}),
 	);
@@ -92,9 +109,57 @@ export function renderSite(data: SiteData, today: string): Map<string, Asset> {
 				title: `${venue.name} · ${SITE.title}`,
 				heading: venue.name,
 				body: `${venueView(data, venue, today, upcoming)}${footer()}`,
-				scripts: ["/venue.js"],
+				scripts: ["/static.js"],
 				noData: true,
 			}),
+		);
+	}
+
+	// One page per listing, for share links. A night's page shows its next date.
+	const listing = (
+		o: Occurrence,
+		venue: Venue | undefined,
+		label: string,
+		when: string,
+	) =>
+		html(
+			`${listingPath(o.kind, o.refId)}index.html`,
+			layout({
+				page: "listing",
+				title: `${shareText(o, venue)} · ${SITE.title}`,
+				heading: o.title,
+				preview: {
+					title: titleAt(o, venue),
+					description: listingSummary(o, venue, when),
+				},
+				body: `${listingView(o, venue, today, label)}${footer()}`,
+				scripts: ["/static.js"],
+				noData: true,
+			}),
+		);
+	for (const e of data.events) {
+		const { date } = seattleParts(e.startsAt);
+		const o = eventOccurrences([e], data.venues, date, 1)[0];
+		if (!o) continue;
+		const venue = o.venueId ? venueById.get(o.venueId) : undefined;
+		const day = formatDate(o.date, {
+			weekday: "short",
+			month: "short",
+			day: "numeric",
+		});
+		listing(o, venue, day, whenText(o));
+	}
+	for (const n of data.nights) {
+		const o = nightOccurrences([n], today, 400)[0];
+		if (!o) continue;
+		const schedule = describeRecurrence(n);
+		listing(
+			o,
+			venueById.get(n.venueId),
+			schedule,
+			o.allDay
+				? `${schedule}, all day`
+				: `${schedule} at ${formatTime(o.start)}`,
 		);
 	}
 

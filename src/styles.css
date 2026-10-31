@@ -1253,6 +1253,25 @@ legend {
 	}
 }
 
+/* Below a listing's card on its own page: its venue and the rest of its day */
+/* Lined up under the card's text column, tucked under its action icons */
+.listing-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.15rem 1.25rem;
+	margin: -0.6rem 0 0;
+	padding-left: calc(4.25rem + 0.9rem);
+	font-size: 0.85rem;
+}
+
+.listing-links .action {
+	padding: 0.2rem 0;
+	font-weight: 500;
+	text-decoration-color: color-mix(in srgb, var(--lingon) 50%, transparent);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+
 /* Card actions: icons with tooltips and labels for screen readers */
 .card-actions:has(.icon-action) {
 	gap: 0.25rem;
@@ -1605,6 +1624,9 @@ button.icon-action {
 	.card {
 		grid-template-columns: 6.5rem minmax(0, 1fr);
 		gap: 1.25rem;
+	}
+	.listing-links {
+		padding-left: calc(6.5rem + 1.25rem);
 	}
 	.card h3 {
 		font-size: 1.5rem;

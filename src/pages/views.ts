@@ -277,6 +277,45 @@ export function venueView(
 <section><h2>Upcoming events</h2>${events.join("\n") || `<p class="empty">No dated events in the next 60 days.</p>`}</section>`;
 }
 
+/**
+ * One listing on its own page, where share links land: its card, then its venue and (for a dated
+ * event) everything else on that day. `label` is the date, or a night's schedule.
+ */
+export function listingView(
+	o: Occurrence,
+	venue: Venue | undefined,
+	today: string,
+	label: string,
+): string {
+	const links = [
+		venue
+			? `<a class="action" href="${href(`/venues/${venue.id}/`)}">More at ${esc(venue.name)}</a>`
+			: "",
+		o.kind === "event"
+			? `<a class="action" href="${href(`/?date=${o.date}`)}">Everything else on ${formatDate(o.date, { weekday: "long", month: "short", day: "numeric" })}</a>`
+			: `<a class="action" href="${href("/")}">Everything on tonight</a>`,
+	]
+		.filter(Boolean)
+		.join("");
+	return `${card(o, venue, today, label)}
+<p class="listing-links">${links}</p>`;
+}
+
+/** The preview line under a shared link's title: "Sat, Oct 31 at 9pm · Roam, Ballard · Dancing" */
+export function listingSummary(
+	o: Occurrence,
+	venue: Venue | undefined,
+	when: string,
+): string {
+	return [
+		when,
+		venue ? `${venue.name}, ${NEIGHBORHOODS[venue.neighborhood]}` : "",
+		CATEGORIES[o.category],
+	]
+		.filter(Boolean)
+		.join(" · ");
+}
+
 export function venuesIndexView(data: SiteData): string {
 	const categoriesOf = (id: string) =>
 		new Set<Category>([
