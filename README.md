@@ -37,6 +37,8 @@ bun run preview   # serve dist/ like a static host, http://localhost:4173
 
 To find leads in venues' Instagram posts, run `bun run ig-leads` (or `bun run ig-leads <venue-id>…`). It reads each venue's `instagram` account once through the Graph API and writes captions that look like recurring nights to `out/ig-leads.md`. Verify each lead by hand before adding it. With `--new` it leaves out posts already reported and records the ones it reports in `data/cache/ig-seen.json` (the weekly workflow commits that file); runs without `--new` leave the file alone.
 
+Some venues announce one-off events only in flyer images on Instagram. The `instagram` scrape source reads the latest posts of the venues in `FLYER_VENUES` (`scripts/ig-flyers-scan.ts`) with Claude Haiku and adds their upcoming events that have a start time, linked to the post. Sports watch parties and kids' events are left out, and recurring nights aren't added (they're leads for `nights.ts`). Each post is read once: `data/cache/ig-flyers.json` keeps what every post contained, and the daily workflow commits it. It costs about $0.0007 per new post. To check whether more venues are worth adding to `FLYER_VENUES`, run `bun run ig-flyers-scan` (venues no scraper covers) or `bun run ig-flyers-scan <venue-id>…`, then read `out/ig-flyers/scan.md`. `bun run ig-flyers-eval` scores the flyer reader against hand labels in `scripts/ig-flyers-labels/`. These need `ANTHROPIC_API_KEY` in `.env` (and the repo secret of the same name for the daily workflow).
+
 `.github/workflows/ig-leads.yml` runs `ig-leads --new` every Monday and posts new leads to an open "Instagram leads" issue. It needs the `META_ACCESS_TOKEN` and `INSTAGRAM_USER_ID` repo secrets. The token expires about every 60 days: when it does, the workflow opens an "Instagram token needs refreshing" issue, and `bun run meta-token <short-lived token> --github` updates both `.env` and the secret.
 
 Each card's flag links to a "Something changed?" Google Form, pre-filled with the listing and its source (`SITE.reportForm` in `src/config.ts`). Responses land in the form's Responses tab. People with a GitHub account can also use the "Something changed" issue form (`.github/ISSUE_TEMPLATE/listing-change.yml`).
@@ -68,6 +70,7 @@ The build writes subscribable calendars to `/feeds/`: `all.ics`, one per categor
 
 `.github/workflows/daily.yml` checks, tests, scrapes, commits the refreshed events, builds, and deploys to GitHub Pages. It runs on every push to `main` and daily at 6am Pacific. To turn it on, go to the repo's Settings → Pages → Source and choose "GitHub Actions". The base path for a project site is set automatically. The map's CARTO key comes from the `CARTO_KEY` repo secret (restricted to chippolot.github.io in the CARTO dashboard).
 The Substation scraper reads an Eventbrite private token from the `EVENTBRITE_TOKEN` repo secret.
+The `instagram` source reads the `META_ACCESS_TOKEN`, `INSTAGRAM_USER_ID` and `ANTHROPIC_API_KEY` repo secrets.
 
 ## Layout
 

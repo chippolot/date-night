@@ -38,6 +38,9 @@ jobs:
         env:
           SCRAPE_REPORT: ${{ runner.temp }}/scrape-report.md
           EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # Pushes skip sources scraped in the last 6 hours; the daily and manual runs refresh all.
           SCRAPE_FORCE: ${{ github.event_name != 'push' }}
 

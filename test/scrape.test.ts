@@ -31,6 +31,7 @@ import {
 	parseYuTang,
 	poshEventUrls,
 	poshHints,
+	poshVenueMatcher,
 	seaMonsterEventUrls,
 	shibuyaEventUrls,
 	shibuyaToFetch,
@@ -544,6 +545,33 @@ describe("posh", () => {
 		]);
 	});
 
+	test("matches venues by street address, or by name in the same ZIP code", () => {
+		const find = poshVenueMatcher([
+			{
+				id: "ltd-bar-and-grill",
+				name: "LTD Bar & Grill",
+				address: "309 N 36th St, Seattle, WA 98103",
+			},
+			{
+				id: "pono-ranch",
+				name: "Pono Ranch",
+				address: "4502 Shilshole Ave NW, Seattle, WA 98107",
+			},
+		]);
+		expect(find("", "309 N 36th St, Seattle, WA 98103, USA")).toBe(
+			"ltd-bar-and-grill",
+		);
+		expect(
+			find("LTD Bar and Grill", "309 N 36th St C, Seattle, WA 98103, USA"),
+		).toBe("ltd-bar-and-grill");
+		expect(find("PONO RANCH", "1501 NW 46th St, Seattle, WA 98107, USA")).toBe(
+			"pono-ranch",
+		);
+		expect(
+			find("Pono Ranch", "100 Main St, Honolulu, HI 96813"),
+		).toBeUndefined();
+	});
+
 	test("drops the venue and date from titles", () => {
 		expect(cleanPoshTitle("Runway Drag Brunch at Roam 11/14/26", "Roam")).toBe(
 			"Runway Drag Brunch",
@@ -574,7 +602,13 @@ describe("posh", () => {
 			);
 			return `<script>self.__next_f.push([1,"3e:T1,"])</script><script>self.__next_f.push([1,${JSON.stringify(ld)}])</script>`;
 		};
-		const venueByStreet = new Map([["5105 ballard ave nw", "roam"]]);
+		const venueByStreet = poshVenueMatcher([
+			{
+				id: "roam",
+				name: "Roam",
+				address: "5105 Ballard Ave NW, Seattle, WA 98107",
+			},
+		]);
 		const url = "https://posh.vip/e/groove-plug-3";
 		const [event, ...rest] = parsePoshEvent(
 			page("5105 Ballard Ave NW, Seattle, WA 98107, USA"),

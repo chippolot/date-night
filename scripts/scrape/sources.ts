@@ -1,6 +1,8 @@
 import { venues } from "../../data/venues";
 import { todayInSeattle } from "../../src/lib/recurrence";
 import { type Category, NEIGHBORHOODS } from "../../src/lib/types";
+import { cost } from "../ig-flyers";
+import { FLYER_VENUES, flyerEvents, scan } from "../ig-flyers-scan";
 import { parseIcs, toIso } from "./ical";
 import { decodeEntities, extractLdEvents } from "./jsonld";
 import {
@@ -1189,6 +1191,29 @@ export function cleanPoshTitle(title: string, venue: string): string {
 
 const DJ_NIGHT = /\b(dj|djs|house|techno|disco|ukg|open decks|dance party)\b/i;
 
+type VenueMatcher = (name: string, address: string) => string | undefined;
+
+/**
+ * Finds our venue for a Posh location: by street address, or by name within the same ZIP code
+ * (Posh has "309 N 36th St C" for LTD, and a corner address for Pono Ranch).
+ */
+export function poshVenueMatcher(
+	list: { id: string; name: string; address: string }[],
+): VenueMatcher {
+	const name = (s: string) =>
+		slug(s.replace(/&/g, " and ").replace(/^the /i, ""));
+	const zip = (s: string) => s.match(/\b(98\d{3})\b/)?.[1];
+	const byStreet = new Map(list.map((v) => [streetKey(v.address), v.id]));
+	return (venueName, address) =>
+		byStreet.get(streetKey(address)) ??
+		list.find(
+			(v) =>
+				venueName.trim() !== "" &&
+				name(v.name) === name(venueName) &&
+				zip(v.address) === zip(address),
+		)?.id;
+}
+
 /**
  * Events on a Posh event page held at one of our venues. The page's schema.org Event sits in a
  * Next.js stream chunk (`self.__next_f.push([1,"…"])`), not in a JSON-LD script tag.
@@ -1196,7 +1221,7 @@ const DJ_NIGHT = /\b(dj|djs|house|techno|disco|ukg|open decks|dance party)\b/i;
 export function parsePoshEvent(
 	html: string,
 	url: string,
-	venueByStreet: Map<string, string>,
+	findVenue: VenueMatcher,
 ): ScrapedEvent[] {
 	const ld = [
 		...html.matchAll(/self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g),
@@ -1206,7 +1231,7 @@ export function parsePoshEvent(
 		.map((s) => `<script type="application/ld+json">${s}</script>`)
 		.join("");
 	return extractLdEvents(ld).flatMap((e) => {
-		const venueId = venueByStreet.get(streetKey(e.address ?? ""));
+		const venueId = findVenue(e.location ?? "", e.address ?? "");
 		if (!venueId || e.cancelled) return [];
 		const title = cleanPoshTitle(e.name, e.location ?? "");
 		return [
@@ -1242,9 +1267,7 @@ const posh: Source = {
 			await get(`${POSH}/sitemap-events-recent.xml`),
 			poshHints(venues, matched),
 		);
-		const venueByStreet = new Map(
-			venues.map((v) => [streetKey(v.address), v.id]),
-		);
+		const findVenue = poshVenueMatcher(venues);
 		const upcoming = (events: ScrapedEvent[]) =>
 			events.filter((e) => e.startsAt.slice(0, 10) >= today);
 		const toFetch = new Set(
@@ -1261,7 +1284,7 @@ const posh: Source = {
 			await pause(1);
 			let events: ScrapedEvent[] = [];
 			try {
-				events = upcoming(parsePoshEvent(await get(url), url, venueByStreet));
+				events = upcoming(parsePoshEvent(await get(url), url, findVenue));
 			} catch (err) {
 				// A removed event shouldn't fail the source.
 				console.log(`  posh: ${errorMessage(err)}`);
@@ -1271,6 +1294,34 @@ const posh: Source = {
 		await writeCache("posh", next);
 		console.log(`  posh: fetched ${toFetch.size} of ${pages.length} pages`);
 		return Object.values(next).flatMap((p) => p.events);
+	},
+};
+
+// ---------------------------------------------------------------------------
+// Instagram flyers: one-off events that venues announce only in flyer images on Instagram, read by
+// Claude Haiku (scripts/ig-flyers-scan.ts). Each post is read once and the result is kept in
+// data/cache/ig-flyers.json; only the latest few posts of each account are fetched. Recurring nights
+// it finds aren't added: they stay leads for nights.ts (CLAUDE.md).
+
+const instagram: Source = {
+	id: "instagram",
+	// A week can pass without an upcoming timed event at these venues.
+	mayBeEmpty: true,
+	timeoutMinutes: 10,
+	async fetchEvents() {
+		const { from, to } = horizon();
+		const result = await scan(
+			venues.filter((v) => FLYER_VENUES.includes(v.id)),
+			{ posts: 5, maxAge: 60, today: from },
+		);
+		const dollars = cost("haiku", result.inputTokens, result.outputTokens);
+		console.log(
+			`  instagram: ${result.read} new posts read from ${result.scanned.length} accounts ($${dollars.toFixed(4)})`,
+		);
+		for (const f of result.failed) console.log(`  instagram: ${f}`);
+		if (result.stopped)
+			console.log(`  instagram: stopped early (${result.stopped})`);
+		return flyerEvents(result.cache, FLYER_VENUES, from, to);
 	},
 };
 
@@ -2544,6 +2595,7 @@ export const sources: Source[] = [
 	jollyRoger,
 	delilleEnVille,
 	posh,
+	instagram,
 	// Last: least reliable, so every other source wins a shared venue and start time.
 	mato,
 ];

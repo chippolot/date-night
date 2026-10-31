@@ -1,0 +1,494 @@
+{
+	"account": "roambarseattle",
+	"venue": "Roam",
+	"address": "5105 Ballard Ave NW, Seattle",
+	"labeledBy": "Hand-labeled 2026-10-31 from the first three images and caption of each post.",
+	"notes": [
+		"`date` and `start` may list several acceptable answers. A null start means the post gives no time for that event.",
+		"A start that comes from another slide of the same post (Open Roam's 4pm billboard) also accepts null.",
+		"`optional` events don't count against recall when missed, nor against precision when found.",
+		"`skip` posts aren't scored: their weekly lineup's printed dates contradict the rest of the post."
+	],
+	"posts": [
+		{
+			"post": "DfBCNkujzj1",
+			"events": [
+				{
+					"title": "Open Roam",
+					"date": "2026-10-28",
+					"start": ["16:00", null]
+				},
+				{
+					"title": "Noisy Radio: Takeover Thursdays",
+					"date": "2026-10-29",
+					"start": "21:00"
+				},
+				{ "title": "Wicked Wave Lengths", "date": "2026-10-30", "start": null },
+				{ "title": "Halloween", "date": "2026-10-31", "start": null },
+				{ "title": "LSD Union", "date": "2026-11-01", "start": null }
+			],
+			"recurring": [{ "title": "Open Roam", "day": "WE", "start": "16:00" }]
+		},
+		{
+			"post": "De-mID4oECI",
+			"events": [
+				{
+					"title": "Runway Drag Brunch",
+					"date": "2026-11-14",
+					"start": ["12:00", "13:00"]
+				}
+			]
+		},
+		{
+			"post": "DescItSjPsc",
+			"events": [
+				{
+					"title": "Techno Tuesday Ritual",
+					"date": "2026-10-20",
+					"start": ["21:00", null]
+				},
+				{
+					"title": "Open Roam",
+					"date": "2026-10-21",
+					"start": ["16:00", null]
+				},
+				{
+					"title": "A Way Too Early Halloween",
+					"date": "2026-10-22",
+					"start": null
+				},
+				{ "title": "Witch, Please!", "date": "2026-10-23", "start": null },
+				{ "title": "The Seattle Freeze", "date": "2026-10-24", "start": null },
+				{ "title": "Sunday Sessions", "date": "2026-10-25", "start": null }
+			],
+			"recurring": [{ "title": "Open Roam", "day": "WE", "start": "16:00" }]
+		},
+		{
+			"post": "DesZvDSseZa",
+			"events": [
+				{
+					"title": "The Seattle Freeze",
+					"date": "2026-10-24",
+					"start": "21:00"
+				}
+			]
+		},
+		{
+			"post": "DeaFKQDElmh",
+			"events": [
+				{
+					"title": "Open Roam",
+					"date": "2026-10-14",
+					"start": ["16:00", null]
+				},
+				{ "title": "FRVRMISFIT", "date": "2026-10-15", "start": "21:00" },
+				{ "title": "MDQ", "date": "2026-10-16", "start": null },
+				{ "title": "Costa", "date": "2026-10-17", "start": null },
+				{ "title": "Amateur Night", "date": "2026-10-18", "start": null }
+			],
+			"recurring": [{ "title": "Open Roam", "day": "WE", "start": "16:00" }]
+		},
+		{
+			"post": "DeXxeeQPeTZ",
+			"events": [{ "title": "Costa", "date": "2026-10-17", "start": "21:00" }]
+		},
+		{
+			"post": "DeM_HCNPrnq",
+			"events": [
+				{
+					"title": "House Guest Thursday",
+					"date": "2026-10-08",
+					"start": "20:00"
+				}
+			]
+		},
+		{
+			"post": "DeIKV9FkmEp",
+			"events": [
+				{
+					"title": "Techno Tuesday Ritual",
+					"date": "2026-10-06",
+					"start": "21:00"
+				},
+				{
+					"title": "Open Roam",
+					"date": "2026-10-07",
+					"start": ["16:00", null]
+				},
+				{
+					"title": "House Guest Thursday",
+					"date": "2026-10-08",
+					"start": null
+				},
+				{ "title": "Pulse UKG + House", "date": "2026-10-09", "start": null },
+				{
+					"title": "The Boys in Motion: Ladies Takeover",
+					"date": "2026-10-10",
+					"start": null
+				},
+				{ "title": "Sunday Sessions", "date": "2026-10-11", "start": null }
+			],
+			"recurring": [{ "title": "Open Roam", "day": "WE", "start": "16:00" }]
+		},
+		{ "post": "Dd4mxfgEvBL", "events": [] },
+		{
+			"post": "Dd4RXWSmgxS",
+			"skip": "Lineup says September 21-27 but was posted Sep 29 beside an Oct 1 flyer, and differs from the real Sep 21-27 lineup.",
+			"events": [
+				{ "title": "College Bar Night", "date": "2026-10-01", "start": "21:00" }
+			]
+		},
+		{
+			"post": "Dd1_4vgEs2X",
+			"events": [
+				{
+					"title": "The Boys in Motion: Ladies Takeover",
+					"date": "2026-10-10",
+					"start": "20:30"
+				}
+			]
+		},
+		{
+			"post": "Ddm_6bNHTZR",
+			"events": [
+				{
+					"title": "Open Roam",
+					"date": "2026-09-23",
+					"start": ["16:00", null]
+				},
+				{
+					"title": "House Guest Thursday",
+					"date": "2026-09-24",
+					"start": "19:00"
+				},
+				{ "title": "Planns Launch Party", "date": "2026-09-25", "start": null },
+				{ "title": "The Seattle Freeze", "date": "2026-09-26", "start": null },
+				{ "title": "Amateur Nite", "date": "2026-09-27", "start": null }
+			],
+			"recurring": [{ "title": "Open Roam", "day": "WE", "start": "16:00" }]
+		},
+		{
+			"post": "Ddkhe1eo7sp",
+			"events": [
+				{ "title": "Halloween", "date": "2026-10-31", "start": "21:00" }
+			]
+		},
+		{
+			"post": "DdW1sP3Gvts",
+			"events": [
+				{
+					"title": "Roam Around the World: Argentina",
+					"date": "2026-09-17",
+					"start": "16:00"
+				},
+				{
+					"title": "House Guest Thursday",
+					"date": "2026-09-17",
+					"start": null,
+					"optional": true
+				}
+			]
+		},
+		{
+			"post": "DdSQK4cj9Oe",
+			"events": [
+				{
+					"title": "Open Roam",
+					"date": "2026-09-16",
+					"start": ["16:00", null]
+				},
+				{
+					"title": "House Guest Thursday",
+					"date": "2026-09-17",
+					"start": "21:00"
+				},
+				{
+					"title": "The House That She Built",
+					"date": "2026-09-18",
+					"start": null
+				},
+				{ "title": "Costa", "date": "2026-09-19", "start": null },
+				{ "title": "Sunday Sessions", "date": "2026-09-20", "start": null }
+			],
+			"recurring": [{ "title": "Open Roam", "day": "WE", "start": "16:00" }]
+		},
+		{
+			"post": "DdSJmqQhrmT",
+			"events": [
+				{
+					"title": "The Seattle Freeze",
+					"date": "2026-09-26",
+					"start": "21:00"
+				}
+			]
+		},
+		{ "post": "DdP2zHpoFZW", "events": [] },
+		{
+			"post": "DdCRthNHf3J",
+			"events": [
+				{
+					"title": "ABGT700 Seattle Pre-Party",
+					"date": "2026-09-09",
+					"start": ["20:30", "20:00", null]
+				},
+				{
+					"title": "Better Late Than Wednesday",
+					"date": "2026-09-10",
+					"start": ["16:00", null]
+				},
+				{ "title": "New Collection", "date": "2026-09-11", "start": null },
+				{ "title": "The Boys in Motion", "date": "2026-09-12", "start": null },
+				{ "title": "Sunday Sessions", "date": "2026-09-13", "start": null }
+			]
+		},
+		{
+			"post": "Dc-GivVIBjh",
+			"events": [
+				{
+					"title": "We Opened the Decks, They Took Over",
+					"date": "2026-09-06",
+					"start": "21:45"
+				}
+			]
+		},
+		{
+			"post": "Dc9qvBZPMQ9",
+			"events": [
+				{ "title": "Pizza Paesano", "date": "2026-09-09", "start": "17:00" }
+			]
+		},
+		{
+			"post": "Dc7R3qFHYtO",
+			"events": [
+				{
+					"title": "Roam Around the World: Pizza Paesano",
+					"date": ["2026-09-09", "2026-09-07"],
+					"start": "17:00"
+				},
+				{
+					"title": "ABGT700 Pre-Party",
+					"date": ["2026-09-09", "2026-09-07"],
+					"start": "20:30",
+					"optional": true
+				}
+			]
+		},
+		{
+			"post": "DczJPVVywcD",
+			"events": [
+				{
+					"title": "The House That She Built: Latin Edition",
+					"date": "2026-09-18",
+					"start": "21:00"
+				}
+			]
+		},
+		{
+			"post": "DcwOuYimtgQ",
+			"events": [
+				{
+					"title": "Warm Up Wednesday",
+					"date": "2026-09-02",
+					"start": ["16:00", null]
+				},
+				{
+					"title": "House Guest Thursday",
+					"date": "2026-09-03",
+					"start": ["21:00", null]
+				},
+				{
+					"title": "Cult Fest presents Midnight Rodeo",
+					"date": "2026-09-04",
+					"start": null
+				},
+				{ "title": "Full Moon Frequency", "date": "2026-09-05", "start": null },
+				{ "title": "Sunday Sessions", "date": "2026-09-06", "start": null }
+			],
+			"recurring": [
+				{ "title": "Warm Up Wednesday", "day": "WE", "start": "16:00" }
+			]
+		},
+		{
+			"post": "DcwNRzto8pd",
+			"events": [
+				{
+					"title": "House Guest Thursday",
+					"date": "2026-09-03",
+					"start": "21:00"
+				}
+			]
+		},
+		{
+			"post": "DceNxXrGhwy",
+			"events": [
+				{
+					"title": "Warm Up Wednesday",
+					"date": "2026-08-26",
+					"start": ["16:00", null]
+				},
+				{
+					"title": "West World",
+					"date": "2026-08-27",
+					"start": ["20:00", null]
+				},
+				{
+					"title": "The House That She Built",
+					"date": "2026-08-28",
+					"start": null
+				},
+				{
+					"title": "Overtime Contingency",
+					"date": "2026-08-29",
+					"start": null
+				},
+				{ "title": "Sunday Sessions", "date": "2026-08-30", "start": null }
+			],
+			"recurring": [
+				{ "title": "Warm Up Wednesday", "day": "WE", "start": "16:00" },
+				{ "title": "West World", "day": "TH", "start": "20:00" }
+			]
+		},
+		{
+			"post": "DcJqF21DAu9",
+			"events": [
+				{
+					"title": "Warm Up Wednesday",
+					"date": "2026-08-19",
+					"start": ["16:00", null]
+				},
+				{
+					"title": "West World",
+					"date": "2026-08-20",
+					"start": ["20:00", null]
+				},
+				{ "title": "Fever Dream", "date": "2026-08-21", "start": null },
+				{ "title": "The Seattle Freeze", "date": "2026-08-22", "start": null },
+				{ "title": "Sunday Sessions", "date": "2026-08-23", "start": null }
+			],
+			"recurring": [
+				{ "title": "Warm Up Wednesday", "day": "WE", "start": "16:00" },
+				{ "title": "West World", "day": "TH", "start": "20:00" }
+			]
+		},
+		{ "post": "Db9laGeI1Wq", "events": [] },
+		{
+			"post": "Db81tCvP3pm",
+			"events": [
+				{ "title": "Sunday Sessions", "date": "2026-08-16", "start": "19:00" }
+			]
+		},
+		{
+			"post": "Db6S8F4D-TX",
+			"events": [
+				{
+					"title": "Warm Up Wednesday",
+					"date": "2026-08-12",
+					"start": ["16:00", null]
+				},
+				{
+					"title": "West World",
+					"date": "2026-08-13",
+					"start": ["20:00", null]
+				},
+				{ "title": "Seattle House Mafia", "date": "2026-08-14", "start": null },
+				{
+					"title": "UKG Takeover: Saturday Day",
+					"date": "2026-08-15",
+					"start": null
+				},
+				{ "title": "Costa", "date": "2026-08-15", "start": null },
+				{ "title": "Sunday Sessions", "date": "2026-08-16", "start": null }
+			],
+			"recurring": [
+				{ "title": "Warm Up Wednesday", "day": "WE", "start": "16:00" },
+				{ "title": "West World", "day": "TH", "start": "20:00" }
+			]
+		},
+		{ "post": "Db1e-L9htyN", "events": [] },
+		{
+			"post": "Db1FcAJPrMy",
+			"events": [
+				{
+					"title": "The House That She Built",
+					"date": "2026-08-28",
+					"start": "21:00"
+				}
+			]
+		},
+		{
+			"post": "DbydT6Rqi3I",
+			"events": [
+				{
+					"title": "The Seattle Freeze",
+					"date": "2026-08-22",
+					"start": "21:00"
+				}
+			]
+		},
+		{
+			"post": "DbwdM0JPC0e",
+			"note": ".WAV is a boat party on the Hiyu, not at Roam.",
+			"events": []
+		},
+		{
+			"post": "Dbq-X1-yi93",
+			"note": "Teaser for .WAV on the Hiyu (Aug 8), not at Roam.",
+			"events": []
+		},
+		{
+			"post": "DblUw6glGiW",
+			"skip": "Lineup says July 27-August 02 but was posted Aug 3 and puts .WAV (Aug 8) on its Saturday.",
+			"events": []
+		},
+		{ "post": "DbY0rKtPROC", "events": [] },
+		{
+			"post": "DbUGWt2vBlk",
+			"events": [
+				{
+					"title": "Origins: The Afters",
+					"date": "2026-08-02",
+					"start": "02:30"
+				}
+			]
+		},
+		{
+			"post": "DbTuG07P2CE",
+			"note": ".WAV on the Hiyu, not at Roam.",
+			"events": []
+		},
+		{
+			"post": "DbRbVqtgfQw",
+			"events": [
+				{
+					"title": "Warm Up Wednesday",
+					"date": "2026-07-29",
+					"start": ["16:00", null]
+				},
+				{
+					"title": "West World",
+					"date": "2026-07-30",
+					"start": ["20:00", null]
+				},
+				{ "title": "New Collection", "date": "2026-07-31", "start": null },
+				{ "title": "Daydream", "date": "2026-08-01", "start": null },
+				{ "title": "Full Moon Frequency", "date": "2026-08-01", "start": null },
+				{
+					"title": "Origins: The Afters",
+					"date": ["2026-08-01", "2026-08-02"],
+					"start": null,
+					"optional": true
+				},
+				{ "title": "Outside", "date": "2026-08-02", "start": null }
+			],
+			"recurring": [
+				{ "title": "Warm Up Wednesday", "day": "WE", "start": "16:00" },
+				{ "title": "West World", "day": "TH", "start": "20:00" }
+			]
+		},
+		{
+			"post": "DbOqcw6BKkX",
+			"note": "Boat party on the Hiyu, not at Roam.",
+			"events": []
+		}
+	]
+}
