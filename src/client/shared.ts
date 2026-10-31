@@ -8,6 +8,7 @@ import {
 } from "../lib/filters";
 import { addDays, todayInSeattle } from "../lib/recurrence";
 import { panelCount } from "../pages/components";
+import { track } from "./track";
 
 export async function loadSiteData(): Promise<SiteData> {
 	const res = await fetch(href("/data.json"));
@@ -102,12 +103,23 @@ export function wireFilters(onChange: (f: Filters) => void): Filters {
 		if (direct) setTimeout(cycle);
 		else cycle();
 	});
+	// Counted once they settle, not per keystroke or pill tap. The search text stays out.
+	let counting: ReturnType<typeof setTimeout> | undefined;
 	form.addEventListener("change", () => {
 		const f = read();
 		storeHide(f.hide);
 		showCount(f);
 		history.replaceState(null, "", `${location.pathname}${toQuery(f)}`);
 		onChange(f);
+		clearTimeout(counting);
+		counting = setTimeout(
+			() =>
+				track("filtered", {
+					query: toQuery({ ...f, q: undefined }),
+					search: !!f.q,
+				}),
+			2000,
+		);
 	});
 	// Search as you type, without re-rendering on every keystroke.
 	let typing: ReturnType<typeof setTimeout> | undefined;

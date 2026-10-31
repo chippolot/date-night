@@ -17,6 +17,15 @@ export async function clientAssets(
 		define: {
 			"process.env.BASE_PATH": JSON.stringify(BASE),
 			"process.env.CARTO_KEY": JSON.stringify(CARTO_KEY),
+			// config.ts reads these too (TELEMETRY); only layout() uses them, but the module runs here.
+			...Object.fromEntries(
+				["SENTRY_DSN", "POSTHOG_KEY", "POSTHOG_HOST", "GITHUB_SHA", "CI"].map(
+					(name) => [
+						`process.env.${name}`,
+						JSON.stringify(process.env[name] ?? ""),
+					],
+				),
+			),
 		},
 	});
 	if (!result.success) {

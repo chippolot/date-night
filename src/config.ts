@@ -40,6 +40,21 @@ export const BASE = (process.env.BASE_PATH ?? "").replace(/\/$/, "");
  */
 export const CARTO_KEY = process.env.CARTO_KEY ?? "";
 
+/**
+ * Sentry (errors) and PostHog (cookieless page views and a few named events), both written into
+ * every page's head by `layout()`. Neither is a secret: they ship in the page. Unset (the default
+ * locally), the page loads neither and `track()` only logs to the console. CI sets them from the
+ * SENTRY_DSN and POSTHOG_KEY repo variables.
+ */
+export const TELEMETRY = {
+	sentryDsn: process.env.SENTRY_DSN ?? "",
+	posthogKey: process.env.POSTHOG_KEY ?? "",
+	posthogHost: process.env.POSTHOG_HOST || "https://us.i.posthog.com",
+	/** Tags Sentry reports with the commit that built the page (GITHUB_SHA in CI). */
+	release: process.env.GITHUB_SHA ?? "",
+	environment: process.env.CI ? "production" : "development",
+};
+
 export function href(path: string): string {
 	return `${BASE}${path}`;
 }

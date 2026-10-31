@@ -71,8 +71,16 @@ The build writes subscribable calendars to `/feeds/`: `all.ics`, one per categor
 ## Deploying
 
 `.github/workflows/daily.yml` checks, tests, scrapes, commits the refreshed events, builds, and deploys to GitHub Pages. It runs on every push to `main` and daily at 6am Pacific. To turn it on, go to the repo's Settings → Pages → Source and choose "GitHub Actions". The base path for a project site is set automatically. The map's CARTO key comes from the `CARTO_KEY` repo secret (restricted to chippolot.github.io in the CARTO dashboard).
+The pages report errors to Sentry and count visits in PostHog: see "Errors and analytics" below.
 The Substation scraper reads an Eventbrite private token from the `EVENTBRITE_TOKEN` repo secret.
 The `instagram` source reads the `META_ACCESS_TOKEN`, `INSTAGRAM_USER_ID` and `ANTHROPIC_API_KEY` repo secrets.
+
+## Errors and analytics
+
+Both are written into every page's head by `layout()` (`src/pages/layout.ts`), only when their key is set (`TELEMETRY` in `src/config.ts`). The daily workflow builds with the `SENTRY_DSN` and `POSTHOG_KEY` repo variables (`gh variable set …`). They aren't secrets, since they end up in the page. Locally neither is set, so nothing is sent, and `track()` logs to the console.
+
+- **Sentry**: project `date-night` in the `ben-smith-ra` org. Pages load Sentry's loader script, which fetches the SDK only when an error happens. Reports carry the commit as their release.
+- **PostHog**: project "Date Night North Seattle" (701176, US cloud), in cookieless mode: no cookies or storage, no person profiles, no session replay or autocapture. It counts page views (with referrers, for the Web analytics dashboard) and the events in `src/client/track.ts`: `filtered` (the filter query, without search text), `surprise`, `shared`, and `link opened` (`kind`: source, report, missing, feed). **Cookieless tracking** must stay on under the project's Settings → Web analytics, or PostHog drops every event.
 
 ## Layout
 

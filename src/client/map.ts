@@ -11,6 +11,7 @@ import {
 } from "../pages/components";
 import { eventKind, mapVenues, matchesKind, nightKind } from "../pages/views";
 import { loadSiteData, wireFilters } from "./shared";
+import "./track";
 
 // Same print colors as the category dots in styles.css
 const COLORS: Record<Category, string> = {

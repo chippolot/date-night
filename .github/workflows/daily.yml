@@ -87,6 +87,9 @@ jobs:
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
           CARTO_KEY: ${{ secrets.CARTO_KEY }}
+          # Not secrets (they ship in the page), so repo variables.
+          SENTRY_DSN: ${{ vars.SENTRY_DSN }}
+          POSTHOG_KEY: ${{ vars.POSTHOG_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

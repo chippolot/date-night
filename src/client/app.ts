@@ -8,6 +8,7 @@ import { card, esc, formatDate, listingPath } from "../pages/components";
 import { occurrences, tonightView, venueMap, weekView } from "../pages/views";
 import { enableShare, wireShare } from "./share";
 import { loadSiteData, wireFilters } from "./shared";
+import { track } from "./track";
 
 const page = document.body.dataset.page;
 const view = document.querySelector<HTMLElement>("[data-view]");
@@ -107,6 +108,7 @@ function renderSurprise(data: SiteData, f: Filters) {
 			(v) => !f.hood.length || f.hood.includes(v.neighborhood),
 		),
 	);
+	track("surprise", { found: !!pick });
 	if (!pick) {
 		out.innerHTML = `<div class="ticket"><div class="ticket-part ticket-empty">${CLOSE_BUTTON}<p>Couldn't find a pairing for ${day === today ? "tonight" : "that day"} with these filters. Try loosening them.</p></div></div>`;
 		wireClose(out);

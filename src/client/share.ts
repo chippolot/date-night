@@ -1,5 +1,6 @@
 // Share buttons on cards: the phone's share sheet where there is one, otherwise copy the link.
 // Used by the Tonight and Coming up pages (app.ts) and the static pages (static.ts).
+import { track } from "./track";
 
 /** Share buttons need JS, so the pre-rendered HTML keeps them hidden. */
 export function enableShare(root: ParentNode) {
@@ -29,6 +30,7 @@ function toast(message: string) {
 async function share(button: HTMLElement) {
 	const url = new URL(button.dataset.share ?? "", location.href).href;
 	const text = button.dataset.shareText ?? "";
+	track("shared");
 	if (navigator.share) {
 		try {
 			await navigator.share({ title: text, text, url });
