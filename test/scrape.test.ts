@@ -4,6 +4,7 @@ import { extractLdEvents } from "../scripts/scrape/jsonld";
 import { guessCategory } from "../scripts/scrape/source";
 import {
 	cleanAbbeyTitle,
+	cleanPoshTitle,
 	matoEventSlugs,
 	parseContra,
 	parseDelille,
@@ -16,6 +17,7 @@ import {
 	parseNordic,
 	parseOctopus,
 	parsePantry,
+	parsePoshEvent,
 	parseSaltstone,
 	parseSeaFolklore,
 	parseShibuyaEvent,
@@ -27,9 +29,12 @@ import {
 	parseWestOfLenin,
 	parseWoodland,
 	parseYuTang,
+	poshEventUrls,
+	poshHints,
 	seaMonsterEventUrls,
 	shibuyaEventUrls,
 	shibuyaToFetch,
+	streetKey,
 	withYear,
 } from "../scripts/scrape/sources";
 
@@ -492,6 +497,110 @@ describe("shibuya hifi", () => {
 		expect(
 			shibuyaToFetch([page(1), page(2), page(3), page(4)], cache, "2026-10-29"),
 		).toEqual([page(2).url, page(4).url, page(3).url]);
+	});
+});
+
+describe("posh", () => {
+	test("normalizes street addresses", () => {
+		expect(streetKey("5105 Ballard Avenue Northwest, Seattle, WA 98107")).toBe(
+			"5105 ballard ave nw",
+		);
+		expect(streetKey("5105 Ballard Ave NW, Seattle, WA 98107, USA")).toBe(
+			"5105 ballard ave nw",
+		);
+		expect(streetKey("401 N. 36th Street Ste 102")).toBe("401 n 36th st");
+	});
+
+	test("picks sitemap slugs that hint at our venues or area", () => {
+		const hints = poshHints(
+			[{ name: "Roam" }, { name: "The Pub" }],
+			["seattle-freeze-1024", "x-1"],
+		);
+		expect(hints).toContain("roam");
+		expect(hints).toContain("ballard");
+		expect(hints).toContain("house-that-she-built");
+		expect(hints).not.toContain("pub");
+		expect(hints).not.toContain("x");
+		const xml = `<urlset>
+  <url>
+    <loc>https://posh.vip/e/runway-drag-brunch-at-roam-111426</loc>
+    <lastmod>2026-10-27T18:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://posh.vip/e/the-house-that-she-built-6</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://posh.vip/e/miami-rooftop-party</loc>
+    <lastmod>2026-10-27T18:00:00.000Z</lastmod>
+  </url>
+</urlset>`;
+		expect(poshEventUrls(xml, hints)).toEqual([
+			{
+				url: "https://posh.vip/e/runway-drag-brunch-at-roam-111426",
+				lastmod: "2026-10-27T18:00:00.000Z",
+			},
+			{ url: "https://posh.vip/e/the-house-that-she-built-6", lastmod: "" },
+		]);
+	});
+
+	test("drops the venue and date from titles", () => {
+		expect(cleanPoshTitle("Runway Drag Brunch at Roam 11/14/26", "Roam")).toBe(
+			"Runway Drag Brunch",
+		);
+		expect(cleanPoshTitle("Groove Plug", "Roam")).toBe("Groove Plug");
+	});
+
+	test("reads the schema.org Event from the Next.js stream, keeping our venues only", () => {
+		const page = (address: string, status = "EventScheduled") => {
+			const ld = JSON.stringify(
+				{
+					"@context": "https://schema.org",
+					"@type": "Event",
+					name: "Deep House Night at Roam",
+					startDate: "2026-11-20T21:00:00-08:00",
+					endDate: "2026-11-21T02:00:00-08:00",
+					eventStatus: `https://schema.org/${status}`,
+					url: "https://posh.vip/e/groove-plug-3",
+					location: {
+						"@type": "Place",
+						name: "Roam",
+						address: { "@type": "PostalAddress", streetAddress: address },
+					},
+					offers: { "@type": "Offer", price: 6.49, priceCurrency: "USD" },
+				},
+				null,
+				2,
+			);
+			return `<script>self.__next_f.push([1,"3e:T1,"])</script><script>self.__next_f.push([1,${JSON.stringify(ld)}])</script>`;
+		};
+		const venueByStreet = new Map([["5105 ballard ave nw", "roam"]]);
+		const url = "https://posh.vip/e/groove-plug-3";
+		const [event, ...rest] = parsePoshEvent(
+			page("5105 Ballard Ave NW, Seattle, WA 98107, USA"),
+			url,
+			venueByStreet,
+		);
+		expect(rest).toEqual([]);
+		expect(event).toMatchObject({
+			id: "posh-2026-11-20T21:00-deep-house-night",
+			venueId: "roam",
+			title: "Deep House Night",
+			startsAt: "2026-11-20T21:00:00-08:00",
+			url,
+			category: "dance",
+		});
+		expect(event?.price).toBe("$6.49");
+		expect(
+			parsePoshEvent(page("1 Main St, Miami, FL"), url, venueByStreet),
+		).toEqual([]);
+		expect(
+			parsePoshEvent(
+				page("5105 Ballard Ave NW", "EventCancelled"),
+				url,
+				venueByStreet,
+			),
+		).toEqual([]);
 	});
 });
 

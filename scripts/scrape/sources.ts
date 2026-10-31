@@ -1,8 +1,10 @@
+import { venues } from "../../data/venues";
 import { todayInSeattle } from "../../src/lib/recurrence";
-import type { Category } from "../../src/lib/types";
+import { type Category, NEIGHBORHOODS } from "../../src/lib/types";
 import { parseIcs, toIso } from "./ical";
 import { decodeEntities, extractLdEvents } from "./jsonld";
 import {
+	errorMessage,
 	get,
 	guessCategory,
 	icsSource,
@@ -1094,6 +1096,180 @@ const shibuyaHifi: Source = {
 		console.log(
 			`  shibuya-hifi: fetched ${toFetch.size} of ${pages.length} pages`,
 		);
+		return Object.values(next).flatMap((p) => p.events);
+	},
+};
+
+// ---------------------------------------------------------------------------
+// Posh (posh.vip): tickets for bar and club parties, such as Roam's DJ nights and drag brunch, often
+// posted by outside promoters. Venue and organizer pages load their events through /api/, which
+// robots.txt disallows, so this reads the sitemap of recently changed events (50,000 worldwide)
+// and fetches only pages whose slug hints at our area: a venue name, a neighborhood, "seattle", or
+// a series already found at one of our venues. Events are kept when their street address is one of
+// our venues'. Events whose slug gives no hint are missed.
+
+const POSH = "https://posh.vip";
+
+/** Series at our venues whose slugs name neither the venue nor the area */
+const POSH_SERIES = ["house-that-she-built", "groove-plug"];
+/** Most event pages fetched per run (a second apart) */
+const POSH_MAX_FETCHES = 150;
+
+/** "5105 Ballard Avenue Northwest, Seattle, WA" → "5105 ballard ave nw" */
+export function streetKey(address: string): string {
+	const words: Record<string, string> = {
+		avenue: "ave",
+		street: "st",
+		place: "pl",
+		boulevard: "blvd",
+		road: "rd",
+		drive: "dr",
+		north: "n",
+		south: "s",
+		east: "e",
+		west: "w",
+		northwest: "nw",
+		northeast: "ne",
+		southwest: "sw",
+		southeast: "se",
+	};
+	return (address.split(",")[0] ?? "")
+		.toLowerCase()
+		.replace(/\./g, "")
+		.replace(/\s+(?:#|ste\b|suite\b|unit\b).*$/, "")
+		.split(/\s+/)
+		.filter(Boolean)
+		.map((w) => words[w] ?? w)
+		.join(" ");
+}
+
+/** Slug fragments that make a Posh event worth fetching. */
+export function poshHints(
+	venueList: { name: string }[],
+	matchedSlugs: string[],
+): string[] {
+	const names = venueList
+		.map((v) => slug(v.name).replace(/^the-/, ""))
+		.filter((n) => n.length >= 4);
+	// "seattle-freeze-1024" → "seattle-freeze": series repeat with a new suffix.
+	const series = matchedSlugs.map((s) => s.replace(/(-\d+)+$/, ""));
+	return [
+		...new Set([
+			"seattle",
+			"u-district",
+			...Object.keys(NEIGHBORHOODS),
+			...names,
+			...POSH_SERIES,
+			...series.filter((s) => s.length >= 6),
+		]),
+	];
+}
+
+/** Event pages in the Posh sitemap whose slug contains one of `hints`. */
+export function poshEventUrls(xml: string, hints: string[]): SitemapPage[] {
+	return [
+		...xml.matchAll(
+			/<loc>https:\/\/posh\.vip\/e\/([^<]+)<\/loc>\s*(?:<lastmod>([^<]+)<\/lastmod>)?/g,
+		),
+	]
+		.filter(([, s = ""]) => hints.some((h) => s.includes(h)))
+		.map(([, s = "", lastmod = ""]) => ({ url: `${POSH}/e/${s}`, lastmod }));
+}
+
+/** "Runway Drag Brunch at Roam 11/14/26" → "Runway Drag Brunch" */
+export function cleanPoshTitle(title: string, venue: string): string {
+	const at = venue.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+	return (
+		title
+			.replace(/\s+\d{1,2}\/\d{1,2}(?:\/\d{2,4})?$/, "")
+			.replace(new RegExp(`\\s+(?:at|@)\\s+${at}$`, "i"), "")
+			.trim() || title
+	);
+}
+
+const DJ_NIGHT = /\b(dj|djs|house|techno|disco|ukg|open decks|dance party)\b/i;
+
+/**
+ * Events on a Posh event page held at one of our venues. The page's schema.org Event sits in a
+ * Next.js stream chunk (`self.__next_f.push([1,"…"])`), not in a JSON-LD script tag.
+ */
+export function parsePoshEvent(
+	html: string,
+	url: string,
+	venueByStreet: Map<string, string>,
+): ScrapedEvent[] {
+	const ld = [
+		...html.matchAll(/self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g),
+	]
+		.map(([, chunk = '""']) => JSON.parse(chunk) as string)
+		.filter((s) => s.trimStart().startsWith("{") && s.includes("schema.org"))
+		.map((s) => `<script type="application/ld+json">${s}</script>`)
+		.join("");
+	return extractLdEvents(ld).flatMap((e) => {
+		const venueId = venueByStreet.get(streetKey(e.address ?? ""));
+		if (!venueId || e.cancelled) return [];
+		const title = cleanPoshTitle(e.name, e.location ?? "");
+		return [
+			{
+				id: `posh-${e.startDate.slice(0, 16)}-${slug(title)}`,
+				venueId,
+				title,
+				startsAt: e.startDate,
+				endsAt: e.endDate,
+				url: e.url ?? url,
+				price: e.price,
+				category: guessCategory(
+					title,
+					DJ_NIGHT.test(title) ? "dance" : undefined,
+				),
+			},
+		];
+	});
+}
+
+const posh: Source = {
+	id: "posh",
+	// Weeks can pass with no Posh event at our venues.
+	mayBeEmpty: true,
+	timeoutMinutes: 10,
+	async fetchEvents() {
+		const today = horizon().from;
+		const cache = await readCache<CachedPage>("posh");
+		const matched = Object.entries(cache)
+			.filter(([, p]) => p.events.length > 0)
+			.map(([url]) => url.slice(`${POSH}/e/`.length));
+		const pages = poshEventUrls(
+			await get(`${POSH}/sitemap-events-recent.xml`),
+			poshHints(venues, matched),
+		);
+		const venueByStreet = new Map(
+			venues.map((v) => [streetKey(v.address), v.id]),
+		);
+		const upcoming = (events: ScrapedEvent[]) =>
+			events.filter((e) => e.startsAt.slice(0, 10) >= today);
+		const toFetch = new Set(
+			shibuyaToFetch(pages, cache, today).slice(0, POSH_MAX_FETCHES),
+		);
+		// Pages that left the sitemap drop out of the cache here.
+		const next: Record<string, CachedPage> = {};
+		for (const { url, lastmod } of pages) {
+			const hit = cache[url];
+			if (!toFetch.has(url)) {
+				if (hit) next[url] = { ...hit, events: upcoming(hit.events) };
+				continue;
+			}
+			await pause(1);
+			let events: ScrapedEvent[] = [];
+			try {
+				events = upcoming(parsePoshEvent(await get(url), url, venueByStreet));
+			} catch (err) {
+				// A removed event shouldn't fail the source.
+				console.log(`  posh: ${errorMessage(err)}`);
+			}
+			next[url] = { lastmod, fetched: today, events };
+		}
+		await writeCache("posh", next);
+		console.log(`  posh: fetched ${toFetch.size} of ${pages.length} pages`);
 		return Object.values(next).flatMap((p) => p.events);
 	},
 };
@@ -2309,6 +2485,9 @@ const delilleEnVille: Source = {
 // Wargaming (scrapable, but daytime tournaments), Bale Breaker's Tribe calendar (drops requests
 // that name this scraper in the user agent). TicketWeb (Tractor) and the Wizards event locator
 // (Mox, U Wine Bar) are fetchable but their terms forbid scraping.
+// Roam's own SpotHopper events page is empty ("We are updating our events"); its parties come from
+// Posh above. Twist of Fate's Squarespace site has no events page: it posts events only on Instagram.
+// EverOut (403 to scripts) and Do206 (robots.txt disallows ClaudeBot) aren't used.
 export const sources: Source[] = [
 	visitBallard,
 	myBallard,
@@ -2364,6 +2543,7 @@ export const sources: Source[] = [
 	eightBells,
 	jollyRoger,
 	delilleEnVille,
+	posh,
 	// Last: least reliable, so every other source wins a shared venue and start time.
 	mato,
 ];

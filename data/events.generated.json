@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-30T23:20:26.358Z",
+	"generatedAt": "2026-10-31T02:25:58.899Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-30T18:26:41.077Z",
 		"artemis-coffee": "2026-10-30T18:26:41.077Z",
@@ -36,6 +36,7 @@
 		"pantry": "2026-10-30T18:26:41.077Z",
 		"phinneywood": "2026-10-30T18:26:41.077Z",
 		"pono-ranch": "2026-10-30T18:26:41.077Z",
+		"posh": "2026-10-31T02:25:58.896Z",
 		"salmon-bay-eagles": "2026-10-30T21:05:23.433Z",
 		"saltstone": "2026-10-30T18:26:41.077Z",
 		"sea-monster-lounge": "2026-10-30T18:26:41.077Z",
@@ -2259,6 +2260,16 @@
 			"source": "salmon-bay-eagles"
 		},
 		{
+			"id": "posh-2026-11-07T09:00-seattle-sauna-festival-brings-nordic-traditions-and-northwes",
+			"venueId": "nordic-museum",
+			"title": "Seattle Sauna Festival Brings Nordic Traditions and Northwest Spirit to the National Nordic Museum",
+			"startsAt": "2026-11-07T09:00:00-08:00",
+			"endsAt": "2026-11-08T20:00:00-08:00",
+			"url": "https://posh.vip/e/seattle-sauna-festival-brings-nordic-traditions-and-northwest-spirit-to-the-national-nordic-museum",
+			"price": "$82.95",
+			"source": "posh"
+		},
+		{
 			"id": "nordic-museum-2026-11-07-forest-bathing-at-discovery-park",
 			"title": "Forest Bathing at Discovery Park",
 			"startsAt": "2026-11-07T10:00:00-08:00",
@@ -3729,6 +3740,16 @@
 			"category": "class",
 			"source": "nordic-museum",
 			"venueId": "nordic-museum"
+		},
+		{
+			"id": "posh-2026-11-14T12:00-runway-drag-brunch",
+			"venueId": "roam",
+			"title": "Runway Drag Brunch",
+			"startsAt": "2026-11-14T12:00:00-08:00",
+			"endsAt": "2026-11-14T16:00:00-08:00",
+			"url": "https://posh.vip/e/runway-drag-brunch-at-roam-111426",
+			"price": "$26.25",
+			"source": "posh"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-14T14:00-khruangbin-and-leon-bridges-texas-sun-texas-moon",

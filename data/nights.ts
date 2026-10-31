@@ -138,6 +138,24 @@ export const nights: Night[] = [
 		confidence: "confirmed",
 	},
 	{
+		id: "roam-happy-hour",
+		venueId: "roam",
+		title: "Happy hour",
+		category: "food-drink-special",
+		recurrence: {
+			kind: "weekly",
+			days: ["MO", "TU", "WE", "TH", "FR", "SA", "SU"],
+		},
+		start: "16:30",
+		end: "18:30",
+		description:
+			"Travel-themed cocktails in a two-level bar on Ballard Ave, with DJs Wednesday to Sunday. Daily 4:30–6:30pm per Roam's Instagram bio; the linked post gives the 4:30pm start.",
+		vibe: ["low-key"],
+		sourceUrl: "https://www.instagram.com/p/DYBhTMjlIiH/",
+		lastVerified: "2026-10-30",
+		confidence: "likely",
+	},
+	{
 		id: "kochendorfers-trivia",
 		venueId: "kochendorfers",
 		title: "Monday trivia",
