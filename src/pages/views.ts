@@ -43,6 +43,7 @@ import {
 	describeRecurrence,
 	esc,
 	formatDate,
+	missingLink,
 	SPECIALS,
 	specialsShelf,
 	subscribeLinks,
@@ -143,7 +144,10 @@ function relaxations(
 		.slice(0, 3);
 }
 
-/** The "nothing matches" message: a way forward in time, and filters worth loosening. */
+/**
+ * The "nothing matches" message: a way forward in time, filters worth loosening, and `missing`,
+ * a link for telling us about something we don't list.
+ */
 function emptyState(
 	data: SiteData,
 	f: Filters,
@@ -151,7 +155,8 @@ function emptyState(
 		message,
 		list,
 		after,
-	}: { message: string; list: Occurrence[]; after: string },
+		missing,
+	}: { message: string; list: Occurrence[]; after: string; missing: string },
 ): string {
 	const venueById = venueMap(data);
 	const next = applyFilters(
@@ -169,7 +174,8 @@ function emptyState(
 			(r) =>
 				`<a href="${esc(toQuery(r.f) || "?")}">${esc(r.label)}</a> <span class="part-count">${r.count}</span>`,
 		),
-	];
+		missing,
+	].filter(Boolean);
 	return `<div class="empty"><p class="empty-message">${message}</p>${ideas.length ? `<ul class="empty-ideas">${ideas.map((i) => `<li>${i}</li>`).join("")}</ul>` : ""}</div>`;
 }
 
@@ -195,6 +201,16 @@ export function tonightView(
 				: "Nothing on this day with these filters.",
 		list: all,
 		after: addDays(day, 1),
+		missing: missingLink(
+			`Know something on ${day === today ? "tonight" : "this day"}? Tell us`,
+			{
+				when: formatDate(day, {
+					weekday: "short",
+					month: "short",
+					day: "numeric",
+				}),
+			},
+		),
 	});
 	return `<p class="date-heading"><span class="date-num">${formatDate(day, { day: "2-digit" })}</span><span class="date-words"><span class="date-weekday">${formatDate(day, { weekday: "long" })}</span><span class="date-month">${formatDate(day, { month: "long", year: "numeric" })}</span></span></p>
 ${sections || specials.length ? `${specialsShelf(specials, venueById)}${sections}` : empty}
@@ -216,6 +232,9 @@ export function weekView(
 			message: "Nothing this week with these filters.",
 			list: all,
 			after: addDays(start, 7),
+			missing: missingLink("Know something on this week? Tell us", {
+				when: `Week of ${formatDate(start, { month: "short", day: "numeric" })}`,
+			}),
 		})}${subscribeLinks(f)}`;
 	const days = Array.from({ length: 7 }, (_, i) => addDays(start, i));
 	return `<div class="week">${days
@@ -271,9 +290,12 @@ export function venueView(
 	]
 		.filter(Boolean)
 		.join(" · ");
+	const missing = missingLink("Missing a night here? Tell us", {
+		venue: venue.name,
+	});
 	return `<p class="venue-meta">${NEIGHBORHOODS[venue.neighborhood]} · ${PRICE_LEVELS[venue.priceLevel]} food &amp; drinks · ${esc(venue.address)}</p>
 <p>${links}</p>
-<section><h2>Recurring nights</h2>${recurring.join("\n") || `<p class="empty">No recurring nights listed.</p>`}</section>
+<section><h2>Recurring nights</h2>${recurring.join("\n") || `<p class="empty">No recurring nights listed.</p>`}${missing ? `<p class="missing">${missing}</p>` : ""}</section>
 <section><h2>Upcoming events</h2>${events.join("\n") || `<p class="empty">No dated events in the next 60 days.</p>`}</section>`;
 }
 
@@ -451,8 +473,9 @@ export function footer({ subscribe = true } = {}): string {
 	const link = subscribe
 		? `<a href="${href("/feeds/all.ics")}" data-webcal>Subscribe to everything in your calendar app</a> · `
 		: "";
+	const missing = missingLink("Know something we're missing?");
 	return `<footer>
   <p>Recurring nights are hand-curated and change often. Each card shows when it was last checked, so confirm with the venue before you go.</p>
-  <p>${link}${esc(SITE.title)}</p>
+  <p>${link}${missing ? `${missing} · ` : ""}${esc(SITE.title)}</p>
 </footer>`;
 }

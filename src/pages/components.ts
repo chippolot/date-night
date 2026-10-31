@@ -149,6 +149,19 @@ export function reportLink(o: Occurrence, venue: Venue | undefined): string {
 	return `<a class="icon-action" href="${esc(url)}" rel="noopener" target="_blank" title="Something changed? Tell us" aria-label="Report a change">${FLAG_ICON}</a>`;
 }
 
+/** A link to the "Know something we're missing?" form, pre-filled with the venue or day when known. */
+export function missingLink(
+	text: string,
+	{ venue, when }: { venue?: string; when?: string } = {},
+): string {
+	const form = SITE.missingForm;
+	if (!form.url) return "";
+	const params = new URLSearchParams({ usp: "pp_url" });
+	if (venue && form.venue) params.set(form.venue, venue);
+	if (when && form.when) params.set(form.when, when);
+	return `<a href="${esc(`${form.url}?${params}`)}" rel="noopener" target="_blank">${esc(text)}</a>`;
+}
+
 const DAY_NAMES: Record<Weekday, string> = {
 	SU: "Sun",
 	MO: "Mon",

@@ -585,10 +585,12 @@ const halfseas: Source = {
 	},
 };
 
-// Halcyon Brewing (Greenwood): one-off events; the weekday happy hour is a curated night.
+// Halcyon Brewing (Greenwood): one-off events; the weekday happy hour is a curated night. It posts
+// a week or so at a time, so the calendar is sometimes empty between batches.
 const halcyon: Source = {
 	id: "halcyon",
 	venueId: "halcyon-brewing",
+	mayBeEmpty: true,
 	fetchEvents: async () =>
 		(
 			await squarespaceEvents(

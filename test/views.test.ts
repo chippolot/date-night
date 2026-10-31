@@ -1,4 +1,5 @@
-import { describe, expect, test } from "bun:test";
+import { afterEach, describe, expect, test } from "bun:test";
+import { SITE } from "../src/config";
 import type { SiteData } from "../src/lib/data";
 import { EMPTY_FILTERS } from "../src/lib/filters";
 import type { Night, Occurrence, Venue } from "../src/lib/types";
@@ -7,6 +8,7 @@ import {
 	footer,
 	listingSummary,
 	tonightView,
+	venueView,
 	weekView,
 } from "../src/pages/views";
 
@@ -191,5 +193,66 @@ describe("sharing", () => {
 	test("offers the everything feed once, in the page's own subscribe line", () => {
 		expect(footer()).toContain("Subscribe to everything");
 		expect(footer({ subscribe: false })).not.toContain("Subscribe");
+	});
+});
+
+describe("missing-events form", () => {
+	const form = { ...SITE.missingForm };
+	const useForm = () => {
+		SITE.missingForm = {
+			url: "https://forms.example/missing",
+			venue: "entry.1",
+			when: "entry.2",
+		};
+	};
+	afterEach(() => {
+		SITE.missingForm = form;
+	});
+	const ballardOnly = {
+		...EMPTY_FILTERS,
+		hood: ["ballard"] as Venue["neighborhood"][],
+	};
+
+	test("hidden until the form has a url", () => {
+		SITE.missingForm = { url: "", venue: "", when: "" };
+		expect(tonightView(data, "2026-10-30", ballardOnly)).not.toContain(
+			"Know something",
+		);
+		expect(
+			venueView(data, venue("pub", "ballard"), "2026-10-30"),
+		).not.toContain("Missing a night");
+		expect(footer()).not.toContain("missing");
+	});
+
+	test("the empty state offers it, pre-filled with the day", () => {
+		useForm();
+		expect(tonightView(data, "2026-10-30", ballardOnly)).toContain(
+			'href="https://forms.example/missing?usp=pp_url&amp;entry.2=Fri%2C+Oct+30"',
+		);
+		expect(tonightView(data, "2026-10-30", ballardOnly)).toContain(
+			"Know something on tonight? Tell us",
+		);
+		expect(
+			tonightView(data, "2026-10-31", ballardOnly, "2026-10-30"),
+		).toContain("Know something on this day? Tell us");
+		expect(
+			weekView(data, "2026-10-30", { ...EMPTY_FILTERS, q: "karaoke" }),
+		).toContain("entry.2=Week+of+Oct+30");
+	});
+
+	test("venue pages offer it, pre-filled with the venue", () => {
+		useForm();
+		const html = venueView(
+			data,
+			{ ...venue("pub", "ballard"), name: "Pub & Co" },
+			"2026-10-30",
+		);
+		expect(html).toContain("entry.1=Pub+%26+Co");
+		expect(html).toContain("Missing a night here? Tell us");
+	});
+
+	test("the footer links it", () => {
+		useForm();
+		expect(footer()).toContain("Know something we&#39;re missing?");
 	});
 });

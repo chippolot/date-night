@@ -17,6 +17,16 @@ export const SITE = {
 		listing: "entry.1892429106",
 		source: "entry.2117411879",
 	},
+	/**
+	 * The Google Form for telling us about something we don't list at all ("Know something we're
+	 * missing?"), and the ids of its Where and When questions. Responses are leads for hand
+	 * verification, never written into nights.ts automatically. An empty url hides the links.
+	 */
+	missingForm: {
+		url: "",
+		venue: "",
+		when: "",
+	},
 	/** Nights verified longer ago than this get a "may be outdated" badge. */
 	freshDays: 90,
 };

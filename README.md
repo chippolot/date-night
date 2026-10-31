@@ -43,6 +43,8 @@ Some venues announce one-off events only in flyer images on Instagram. The `inst
 
 Each card's flag links to a "Something changed?" Google Form, pre-filled with the listing and its source (`SITE.reportForm` in `src/config.ts`). Responses land in the form's Responses tab. People with a GitHub account can also use the "Something changed" issue form (`.github/ISSUE_TEMPLATE/listing-change.yml`).
 
+A second form, "Know something we're missing?" (`SITE.missingForm`), is for things we don't list at all. It's linked from the footer, from venue pages (pre-filled with the venue) and from empty days (pre-filled with the date), and stays hidden until its `url` is set. Set `venue` and `when` to the `entry.*` ids of its Where and When questions, from the form's pre-filled link. Responses are leads to verify by hand, like `ig-leads`.
+
 Nights checked more than 90 days ago show a "May be outdated" badge. You can change that in `src/config.ts`.
 
 ## Adding an event source
