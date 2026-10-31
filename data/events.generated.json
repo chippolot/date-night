@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-10-31T14:16:58.578Z",
+	"generatedAt": "2026-10-31T14:41:09.971Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-10-31T14:16:58.574Z",
 		"artemis-coffee": "2026-10-31T14:16:58.574Z",
@@ -10,15 +10,20 @@
 		"conor-byrne": "2026-10-31T14:16:58.573Z",
 		"delille-en-ville": "2026-10-31T14:16:58.575Z",
 		"dinodad-comedy": "2026-10-31T14:16:58.574Z",
+		"doe-bay-phinney": "2026-10-31T14:41:09.968Z",
 		"egans": "2026-10-31T14:16:58.574Z",
 		"eight-bells-winery": "2026-10-31T14:16:58.575Z",
 		"figurehead-stone-way": "2026-10-31T14:16:58.574Z",
 		"flying-bike": "2026-10-31T14:16:58.575Z",
 		"greenstage": "2026-10-31T14:16:58.574Z",
+		"greenwood-art-collective": "2026-10-31T14:41:09.968Z",
 		"halcyon": "2026-10-31T03:34:00.814Z",
 		"halfseas": "2026-10-31T14:16:58.573Z",
+		"henry": "2026-10-31T14:41:09.968Z",
 		"hidden-hall": "2026-10-31T14:16:58.573Z",
+		"imperfetta": "2026-10-31T14:41:09.968Z",
 		"instagram": "2026-10-31T14:16:58.575Z",
+		"jack-straw": "2026-10-31T14:41:09.968Z",
 		"jet-city-improv": "2026-10-31T14:16:58.574Z",
 		"jolly-roger": "2026-10-31T14:16:58.575Z",
 		"kings-hardware": "2026-10-31T14:16:58.574Z",
@@ -29,6 +34,7 @@
 		"mato": "2026-10-31T14:16:58.575Z",
 		"meany-center": "2026-10-31T14:16:58.574Z",
 		"mockingbird-comedy": "2026-10-31T14:16:58.574Z",
+		"mollys-bottle-shop": "2026-10-31T14:41:09.968Z",
 		"mr-bs-meadery": "2026-10-31T14:16:58.574Z",
 		"myballard": "2026-10-31T14:16:58.573Z",
 		"nectar": "2026-10-31T14:16:58.574Z",
@@ -60,27 +66,6 @@
 		"yu-tang": "2026-10-31T14:16:58.574Z"
 	},
 	"events": [
-		{
-			"id": "halcyon-2026-10-31T02:30-improv-overload",
-			"title": "Improv Overload",
-			"startsAt": "2026-10-30T19:30:00-07:00",
-			"endsAt": "2026-10-30T21:00:00-07:00",
-			"url": "https://www.halcyonbrewingco.com/events/improv-overload-9sbl2-tflj5-ft7sl-bsz84-bd5le",
-			"category": "comedy",
-			"source": "halcyon",
-			"venueId": "halcyon-brewing"
-		},
-		{
-			"id": "mato-2026-10-30T19:30-halloween-bash-iii-friday",
-			"title": "Halloween Bash III: Friday",
-			"startsAt": "2026-10-30T19:30:00.000-07:00",
-			"endsAt": "2026-10-31T00:30:00.000-07:00",
-			"url": "https://ma.to/event/halloween-bash-iii-friday-30-oct-2026",
-			"price": "$20",
-			"venueId": "sunset-tavern",
-			"category": "live-music",
-			"source": "mato"
-		},
 		{
 			"id": "mato-2026-10-30T21:00-halloween-special-show",
 			"title": "Halloween Special Show",
@@ -1336,6 +1321,16 @@
 			"venueId": "watershed-pub"
 		},
 		{
+			"id": "jack-straw-2026-11-04-birdbrains-the-jack-straw-reading",
+			"title": "Birdbrains: The Jack Straw Reading",
+			"startsAt": "2026-11-04T19:00:00-08:00",
+			"endsAt": "2026-11-04T20:30:00-08:00",
+			"url": "https://www.jackstraw.org/event/birdbrains-the-jack-straw-reading/",
+			"category": "comedy",
+			"source": "jack-straw",
+			"venueId": "jack-straw"
+		},
+		{
 			"id": "mockingbird-comedy-1998044201994",
 			"venueId": "elliott-bay-lake-city",
 			"title": "The Happy Hour Comedy Show",
@@ -1882,6 +1877,26 @@
 			"source": "visitballard"
 		},
 		{
+			"id": "henry-2026-11-06-drop-in-printmaking-workshop-with-anneke-wilder",
+			"title": "Drop-In Printmaking Workshop with Anneke Wilder",
+			"startsAt": "2026-11-06T11:00:00-08:00",
+			"endsAt": "2026-11-06T14:00:00-08:00",
+			"url": "https://henryart.org/programs/drop-in-printmaking-workshop-with-anneke-wilder",
+			"category": "class",
+			"source": "henry",
+			"venueId": "henry-art-gallery"
+		},
+		{
+			"id": "henry-2026-11-06-uw-student-film-showcase",
+			"title": "UW Student Film Showcase",
+			"startsAt": "2026-11-06T14:00:00-08:00",
+			"endsAt": "2026-11-06T15:00:00-08:00",
+			"url": "https://henryart.org/programs/uw-student-film-showcase",
+			"category": "theater",
+			"source": "henry",
+			"venueId": "henry-art-gallery"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-06T17:00-ben-webster-quintet-soulville",
 			"title": "Ben Webster Quintet - Soulville",
 			"startsAt": "2026-11-06T17:00:00-08:00",
@@ -1949,6 +1964,16 @@
 			"source": "west-of-lenin",
 			"venueId": "west-of-lenin",
 			"category": "theater"
+		},
+		{
+			"id": "jack-straw-2026-11-06-new-media-gallery-artist-talk-i-contain-my-outside",
+			"title": "New Media Gallery Artist Talk: I Contain My Outside",
+			"startsAt": "2026-11-06T19:00:00-08:00",
+			"endsAt": "2026-11-06T20:30:00-08:00",
+			"url": "https://www.jackstraw.org/event/new-media-gallery-artist-talk-i-contain-my-outside/",
+			"category": "art",
+			"source": "jack-straw",
+			"venueId": "jack-straw"
 		},
 		{
 			"id": "dinodad-comedy-1984240073474",
@@ -3728,6 +3753,16 @@
 			"source": "classpop"
 		},
 		{
+			"id": "henry-2026-11-14-james-turrell-s-skyspace-a-brilliant-return",
+			"title": "James Turrell's Skyspace: A Brilliant Return",
+			"startsAt": "2026-11-14T15:30:00-08:00",
+			"endsAt": "2026-11-14T18:00:00-08:00",
+			"url": "https://henryart.org/programs/james-turrells-skyspace-a-brilliant-return",
+			"category": "art",
+			"source": "henry",
+			"venueId": "henry-art-gallery"
+		},
+		{
 			"id": "shibuya-hifi-2026-11-14T17:00-velvet-underground-loaded",
 			"title": "Velvet Underground - Loaded",
 			"startsAt": "2026-11-14T17:00:00-08:00",
@@ -4591,6 +4626,16 @@
 			"price": "$72.81",
 			"category": "class",
 			"source": "classpop"
+		},
+		{
+			"id": "henry-2026-11-19-art-fwd-trenton-doyle-hancock",
+			"title": "Art Fwd: Trenton Doyle Hancock",
+			"startsAt": "2026-11-19T18:00:00-08:00",
+			"endsAt": "2026-11-19T19:30:00-08:00",
+			"url": "https://henryart.org/programs/art-fwd-trenton-doyle-hancock",
+			"category": "art",
+			"source": "henry",
+			"venueId": "henry-art-gallery"
 		},
 		{
 			"id": "shibuya-hifi-2026-11-19T18:00-lorde-melodrama",
