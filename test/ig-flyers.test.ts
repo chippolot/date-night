@@ -91,6 +91,7 @@ describe("ig flyers", () => {
 			]),
 			other: post("other", "2026-10-25", [
 				event("Seahawks watch party", "2026-11-01", "13:00"),
+				event("Momo Express (food truck)", "2026-11-01", "12:00"),
 				event("Last week", "2026-10-21", "20:00"),
 				event("Next year", "2027-06-01", "20:00"),
 				{

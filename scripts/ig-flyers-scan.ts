@@ -53,6 +53,7 @@ export const FLYER_VENUES = [
 	"percys-and-co",
 	"atlantic-crossing",
 	"dreamland",
+	"chucks-hop-shop-greenwood",
 ];
 
 const GRAPH = "https://graph.facebook.com/v23.0";
@@ -273,7 +274,7 @@ export async function scan(
 
 /** Watch parties, kids' events and the like: not date nights. */
 const NOT_DATE_NIGHT =
-	/\b(watch party|game watch|seahawks|mariners|sounders|kraken|huskies|nfl|nba|wnba|mlb|ufc|football|world cup|vs\.?|kids?|parents'? night out|family|toddlers?|storytime)\b/i;
+	/\b(watch party|game watch|seahawks|mariners|sounders|kraken|huskies|nfl|nba|wnba|mlb|ufc|football|world cup|vs\.?|kids?|parents'? night out|family|toddlers?|storytime|food trucks?)\b/i;
 const DJ_NIGHT = /\b(dj|djs|house|techno|disco|ukg|open decks|dance party)\b/i;
 const FOOD_DRINK =
 	/\b(deal|specials?|pop[- ]?up|\$\d+ (?:litres?|liters?|pints?|drafts?|beers?|cocktails?))\b/i;

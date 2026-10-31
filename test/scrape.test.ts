@@ -5,12 +5,15 @@ import { guessCategory } from "../scripts/scrape/source";
 import {
 	cleanAbbeyTitle,
 	cleanPoshTitle,
+	henryProgramLinks,
 	matoEventSlugs,
 	parseContra,
 	parseDelille,
 	parseEgans,
 	parseEventbrite,
 	parseEvey,
+	parseHenryProgram,
+	parseJackStraw,
 	parseJetCityShow,
 	parseMatoEvents,
 	parseMeany,
@@ -1369,6 +1372,147 @@ describe("delille en ville", () => {
 				startsAt: "2027-01-09T18:00:00-08:00",
 				endsAt: undefined,
 				url: "https://delillecellars.com/events/winter-wine-dinner/",
+			},
+		]);
+	});
+});
+
+describe("henry art gallery", () => {
+	const tile = (path: string, date: string) => `<div class="smThumb js-tile">
+		<a href="https://henryart.org/programs/${path}" class="box-shadow green-hover-overlay">
+			<div class="pa20">
+				<div class="c-1 fs28 mbs"><p>Title</p></div>
+				<div class="mts c-1 fs14 tile-date">
+					${date}
+				</div>
+			</div>
+		</a>
+	</div>`;
+
+	test("links upcoming single-date programs only", () => {
+		const html = [
+			tile("past-talk", "October 24, 2026"),
+			tile("art-fwd", "November 19, 2026"),
+			tile("midday-mindfulness", "Second Thursdays   October – December 2026"),
+			tile("next-year", "April 22, 2027"),
+		].join("");
+		expect(henryProgramLinks(html, "2026-10-31")).toEqual([
+			"https://henryart.org/programs/art-fwd",
+			"https://henryart.org/programs/next-year",
+		]);
+	});
+
+	const page = (title: string, when: string) =>
+		`<title>${title} - Henry Art Gallery</title>
+		<div class="col-md-8 phm mtm fsl">
+			<div>
+				Auditorium
+			</div>
+			<div>
+				${when}
+			</div>
+		</div>`;
+
+	test("reads the date and times from a program page", () => {
+		expect(
+			parseHenryProgram(
+				page(
+					"James Turrell&#039;s Skyspace",
+					"Saturday, November 14, 2026, 3:30\u202fPM &mdash;\n\t\t\t6:00\u202fPM",
+				),
+				"https://henryart.org/programs/skyspace",
+			),
+		).toEqual({
+			id: "henry-2026-11-14-james-turrell-s-skyspace",
+			title: "James Turrell's Skyspace",
+			startsAt: "2026-11-14T15:30:00-08:00",
+			endsAt: "2026-11-14T18:00:00-08:00",
+			url: "https://henryart.org/programs/skyspace",
+		});
+	});
+
+	test("skips a series that spans dates", () => {
+		expect(
+			parseHenryProgram(
+				page(
+					"Midday Mindfulness",
+					"Thursday, October 08, 2026, 11:30\u202fAM &mdash;\n\t\t\tThursday, December 10, 2026, 12:00\u202fPM",
+				),
+				"https://henryart.org/programs/midday-mindfulness",
+			),
+		).toBeUndefined();
+	});
+});
+
+describe("jack straw", () => {
+	const tooltip = (
+		id: number,
+		title: string,
+		utc: string,
+		start: string,
+		end: string,
+		venue: string,
+	) => `<div class="wicked-event-tooltip-container">
+    <div id="wicked-event-tooltip-${id}" class="wicked-event wicked-event-tooltip">
+                <div class="wicked-event-title"><a href="https://www.jackstraw.org/event/${id}/">${title}</a></div>
+        <div class="wicked-event-date"><span class="wicked-start-date" itemprop="startDate" content="${utc}">Date</span></div>
+        <div class="wicked-event-time"><span class="wicked-start-time">${start}</span> - <span class="wicked-end-time">${end}</span></div>
+                    <div class="wicked-event-venue-title">${venue}</div>
+            </div>
+</div>`;
+
+	test("keeps on-site readings and talks, once each", () => {
+		const reading = tooltip(
+			1,
+			"Birdbrains: The Jack Straw Reading",
+			"2026-11-05T03:00:00Z",
+			"7:00 pm",
+			"8:30 pm",
+			"Jack Straw Cultural Center",
+		);
+		const html = [
+			reading,
+			reading,
+			tooltip(
+				2,
+				"Intro to Audio Editing",
+				"2026-11-06T02:00:00Z",
+				"6:00 pm",
+				"9:00 pm",
+				"Jack Straw on Zoom",
+			),
+			tooltip(
+				3,
+				"Basic Studio Recording",
+				"2026-11-19T02:00:00Z",
+				"6:00 pm",
+				"10:00 pm",
+				"Jack Straw Cultural Center",
+			),
+			tooltip(
+				4,
+				"Youth and Family Workshop",
+				"2026-11-07T22:00:00Z",
+				"2:00 pm",
+				"4:00 pm",
+				"Jack Straw Cultural Center",
+			),
+			tooltip(
+				5,
+				"Jack Straw Writers at the Library",
+				"2026-11-07T22:00:00Z",
+				"2:00 pm",
+				"3:30 pm",
+				"Seattle Public Library, Central Branch",
+			),
+		].join("");
+		expect(parseJackStraw(html)).toEqual([
+			{
+				id: "jack-straw-2026-11-04-birdbrains-the-jack-straw-reading",
+				title: "Birdbrains: The Jack Straw Reading",
+				startsAt: "2026-11-04T19:00:00-08:00",
+				endsAt: "2026-11-04T20:30:00-08:00",
+				url: "https://www.jackstraw.org/event/1/",
 			},
 		]);
 	});

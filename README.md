@@ -58,7 +58,7 @@ A source that fails keeps its previous events, so one broken site doesn't empty 
 
 Sources are listed in `sources` at the bottom of `scripts/scrape/sources.ts`, with a comment above each on how it works. Neighborhood calendars (visitballard.com, myballard.com, PhinneyWood, Sunset Hill Community Hall) keep only events at venues mapped in their venue tables. Earlier sources win when two list the same venue and start time. Respect each site's robots.txt crawl delay (`crawlDelay` / `pause`).
 
-The comment above `sources` lists sites that aren't scraped and why (see also CLAUDE.md).
+`docs/source-backlog.md` lists venues that aren't scraped yet and why: those that need a workaround, those the site's rules put off limits, and those ruled out.
 
 When a scraped event matches a curated night (same venue, same day, within an hour), the site shows the specific event, e.g. tonight's band, in place of the generic night.
 

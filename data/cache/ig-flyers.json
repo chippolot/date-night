@@ -1834,6 +1834,84 @@
 			}
 		]
 	},
+	"18045248375834991": {
+		"venueId": "chucks-hop-shop-greenwood",
+		"permalink": "https://www.instagram.com/reel/De7qMkeCDHW/",
+		"posted": "2026-10-25",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "Off the Rez (food truck)",
+				"date": "2026-10-26",
+				"start": "17:00",
+				"end": "21:00",
+				"price": null
+			},
+			{
+				"title": "Kaosamai Thai (food truck)",
+				"date": "2026-10-27",
+				"start": "17:00",
+				"end": "21:00",
+				"price": null
+			},
+			{
+				"title": "Geeks Who Drink Trivia",
+				"date": "2026-10-27",
+				"start": "19:00",
+				"end": "21:00",
+				"price": null
+			},
+			{
+				"title": "Chick'n Fix (food truck)",
+				"date": "2026-10-28",
+				"start": "17:00",
+				"end": "21:00",
+				"price": null
+			},
+			{
+				"title": "Pumpkin Carving",
+				"date": "2026-10-28",
+				"start": "18:00",
+				"end": null,
+				"price": null
+			},
+			{
+				"title": "Pizza Paesano (food truck)",
+				"date": "2026-10-29",
+				"start": "17:00",
+				"end": "21:00",
+				"price": null
+			},
+			{
+				"title": "T'Juana (food truck)",
+				"date": "2026-10-30",
+				"start": "17:00",
+				"end": "21:00",
+				"price": null
+			},
+			{
+				"title": "Sabor Boricua (food truck)",
+				"date": "2026-10-31",
+				"start": "12:00",
+				"end": "20:00",
+				"price": null
+			},
+			{
+				"title": "Cocina Barelas Brunch (food truck)",
+				"date": "2026-11-01",
+				"start": "09:00",
+				"end": "14:00",
+				"price": null
+			},
+			{
+				"title": "Momo Express (food truck)",
+				"date": "2026-11-01",
+				"start": "12:00",
+				"end": "20:00",
+				"price": null
+			}
+		]
+	},
 	"18048068066819750": {
 		"venueId": "fremont-brewing",
 		"permalink": "https://www.instagram.com/reel/DeuXwzITa1g/",
@@ -2276,6 +2354,21 @@
 		"posted": "2026-09-01",
 		"read": "2026-10-31"
 	},
+	"18085866197695198": {
+		"venueId": "chucks-hop-shop-greenwood",
+		"permalink": "https://www.instagram.com/p/DeAQ3-0SD7J/",
+		"posted": "2026-10-02",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "Fresh Hop Friday",
+				"date": "2026-10-02",
+				"start": null,
+				"end": null,
+				"price": null
+			}
+		]
+	},
 	"18086134019689371": {
 		"venueId": "russells",
 		"permalink": "https://www.instagram.com/p/Dc1KoE1sXnn/",
@@ -2356,6 +2449,21 @@
 		"posted": "2026-08-31",
 		"read": "2026-10-31"
 	},
+	"18091803629196447": {
+		"venueId": "chucks-hop-shop-greenwood",
+		"permalink": "https://www.instagram.com/p/Ddt6mIkvhmd/",
+		"posted": "2026-09-25",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "Fresh Hop Friday",
+				"date": "2026-09-25",
+				"start": null,
+				"end": null,
+				"price": null
+			}
+		]
+	},
 	"18091900682227380": {
 		"venueId": "growler-guys-ne",
 		"permalink": "https://www.instagram.com/p/De712qtjRfL/",
@@ -2417,6 +2525,21 @@
 				],
 				"start": null,
 				"end": null
+			}
+		]
+	},
+	"18092523398656908": {
+		"venueId": "chucks-hop-shop-greenwood",
+		"permalink": "https://www.instagram.com/p/Ddb0r7BSZNi/",
+		"posted": "2026-09-18",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "Fresh Hop Friday",
+				"date": "2026-09-18",
+				"start": null,
+				"end": null,
+				"price": null
 			}
 		]
 	},
@@ -2940,6 +3063,12 @@
 		"venueId": "burke-museum",
 		"permalink": "https://www.instagram.com/p/DeSNzpDEuSv/",
 		"posted": "2026-10-09",
+		"read": "2026-10-31"
+	},
+	"18108082112600131": {
+		"venueId": "chucks-hop-shop-greenwood",
+		"permalink": "https://www.instagram.com/p/DdCrYxHyXXX/",
+		"posted": "2026-09-08",
 		"read": "2026-10-31"
 	},
 	"18108191840180773": {
@@ -3582,6 +3711,21 @@
 				"title": "Trivia Night at The Fid w/ Head In The Clouds",
 				"date": "2026-10-06",
 				"start": "19:00",
+				"end": null,
+				"price": null
+			}
+		]
+	},
+	"18118077775941871": {
+		"venueId": "chucks-hop-shop-greenwood",
+		"permalink": "https://www.instagram.com/p/DdJyyRXPD4a/",
+		"posted": "2026-09-11",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "Fresh Hop Friday",
+				"date": "2026-09-11",
+				"start": null,
 				"end": null,
 				"price": null
 			}
@@ -5044,6 +5188,21 @@
 			}
 		]
 	},
+	"18217637497355547": {
+		"venueId": "chucks-hop-shop-greenwood",
+		"permalink": "https://www.instagram.com/reel/De6W1_bEx41/",
+		"posted": "2026-10-25",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "4th Annual Pumpkin Carving Party",
+				"date": "2026-10-28",
+				"start": "18:00",
+				"end": null,
+				"price": null
+			}
+		]
+	},
 	"18222415387353023": {
 		"venueId": "growler-guys-ne",
 		"permalink": "https://www.instagram.com/p/DfA6Xz9l3a6/",
@@ -5513,6 +5672,21 @@
 		"permalink": "https://www.instagram.com/p/DeuwIqRyB6J/",
 		"posted": "2026-10-20",
 		"read": "2026-10-31"
+	},
+	"18433259671182099": {
+		"venueId": "chucks-hop-shop-greenwood",
+		"permalink": "https://www.instagram.com/p/DedBOxRv0Sq/",
+		"posted": "2026-10-14",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "4th Annual Pumpkin Carving Party",
+				"date": "2026-10-28",
+				"start": "18:00",
+				"end": null,
+				"price": null
+			}
+		]
 	},
 	"18438135478183276": {
 		"venueId": "big-time-brewery",

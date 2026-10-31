@@ -1,5 +1,5 @@
 import { venues } from "../../data/venues";
-import { todayInSeattle } from "../../src/lib/recurrence";
+import { seattleParts, todayInSeattle } from "../../src/lib/recurrence";
 import { type Category, NEIGHBORHOODS } from "../../src/lib/types";
 import { cost } from "../ig-flyers";
 import { FLYER_VENUES, flyerEvents, scan } from "../ig-flyers-scan";
@@ -88,6 +88,7 @@ const PHINNEYWOOD_VENUES: Record<string, string> = {
 	"phinney center campus": "phinney-center",
 	"phinney center campus: blue (upper) building": "phinney-center",
 	"phinney center campus: brick (lower) building": "phinney-center",
+	"doe bay wine co.": "doe-bay-phinney",
 };
 
 type TribeVenue = { venue?: string };
@@ -182,7 +183,8 @@ const myBallard = tribeSource({
 });
 
 // PhinneyWood blog (Phinney Neighborhood Association). Mostly daytime senior-center and kids'
-// events, so only the Phinney Center (whose own site is behind Cloudflare) is mapped.
+// events, so only the Phinney Center (whose own site is behind Cloudflare) and Doe Bay Wine Co.
+// (which posts tastings here that aren't on its own site) are mapped.
 const phinneyWood = tribeSource({
 	id: "phinneywood",
 	origin: "https://phinneywood.com",
@@ -2042,6 +2044,34 @@ const MATO_VENUES: {
 		venueId: "elliott-bay-lake-city",
 		location: /Lake City Way/,
 	},
+	// Its own /instores page is rarely updated. Its Record Club nights at Tractor come through
+	// Tractor's page; the daily giveaways and used-bin previews aren't events.
+	{
+		slug: "sonicboomrecords",
+		venueId: "sonic-boom-records",
+		location: /^Sonic Boom/,
+		category: "live-music",
+		skip: /\b(giveaway|used bin|preview)\b/i,
+	},
+	{
+		slug: "couthbuzzardbooks",
+		venueId: "couth-buzzard",
+		location: /^Couth Buzzard/,
+		category: "comedy",
+	},
+	// Wine shops with no calendar of their own that list the odd tasting here.
+	{
+		slug: "universitywines",
+		venueId: "university-wines",
+		location: /^University Wines/,
+		category: "food-drink-special",
+	},
+	{
+		slug: "petitebottleshop",
+		venueId: "petite-wine",
+		location: /^Petite (Bottle Shop|Wine)/,
+		category: "food-drink-special",
+	},
 ];
 
 /**
@@ -2320,6 +2350,136 @@ const meanyCenter: Source = {
 	},
 };
 
+// Henry Art Gallery (UW): talks, screenings and Skyspace events. The programs page lists each
+// with a date but no time, so only upcoming ones are fetched for the "Thursday, November 19, 2026,
+// 6:00 PM — 7:30 PM" line on their own page. A series spans dates in that line and is skipped.
+// robots.txt only disallows /craft/.
+const HENRY = "https://henryart.org";
+
+/** Upcoming program links on the programs page: tiles with a single date on or after `from`. */
+export function henryProgramLinks(html: string, from: string): string[] {
+	const links = new Set<string>();
+	for (const [, url = "", text = ""] of html.matchAll(
+		/<a href="(https:\/\/henryart\.org\/programs\/[a-z0-9-]+)"[\s\S]*?class="mts c-1 fs14 tile-date">([\s\S]*?)<\/div>/g,
+	)) {
+		const m = stripTags(text).match(/^([A-Z][a-z]+) (\d{1,2}), (\d{4})$/);
+		const month = MONTHS.indexOf(m?.[1]?.slice(0, 3).toLowerCase() ?? "") + 1;
+		if (!m || !month) continue;
+		const date = `${m[3]}-${String(month).padStart(2, "0")}-${m[2]?.padStart(2, "0")}`;
+		if (date >= from) links.add(url);
+	}
+	return [...links];
+}
+
+export function parseHenryProgram(
+	html: string,
+	url: string,
+): ScrapedEvent | undefined {
+	const title = decodeEntities(
+		html.match(/<title>([^<]*?)(?: - Henry Art Gallery)?<\/title>/)?.[1] ?? "",
+	).trim();
+	const line = stripTags(
+		html.match(
+			/(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), [A-Z][a-z]+ \d{1,2}, \d{4}[^<]*/,
+		)?.[0] ?? "",
+	);
+	const m = line.match(
+		/^\w+, ([A-Z][a-z]+) (\d{1,2}), (\d{4}), (\d{1,2}:\d{2}\s*[AP]M)(?: (?:—|&mdash;) (\d{1,2}:\d{2}\s*[AP]M))?$/i,
+	);
+	const month = MONTHS.indexOf(m?.[1]?.slice(0, 3).toLowerCase() ?? "") + 1;
+	if (!m || !month || !title) return undefined;
+	const date = `${m[3]}-${String(month).padStart(2, "0")}-${m[2]?.padStart(2, "0")}`;
+	const start = to24h(m[4] ?? "");
+	const end = m[5] ? to24h(m[5]) : undefined;
+	const startsAt = start ? localIso(date, start) : undefined;
+	if (!startsAt) return undefined;
+	return {
+		id: `henry-${date}-${slug(title)}`,
+		title,
+		startsAt,
+		endsAt: end ? localIso(date, end) : undefined,
+		url,
+	};
+}
+
+const henry: Source = {
+	id: "henry",
+	venueId: "henry-art-gallery",
+	category: "art",
+	mayBeEmpty: true,
+	async fetchEvents() {
+		const { from } = horizon();
+		const out: ScrapedEvent[] = [];
+		for (const url of henryProgramLinks(
+			await get(`${HENRY}/programs/all`),
+			from,
+		)) {
+			await pause(1);
+			const e = parseHenryProgram(await get(url), url);
+			if (e) out.push({ ...e, category: guessCategory(e.title, "art") });
+		}
+		return out;
+	},
+};
+
+// Jack Straw Cultural Center (U District): readings and New Media Gallery talks. Its WordPress
+// "Wicked Events" month grid repeats each event in a tooltip with a UTC start, times and venue.
+// Only events at Jack Straw itself are kept (not Zoom or the library), without the audio
+// production courses and family workshops. robots.txt allows everything.
+export function parseJackStraw(html: string): ScrapedEvent[] {
+	const out = new Map<string, ScrapedEvent>();
+	for (const [, block = ""] of html.matchAll(
+		/<div id="wicked-event-tooltip-\d+"([\s\S]*?)<\/div>\s*<\/div>\s*<\/div>/g,
+	)) {
+		const venue = block.match(/wicked-event-venue-title">([^<]*)/)?.[1]?.trim();
+		if (venue !== "Jack Straw Cultural Center") continue;
+		const link = block.match(/wicked-event-title"><a href="([^"]+)">([^<]+)/);
+		const utc = block.match(/itemprop="startDate" content="([^"]+)"/)?.[1];
+		const endTime = block.match(/wicked-end-time">([^<]+)/)?.[1];
+		if (!link?.[1] || !link[2] || !utc) continue;
+		const title = decodeEntities(link[2]).trim();
+		if (/\b(recording|audio|editing|youth|family|kids?)\b/i.test(title))
+			continue;
+		const { date, time } = seattleParts(utc);
+		const startsAt = localIso(date, time);
+		const end = endTime ? to24h(endTime) : undefined;
+		if (!startsAt) continue;
+		out.set(link[1], {
+			id: `jack-straw-${date}-${slug(title)}`,
+			title,
+			startsAt,
+			endsAt: end ? localIso(date, end) : undefined,
+			url: link[1],
+		});
+	}
+	return [...out.values()];
+}
+
+const jackStraw: Source = {
+	id: "jack-straw",
+	venueId: "jack-straw",
+	category: "comedy",
+	mayBeEmpty: true,
+	async fetchEvents() {
+		const { from } = horizon();
+		const out: ScrapedEvent[] = [];
+		for (let i = 0; i < 2; i++) {
+			if (i > 0) await pause(1);
+			const d = new Date(`${from.slice(0, 7)}-15T12:00:00Z`);
+			d.setUTCMonth(d.getUTCMonth() + i);
+			const month = d.toISOString().slice(0, 7).replace("-", "/");
+			out.push(
+				...parseJackStraw(
+					await get(`https://www.jackstraw.org/events/${month}/`),
+				)
+					.filter((e) => e.startsAt.slice(0, 10) >= from)
+					.map((e) => ({ ...e, category: guessCategory(e.title, "comedy") })),
+			);
+		}
+		return out;
+	},
+};
+
 // Watershed Pub (Northgate/Maple Leaf): bevwerk site. Dated events have a "Nov 2, 2026 @ 5:00 PM -
 // 8:00 PM" line; weekly nights (trivia) have none and are curated in nights.ts.
 
@@ -2436,6 +2596,41 @@ const yonderCider = squarespaceSource({
 	address: /826 Northwest 49th/i,
 });
 
+// Doe Bay Wine Co. (Phinney Ridge): occasional tastings and releases. Its events page lists the
+// Orcas Island shop too.
+const doeBay = squarespaceSource({
+	id: "doe-bay-phinney",
+	base: "https://www.doebaywinecompany.com",
+	path: "/upcoming-events",
+	category: "food-drink-special",
+	address: /Greenwood Ave/i,
+});
+
+// Imperfetta (Fremont natural wine shop): winemaker tastings among closure notices.
+const imperfetta = squarespaceSource({
+	id: "imperfetta",
+	base: "https://www.imperfetta.com",
+	path: "/calendar",
+	category: "food-drink-special",
+	skip: /\b(clos(ed|ing)|private)\b/i,
+});
+
+// Molly's Bottle Shop (Sunset Hill): the odd market or pop-up.
+const mollys = squarespaceSource({
+	id: "mollys-bottle-shop",
+	base: "https://www.mollysbottleshop.com",
+	path: "/events",
+	category: "food-drink-special",
+});
+
+// Greenwood Art Collective: monthly art-walk openings (usually the 2nd Friday), posted shortly before.
+const greenwoodArtCollective = squarespaceSource({
+	id: "greenwood-art-collective",
+	base: "https://www.greenwoodartcollective.com",
+	path: "/events",
+	category: "art",
+});
+
 // Lucky Envelope (Ballard): releases, runs and the odd art night, a few a month.
 const luckyEnvelope = squarespaceSource({
 	id: "lucky-envelope",
@@ -2527,18 +2722,7 @@ const delilleEnVille: Source = {
 	},
 };
 
-// Not scraped (see CLAUDE.md): Tractor Tavern's and Sunset Tavern's own calendars (ModSecurity; a
-// DICE widget that needs an API key, with dice.fm behind Cloudflare), so both come from Mato above.
-// Phinney Center (Cloudflare; some events arrive via My Ballard, PhinneyWood and SFS), Fremont Abbey (public calendar is
-// mostly rental placeholders), Mox Boarding House (Occasion calendar behind Cloudflare), U Wine Bar
-// (robots.txt disallows all but Google), Ballard Clay and Throw & Build (KilnFire booking pages
-// disallowed by robots.txt), Wet Clay Cafe (Wix Bookings sessions load client-side only), Waystone
-// Wargaming (scrapable, but daytime tournaments), Bale Breaker's Tribe calendar (drops requests
-// that name this scraper in the user agent). TicketWeb (Tractor) and the Wizards event locator
-// (Mox, U Wine Bar) are fetchable but their terms forbid scraping.
-// Roam's own SpotHopper events page is empty ("We are updating our events"); its parties come from
-// Posh above. Twist of Fate's Squarespace site has no events page: it posts events only on Instagram.
-// EverOut (403 to scripts) and Do206 (robots.txt disallows ClaudeBot) aren't used.
+// Sites we don't scrape, and why, are listed in docs/source-backlog.md.
 export const sources: Source[] = [
 	visitBallard,
 	myBallard,
@@ -2565,6 +2749,8 @@ export const sources: Source[] = [
 	lovestruck,
 	uwCampus,
 	meanyCenter,
+	henry,
+	jackStraw,
 	watershed,
 	lakeCityContra,
 	jetCity,
@@ -2591,6 +2777,10 @@ export const sources: Source[] = [
 	flyingBike,
 	yonderCider,
 	luckyEnvelope,
+	doeBay,
+	imperfetta,
+	mollys,
+	greenwoodArtCollective,
 	eightBells,
 	jollyRoger,
 	delilleEnVille,
