@@ -1,195 +1,65 @@
 {
-	"generatedAt": "2026-10-31T04:55:01.360Z",
+	"generatedAt": "2026-10-31T14:16:58.578Z",
 	"scrapedAt": {
-		"abbey-arts": "2026-10-31T03:34:00.814Z",
-		"artemis-coffee": "2026-10-31T03:34:00.814Z",
-		"aslan-fremont": "2026-10-31T03:34:00.814Z",
-		"book-larder": "2026-10-31T03:34:00.814Z",
-		"brimmer-and-heeltap": "2026-10-31T03:34:00.814Z",
-		"classpop": "2026-10-31T03:34:00.814Z",
-		"conor-byrne": "2026-10-31T03:34:00.814Z",
-		"delille-en-ville": "2026-10-31T03:34:00.814Z",
-		"dinodad-comedy": "2026-10-31T03:34:00.814Z",
-		"egans": "2026-10-31T03:34:00.814Z",
-		"eight-bells-winery": "2026-10-31T03:34:00.814Z",
-		"figurehead-stone-way": "2026-10-31T03:34:00.814Z",
-		"flying-bike": "2026-10-31T03:34:00.814Z",
-		"greenstage": "2026-10-31T03:34:00.814Z",
+		"abbey-arts": "2026-10-31T14:16:58.574Z",
+		"artemis-coffee": "2026-10-31T14:16:58.574Z",
+		"aslan-fremont": "2026-10-31T14:16:58.573Z",
+		"book-larder": "2026-10-31T14:16:58.574Z",
+		"brimmer-and-heeltap": "2026-10-31T14:16:58.574Z",
+		"classpop": "2026-10-31T14:16:58.574Z",
+		"conor-byrne": "2026-10-31T14:16:58.573Z",
+		"delille-en-ville": "2026-10-31T14:16:58.575Z",
+		"dinodad-comedy": "2026-10-31T14:16:58.574Z",
+		"egans": "2026-10-31T14:16:58.574Z",
+		"eight-bells-winery": "2026-10-31T14:16:58.575Z",
+		"figurehead-stone-way": "2026-10-31T14:16:58.574Z",
+		"flying-bike": "2026-10-31T14:16:58.575Z",
+		"greenstage": "2026-10-31T14:16:58.574Z",
 		"halcyon": "2026-10-31T03:34:00.814Z",
-		"halfseas": "2026-10-31T03:34:00.814Z",
-		"hidden-hall": "2026-10-31T03:34:00.814Z",
-		"instagram": "2026-10-31T03:34:00.814Z",
-		"jet-city-improv": "2026-10-31T03:34:00.814Z",
-		"jolly-roger": "2026-10-31T03:34:00.814Z",
-		"kings-hardware": "2026-10-31T03:34:00.814Z",
-		"lake-city-contra": "2026-10-31T03:34:00.814Z",
-		"lovestruck": "2026-10-31T03:34:00.814Z",
-		"lucky-envelope": "2026-10-31T03:34:00.814Z",
-		"magnuson-park-gallery": "2026-10-31T03:34:00.814Z",
-		"mato": "2026-10-31T03:34:00.814Z",
-		"meany-center": "2026-10-31T03:34:00.814Z",
-		"mockingbird-comedy": "2026-10-31T03:34:00.814Z",
-		"mr-bs-meadery": "2026-10-31T03:34:00.814Z",
-		"myballard": "2026-10-31T03:34:00.814Z",
-		"nectar": "2026-10-31T03:34:00.814Z",
-		"nordic-museum": "2026-10-31T03:34:00.814Z",
-		"octopus": "2026-10-31T03:34:00.814Z",
-		"pantry": "2026-10-31T03:34:00.814Z",
-		"phinneywood": "2026-10-31T03:34:00.814Z",
-		"pono-ranch": "2026-10-31T03:34:00.814Z",
+		"halfseas": "2026-10-31T14:16:58.573Z",
+		"hidden-hall": "2026-10-31T14:16:58.573Z",
+		"instagram": "2026-10-31T14:16:58.575Z",
+		"jet-city-improv": "2026-10-31T14:16:58.574Z",
+		"jolly-roger": "2026-10-31T14:16:58.575Z",
+		"kings-hardware": "2026-10-31T14:16:58.574Z",
+		"lake-city-contra": "2026-10-31T14:16:58.574Z",
+		"lovestruck": "2026-10-31T14:16:58.574Z",
+		"lucky-envelope": "2026-10-31T14:16:58.575Z",
+		"magnuson-park-gallery": "2026-10-31T14:16:58.574Z",
+		"mato": "2026-10-31T14:16:58.575Z",
+		"meany-center": "2026-10-31T14:16:58.574Z",
+		"mockingbird-comedy": "2026-10-31T14:16:58.574Z",
+		"mr-bs-meadery": "2026-10-31T14:16:58.574Z",
+		"myballard": "2026-10-31T14:16:58.573Z",
+		"nectar": "2026-10-31T14:16:58.574Z",
+		"nordic-museum": "2026-10-31T14:16:58.573Z",
+		"octopus": "2026-10-31T14:16:58.574Z",
+		"pantry": "2026-10-31T14:16:58.574Z",
+		"phinneywood": "2026-10-31T14:16:58.574Z",
+		"pono-ranch": "2026-10-31T14:16:58.574Z",
 		"posh": "2026-10-31T03:23:29.497Z",
-		"salmon-bay-eagles": "2026-10-31T03:34:00.814Z",
-		"saltstone": "2026-10-31T03:34:00.814Z",
-		"sea-monster-lounge": "2026-10-31T03:34:00.814Z",
-		"seafolklore": "2026-10-31T03:34:00.814Z",
-		"seattle-public-theater": "2026-10-31T03:34:00.814Z",
-		"shibuya-hifi": "2026-10-31T03:34:00.814Z",
-		"substation": "2026-10-31T03:34:00.814Z",
-		"sunset-hill-hall": "2026-10-31T03:34:00.814Z",
-		"tango-connection": "2026-10-31T03:34:00.814Z",
-		"taproot": "2026-10-31T03:34:00.814Z",
-		"uw-botanic-gardens": "2026-10-31T03:34:00.814Z",
-		"uw-campus": "2026-10-31T03:34:00.814Z",
-		"visitballard": "2026-10-31T03:34:00.814Z",
-		"watershed-pub": "2026-10-31T03:34:00.814Z",
-		"wayward": "2026-10-31T03:34:00.814Z",
-		"west-of-lenin": "2026-10-31T03:34:00.814Z",
-		"woodland-park-zoo": "2026-10-31T03:34:00.814Z",
-		"woodland-theater": "2026-10-31T03:34:00.814Z",
-		"yonder-cider": "2026-10-31T03:34:00.814Z",
-		"yu-tang": "2026-10-31T03:34:00.814Z"
+		"salmon-bay-eagles": "2026-10-31T14:16:58.574Z",
+		"saltstone": "2026-10-31T14:16:58.574Z",
+		"sea-monster-lounge": "2026-10-31T14:16:58.574Z",
+		"seafolklore": "2026-10-31T14:16:58.574Z",
+		"seattle-public-theater": "2026-10-31T14:16:58.573Z",
+		"shibuya-hifi": "2026-10-31T14:16:58.574Z",
+		"substation": "2026-10-31T14:16:58.574Z",
+		"sunset-hill-hall": "2026-10-31T14:16:58.574Z",
+		"tango-connection": "2026-10-31T14:16:58.574Z",
+		"taproot": "2026-10-31T14:16:58.574Z",
+		"uw-botanic-gardens": "2026-10-31T14:16:58.574Z",
+		"uw-campus": "2026-10-31T14:16:58.574Z",
+		"visitballard": "2026-10-31T14:16:58.573Z",
+		"watershed-pub": "2026-10-31T14:16:58.574Z",
+		"wayward": "2026-10-31T14:16:58.574Z",
+		"west-of-lenin": "2026-10-31T14:16:58.574Z",
+		"woodland-park-zoo": "2026-10-31T14:16:58.574Z",
+		"woodland-theater": "2026-10-31T14:16:58.574Z",
+		"yonder-cider": "2026-10-31T14:16:58.575Z",
+		"yu-tang": "2026-10-31T14:16:58.574Z"
 	},
 	"events": [
-		{
-			"id": "instagram-2026-10-30T12:00-girl-lunch",
-			"venueId": "rough-and-tumble-ballard",
-			"title": "Girl Lunch",
-			"startsAt": "2026-10-30T12:00:00-07:00",
-			"endsAt": "2026-10-30T16:00:00-07:00",
-			"url": "https://www.instagram.com/p/DfIAWOXNvGT/",
-			"price": "$15",
-			"category": "misc",
-			"source": "instagram"
-		},
-		{
-			"id": "mato-2026-10-30T15:00-happy-hour-specials",
-			"title": "Happy Hour Specials",
-			"startsAt": "2026-10-30T15:00:00.000-07:00",
-			"endsAt": "2026-10-30T18:00:00.000-07:00",
-			"url": "https://ma.to/event/happy-hour-specials-2026-10-30",
-			"venueId": "latona-pub",
-			"category": "food-drink-special",
-			"source": "mato"
-		},
-		{
-			"id": "mato-2026-10-30T16:00-cicchetti-happy-hour",
-			"title": "Cicchetti Happy Hour",
-			"startsAt": "2026-10-30T16:00:00.000-07:00",
-			"endsAt": "2026-10-30T18:00:00.000-07:00",
-			"url": "https://ma.to/event/2026-10-30-cicchetti-happy-hour-friday",
-			"venueId": "trailbend-taproom",
-			"category": "food-drink-special",
-			"source": "mato"
-		},
-		{
-			"id": "shibuya-hifi-2026-10-30T17:00-dave-brubeck-quartet-time-out",
-			"title": "Dave Brubeck Quartet - Time Out",
-			"startsAt": "2026-10-30T17:00:00-07:00",
-			"endsAt": "2026-10-30T18:30:00-07:00",
-			"url": "https://www.shibuyahifi.com/event-details/dave-brubeck-quartet-time-out",
-			"category": "jazz",
-			"source": "shibuya-hifi",
-			"venueId": "shibuya-hifi"
-		},
-		{
-			"id": "mato-2026-10-30T17:00-friday-night-jazz-with-phil-sparks",
-			"title": "Friday Night Jazz with Phil Sparks",
-			"startsAt": "2026-10-30T17:00:00.000-07:00",
-			"endsAt": "2026-10-30T19:00:00.000-07:00",
-			"url": "https://ma.to/event/friday-night-jazz-with-phil-sparks-2026-10-30",
-			"venueId": "latona-pub",
-			"category": "jazz",
-			"source": "mato"
-		},
-		{
-			"id": "pantry-115471-2026-10-30",
-			"title": "Asian Bao",
-			"startsAt": "2026-10-30T18:00:00-07:00",
-			"url": "https://thepantryseattle.com/class/asian-bao",
-			"category": "class",
-			"source": "pantry",
-			"venueId": "the-pantry"
-		},
-		{
-			"id": "shibuya-hifi-2026-10-30T18:00-frank-ocean-blonde",
-			"title": "Frank Ocean - Blonde",
-			"startsAt": "2026-10-30T18:00:00-07:00",
-			"endsAt": "2026-10-30T19:30:00-07:00",
-			"url": "https://www.shibuyahifi.com/event-details/frank-ocean-blonde-8",
-			"category": "live-music",
-			"source": "shibuya-hifi",
-			"venueId": "shibuya-hifi"
-		},
-		{
-			"id": "mato-2026-10-30T18:00-qu-art-queer-artists-meetup",
-			"title": "QU-ART: Queer Artists Meetup",
-			"startsAt": "2026-10-30T18:00:00.000-07:00",
-			"endsAt": "2026-10-30T20:00:00.000-07:00",
-			"url": "https://ma.to/event/qu-art-queer-artists-meetup-2026-10-30",
-			"venueId": "push-pull",
-			"category": "class",
-			"source": "mato"
-		},
-		{
-			"id": "conor-byrne-173642",
-			"title": "Cumbia De Muertos V",
-			"startsAt": "2026-10-30T19:00:00-07:00",
-			"endsAt": "2026-10-31T01:00:00-07:00",
-			"url": "https://www.ticketweb.com/event/cumbia-de-muertos-v-fting-tractor-tickets/14296574?pl=tractor",
-			"category": "live-music",
-			"source": "conor-byrne",
-			"venueId": "conor-byrne-pub"
-		},
-		{
-			"id": "dinodad-comedy-1984240072471",
-			"venueId": "rickshaw",
-			"title": "Read the Room Comedy Show",
-			"startsAt": "2026-10-30T19:00:00-07:00",
-			"endsAt": "2026-10-30T21:00:00-07:00",
-			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240072471",
-			"category": "comedy",
-			"source": "dinodad-comedy"
-		},
-		{
-			"id": "woodland-theater-2026-10-30-raphael-rogin-ski-poland-playing-john-coltrane-langston-hugh",
-			"title": "Raphael Rogiński (Poland) - Playing John Coltrane/Langston Hughes on guitar solo!",
-			"startsAt": "2026-10-30T19:00:00-07:00",
-			"url": "https://www.woodlandtheater.org/events",
-			"price": "$20",
-			"category": "live-music",
-			"source": "woodland-theater",
-			"venueId": "woodland-theater"
-		},
-		{
-			"id": "instagram-2026-10-30T19:00-atlantic-crossing-halloween-costume-party",
-			"venueId": "atlantic-crossing",
-			"title": "Atlantic Crossing Halloween Costume Party",
-			"startsAt": "2026-10-30T19:00:00-07:00",
-			"endsAt": "2026-10-31T00:00:00-07:00",
-			"url": "https://www.instagram.com/p/Dd5Q_ptqXgX/",
-			"category": "misc",
-			"source": "instagram"
-		},
-		{
-			"id": "spt-2026-10-31T02:30-neel-neha-and-neel",
-			"title": "नेहा & NEEL (Neha and Neel नेहा और नील)",
-			"startsAt": "2026-10-30T19:30:00-07:00",
-			"endsAt": "2026-10-30T20:30:00-07:00",
-			"url": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--h2ntm-6c572",
-			"source": "seattle-public-theater",
-			"venueId": "seattle-public-theater",
-			"category": "theater"
-		},
 		{
 			"id": "halcyon-2026-10-31T02:30-improv-overload",
 			"title": "Improv Overload",
@@ -199,25 +69,6 @@
 			"category": "comedy",
 			"source": "halcyon",
 			"venueId": "halcyon-brewing"
-		},
-		{
-			"id": "west-of-lenin-2026-10-30-1930-slasher",
-			"title": "Slasher",
-			"startsAt": "2026-10-30T19:30:00-07:00",
-			"url": "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/events/a0OVW000005rQaz2AE/2026-10-01T19:30:00-07:00",
-			"source": "west-of-lenin",
-			"venueId": "west-of-lenin",
-			"category": "theater"
-		},
-		{
-			"id": "shibuya-hifi-2026-10-30T19:30-frank-ocean-channel-orange",
-			"title": "Frank Ocean - Channel Orange",
-			"startsAt": "2026-10-30T19:30:00-07:00",
-			"endsAt": "2026-10-30T21:00:00-07:00",
-			"url": "https://www.shibuyahifi.com/event-details/frank-ocean-channel-orange-9",
-			"category": "live-music",
-			"source": "shibuya-hifi",
-			"venueId": "shibuya-hifi"
 		},
 		{
 			"id": "mato-2026-10-30T19:30-halloween-bash-iii-friday",
@@ -231,67 +82,6 @@
 			"source": "mato"
 		},
 		{
-			"id": "octopus-2026-10-30-pretty-ugly-vol-13",
-			"title": "Pretty Ugly Vol. 13",
-			"startsAt": "2026-10-30T20:00:00-07:00",
-			"url": "https://theoctopusbar.com/events/pretty-ugly-vol-13-halloween-weekend",
-			"source": "octopus",
-			"venueId": "octopus-bar"
-		},
-		{
-			"id": "sea-monster-lounge-2026-10-30T20:00-extra-thick",
-			"title": "Extra Thick",
-			"startsAt": "2026-10-30T20:00:00-07:00",
-			"endsAt": "2026-10-30T21:15:00-07:00",
-			"url": "https://www.seamonsterlounge.com/event-info/extra-thick-6",
-			"price": "$12.00",
-			"category": "live-music",
-			"source": "sea-monster-lounge",
-			"venueId": "sea-monster-lounge"
-		},
-		{
-			"id": "substation-1995508424415",
-			"venueId": "substation",
-			"title": "TR/ST (DJ Set) x Marie Davidson x Dark Chisme x MØAA",
-			"startsAt": "2026-10-30T20:00:00-07:00",
-			"endsAt": "2026-10-31T01:30:00-07:00",
-			"url": "https://www.eventbrite.com/e/trst-dj-set-x-marie-davidson-x-dark-chisme-x-maa-tickets-1995508424415",
-			"price": "Sold out",
-			"category": "live-music",
-			"source": "substation"
-		},
-		{
-			"id": "tango-connection-1999736916950",
-			"venueId": "ballard-odd-fellows",
-			"title": "Milonga de Mis Amores w/ DJ Helene Eriksen",
-			"startsAt": "2026-10-30T20:00:00-07:00",
-			"endsAt": "2026-10-30T23:00:00-07:00",
-			"url": "https://www.eventbrite.com/e/milonga-de-mis-amores-w-dj-helene-eriksen-registration-1999736916950",
-			"price": "$28.52",
-			"category": "dance",
-			"source": "tango-connection"
-		},
-		{
-			"id": "shibuya-hifi-2026-10-30T21:00-frank-ocean-channel-orange",
-			"title": "Frank Ocean - Channel Orange",
-			"startsAt": "2026-10-30T21:00:00-07:00",
-			"endsAt": "2026-10-30T22:30:00-07:00",
-			"url": "https://www.shibuyahifi.com/event-details/frank-ocean-channel-orange-10",
-			"category": "live-music",
-			"source": "shibuya-hifi",
-			"venueId": "shibuya-hifi"
-		},
-		{
-			"id": "pono-ranch-2026-10-31T04:00-dilly-disco-groove-plug-alterlatina-present-wicked-wavelengt",
-			"title": "Dilly Disco, Groove Plug & Alterlatina Present: Wicked Wavelengths Halloween Bar Crawl",
-			"startsAt": "2026-10-30T21:00:00-07:00",
-			"endsAt": "2026-10-30T23:59:00-07:00",
-			"url": "https://www.ponoranch.com/live-music/dilly-disco-groove-plug-alterlatina-present-wicked-wavelengths-halloween-bar-crawl",
-			"category": "live-music",
-			"source": "pono-ranch",
-			"venueId": "pono-ranch"
-		},
-		{
 			"id": "mato-2026-10-30T21:00-halloween-special-show",
 			"title": "Halloween Special Show",
 			"startsAt": "2026-10-30T21:00:00.000-07:00",
@@ -300,59 +90,6 @@
 			"venueId": "blue-moon-tavern",
 			"category": "live-music",
 			"source": "mato"
-		},
-		{
-			"id": "sea-monster-lounge-2026-10-30T22:00-funky-2-death",
-			"title": "Funky 2 Death",
-			"startsAt": "2026-10-30T22:00:00-07:00",
-			"endsAt": "2026-10-31T01:30:00-07:00",
-			"url": "https://www.seamonsterlounge.com/event-info/funky-2-death-2026-10-30-22-00",
-			"price": "$12.00",
-			"category": "live-music",
-			"source": "sea-monster-lounge",
-			"venueId": "sea-monster-lounge"
-		},
-		{
-			"id": "abbey-arts-2026-10-31T02:00-samuel-j-sarah-conner-immersive-concert-and-dance-experience",
-			"venueId": "fremont-abbey",
-			"title": "Samuel J, Sarah Conner immersive concert and dance experience",
-			"startsAt": "2026-10-31T02:00:00.000Z",
-			"endsAt": "2026-10-31T05:30:00.000Z",
-			"url": "https://events.humanitix.com/samuelsarah",
-			"category": "live-music",
-			"source": "abbey-arts"
-		},
-		{
-			"id": "hidden-hall-2026-10-31-eldridge-gravy-the-court-supreme-with-swavy-and-jay-si-proof",
-			"title": "ELDRIDGE GRAVY & THE COURT SUPREME with Swavy and Jay Si Proof",
-			"startsAt": "2026-10-31T03:00:00+00:00",
-			"endsAt": "2026-10-31T09:00:00+00:00",
-			"url": "https://www.tixr.com/groups/hiddenhall/events/eldridge-gravy-the-court-supreme-with-swavy-and-jay-si-proof-199402",
-			"price": "$20",
-			"source": "hidden-hall",
-			"venueId": "hidden-hall",
-			"category": "live-music"
-		},
-		{
-			"id": "salmon-bay-eagles-9205-2026-10-31",
-			"venueId": "salmon-bay-eagles",
-			"title": "Tony Lease w/ Russel Brothers & Guests",
-			"startsAt": "2026-10-31T03:00:00Z",
-			"endsAt": "2026-10-31T03:00:00Z",
-			"url": "https://salmonbayeagles.com/event/tony-lease-w-russel-brothers-guests/",
-			"category": "live-music",
-			"source": "salmon-bay-eagles"
-		},
-		{
-			"id": "nectar-2026-10-31-i-m-not-okay-an-emo-pop-punk-halloween-party-w-dj-baby-van-b",
-			"title": "I'M NOT OKAY!! An Emo & Pop Punk Halloween Party!! w/ DJ BABY VAN BEEZLY",
-			"startsAt": "2026-10-31T04:30:00+00:00",
-			"endsAt": "2026-10-31T08:45:00+00:00",
-			"url": "https://www.tixr.com/groups/nectarlounge/events/i-m-not-okay-an-emo-pop-punk-halloween-party-w-dj-baby-van-beezly-200656",
-			"price": "$12",
-			"source": "nectar",
-			"venueId": "nectar-lounge",
-			"category": "live-music"
 		},
 		{
 			"id": "instagram-2026-10-31T09:00-coffee-in-your-pajamas-with-sarah-cartoons-on-the-screen",
@@ -825,7 +562,7 @@
 			"startsAt": "2026-10-31T22:00:00-07:00",
 			"endsAt": "2026-11-01T02:00:00-07:00",
 			"url": "https://www.eventbrite.com/e/the-gaslamp-killer-tickets-2001083432414",
-			"price": "$25.87–$31.94",
+			"price": "$44.08",
 			"category": "live-music",
 			"source": "substation"
 		},
@@ -1070,7 +807,6 @@
 			"startsAt": "2026-11-01T19:15:00.000-08:00",
 			"endsAt": "2026-11-01T21:15:00.000-08:00",
 			"url": "https://ma.to/event/riff-raff-league-2026-11-01",
-			"price": "Free",
 			"venueId": "push-pull",
 			"category": "class",
 			"source": "mato"
@@ -1258,16 +994,6 @@
 			"category": "dance",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
-		},
-		{
-			"id": "sea-monster-lounge-2026-11-02T19:00-foleada",
-			"title": "Foleada",
-			"startsAt": "2026-11-02T19:00:00-08:00",
-			"endsAt": "2026-11-02T21:00:00-08:00",
-			"url": "https://www.seamonsterlounge.com/event-info/foleada-2026-11-02-19-00",
-			"category": "live-music",
-			"source": "sea-monster-lounge",
-			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "flying-bike-2026-11-02-geeks-who-drink",
@@ -2992,6 +2718,16 @@
 			"source": "mato"
 		},
 		{
+			"id": "sea-monster-lounge-2026-11-09T22:00-la-luz",
+			"title": "La Luz",
+			"startsAt": "2026-11-09T22:00:00-08:00",
+			"endsAt": "2026-11-10T01:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/la-luz-2026-11-09-22-00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "visitballard-10005450-2026-11-10",
 			"venueId": "reubens-brews",
 			"title": "Magic Monday Casual Commander Night | Reuben’s Brews Ballard Taproom",
@@ -3161,6 +2897,16 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "sea-monster-lounge-2026-11-10T22:00-joe-doria-presents",
+			"title": "Joe Doria Presents",
+			"startsAt": "2026-11-10T22:00:00-08:00",
+			"endsAt": "2026-11-11T01:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/joe-doria-presents-2026-11-10-22-00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "visitballard-10003701-2026-11-11",
@@ -3365,6 +3111,16 @@
 			"source": "woodland-park-zoo"
 		},
 		{
+			"id": "sea-monster-lounge-2026-11-11T22:00-hurricane-dreamz",
+			"title": "Hurricane Dreamz",
+			"startsAt": "2026-11-11T22:00:00-08:00",
+			"endsAt": "2026-11-12T01:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/hurricane-dreamz-2026-11-11-22-00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "book-larder-10302682955994",
 			"title": "Author Talk: Katie Button, Spanish Accent",
 			"startsAt": "2026-11-12T02:30:00.000Z",
@@ -3531,6 +3287,16 @@
 			"source": "mato"
 		},
 		{
+			"id": "mato-2026-11-12T19:00-a-night-of-nw-hip-hop",
+			"title": "A Night of NW Hip Hop",
+			"startsAt": "2026-11-12T19:00:00.000-08:00",
+			"endsAt": "2026-11-12T21:00:00.000-08:00",
+			"url": "https://ma.to/event/a-night-of-nw-hip-hop-the-neptune-12-nov-2026",
+			"venueId": "neptune-theatre",
+			"category": "live-music",
+			"source": "mato"
+		},
+		{
 			"id": "conor-byrne-193754",
 			"title": "Bhavya (EP Release) + Townsend's Solitaire + Dax Millan",
 			"startsAt": "2026-11-12T19:30:00-08:00",
@@ -3572,6 +3338,16 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "sea-monster-lounge-2026-11-12T19:30-dylan-hughes-yin-band",
+			"title": "Dylan Hughes Yin Band",
+			"startsAt": "2026-11-12T19:30:00-08:00",
+			"endsAt": "2026-11-12T21:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/dylan-hughes-yin-band-2",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
+		},
+		{
 			"id": "wayward-2026-11-12-nat-evans-what-are-days-for",
 			"title": "Nat Evans: What Are Days For",
 			"startsAt": "2026-11-12T20:00:00-08:00",
@@ -3601,6 +3377,17 @@
 			"price": "$25.87",
 			"category": "live-music",
 			"source": "substation"
+		},
+		{
+			"id": "sea-monster-lounge-2026-11-12T22:00-wil-blades-quartet-featuring-skerik-andy-coe-tarik-abouzied",
+			"title": "Wil Blades Quartet featuring  Skerik, Andy Coe & Tarik Abouzied",
+			"startsAt": "2026-11-12T22:00:00-08:00",
+			"endsAt": "2026-11-13T01:00:00-08:00",
+			"url": "https://www.seamonsterlounge.com/event-info/wil-blades-quartet-featuring-skerik-andy-coe-tarik-abouzied-3",
+			"price": "$15.00",
+			"category": "jazz",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "magnuson-park-gallery-1181-2026-11-13",
@@ -3814,6 +3601,17 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
+		},
+		{
+			"id": "mato-2026-11-13T21:00-los-chismosos-punk-set",
+			"title": "Los Chismosos Punk Set",
+			"startsAt": "2026-11-13T21:00:00.000-08:00",
+			"endsAt": "2026-11-13T23:30:00.000-08:00",
+			"url": "https://ma.to/event/los-chismosos-punk-set-14-nov-2026",
+			"price": "$12",
+			"venueId": "sunset-tavern",
+			"category": "live-music",
+			"source": "mato"
 		},
 		{
 			"id": "substation-1999057877926",
@@ -4997,6 +4795,16 @@
 			"source": "nectar",
 			"venueId": "nectar-lounge",
 			"category": "live-music"
+		},
+		{
+			"id": "abbey-arts-2026-11-20T04:00-about-last-night-dating-disaster-stories-seattle",
+			"venueId": "fremont-abbey",
+			"title": "About Last Night: Dating Disaster Stories Seattle!",
+			"startsAt": "2026-11-20T04:00:00.000Z",
+			"endsAt": "2026-11-20T06:00:00.000Z",
+			"url": "https://events.humanitix.com/11-29-about-last-night",
+			"category": "live-music",
+			"source": "abbey-arts"
 		},
 		{
 			"id": "salmon-bay-eagles-9289-2026-11-20",

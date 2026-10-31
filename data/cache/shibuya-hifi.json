@@ -260,16 +260,7 @@
 	"https://www.shibuyahifi.com/event-details/dave-brubeck-quartet-time-out": {
 		"lastmod": "2026-09-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-30T17:00-dave-brubeck-quartet-time-out",
-				"title": "Dave Brubeck Quartet - Time Out",
-				"startsAt": "2026-10-30T17:00:00-07:00",
-				"endsAt": "2026-10-30T18:30:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/dave-brubeck-quartet-time-out",
-				"category": "jazz"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/david-bowie-station-to-station-3": {
 		"lastmod": "2026-10-05",
@@ -631,16 +622,7 @@
 	"https://www.shibuyahifi.com/event-details/frank-ocean-blonde-8": {
 		"lastmod": "2026-09-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-30T18:00-frank-ocean-blonde",
-				"title": "Frank Ocean - Blonde",
-				"startsAt": "2026-10-30T18:00:00-07:00",
-				"endsAt": "2026-10-30T19:30:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/frank-ocean-blonde-8",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/frank-ocean-blonde-9": {
 		"lastmod": "2026-10-05",
@@ -650,16 +632,7 @@
 	"https://www.shibuyahifi.com/event-details/frank-ocean-channel-orange-10": {
 		"lastmod": "2026-10-19",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-30T21:00-frank-ocean-channel-orange",
-				"title": "Frank Ocean - Channel Orange",
-				"startsAt": "2026-10-30T21:00:00-07:00",
-				"endsAt": "2026-10-30T22:30:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/frank-ocean-channel-orange-10",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/frank-ocean-channel-orange-11": {
 		"lastmod": "2026-10-21",
@@ -678,16 +651,7 @@
 	"https://www.shibuyahifi.com/event-details/frank-ocean-channel-orange-9": {
 		"lastmod": "2026-09-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-30T19:30-frank-ocean-channel-orange",
-				"title": "Frank Ocean - Channel Orange",
-				"startsAt": "2026-10-30T19:30:00-07:00",
-				"endsAt": "2026-10-30T21:00:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/frank-ocean-channel-orange-9",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/funkadelic-maggot-brain-2": {
 		"lastmod": "2026-09-13",
