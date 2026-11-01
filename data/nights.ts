@@ -218,6 +218,40 @@ export const nights: Night[] = [
 		lastVerified: "2026-10-29",
 		confidence: "confirmed",
 	},
+	// The Clay Corner's booking calendar loads client-side; the class days and times are from the
+	// schema.org Course data on its intro-classes page (its open-house page also points beginners to
+	// "our Saturday night classes"). Its Friday open house ended May 15, 2026.
+	{
+		id: "clay-corner-intro-wheel",
+		venueId: "clay-corner",
+		title: "Intro to the Wheel",
+		category: "class",
+		recurrence: { kind: "weekly", days: ["SA", "SU"] },
+		start: "19:00",
+		end: "21:00",
+		cost: "$95",
+		description:
+			"Two-hour beginner wheel-throwing class, six students at most; keep one piece, glazed and fired for pickup in 4–6 weeks. Book ahead.",
+		vibe: ["active", "romantic"],
+		sourceUrl: "https://www.seansclaycorner.com/intro-classes",
+		lastVerified: "2026-11-01",
+		confidence: "likely",
+	},
+	{
+		id: "clay-corner-artist-talk",
+		venueId: "clay-corner",
+		title: "Artist Talk & Reception",
+		category: "art",
+		recurrence: { kind: "monthly-nth", nth: [2], day: "TH" },
+		start: "19:00",
+		cost: "Free",
+		description:
+			"Monthly talk by a (often visiting) ceramic artist, with a reception, at a Ballard pottery studio. No registration.",
+		vibe: ["low-key"],
+		sourceUrl: "https://www.seansclaycorner.com/artist-talk",
+		lastVerified: "2026-11-01",
+		confidence: "confirmed",
+	},
 	{
 		id: "leif-erikson-leikarringen-party",
 		venueId: "leif-erikson-hall",

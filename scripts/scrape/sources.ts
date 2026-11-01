@@ -125,6 +125,8 @@ function tribeSource(opts: {
 	mayBeEmpty?: boolean;
 	/** Keep only events starting at or after this local time ("20:00") */
 	notBefore?: string;
+	/** Tidies a site's titles (after entities are decoded) */
+	cleanTitle?: (title: string) => string;
 }): Source {
 	return {
 		id: opts.id,
@@ -153,7 +155,8 @@ function tribeSource(opts: {
 						.trim();
 					const venueId = opts.venues[name];
 					if (!venueId) continue;
-					const title = decodeEntities(e.title).replace(/\s+/g, " ").trim();
+					let title = decodeEntities(e.title).replace(/\s+/g, " ").trim();
+					if (opts.cleanTitle) title = opts.cleanTitle(title);
 					if (opts.include && !opts.include.test(title)) continue;
 					if (opts.exclude?.test(title)) continue;
 					out.push({
@@ -2328,6 +2331,27 @@ const magnusonGallery = tribeSource({
 	mayBeEmpty: true,
 });
 
+// Laughs Comedy Club (U District): touring headliners, a Wednesday comedy mix and the Seattle
+// International Comedy Competition. Its WordPress site serves the Tribe API. A headliner's
+// two- or three-night run is one event (first night's time), so its title keeps the dates. The
+// multi-week stand-up course is left out.
+const laughs = tribeSource({
+	id: "laughs-comedy-club",
+	origin: "https://laughscomedyclub.com",
+	venues: { "laughs comedy club": "laughs-comedy-club" },
+	exclude: /\bclass\b/i,
+	category: "comedy",
+	// "Comedy Show: Brian Simpson November 5th -7th at Laughs Comedy- Seattle" → "Brian Simpson November 5th -7th"
+	cleanTitle: (title) =>
+		title
+			.replace(/^comedy( show)?:?\s+/i, "")
+			.replace(
+				/\s*(\bat\s+|@\s*|-\s*)?laughs\s*comedy( club)?\s*[-–]?\s*(seattle)?\s*$/i,
+				"",
+			)
+			.replace(/\s*[-–]\s*$/, ""),
+});
+
 // UW Botanic Gardens (Trumba iCal): weekend craft workshops at the Center for Urban Horticulture
 // in Laurelhurst. Arboretum walks (across the lake) and the library's all-day exhibits are left out.
 const uwBotanicGardens = icsSource({
@@ -2882,6 +2906,7 @@ export const sources: Source[] = [
 	watershed,
 	lakeCityContra,
 	jetCity,
+	laughs,
 	magnusonGallery,
 	uwBotanicGardens,
 	pantry,
