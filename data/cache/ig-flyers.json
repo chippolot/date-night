@@ -785,6 +785,21 @@
 			}
 		]
 	},
+	"17935967943144952": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/reel/DfK6c8CBsdL/",
+		"posted": "2026-10-31",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "Belly Dance with Jomana (Cairo After Dark)",
+				"date": "2026-10-31",
+				"start": "19:30",
+				"end": null,
+				"price": null
+			}
+		]
+	},
 	"17937712677402023": {
 		"venueId": "aslan-tangletown",
 		"permalink": "https://www.instagram.com/p/DeNUh2vEv76/",
@@ -2351,6 +2366,12 @@
 			}
 		]
 	},
+	"18078554249448711": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/reel/DfLgqF5tH65/",
+		"posted": "2026-10-31",
+		"read": "2026-10-31"
+	},
 	"18078644078549434": {
 		"venueId": "slim-goody",
 		"permalink": "https://www.instagram.com/p/Dehz8gbyi1K/",
@@ -2483,6 +2504,12 @@
 		"venueId": "big-time-brewery",
 		"permalink": "https://www.instagram.com/reel/DeferOXSAqJ/",
 		"posted": "2026-10-14",
+		"read": "2026-10-31"
+	},
+	"18091020212694344": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/p/DfLFozkyR37/",
+		"posted": "2026-10-31",
 		"read": "2026-10-31"
 	},
 	"18091036616352311": {
@@ -3233,6 +3260,21 @@
 		"posted": "2026-10-06",
 		"read": "2026-10-31"
 	},
+	"18109106534579399": {
+		"venueId": "rough-and-tumble-ballard",
+		"permalink": "https://www.instagram.com/reel/DfK8vlZSEb7/",
+		"posted": "2026-10-31",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "The WNBA Final: Game 7 - Valkyries v. Dream (Halloween costumes encouraged)",
+				"date": "2026-10-31",
+				"start": "17:00",
+				"end": null,
+				"price": null
+			}
+		]
+	},
 	"18109392767227756": {
 		"venueId": "kochendorfers",
 		"permalink": "https://www.instagram.com/reel/DeiG4SEy4La/",
@@ -3438,6 +3480,12 @@
 		"venueId": "kochendorfers",
 		"permalink": "https://www.instagram.com/reel/Dem4xdRSqAG/",
 		"posted": "2026-10-17",
+		"read": "2026-10-31"
+	},
+	"18111958178628277": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/reel/DfK7tYih9Kk/",
+		"posted": "2026-10-31",
 		"read": "2026-10-31"
 	},
 	"18112360922335657": {
@@ -3838,6 +3886,21 @@
 		"permalink": "https://www.instagram.com/reel/DfFrXErv8-U/",
 		"posted": "2026-10-29",
 		"read": "2026-10-31"
+	},
+	"18118197166820258": {
+		"venueId": "percys-and-co",
+		"permalink": "https://www.instagram.com/p/DfLE2f1Eq6A/",
+		"posted": "2026-10-31",
+		"read": "2026-10-31",
+		"events": [
+			{
+				"title": "Seance",
+				"date": "2026-10-31",
+				"start": "20:00",
+				"end": null,
+				"price": null
+			}
+		]
 	},
 	"18118492493021768": {
 		"venueId": "bakers",
@@ -5940,6 +6003,12 @@
 				"price": null
 			}
 		]
+	},
+	"18469535419138613": {
+		"venueId": "cairo-ballard",
+		"permalink": "https://www.instagram.com/reel/DfK-5sgym_-/",
+		"posted": "2026-10-31",
+		"read": "2026-10-31"
 	},
 	"18477950674114853": {
 		"venueId": "the-blue-glass",

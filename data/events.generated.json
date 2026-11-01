@@ -1,89 +1,71 @@
 {
-	"generatedAt": "2026-10-31T17:33:35.023Z",
+	"generatedAt": "2026-11-01T05:01:26.706Z",
 	"scrapedAt": {
-		"abbey-arts": "2026-10-31T17:33:35.017Z",
-		"artemis-coffee": "2026-10-31T17:33:35.018Z",
-		"aslan-fremont": "2026-10-31T17:33:35.017Z",
-		"book-larder": "2026-10-31T17:33:35.018Z",
-		"brimmer-and-heeltap": "2026-10-31T17:33:35.018Z",
-		"classpop": "2026-10-31T17:33:35.018Z",
-		"conor-byrne": "2026-10-31T17:33:35.017Z",
-		"delille-en-ville": "2026-10-31T17:33:35.019Z",
-		"dinodad-comedy": "2026-10-31T17:33:35.018Z",
-		"doe-bay-phinney": "2026-10-31T17:33:35.019Z",
-		"egans": "2026-10-31T17:33:35.017Z",
-		"eight-bells-winery": "2026-10-31T17:33:35.019Z",
-		"figurehead-stone-way": "2026-10-31T17:33:35.018Z",
-		"flying-bike": "2026-10-31T17:33:35.019Z",
-		"greenstage": "2026-10-31T17:33:35.017Z",
-		"greenwood-art-collective": "2026-10-31T17:33:35.019Z",
-		"halcyon": "2026-10-31T17:33:35.017Z",
-		"halfseas": "2026-10-31T17:33:35.017Z",
-		"henry": "2026-10-31T17:33:35.018Z",
-		"hidden-hall": "2026-10-31T17:33:35.017Z",
-		"imperfetta": "2026-10-31T17:33:35.019Z",
-		"instagram": "2026-10-31T17:33:35.019Z",
-		"jack-straw": "2026-10-31T14:41:09.968Z",
-		"jet-city-improv": "2026-10-31T17:33:35.018Z",
-		"jolly-roger": "2026-10-31T17:33:35.019Z",
-		"kings-hardware": "2026-10-31T17:33:35.018Z",
-		"lake-city-contra": "2026-10-31T17:33:35.018Z",
-		"lovestruck": "2026-10-31T17:33:35.018Z",
-		"lucky-envelope": "2026-10-31T17:33:35.019Z",
-		"magnuson-park-gallery": "2026-10-31T17:33:35.018Z",
-		"mato": "2026-10-31T17:33:35.019Z",
-		"meany-center": "2026-10-31T17:33:35.018Z",
-		"mockingbird-comedy": "2026-10-31T17:33:35.018Z",
-		"mollys-bottle-shop": "2026-10-31T17:33:35.019Z",
-		"mr-bs-meadery": "2026-10-31T17:33:35.018Z",
-		"myballard": "2026-10-31T17:33:35.017Z",
-		"nectar": "2026-10-31T17:33:35.017Z",
-		"nordic-museum": "2026-10-31T17:33:35.017Z",
-		"octopus": "2026-10-31T17:33:35.017Z",
-		"pantry": "2026-10-31T17:33:35.018Z",
-		"phinneywood": "2026-10-31T17:33:35.017Z",
-		"pono-ranch": "2026-10-31T17:33:35.018Z",
-		"salmon-bay-eagles": "2026-10-31T14:16:58.574Z",
-		"saltstone": "2026-10-31T14:16:58.574Z",
-		"sea-monster-lounge": "2026-10-31T17:33:35.018Z",
-		"seafolklore": "2026-10-31T17:33:35.018Z",
-		"seattle-neighborhoods": "2026-10-31T17:33:35.017Z",
-		"seattle-public-theater": "2026-10-31T17:33:35.017Z",
-		"shibuya-hifi": "2026-10-31T17:33:35.018Z",
-		"substation": "2026-10-31T17:33:35.018Z",
-		"sunset-hill-hall": "2026-10-31T17:33:35.017Z",
-		"tango-connection": "2026-10-31T17:33:35.018Z",
-		"taproot": "2026-10-31T17:33:35.017Z",
-		"uw-botanic-gardens": "2026-10-31T17:33:35.018Z",
-		"uw-campus": "2026-10-31T17:33:35.018Z",
-		"visitballard": "2026-10-31T14:16:58.573Z",
-		"watershed-pub": "2026-10-31T17:33:35.018Z",
-		"wayward": "2026-10-31T14:16:58.574Z",
-		"west-of-lenin": "2026-10-31T17:33:35.017Z",
-		"woodland-park-zoo": "2026-10-31T17:33:35.017Z",
-		"woodland-theater": "2026-10-31T17:33:35.018Z",
-		"yonder-cider": "2026-10-31T17:33:35.019Z",
-		"yu-tang": "2026-10-31T17:33:35.018Z"
+		"abbey-arts": "2026-11-01T05:01:26.702Z",
+		"artemis-coffee": "2026-11-01T05:01:26.703Z",
+		"aslan-fremont": "2026-11-01T05:01:26.702Z",
+		"book-larder": "2026-11-01T05:01:26.702Z",
+		"brimmer-and-heeltap": "2026-11-01T05:01:26.703Z",
+		"classpop": "2026-11-01T05:01:26.703Z",
+		"conor-byrne": "2026-11-01T05:01:26.702Z",
+		"delille-en-ville": "2026-11-01T05:01:26.703Z",
+		"dinodad-comedy": "2026-11-01T05:01:26.703Z",
+		"doe-bay-phinney": "2026-11-01T05:01:26.703Z",
+		"egans": "2026-11-01T05:01:26.702Z",
+		"eight-bells-winery": "2026-11-01T05:01:26.703Z",
+		"figurehead-stone-way": "2026-11-01T05:01:26.703Z",
+		"flying-bike": "2026-11-01T05:01:26.703Z",
+		"greenstage": "2026-11-01T05:01:26.702Z",
+		"greenwood-art-collective": "2026-11-01T05:01:26.703Z",
+		"halcyon": "2026-11-01T05:01:26.702Z",
+		"halfseas": "2026-11-01T05:01:26.702Z",
+		"henry": "2026-11-01T05:01:26.702Z",
+		"hidden-hall": "2026-11-01T05:01:26.702Z",
+		"imperfetta": "2026-11-01T05:01:26.703Z",
+		"instagram": "2026-11-01T05:01:26.703Z",
+		"jack-straw": "2026-11-01T05:01:26.702Z",
+		"jet-city-improv": "2026-11-01T05:01:26.703Z",
+		"jolly-roger": "2026-11-01T05:01:26.703Z",
+		"kings-hardware": "2026-11-01T05:01:26.703Z",
+		"lake-city-contra": "2026-11-01T05:01:26.702Z",
+		"lovestruck": "2026-11-01T05:01:26.702Z",
+		"lucky-envelope": "2026-11-01T05:01:26.703Z",
+		"magnuson-park-gallery": "2026-11-01T05:01:26.703Z",
+		"mato": "2026-11-01T05:01:26.703Z",
+		"meany-center": "2026-11-01T05:01:26.702Z",
+		"mockingbird-comedy": "2026-11-01T05:01:26.703Z",
+		"mollys-bottle-shop": "2026-11-01T05:01:26.703Z",
+		"mr-bs-meadery": "2026-11-01T05:01:26.703Z",
+		"myballard": "2026-11-01T05:01:26.702Z",
+		"nectar": "2026-11-01T05:01:26.702Z",
+		"nordic-museum": "2026-11-01T05:01:26.702Z",
+		"octopus": "2026-11-01T05:01:26.702Z",
+		"pantry": "2026-11-01T05:01:26.703Z",
+		"phinneywood": "2026-11-01T05:01:26.702Z",
+		"pono-ranch": "2026-11-01T05:01:26.703Z",
+		"salmon-bay-eagles": "2026-11-01T05:01:26.702Z",
+		"saltstone": "2026-11-01T05:01:26.703Z",
+		"sea-monster-lounge": "2026-11-01T05:01:26.703Z",
+		"seafolklore": "2026-11-01T05:01:26.703Z",
+		"seattle-neighborhoods": "2026-11-01T05:01:26.702Z",
+		"seattle-public-theater": "2026-11-01T05:01:26.702Z",
+		"shibuya-hifi": "2026-11-01T05:01:26.703Z",
+		"substation": "2026-11-01T05:01:26.703Z",
+		"sunset-hill-hall": "2026-11-01T05:01:26.702Z",
+		"tango-connection": "2026-11-01T05:01:26.703Z",
+		"taproot": "2026-11-01T05:01:26.702Z",
+		"uw-botanic-gardens": "2026-11-01T05:01:26.703Z",
+		"uw-campus": "2026-11-01T05:01:26.702Z",
+		"visitballard": "2026-11-01T05:01:26.702Z",
+		"watershed-pub": "2026-11-01T05:01:26.702Z",
+		"wayward": "2026-11-01T05:01:26.702Z",
+		"west-of-lenin": "2026-11-01T05:01:26.702Z",
+		"woodland-park-zoo": "2026-11-01T05:01:26.702Z",
+		"woodland-theater": "2026-11-01T05:01:26.703Z",
+		"yonder-cider": "2026-11-01T05:01:26.703Z",
+		"yu-tang": "2026-11-01T05:01:26.703Z"
 	},
 	"events": [
-		{
-			"id": "instagram-2026-10-31T09:00-coffee-in-your-pajamas-with-sarah-cartoons-on-the-screen",
-			"venueId": "human-people-beer",
-			"title": "Coffee in Your Pajamas with Sarah, cartoons on the screen",
-			"startsAt": "2026-10-31T09:00:00-07:00",
-			"url": "https://www.instagram.com/p/De4qabiMst-/",
-			"category": "misc",
-			"source": "instagram"
-		},
-		{
-			"id": "instagram-2026-10-31T09:00-brunch",
-			"venueId": "rough-and-tumble-ballard",
-			"title": "Brunch",
-			"startsAt": "2026-10-31T09:00:00-07:00",
-			"url": "https://www.instagram.com/p/DfKjAgetI3T/",
-			"category": "misc",
-			"source": "instagram"
-		},
 		{
 			"id": "mato-2026-10-31T10:00-diy-screen-printing",
 			"title": "DIY Screen Printing",
@@ -111,6 +93,7 @@
 			"startsAt": "2026-10-31T11:00:00.000-07:00",
 			"endsAt": "2026-10-31T22:00:00.000-07:00",
 			"url": "https://ma.to/event/halloween-pet-costume-photo-voting-31-oct-2026",
+			"price": "Free",
 			"venueId": "ravenna-brewing",
 			"source": "mato"
 		},
@@ -166,26 +149,6 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
-			"id": "classpop-1996423251688",
-			"venueId": "channel-marker-cider",
-			"title": "Starry Nightmares - Paint and Sip",
-			"startsAt": "2026-10-31T14:00:00-07:00",
-			"endsAt": "2026-10-31T16:00:00-07:00",
-			"url": "https://www.eventbrite.com/e/starry-nightmares-paint-and-sip-in-seattle-classpoptm-tickets-1996423251688",
-			"price": "Sold out",
-			"category": "class",
-			"source": "classpop"
-		},
-		{
-			"id": "yonder-cider-2026-10-31T22:00-howl-o-ween-dog-costume-contest",
-			"title": "Howl-O-Ween Dog Costume Contest",
-			"startsAt": "2026-10-31T15:00:00-07:00",
-			"endsAt": "2026-10-31T18:00:00-07:00",
-			"url": "https://www.yondercider.com/events/howl-o-ween-dog-costume-contest-3",
-			"source": "yonder-cider",
-			"venueId": "bale-breaker-yonder"
-		},
-		{
 			"id": "mato-2026-10-31T15:00-a-tribute-to-dr-ralph-stanley",
 			"title": "A Tribute to Dr. Ralph Stanley",
 			"startsAt": "2026-10-31T15:00:00.000-07:00",
@@ -226,6 +189,16 @@
 			"source": "mato"
 		},
 		{
+			"id": "mato-2026-10-31T15:00-blue-moon-happy-hour",
+			"title": "Blue Moon Happy Hour",
+			"startsAt": "2026-10-31T15:00:00.000-07:00",
+			"endsAt": "2026-10-31T18:00:00.000-07:00",
+			"url": "https://ma.to/event/blue-moon-happy-hour-31-oct-2026",
+			"venueId": "blue-moon-tavern",
+			"category": "food-drink-special",
+			"source": "mato"
+		},
+		{
 			"id": "shibuya-hifi-2026-10-31T15:30-the-cure-pornography",
 			"title": "The Cure - Pornography",
 			"startsAt": "2026-10-31T15:30:00-07:00",
@@ -244,15 +217,6 @@
 			"category": "art",
 			"source": "nordic-museum",
 			"venueId": "nordic-museum"
-		},
-		{
-			"id": "artemis-coffee-2026-10-31T23:00-trick-or-treat-in-ballard-halloween-night",
-			"title": "Trick or Treat in Ballard: Halloween Night",
-			"startsAt": "2026-10-31T16:00:00-07:00",
-			"endsAt": "2026-10-31T18:00:00-07:00",
-			"url": "https://www.artemis.cafe/events/trick-or-treat-in-ballard-halloween-night",
-			"source": "artemis-coffee",
-			"venueId": "artemis-coffee"
 		},
 		{
 			"id": "instagram-2026-10-31T16:00-don-pepe-ice-cream",
@@ -284,16 +248,6 @@
 			"venueId": "conor-byrne-pub"
 		},
 		{
-			"id": "woodland-park-zoo-10002219-2026-10-31",
-			"venueId": "woodland-park-zoo",
-			"title": "Animal Ofrenda",
-			"startsAt": "2026-10-31T16:30:00Z",
-			"endsAt": "2026-10-31T23:00:00Z",
-			"url": "https://zoo.org/event/animal-ofrenda/2026-10-31/",
-			"category": "art",
-			"source": "woodland-park-zoo"
-		},
-		{
 			"id": "shibuya-hifi-2026-10-31T17:00-blue-velvet-original-motion-picture-soundtrack",
 			"title": "Blue Velvet - Original Motion Picture Soundtrack",
 			"startsAt": "2026-10-31T17:00:00-07:00",
@@ -302,15 +256,6 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
-		},
-		{
-			"id": "mato-2026-10-31T17:00-halloween-at-the-brewery",
-			"title": "Halloween at the Brewery",
-			"startsAt": "2026-10-31T17:00:00.000-07:00",
-			"endsAt": "2026-10-31T21:00:00.000-07:00",
-			"url": "https://ma.to/event/halloween-oct-31-2026",
-			"venueId": "urban-family-brewing",
-			"source": "mato"
 		},
 		{
 			"id": "shibuya-hifi-2026-10-31T18:00-leonard-cohen-you-want-it-darker",
@@ -340,6 +285,16 @@
 			"source": "west-of-lenin",
 			"venueId": "west-of-lenin",
 			"category": "theater"
+		},
+		{
+			"id": "sea-monster-lounge-2026-10-31T19:00-la-rebelio-n-de-seattle",
+			"title": "La Rebelión de Seattle",
+			"startsAt": "2026-10-31T19:00:00-07:00",
+			"endsAt": "2026-10-31T21:00:00-07:00",
+			"url": "https://www.seamonsterlounge.com/event-info/la-rebelion-de-seattle-2026-10-31-19-00",
+			"category": "live-music",
+			"source": "sea-monster-lounge",
+			"venueId": "sea-monster-lounge"
 		},
 		{
 			"id": "instagram-2026-10-31T19:00-italo-horror-movies-and-costume-contest",
@@ -390,6 +345,15 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
+			"id": "instagram-2026-10-31T19:30-belly-dance-with-jomana-cairo-after-dark",
+			"venueId": "cairo-ballard",
+			"title": "Belly Dance with Jomana (Cairo After Dark)",
+			"startsAt": "2026-10-31T19:30:00-07:00",
+			"url": "https://www.instagram.com/reel/DfK6c8CBsdL/",
+			"category": "dance",
+			"source": "instagram"
+		},
+		{
 			"id": "mato-2026-10-31T19:30-den-tapes-halloween-bash-night-2",
 			"title": "Den Tapes Halloween Bash Night 2",
 			"startsAt": "2026-10-31T19:30:00.000-07:00",
@@ -407,17 +371,17 @@
 			"startsAt": "2026-10-31T20:00:00-07:00",
 			"endsAt": "2026-10-31T21:30:00-07:00",
 			"url": "https://www.eventbrite.com/e/howlin-on-halloween-comedy-show-costume-contest-tickets-1999195856624",
-			"price": "$19.73",
+			"price": "Sold out",
 			"category": "comedy",
 			"source": "mockingbird-comedy"
 		},
 		{
-			"id": "instagram-2026-10-31T20:00-seance-halloween-night-with-dj-ringu-baca",
+			"id": "instagram-2026-10-31T20:00-seance",
 			"venueId": "percys-and-co",
-			"title": "Seance: Halloween Night with DJ Ringu Baca",
+			"title": "Seance",
 			"startsAt": "2026-10-31T20:00:00-07:00",
-			"url": "https://www.instagram.com/p/DexnyHtMjcb/",
-			"category": "dance",
+			"url": "https://www.instagram.com/p/DfLE2f1Eq6A/",
+			"category": "misc",
 			"source": "instagram"
 		},
 		{
@@ -553,7 +517,7 @@
 			"startsAt": "2026-10-31T22:00:00-07:00",
 			"endsAt": "2026-11-01T01:00:00-08:00",
 			"url": "https://www.seamonsterlounge.com/event-info/inhalen-cupcake",
-			"price": "$16.00",
+			"price": "$18.00",
 			"category": "live-music",
 			"source": "sea-monster-lounge",
 			"venueId": "sea-monster-lounge"
@@ -767,7 +731,6 @@
 			"title": "Classic French Stews",
 			"startsAt": "2026-11-01T18:00:00-08:00",
 			"url": "https://thepantryseattle.com/class/classic-french-stews-2",
-			"price": "Sold out",
 			"category": "class",
 			"source": "pantry",
 			"venueId": "the-pantry"
@@ -1158,11 +1121,11 @@
 			"venueId": "the-pantry"
 		},
 		{
-			"id": "shibuya-hifi-2026-11-03T18:00-deep-listening-the-ramones-rocket-to-russia",
-			"title": "Deep Listening: The Ramones - Rocket to Russia",
+			"id": "shibuya-hifi-2026-11-03T18:00-deep-listening-tom-petty-wildflowers",
+			"title": "Deep Listening: Tom Petty - Wildflowers",
 			"startsAt": "2026-11-03T18:00:00-08:00",
 			"endsAt": "2026-11-03T20:00:00-08:00",
-			"url": "https://www.shibuyahifi.com/event-details/deep-listening-the-ramones-rocket-to-russia",
+			"url": "https://www.shibuyahifi.com/event-details/deep-listening-tom-petty-wildflowers",
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
@@ -1450,11 +1413,11 @@
 			"source": "mato"
 		},
 		{
-			"id": "mato-2026-11-04T20:00-big-star-quintet-at-the-neptune",
-			"title": "Big Star Quintet at The Neptune",
+			"id": "mato-2026-11-04T20:00-the-big-star-quintet",
+			"title": "The Big Star Quintet",
 			"startsAt": "2026-11-04T20:00:00.000-08:00",
 			"endsAt": "2026-11-04T23:00:00.000-08:00",
-			"url": "https://ma.to/event/big-star-quintet-05-nov-2026",
+			"url": "https://ma.to/event/the-big-star-quintet-04-nov-2026",
 			"venueId": "neptune-theatre",
 			"category": "jazz",
 			"source": "mato"
@@ -1586,6 +1549,15 @@
 			"category": "art",
 			"source": "nordic-museum",
 			"venueId": "nordic-museum"
+		},
+		{
+			"id": "mato-2026-11-05T12:00-thursday-specials-at-the-latona-pub",
+			"title": "Thursday Specials at The Latona Pub",
+			"startsAt": "2026-11-05T12:00:00.000-08:00",
+			"endsAt": "2026-11-05T23:00:00.000-08:00",
+			"url": "https://ma.to/event/thursday-specials-at-the-latona-pub-05-nov-2026",
+			"venueId": "latona-pub",
+			"source": "mato"
 		},
 		{
 			"id": "mato-2026-11-05T16:00-beer-and-curry-thursdays",
@@ -2637,6 +2609,16 @@
 			"venueId": "flying-bike"
 		},
 		{
+			"id": "mato-2026-11-08T18:00-intro-to-polymer-clay-sculpture",
+			"title": "Intro to Polymer Clay Sculpture",
+			"startsAt": "2026-11-08T18:00:00.000-08:00",
+			"endsAt": "2026-11-08T20:00:00.000-08:00",
+			"url": "https://ma.to/event/intro-to-polymer-clay-sculpture-08-nov-2026",
+			"venueId": "push-pull",
+			"category": "class",
+			"source": "mato"
+		},
+		{
 			"id": "figurehead-stone-way-2026-11-08-mahjong-brunch",
 			"title": "Mahjong Brunch",
 			"startsAt": "2026-11-08T18:00:00Z",
@@ -2961,14 +2943,14 @@
 			"venueId": "shibuya-hifi"
 		},
 		{
-			"id": "sea-monster-lounge-2026-11-10T22:00-joe-doria-presents",
-			"title": "Joe Doria Presents",
-			"startsAt": "2026-11-10T22:00:00-08:00",
-			"endsAt": "2026-11-11T01:00:00-08:00",
-			"url": "https://www.seamonsterlounge.com/event-info/joe-doria-presents-2026-11-10-22-00",
+			"id": "mato-2026-11-10T20:00-tiny-vipers-with-evelyn-frances",
+			"title": "Tiny Vipers with Evelyn Frances",
+			"startsAt": "2026-11-10T20:00:00.000-08:00",
+			"endsAt": "2026-11-10T23:00:00.000-08:00",
+			"url": "https://ma.to/event/tiny-vipers-with-evelyn-frances-10-nov-2026",
+			"venueId": "sunset-tavern",
 			"category": "live-music",
-			"source": "sea-monster-lounge",
-			"venueId": "sea-monster-lounge"
+			"source": "mato"
 		},
 		{
 			"id": "visitballard-10003701-2026-11-11",
@@ -3663,17 +3645,6 @@
 			"category": "live-music",
 			"source": "shibuya-hifi",
 			"venueId": "shibuya-hifi"
-		},
-		{
-			"id": "mato-2026-11-13T21:00-los-chismosos-punk-set",
-			"title": "Los Chismosos Punk Set",
-			"startsAt": "2026-11-13T21:00:00.000-08:00",
-			"endsAt": "2026-11-13T23:30:00.000-08:00",
-			"url": "https://ma.to/event/los-chismosos-punk-set-14-nov-2026",
-			"price": "$12",
-			"venueId": "sunset-tavern",
-			"category": "live-music",
-			"source": "mato"
 		},
 		{
 			"id": "substation-1999057877926",
@@ -5200,6 +5171,16 @@
 			"category": "jazz",
 			"source": "egans",
 			"venueId": "egans-ballard-jam-house"
+		},
+		{
+			"id": "wayward-2026-11-21-hermischalet-red-white-and-bludd",
+			"title": "hermischalet + Red, White and Bludd",
+			"startsAt": "2026-11-21T19:00:00-08:00",
+			"url": "https://www.waywardmusic.org/event/hermischalet-red-white-and-bludd/",
+			"price": "$10 at the door",
+			"source": "wayward",
+			"venueId": "chapel-performance-space",
+			"category": "live-music"
 		},
 		{
 			"id": "woodland-theater-2026-11-21-old-af-improv",
@@ -7163,16 +7144,6 @@
 			"category": "open-mic",
 			"source": "conor-byrne",
 			"venueId": "conor-byrne-pub"
-		},
-		{
-			"id": "mato-2026-12-06T20:00-sera-cahoone-record-release-early",
-			"title": "Sera Cahoone Record Release (Early)",
-			"startsAt": "2026-12-06T20:00:00.000-08:00",
-			"endsAt": "2026-12-06T23:00:00.000-08:00",
-			"url": "https://ma.to/event/sera-cahoone-record-release-early-2026-12-06",
-			"venueId": "tractor-tavern",
-			"category": "live-music",
-			"source": "mato"
 		},
 		{
 			"id": "magnuson-park-gallery-1098-2026-12-06",
@@ -10209,6 +10180,27 @@
 			"source": "lake-city-contra",
 			"venueId": "seattle-latvian-center",
 			"category": "dance"
+		},
+		{
+			"id": "dinodad-comedy-1984240085510",
+			"venueId": "rickshaw",
+			"title": "Read the Room Comedy Show",
+			"startsAt": "2027-01-29T19:00:00-08:00",
+			"endsAt": "2027-01-29T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/the-rickshaw-read-the-room-comedy-show-tickets-1984240085510",
+			"category": "comedy",
+			"source": "dinodad-comedy"
+		},
+		{
+			"id": "nectar-2027-01-30-lotus-with-michael-wilbur-of-moon-hooch",
+			"title": "LOTUS with Michael Wilbur (of Moon Hooch)",
+			"startsAt": "2027-01-30T03:30:00+00:00",
+			"endsAt": "2027-01-30T10:00:00+00:00",
+			"url": "https://www.tixr.com/groups/nectarlounge/events/lotus-with-michael-wilbur-of-moon-hooch--210310",
+			"price": "$35",
+			"source": "nectar",
+			"venueId": "nectar-lounge",
+			"category": "live-music"
 		}
 	]
 }

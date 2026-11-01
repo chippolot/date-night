@@ -509,20 +509,6 @@
 		"fetched": "2026-10-29",
 		"events": []
 	},
-	"https://www.shibuyahifi.com/event-details/deep-listening-the-ramones-rocket-to-russia": {
-		"lastmod": "2026-10-21",
-		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-11-03T18:00-deep-listening-the-ramones-rocket-to-russia",
-				"title": "Deep Listening: The Ramones - Rocket to Russia",
-				"startsAt": "2026-11-03T18:00:00-08:00",
-				"endsAt": "2026-11-03T20:00:00-08:00",
-				"url": "https://www.shibuyahifi.com/event-details/deep-listening-the-ramones-rocket-to-russia",
-				"category": "live-music"
-			}
-		]
-	},
 	"https://www.shibuyahifi.com/event-details/deep-listening-the-smiths-the-queen-is-dead": {
 		"lastmod": "2026-10-21",
 		"fetched": "2026-10-29",
@@ -533,6 +519,20 @@
 				"startsAt": "2026-11-24T20:00:00-08:00",
 				"endsAt": "2026-11-24T22:00:00-08:00",
 				"url": "https://www.shibuyahifi.com/event-details/deep-listening-the-smiths-the-queen-is-dead",
+				"category": "live-music"
+			}
+		]
+	},
+	"https://www.shibuyahifi.com/event-details/deep-listening-tom-petty-wildflowers": {
+		"lastmod": "2026-10-31",
+		"fetched": "2026-10-31",
+		"events": [
+			{
+				"id": "shibuya-hifi-2026-11-03T18:00-deep-listening-tom-petty-wildflowers",
+				"title": "Deep Listening: Tom Petty - Wildflowers",
+				"startsAt": "2026-11-03T18:00:00-08:00",
+				"endsAt": "2026-11-03T20:00:00-08:00",
+				"url": "https://www.shibuyahifi.com/event-details/deep-listening-tom-petty-wildflowers",
 				"category": "live-music"
 			}
 		]
