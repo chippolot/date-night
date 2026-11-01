@@ -65,6 +65,7 @@ const VISITBALLARD_VENUES: Record<string, string> = {
 	"hattie's hat": "hatties-hat",
 	"the ink drinker": "the-ink-drinker",
 	"swoon city": "swoon-city",
+	"niche ballard": "niche-ballard",
 	"reuben's brews": "reubens-brews",
 	"cloudburst on shilshole": "cloudburst-shilshole",
 	"ballard beer box": "ballard-beer-box",

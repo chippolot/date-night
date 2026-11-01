@@ -380,6 +380,18 @@ export const venues: Venue[] = [
 		tags: ["studio"],
 	},
 	{
+		id: "niche-ballard",
+		name: "Niche Gallery",
+		neighborhood: "ballard",
+		address: "2224 NW 56th St, Seattle, WA 98107",
+		lat: 47.6696,
+		lng: -122.3855,
+		url: "https://niche-ballard.com/",
+		instagram: "nicheballard",
+		priceLevel: 2,
+		tags: ["gallery", "studio"],
+	},
+	{
 		id: "reubens-brews",
 		name: "Reuben's Brews",
 		neighborhood: "ballard",

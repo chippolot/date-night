@@ -52,9 +52,9 @@ Fetchable or not, these are off limits by the site's rules (robots.txt, terms of
 
 ## Never adding
 
-- Not date-night material: Waystone Wargaming (daytime tournaments).
+- Not date-night material: Waystone Wargaming (daytime tournaments); on visitballard.com (audited 2026-11-01): Cardoon and The Seattle Knitting Lab (morning classes), Shorewood Performing Arts Center (a kids' Nutcracker), Marvin's Garden (a leaf cleanup), Quest Church.
 - Closed or gone: Vif, The Barrel Thief, The Noble Fir, Get Nice Gallery, Wine World Warehouse, Theo Chocolate's Fremont store, Ophelia's Books, The Pocket Theater (domain parked).
-- No usable neighborhood calendar (checked 2026-10-31): Lake City Community Council (a few hand-typed events), Maple Leaf Community Council, U District Partnership (annual festivals only), Seattle Parks (work parties), Laurelhurst Community Council and Wedgwood in Seattle History (no calendar), Fremocentrist, Ravenna Blog and Green Lake Community Council (dormant since 2020 to 2024). fremontchamber.org and lakecitychamber.org are spam domains now.
+- No usable neighborhood calendar (checked 2026-10-31): Lake City Community Council (a few hand-typed events), Maple Leaf Community Council, U District Partnership (annual festivals only), Seattle Parks (work parties), Laurelhurst Community Council and Wedgwood in Seattle History (no calendar), Fremocentrist, Ravenna Blog and Green Lake Community Council (dormant since 2020 to 2024). Also checked 2026-11-01: Lake City Collective (Google Calendar embed only), Greenwood Community Council and Wedgwood Community Council (meetings and cleanups in blog posts), Fremont Neighborhood Council (monthly meetings and potlucks on Eventbrite), U District Advocates (street fair only), U Village (promo posts, no events). fremontchamber.org and lakecitychamber.org are spam domains now; visitgreenlake.com is Green Lake, Wisconsin and visitlakecity.org is Lake City, Minnesota.
 - Out of area: Bottlehouse, Lucy's Bottle Shop, Seattle Artist League, Gage Academy.
 
 ## Added
@@ -69,3 +69,4 @@ Covered since this list started (2026-10-31), for reference:
 - Seattle Department of Neighborhoods calendar (Trumba iCal): kept only for the Phinney Center and The Mountaineering Club.
 - Leif Erikson Lodge (Ballard): custom parser for the Wix events in its calendar page, one-offs only. Its first-Tuesday dance party is a curated night.
 - Visit Ballard's cocktail trails: Eventbrite (organizer 26417234193), not on visitballard.com's calendar.
+- Niche Gallery (Ballard): mapped in visitballard.com's venue table (evening craft workshops).

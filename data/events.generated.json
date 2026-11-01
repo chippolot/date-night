@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-11-01T14:34:16.278Z",
+	"generatedAt": "2026-11-01T14:42:46.655Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-11-01T14:34:16.274Z",
 		"artemis-coffee": "2026-11-01T14:34:16.274Z",
@@ -57,7 +57,7 @@
 		"taproot": "2026-11-01T14:34:16.274Z",
 		"uw-botanic-gardens": "2026-11-01T14:34:16.274Z",
 		"uw-campus": "2026-11-01T14:34:16.274Z",
-		"visitballard": "2026-11-01T14:34:16.273Z",
+		"visitballard": "2026-11-01T14:42:46.649Z",
 		"visitballard-eventbrite": "2026-11-01T14:26:18.799Z",
 		"watershed-pub": "2026-11-01T14:34:16.274Z",
 		"wayward": "2026-11-01T14:34:16.274Z",
@@ -2685,6 +2685,17 @@
 			"venueId": "sea-monster-lounge"
 		},
 		{
+			"id": "visitballard-45036-2026-11-12",
+			"venueId": "niche-ballard",
+			"title": "Paint with Wool Needle Felting Workshop at Niche",
+			"startsAt": "2026-11-12T02:00:00Z",
+			"endsAt": "2026-11-12T04:30:00Z",
+			"url": "https://www.visitballard.com/event/paint-with-wool-needle-felting-workshop-at-niche/",
+			"price": "$85",
+			"category": "class",
+			"source": "visitballard"
+		},
+		{
 			"id": "book-larder-10302682955994",
 			"title": "Author Talk: Katie Button, Spanish Accent",
 			"startsAt": "2026-11-12T02:30:00.000Z",
@@ -4049,6 +4060,17 @@
 			"venueId": "tractor-tavern",
 			"category": "live-music",
 			"source": "mato"
+		},
+		{
+			"id": "visitballard-45934-2026-11-19",
+			"venueId": "niche-ballard",
+			"title": "Macramé Botanicals: Seasonal Wreath Workshop",
+			"startsAt": "2026-11-19T02:00:00Z",
+			"endsAt": "2026-11-19T04:30:00Z",
+			"url": "https://www.visitballard.com/event/macrame-botanicals-seasonal-wreath-workshop/",
+			"price": "$110.",
+			"category": "class",
+			"source": "visitballard"
 		},
 		{
 			"id": "book-larder-15264852672730",
