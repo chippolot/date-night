@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-11-01T05:01:26.706Z",
+	"generatedAt": "2026-11-01T05:33:40.489Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-11-01T05:01:26.702Z",
 		"artemis-coffee": "2026-11-01T05:01:26.703Z",
@@ -66,16 +66,6 @@
 		"yu-tang": "2026-11-01T05:01:26.703Z"
 	},
 	"events": [
-		{
-			"id": "mato-2026-10-31T10:00-diy-screen-printing",
-			"title": "DIY Screen Printing",
-			"startsAt": "2026-10-31T10:00:00.000-07:00",
-			"endsAt": "2026-10-31T14:00:00.000-07:00",
-			"url": "https://ma.to/event/diy-screen-printing-2026-10-31",
-			"venueId": "push-pull",
-			"category": "class",
-			"source": "mato"
-		},
 		{
 			"id": "nordic-museum-2026-10-31-culture-class-nordic-metal-and-musical-cultures",
 			"title": "Culture Class: Nordic Metal and Musical Cultures",
