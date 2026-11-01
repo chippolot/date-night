@@ -53,8 +53,9 @@ export function guessCategory(
 const UA =
 	"Mozilla/5.0 (compatible; date-night-north-seattle/1.0; personal event aggregator)";
 
-/** Fetch a page as text, retrying once after a timeout, network error or 5xx. */
+/** Fetch a page as text, retrying once after a timeout, network error, 429 or 5xx. */
 export async function get(url: string, retries = 1): Promise<string> {
+	let wait = 5_000;
 	try {
 		const res = await fetch(url, {
 			headers: {
@@ -65,6 +66,15 @@ export async function get(url: string, retries = 1): Promise<string> {
 			},
 			signal: AbortSignal.timeout(20_000),
 		});
+		if (res.status === 429 && retries > 0) {
+			// Rate limited (Shopify, seen from shared CI IPs): wait as asked, up to 30s.
+			const after = Number(res.headers.get("retry-after"));
+			wait =
+				Number.isFinite(after) && after > 0
+					? Math.min(after, 30) * 1000
+					: 15_000;
+			throw new Error("HTTP 429");
+		}
 		if (res.status >= 500 && retries > 0) throw new Error(`HTTP ${res.status}`);
 		if (!res.ok) throw new HttpError(`${url} → HTTP ${res.status}`);
 		return await res.text();
@@ -74,7 +84,7 @@ export async function get(url: string, retries = 1): Promise<string> {
 				? err
 				: new Error(`${url} → ${errorMessage(err)}`);
 		}
-		await Bun.sleep(5_000);
+		await Bun.sleep(wait);
 		return get(url, retries - 1);
 	}
 }
