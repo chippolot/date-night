@@ -25,7 +25,7 @@ const CATEGORY_PATTERNS: [RegExp, Category][] = [
 	],
 	[/\bkaraoke\b/i, "karaoke"],
 	[
-		/\b(class|workshop|lesson|painting|paint n'? sip|water-?colou?r|clay|embroidery|mending|foiling|craft)\b/i,
+		/\b(class|workshop|lesson|painting|paint '?n'? sip|water-?colou?r|clay|embroidery|mending|foiling|craft)\b/i,
 		"class",
 	],
 	[/\b(film|screening|movie|theater|theatre|play|cabaret)\b/i, "theater"],

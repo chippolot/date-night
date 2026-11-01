@@ -72,6 +72,9 @@ import type { Night } from "../src/lib/types";
 //     Brewer's Table is quarterly (scraped from its calendar instead)
 //   Schilling Cider House: "Brat Logic" book club, 2nd & 4th Thursdays (on hold, no time)
 //   Jolly Roger Taproom: the Ballard Social Club isn't on its own calendar for Nov 1 (it is for Dec 6)
+//   Leif Erikson Hall: second-Saturday Social Hour 5–8pm, $5 (for lodge members and their guests);
+//     Kaffestua, its Norwegian café, Wed & Fri plus 1st & 3rd Sat 10am–2pm (café hours, not an event).
+//     Its one-off events are scraped
 // Left out as unverifiable: Hound's Tooth pinball/trivia (site last updated 2024, no working https),
 //   ComedySportz (show calendar is a Crowdwork embed behind Cloudflare; FAQ gives times but not days).
 // Removed as closed or discontinued: Bastille, Ballard Annex, Pike Taproom Ballard, Babalu, Norm's,
@@ -213,6 +216,21 @@ export const nights: Night[] = [
 		vibe: ["lively"],
 		sourceUrl: "https://urbanfamilybrewing.com/home/calendar/",
 		lastVerified: "2026-10-29",
+		confidence: "confirmed",
+	},
+	{
+		id: "leif-erikson-leikarringen-party",
+		venueId: "leif-erikson-hall",
+		title: "Leikarringen Party Night & Casual Dance",
+		category: "dance",
+		recurrence: { kind: "monthly-nth", nth: [1], day: "TU" },
+		start: "17:00",
+		end: "19:00",
+		description:
+			"The Sons of Norway lodge's folk dance group turns its first-Tuesday practice into a party night; newcomers welcome.",
+		vibe: ["active", "lively"],
+		sourceUrl: "https://www.leiferiksonlodge.org/events-calendar",
+		lastVerified: "2026-11-01",
 		confidence: "confirmed",
 	},
 	{

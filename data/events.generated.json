@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-11-01T05:36:13.746Z",
+	"generatedAt": "2026-11-01T14:30:22.185Z",
 	"scrapedAt": {
 		"abbey-arts": "2026-11-01T05:36:13.741Z",
 		"artemis-coffee": "2026-11-01T05:36:13.742Z",
@@ -28,6 +28,7 @@
 		"jolly-roger": "2026-11-01T05:36:13.742Z",
 		"kings-hardware": "2026-11-01T05:36:13.742Z",
 		"lake-city-contra": "2026-11-01T05:36:13.742Z",
+		"leif-erikson-lodge": "2026-11-01T14:30:22.183Z",
 		"lovestruck": "2026-11-01T05:36:13.742Z",
 		"lucky-envelope": "2026-11-01T05:36:13.742Z",
 		"magnuson-park-gallery": "2026-11-01T05:36:13.742Z",
@@ -57,6 +58,7 @@
 		"uw-botanic-gardens": "2026-11-01T05:36:13.742Z",
 		"uw-campus": "2026-11-01T05:36:13.742Z",
 		"visitballard": "2026-11-01T05:36:13.741Z",
+		"visitballard-eventbrite": "2026-11-01T14:26:18.799Z",
 		"watershed-pub": "2026-11-01T05:36:13.742Z",
 		"wayward": "2026-11-01T05:36:13.741Z",
 		"west-of-lenin": "2026-11-01T05:36:13.741Z",
@@ -66,294 +68,6 @@
 		"yu-tang": "2026-11-01T05:36:13.742Z"
 	},
 	"events": [
-		{
-			"id": "nordic-museum-2026-10-31-culture-class-nordic-metal-and-musical-cultures",
-			"title": "Culture Class: Nordic Metal and Musical Cultures",
-			"startsAt": "2026-10-31T11:00:00-07:00",
-			"endsAt": "2026-10-31T12:30:00-07:00",
-			"url": "https://nordicmuseum.org/events/culture-class-nordic-metal-and-musical-cultures",
-			"price": "$40",
-			"category": "class",
-			"source": "nordic-museum",
-			"venueId": "nordic-museum"
-		},
-		{
-			"id": "mato-2026-10-31T11:00-halloween-pet-costume-photo-voting",
-			"title": "Halloween Pet Costume Photo Voting",
-			"startsAt": "2026-10-31T11:00:00.000-07:00",
-			"endsAt": "2026-10-31T22:00:00.000-07:00",
-			"url": "https://ma.to/event/halloween-pet-costume-photo-voting-31-oct-2026",
-			"price": "Free",
-			"venueId": "ravenna-brewing",
-			"source": "mato"
-		},
-		{
-			"id": "mato-2026-10-31T12:00-qotsa-perfecth-release-party",
-			"title": "QOTSA Perfecth Release Party",
-			"startsAt": "2026-10-31T12:00:00.000-07:00",
-			"endsAt": "2026-10-31T15:00:00.000-07:00",
-			"url": "https://ma.to/event/qotsa-perfecth-release-party-2026-10-31",
-			"venueId": "sonic-boom-records",
-			"category": "live-music",
-			"source": "mato"
-		},
-		{
-			"id": "shibuya-hifi-2026-10-31T12:30-claudio-gizzi-andy-warhol-s-dracula-original-motion-picture-",
-			"title": "Claudio Gizzi - Andy Warhol's Dracula, Original Motion Picture Soundtrack",
-			"startsAt": "2026-10-31T12:30:00-07:00",
-			"endsAt": "2026-10-31T14:00:00-07:00",
-			"url": "https://www.shibuyahifi.com/event-details/claudio-gizzi-andy-warhols-dracula-original-motion-picture-soundtrack",
-			"category": "live-music",
-			"source": "shibuya-hifi",
-			"venueId": "shibuya-hifi"
-		},
-		{
-			"id": "uw-botanic-gardens-2026-10-31-windowsill-carnivorous-bogs",
-			"title": "Windowsill Carnivorous Bogs",
-			"startsAt": "2026-10-31T13:00:00-07:00",
-			"endsAt": "2026-10-31T14:00:00-07:00",
-			"url": "https://apps.ideal-logic.com/uwbg?key=2WSB-TGY2T_K9KH-5PTF_e120327a3d5e",
-			"category": "class",
-			"source": "uw-botanic-gardens",
-			"venueId": "center-for-urban-horticulture"
-		},
-		{
-			"id": "instagram-2026-10-31T13:00-trick-treat-strut",
-			"venueId": "fremont-social",
-			"title": "Trick, Treat & Strut",
-			"startsAt": "2026-10-31T13:00:00-07:00",
-			"endsAt": "2026-10-31T17:45:00-07:00",
-			"url": "https://www.instagram.com/p/DeOB0BUFKPn/",
-			"price": "Free entry",
-			"category": "misc",
-			"source": "instagram"
-		},
-		{
-			"id": "shibuya-hifi-2026-10-31T14:00-black-sabbath-paranoid",
-			"title": "Black Sabbath - Paranoid",
-			"startsAt": "2026-10-31T14:00:00-07:00",
-			"endsAt": "2026-10-31T15:30:00-07:00",
-			"url": "https://www.shibuyahifi.com/event-details/black-sabbath-paranoid",
-			"category": "live-music",
-			"source": "shibuya-hifi",
-			"venueId": "shibuya-hifi"
-		},
-		{
-			"id": "mato-2026-10-31T15:00-a-tribute-to-dr-ralph-stanley",
-			"title": "A Tribute to Dr. Ralph Stanley",
-			"startsAt": "2026-10-31T15:00:00.000-07:00",
-			"endsAt": "2026-10-31T17:30:00.000-07:00",
-			"url": "https://ma.to/event/a-tribute-to-dr-ralph-stanley-2026-10-31",
-			"venueId": "tractor-tavern",
-			"category": "live-music",
-			"source": "mato"
-		},
-		{
-			"id": "mato-2026-10-31T15:00-happy-hour-specials",
-			"title": "Happy Hour Specials",
-			"startsAt": "2026-10-31T15:00:00.000-07:00",
-			"endsAt": "2026-10-31T18:00:00.000-07:00",
-			"url": "https://ma.to/event/happy-hour-specials-2026-10-31",
-			"venueId": "latona-pub",
-			"category": "food-drink-special",
-			"source": "mato"
-		},
-		{
-			"id": "mato-2026-10-31T15:00-zine-crash-course-perzines",
-			"title": "Zine Crash Course: Perzines",
-			"startsAt": "2026-10-31T15:00:00.000-07:00",
-			"endsAt": "2026-10-31T17:00:00.000-07:00",
-			"url": "https://ma.to/event/zine-crash-course-perzines-2026-10-31",
-			"venueId": "push-pull",
-			"category": "class",
-			"source": "mato"
-		},
-		{
-			"id": "mato-2026-10-31T15:00-twin-peaks-halloween-movie-marathon",
-			"title": "Twin Peaks Halloween Movie Marathon",
-			"startsAt": "2026-10-31T15:00:00.000-07:00",
-			"endsAt": "2026-10-31T22:00:00.000-07:00",
-			"url": "https://ma.to/event/twin-peaks-halloween-movie-marathon-2026-10-31",
-			"venueId": "dirty-couch",
-			"category": "theater",
-			"source": "mato"
-		},
-		{
-			"id": "mato-2026-10-31T15:00-blue-moon-happy-hour",
-			"title": "Blue Moon Happy Hour",
-			"startsAt": "2026-10-31T15:00:00.000-07:00",
-			"endsAt": "2026-10-31T18:00:00.000-07:00",
-			"url": "https://ma.to/event/blue-moon-happy-hour-31-oct-2026",
-			"venueId": "blue-moon-tavern",
-			"category": "food-drink-special",
-			"source": "mato"
-		},
-		{
-			"id": "shibuya-hifi-2026-10-31T15:30-the-cure-pornography",
-			"title": "The Cure - Pornography",
-			"startsAt": "2026-10-31T15:30:00-07:00",
-			"endsAt": "2026-10-31T17:00:00-07:00",
-			"url": "https://www.shibuyahifi.com/event-details/the-cure-pornography",
-			"category": "live-music",
-			"source": "shibuya-hifi",
-			"venueId": "shibuya-hifi"
-		},
-		{
-			"id": "nordic-museum-2026-10-31-trick-or-treat-with-frankie-feetsplinters",
-			"title": "Trick-Or-Treat with Frankie Feetsplinters",
-			"startsAt": "2026-10-31T16:00:00-07:00",
-			"endsAt": "2026-10-31T18:00:00-07:00",
-			"url": "https://nordicmuseum.org/events/trick-or-treat-with-frankie-feetsplinters-",
-			"category": "art",
-			"source": "nordic-museum",
-			"venueId": "nordic-museum"
-		},
-		{
-			"id": "instagram-2026-10-31T16:00-don-pepe-ice-cream",
-			"venueId": "human-people-beer",
-			"title": "Don Pepe Ice Cream",
-			"startsAt": "2026-10-31T16:00:00-07:00",
-			"url": "https://www.instagram.com/p/DfDEU1nj-Bj/",
-			"category": "misc",
-			"source": "instagram"
-		},
-		{
-			"id": "instagram-2026-10-31T16:00-halloween-burger-pop-up",
-			"venueId": "balandra",
-			"title": "Halloween Burger Pop Up",
-			"startsAt": "2026-10-31T16:00:00-07:00",
-			"endsAt": "2026-10-31T20:00:00-07:00",
-			"url": "https://www.instagram.com/p/DfIKWTsS7a_/",
-			"category": "food-drink-special",
-			"source": "instagram"
-		},
-		{
-			"id": "conor-byrne-188698",
-			"title": "Bark at the Byrne Halloween Edition with Carl Christensen + Sara Camille",
-			"startsAt": "2026-10-31T16:30:00-07:00",
-			"endsAt": "2026-11-01T01:00:00-07:00",
-			"url": "https://tickets.venuepilot.com/e/bark-at-the-byrne-halloween-edition-with-carl-christensen-sara-camille-2026-10-31-conor-byrne-coopera-daa7bc",
-			"category": "live-music",
-			"source": "conor-byrne",
-			"venueId": "conor-byrne-pub"
-		},
-		{
-			"id": "shibuya-hifi-2026-10-31T17:00-blue-velvet-original-motion-picture-soundtrack",
-			"title": "Blue Velvet - Original Motion Picture Soundtrack",
-			"startsAt": "2026-10-31T17:00:00-07:00",
-			"endsAt": "2026-10-31T18:30:00-07:00",
-			"url": "https://www.shibuyahifi.com/event-details/blue-velvet-original-motion-picture-soundtrack",
-			"category": "live-music",
-			"source": "shibuya-hifi",
-			"venueId": "shibuya-hifi"
-		},
-		{
-			"id": "shibuya-hifi-2026-10-31T18:00-leonard-cohen-you-want-it-darker",
-			"title": "Leonard Cohen - You Want It Darker",
-			"startsAt": "2026-10-31T18:00:00-07:00",
-			"endsAt": "2026-10-31T19:30:00-07:00",
-			"url": "https://www.shibuyahifi.com/event-details/leonard-cohen-you-want-it-darker-2",
-			"category": "live-music",
-			"source": "shibuya-hifi",
-			"venueId": "shibuya-hifi"
-		},
-		{
-			"id": "egans-2026-10-31-1900-don-berman-favorite-things-quartet",
-			"title": "Don Berman Favorite Things Quartet",
-			"startsAt": "2026-10-31T19:00:00-07:00",
-			"url": "https://www.ballardjamhouse.com/schedule.html",
-			"price": "$15 cover",
-			"category": "jazz",
-			"source": "egans",
-			"venueId": "egans-ballard-jam-house"
-		},
-		{
-			"id": "west-of-lenin-2026-10-31-1900-last-call",
-			"title": "Last Call",
-			"startsAt": "2026-10-31T19:00:00-07:00",
-			"url": "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/events/a0OVW0000047nuY2AQ/2026-10-03T19:00:00-07:00",
-			"source": "west-of-lenin",
-			"venueId": "west-of-lenin",
-			"category": "theater"
-		},
-		{
-			"id": "sea-monster-lounge-2026-10-31T19:00-la-rebelio-n-de-seattle",
-			"title": "La Rebelión de Seattle",
-			"startsAt": "2026-10-31T19:00:00-07:00",
-			"endsAt": "2026-10-31T21:00:00-07:00",
-			"url": "https://www.seamonsterlounge.com/event-info/la-rebelion-de-seattle-2026-10-31-19-00",
-			"category": "live-music",
-			"source": "sea-monster-lounge",
-			"venueId": "sea-monster-lounge"
-		},
-		{
-			"id": "instagram-2026-10-31T19:00-italo-horror-movies-and-costume-contest",
-			"venueId": "human-people-beer",
-			"title": "Italo-Horror Movies and Costume Contest",
-			"startsAt": "2026-10-31T19:00:00-07:00",
-			"url": "https://www.instagram.com/p/DfDEU1nj-Bj/",
-			"category": "misc",
-			"source": "instagram"
-		},
-		{
-			"id": "instagram-2026-10-31T19:00-freaks-come-out-slims-bernee-luv-dj-set-costume-contest-hall",
-			"venueId": "slim-goody",
-			"title": "Freaks Come Out @ Slims - Bernee Luv DJ Set, Costume Contest, Halloween Cocktails",
-			"startsAt": "2026-10-31T19:00:00-07:00",
-			"endsAt": "2026-11-01T00:00:00-07:00",
-			"url": "https://www.instagram.com/p/DfAf73avrV6/",
-			"category": "dance",
-			"source": "instagram"
-		},
-		{
-			"id": "mato-2026-10-31T19:00-good-luck-rabbits-live",
-			"title": "Good Luck Rabbits Live",
-			"startsAt": "2026-10-31T19:00:00.000-07:00",
-			"endsAt": "2026-10-31T21:00:00.000-07:00",
-			"url": "https://ma.to/event/good-luck-rabbits-live-2026-10-31",
-			"venueId": "latona-pub",
-			"source": "mato"
-		},
-		{
-			"id": "myballard-363135-2026-10-31",
-			"venueId": "ballard-beer-box",
-			"title": "Halloween: Dogs in Costume at Ballard Beer Box",
-			"startsAt": "2026-10-31T19:00:00Z",
-			"endsAt": "2026-11-01T05:00:00Z",
-			"url": "https://www.myballard.com/event/halloween-dogs-in-costume-at-ballard-beer-box/",
-			"price": "Free",
-			"source": "myballard"
-		},
-		{
-			"id": "shibuya-hifi-2026-10-31T19:30-d-angelo-voodoo",
-			"title": "D’Angelo - Voodoo",
-			"startsAt": "2026-10-31T19:30:00-07:00",
-			"endsAt": "2026-10-31T21:00:00-07:00",
-			"url": "https://www.shibuyahifi.com/event-details/dangelo-voodoo-10",
-			"category": "live-music",
-			"source": "shibuya-hifi",
-			"venueId": "shibuya-hifi"
-		},
-		{
-			"id": "instagram-2026-10-31T19:30-belly-dance-with-jomana-cairo-after-dark",
-			"venueId": "cairo-ballard",
-			"title": "Belly Dance with Jomana (Cairo After Dark)",
-			"startsAt": "2026-10-31T19:30:00-07:00",
-			"url": "https://www.instagram.com/reel/DfK6c8CBsdL/",
-			"category": "dance",
-			"source": "instagram"
-		},
-		{
-			"id": "mato-2026-10-31T19:30-den-tapes-halloween-bash-night-2",
-			"title": "Den Tapes Halloween Bash Night 2",
-			"startsAt": "2026-10-31T19:30:00.000-07:00",
-			"endsAt": "2026-11-01T01:00:00.000-07:00",
-			"url": "https://ma.to/event/den-tapes-halloween-bash-night-2-01-nov-2026",
-			"price": "$20",
-			"venueId": "sunset-tavern",
-			"category": "live-music",
-			"source": "mato"
-		},
 		{
 			"id": "mockingbird-comedy-1999195856624",
 			"venueId": "elliott-bay-lake-city",
@@ -492,16 +206,6 @@
 			"source": "mato"
 		},
 		{
-			"id": "myballard-360217-2026-10-31",
-			"venueId": "obec-brewing",
-			"title": "Spooktacular Pup Party",
-			"startsAt": "2026-10-31T21:00:00Z",
-			"endsAt": "2026-11-01T01:00:00Z",
-			"url": "https://www.myballard.com/event/spooktacular-pup-party/",
-			"price": "Free",
-			"source": "myballard"
-		},
-		{
 			"id": "sea-monster-lounge-2026-10-31T22:00-inhalen-cupcake",
 			"title": "InHalen & Cupcake",
 			"startsAt": "2026-10-31T22:00:00-07:00",
@@ -532,17 +236,6 @@
 			"price": "$10",
 			"venueId": "ltd-bar-and-grill",
 			"source": "mato"
-		},
-		{
-			"id": "myballard-354048-2026-10-31",
-			"venueId": "old-stove-gardens",
-			"title": "The Funny Bone Kids Halloween Comedy Show & Costume Contest",
-			"startsAt": "2026-10-31T23:00:00Z",
-			"endsAt": "2026-11-01T00:30:00Z",
-			"url": "https://www.myballard.com/event/the-funny-bone-kids-halloween-comedy-show-costume-contest/",
-			"price": "$15",
-			"category": "comedy",
-			"source": "myballard"
 		},
 		{
 			"id": "hidden-hall-2026-11-01-halloween-2026-the-lost-boys-vampire-ball-featuring-prom-dat",
@@ -7686,6 +7379,17 @@
 			"source": "substation"
 		},
 		{
+			"id": "visitballard-eventbrite-2003103077226",
+			"venueId": "visit-ballard-check-in",
+			"title": "Ballard Cocktail Trail - Winter Edition",
+			"startsAt": "2026-12-11T18:00:00-08:00",
+			"endsAt": "2026-12-11T21:00:00-08:00",
+			"url": "https://www.eventbrite.com/e/ballard-cocktail-trail-winter-edition-tickets-2003103077226",
+			"price": "$55.20",
+			"category": "food-drink-special",
+			"source": "visitballard-eventbrite"
+		},
+		{
 			"id": "mato-2026-12-11T18:00-mozart-mutts-holiday-classical",
 			"title": "Mozart & Mutts Holiday Classical",
 			"startsAt": "2026-12-11T18:00:00.000-08:00",
@@ -7945,6 +7649,15 @@
 			"url": "https://zoo.org/event/wildlanterns/2026-12-12/",
 			"category": "art",
 			"source": "woodland-park-zoo"
+		},
+		{
+			"id": "leif-erikson-e37148f4-e317-46e0-8c2f-471db615600c",
+			"title": "Julebord - Christmas Dinner",
+			"startsAt": "2026-12-13T01:00:00.000Z",
+			"endsAt": "2026-12-13T05:00:00.000Z",
+			"url": "https://www.leiferiksonlodge.org/events-calendar",
+			"source": "leif-erikson-lodge",
+			"venueId": "leif-erikson-hall"
 		},
 		{
 			"id": "hidden-hall-2026-12-13-gatsby-s-american-dream-with-the-divorce",

@@ -1820,6 +1820,82 @@ const dinoDad = eventbriteSource({
 	cleanTitle: (t) => t.replace(/^The Rickshaw /, ""),
 });
 
+// Visit Ballard (the Ballard Alliance): seasonal cocktail trails through Ballard's shops, sold
+// only on Eventbrite, not on visitballard.com's calendar. Guests check in at Columbia Bank, the
+// events' Eventbrite venue.
+const visitBallardTrails = eventbriteSource({
+	id: "visitballard-eventbrite",
+	organizerId: "26417234193",
+	venues: { "columbia bank": "visit-ballard-check-in" },
+	category: "food-drink-special",
+	mayBeEmpty: true,
+});
+
+// ---------------------------------------------------------------------------
+// Leif Erikson Lodge (Sons of Norway): Wix Events, about six weeks of which are embedded in the
+// calendar page's "wix-warmup-data" JSON. Its recurring program (café hours, dance practice,
+// social hour, classes, meetings) is curated in nights.ts or left out, so only one-offs at the hall
+// are kept. Event detail pages are turned off, so every event links to the calendar.
+
+const LEIF_ERIKSON_CALENDAR =
+	"https://www.leiferiksonlodge.org/events-calendar";
+
+type WixEvent = {
+	id: string;
+	title: string;
+	location: { name?: string; address?: string };
+	scheduling: {
+		config: { scheduleTbd?: boolean; startDate?: string; endDate?: string };
+	};
+};
+
+export function parseLeifErikson(html: string, today: string): ScrapedEvent[] {
+	const json = html.match(
+		/<script type="application\/json" id="wix-warmup-data">([\s\S]*?)<\/script>/,
+	)?.[1];
+	if (!json) throw new Error("Leif Erikson Lodge: no wix-warmup-data");
+	const apps: Record<
+		string,
+		Record<string, { events?: { events?: WixEvent[] } }>
+	> = JSON.parse(json).appsWarmupData ?? {};
+	const out = new Map<string, ScrapedEvent>();
+	for (const widgets of Object.values(apps)) {
+		for (const widget of Object.values(widgets)) {
+			for (const e of widget?.events?.events ?? []) {
+				const { scheduleTbd, startDate, endDate } = e.scheduling.config;
+				const title = e.title.trim();
+				if (scheduleTbd || !startDate) continue;
+				if (!/2245 NW 57th/i.test(e.location.address ?? "")) continue;
+				if (
+					/\b(practice|kaffestua|social hour|meeting|conversation|barneleikarringen|children|work party|woodcarving|fitness|exercise)\b/i.test(
+						title,
+					)
+				)
+					continue;
+				if (seattleParts(startDate).date < today) continue;
+				out.set(e.id, {
+					id: `leif-erikson-${e.id}`,
+					title,
+					startsAt: startDate,
+					endsAt: endDate,
+					url: LEIF_ERIKSON_CALENDAR,
+					category: guessCategory(title),
+				});
+			}
+		}
+	}
+	return [...out.values()];
+}
+
+const leifErikson: Source = {
+	id: "leif-erikson-lodge",
+	venueId: "leif-erikson-hall",
+	mayBeEmpty: true,
+	async fetchEvents() {
+		return parseLeifErikson(await get(LEIF_ERIKSON_CALENDAR), todayInSeattle());
+	},
+};
+
 // ---------------------------------------------------------------------------
 // Woodland Theater (608 NW 65th): its site is a React app that reads shows from a Google Sheet
 // published as CSV. The sheet also lists the collective's past shows at other venues (The
@@ -2818,6 +2894,8 @@ export const sources: Source[] = [
 	tangoConnection,
 	classpop,
 	dinoDad,
+	visitBallardTrails,
+	leifErikson,
 	woodlandTheater,
 	figurehead,
 	brimmerAndHeeltap,

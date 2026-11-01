@@ -15,6 +15,7 @@ import {
 	parseHenryProgram,
 	parseJackStraw,
 	parseJetCityShow,
+	parseLeifErikson,
 	parseMatoEvents,
 	parseMeany,
 	parseNeighborhoods,
@@ -882,6 +883,83 @@ describe("seattle folklore society", () => {
 				"2026-11-21T22:00:00-08:00",
 			],
 			["fremont-abbey", "Pint & Dale", "2026-12-19T19:30:00-08:00", undefined],
+		]);
+	});
+});
+
+describe("leif erikson lodge", () => {
+	test("keeps upcoming one-offs at the hall, skipping its recurring program", () => {
+		const hall = {
+			name: "Leif Erikson Hall",
+			address: "2245 NW 57th St, Seattle, WA 98107, USA",
+		};
+		const event = (
+			id: string,
+			title: string,
+			startDate: string,
+			location = hall,
+		) => ({
+			id,
+			title,
+			location,
+			scheduling: {
+				config: { scheduleTbd: false, startDate, endDate: startDate },
+			},
+		});
+		const data = {
+			appsWarmupData: {
+				app: {
+					calendar: {
+						events: {
+							events: [
+								event(
+									"1",
+									"Julebord - Christmas Dinner",
+									"2026-12-13T01:00:00.000Z",
+								),
+								event("2", "Leikarringen Practice", "2026-11-04T01:00:00.000Z"),
+								event("3", "Saturday Kaffestua", "2026-11-07T18:00:00.000Z"),
+								event("4", "LEL Board Meeting", "2026-11-05T02:00:00.000Z", {
+									name: "Virtual Event",
+									address: "",
+								}),
+								event(
+									"5",
+									"Nordic Online Auction",
+									"2026-11-05T02:00:00.000Z",
+									{
+										name: "Online Auction",
+										address: "",
+									},
+								),
+								// Oct 31 local, before `today`
+								event("6", "Paint 'n' Sip", "2026-11-01T01:00:00.000Z"),
+							],
+						},
+					},
+					list: {
+						events: {
+							events: [
+								event(
+									"1",
+									"Julebord - Christmas Dinner",
+									"2026-12-13T01:00:00.000Z",
+								),
+							],
+						},
+					},
+				},
+			},
+		};
+		const html = `<script type="application/json" id="wix-warmup-data">${JSON.stringify(data)}</script>`;
+		expect(
+			parseLeifErikson(html, "2026-11-01").map((e) => [e.id, e.title, e.url]),
+		).toEqual([
+			[
+				"leif-erikson-1",
+				"Julebord - Christmas Dinner",
+				"https://www.leiferiksonlodge.org/events-calendar",
+			],
 		]);
 	});
 });

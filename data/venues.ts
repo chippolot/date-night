@@ -97,6 +97,30 @@ export const venues: Venue[] = [
 		tags: ["outdoor", "market"],
 	},
 	{
+		// Not a date spot itself: where Visit Ballard's cocktail trails check guests in before they
+		// walk between the shops pouring tastings.
+		id: "visit-ballard-check-in",
+		name: "Columbia Bank (Visit Ballard check-in)",
+		neighborhood: "ballard",
+		address: "2212 NW 56th St, Seattle, WA 98107",
+		lat: 47.6696,
+		lng: -122.385,
+		url: "https://www.visitballard.com/",
+		priceLevel: 2,
+		tags: ["bar-crawl"],
+	},
+	{
+		id: "leif-erikson-hall",
+		name: "Leif Erikson Hall",
+		neighborhood: "ballard",
+		address: "2245 NW 57th St, Seattle, WA 98107",
+		lat: 47.6699,
+		lng: -122.3868,
+		url: "https://www.leiferiksonlodge.org/",
+		priceLevel: 1,
+		tags: ["hall"],
+	},
+	{
 		id: "conor-byrne-pub",
 		name: "Conor Byrne Pub",
 		neighborhood: "ballard",
