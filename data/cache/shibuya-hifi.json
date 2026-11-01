@@ -98,16 +98,7 @@
 	"https://www.shibuyahifi.com/event-details/black-sabbath-paranoid": {
 		"lastmod": "2026-09-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-31T14:00-black-sabbath-paranoid",
-				"title": "Black Sabbath - Paranoid",
-				"startsAt": "2026-10-31T14:00:00-07:00",
-				"endsAt": "2026-10-31T15:30:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/black-sabbath-paranoid",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/black-sabbath-volume-iv": {
 		"lastmod": "2026-09-13",
@@ -122,16 +113,7 @@
 	"https://www.shibuyahifi.com/event-details/blue-velvet-original-motion-picture-soundtrack": {
 		"lastmod": "2026-09-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-31T17:00-blue-velvet-original-motion-picture-soundtrack",
-				"title": "Blue Velvet - Original Motion Picture Soundtrack",
-				"startsAt": "2026-10-31T17:00:00-07:00",
-				"endsAt": "2026-10-31T18:30:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/blue-velvet-original-motion-picture-soundtrack",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/bob-marley-catch-a-fire": {
 		"lastmod": "2026-10-05",
@@ -165,16 +147,7 @@
 	"https://www.shibuyahifi.com/event-details/claudio-gizzi-andy-warhols-dracula-original-motion-picture-soundtrack": {
 		"lastmod": "2026-09-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-31T12:30-claudio-gizzi-andy-warhol-s-dracula-original-motion-picture-",
-				"title": "Claudio Gizzi - Andy Warhol's Dracula, Original Motion Picture Soundtrack",
-				"startsAt": "2026-10-31T12:30:00-07:00",
-				"endsAt": "2026-10-31T14:00:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/claudio-gizzi-andy-warhols-dracula-original-motion-picture-soundtrack",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/daft-punk-discovery-13": {
 		"lastmod": "2026-09-13",
@@ -246,16 +219,7 @@
 	"https://www.shibuyahifi.com/event-details/dangelo-voodoo-10": {
 		"lastmod": "2026-09-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-31T19:30-d-angelo-voodoo",
-				"title": "D’Angelo - Voodoo",
-				"startsAt": "2026-10-31T19:30:00-07:00",
-				"endsAt": "2026-10-31T21:00:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/dangelo-voodoo-10",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/dave-brubeck-quartet-time-out": {
 		"lastmod": "2026-09-21",
@@ -906,16 +870,7 @@
 	"https://www.shibuyahifi.com/event-details/leonard-cohen-you-want-it-darker-2": {
 		"lastmod": "2026-09-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-31T18:00-leonard-cohen-you-want-it-darker",
-				"title": "Leonard Cohen - You Want It Darker",
-				"startsAt": "2026-10-31T18:00:00-07:00",
-				"endsAt": "2026-10-31T19:30:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/leonard-cohen-you-want-it-darker-2",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/lorde-melodrama": {
 		"lastmod": "2026-10-21",
@@ -996,16 +951,7 @@
 	"https://www.shibuyahifi.com/event-details/michael-jackson-thriller-3": {
 		"lastmod": "2026-09-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-31T21:00-michael-jackson-thriller",
-				"title": "Michael Jackson - Thriller",
-				"startsAt": "2026-10-31T21:00:00-07:00",
-				"endsAt": "2026-10-31T22:30:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/michael-jackson-thriller-3",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/michael-kiwanuka-fudge-pre-release-listening": {
 		"lastmod": "2026-09-21",
@@ -1567,16 +1513,7 @@
 	"https://www.shibuyahifi.com/event-details/the-cure-pornography": {
 		"lastmod": "2026-09-21",
 		"fetched": "2026-10-29",
-		"events": [
-			{
-				"id": "shibuya-hifi-2026-10-31T15:30-the-cure-pornography",
-				"title": "The Cure - Pornography",
-				"startsAt": "2026-10-31T15:30:00-07:00",
-				"endsAt": "2026-10-31T17:00:00-07:00",
-				"url": "https://www.shibuyahifi.com/event-details/the-cure-pornography",
-				"category": "live-music"
-			}
-		]
+		"events": []
 	},
 	"https://www.shibuyahifi.com/event-details/the-killers-hot-fuss": {
 		"lastmod": "2026-10-21",
