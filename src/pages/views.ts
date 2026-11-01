@@ -237,7 +237,7 @@ export function weekView(
 				date === today ? "Today" : formatDate(date, { weekday: "long" });
 			const month = formatDate(date, { month: "short" });
 			const day = formatDate(date, { day: "numeric" });
-			return `<section class="day"><h2 class="day-heading"><span class="cal" aria-hidden="true"><span class="cal-m">${month}</span><span class="cal-d">${day}</span></span><span>${label}</span><span class="part-count">${items.length}</span></h2>${specialsShelf(specials, venueById)}${main.length || !specials.length ? cardList(main, venueById, today, "Nothing listed.") : ""}</section>`;
+			return `<details class="day" data-day="${date}" open><summary class="fold-summary day-summary"><h2 class="day-heading fold-heading"><span class="cal" aria-hidden="true"><span class="cal-m">${month}</span><span class="cal-d">${day}</span></span><span>${label}</span><span class="part-count">${items.length}</span></h2></summary>${specialsShelf(specials, venueById)}${main.length || !specials.length ? cardList(main, venueById, today, "Nothing listed.") : ""}</details>`;
 		})
 		.join("")}</div>
 ${subscribeLinks(f)}`;

@@ -149,6 +149,14 @@ describe("happy hour shelf", () => {
 		expect(html.match(/<details class="specials"/g)?.length).toBe(7);
 		expect(html).toContain('data-specials="2026-11-05"');
 	});
+
+	test("folds each day of the week, open to start", () => {
+		const html = weekView(withHH, "2026-10-30", EMPTY_FILTERS);
+		expect(
+			html.match(/<details class="day" data-day="[\d-]+" open>/g)?.length,
+		).toBe(7);
+		expect(html).toContain('data-day="2026-11-05"');
+	});
 });
 
 describe("sharing", () => {

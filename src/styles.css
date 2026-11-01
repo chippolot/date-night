@@ -988,8 +988,26 @@ details[open] > .fold-summary .fold-heading::after {
 	outline-offset: 2px;
 }
 
+/* On Coming up the shelf is a row of the day's list, ruled like a card, rather than a heading
+   sitting on the first card's rule */
+.day > .specials {
+	position: relative;
+	padding: 0.85rem 0 0.9rem;
+	border-top: 2px solid var(--line);
+}
+
+.day > .specials::before {
+	content: "";
+	position: absolute;
+	top: -2px;
+	left: 0;
+	width: 2.75rem;
+	height: 6px;
+	background: var(--c-food);
+}
+
 .day .specials-heading {
-	margin-top: 0.75rem;
+	margin: 0;
 	font-size: 1.25rem;
 }
 
@@ -1053,13 +1071,18 @@ details[open] > .fold-summary .fold-heading::after {
 	}
 }
 
-.day-heading {
+/* The summary sticks, not the heading inside it, so it stays up for the whole day */
+.day-summary {
 	position: sticky;
 	top: 0;
 	z-index: 2;
 	margin: 1.75rem 0 0;
 	padding: 0.6rem 0;
 	background: var(--bg);
+}
+
+.day-heading {
+	margin: 0;
 }
 
 /* Tear-off calendar block */
@@ -1630,7 +1653,7 @@ button.icon-action {
 	.hero .intro {
 		padding-right: 0;
 	}
-	.day-heading {
+	.day-summary {
 		top: var(--header-h);
 	}
 	.card {
